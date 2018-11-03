@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+
+
+
+<input type="button" value="按钮" id="btn">
+
+<script>
+    /*
+    * Uncaught TypeError: Cannot set property 'onclick' of null
+    * 就是说，预加载了，没有被执行到
+    * 有两个解决方法：1.window.onload
+    * 2.放在body最下面
+    * */
+    var btnObj = document.getElementById("btn").onclick = function () {
+        alert("我帅");
+    }
+</script>
+</body>
+</html>

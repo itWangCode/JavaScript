@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<img src="../images/1.gif" title="我好帅1" alt="我好帅2">
+
+
+<script>
+    document.getElementById("btn").onclick = function () {
+        var objImg = document.getElementsByTagName("img");
+        objImg[0].alt = "改了";//返回的是数组，数组是第一个，就写索引0
+        objImg[0].title = "现实吧";
+    };
+</script>
+</body>
+</html>

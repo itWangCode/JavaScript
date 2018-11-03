@@ -1,0 +1,122 @@
+<!--
+    Created by wangyang on 2018/11/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .hd {
+            height: 45px;
+        }
+
+        .hd span {
+            display: inline-block;
+            width: 90px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hd span.current {
+            background-color: purple;
+        }
+
+        .bd li {
+            height: 255px;
+            background-color: purple;
+            display: none;
+        }
+
+        .bd li.current {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box" id="box">
+    <div class="hd">
+        <span class="current">体育</span>
+        <span>娱乐</span>
+        <span>新闻</span>
+        <span>综合</span>
+    </div>
+    <div class="bd">
+        <ul>
+            <li class="current">我是体育模块</li>
+            <li>我是娱乐模块</li>
+            <li>我是新闻模块</li>
+            <li>我是综合模块</li>
+        </ul>
+    </div>
+</div>
+
+<script src="common.js"></script>
+<script>
+    //先获取最外边的id
+    var box = my$("box");
+    //获取id下面的第一个元素div
+    var hd = box.getElementsByTagName("div")[0];
+    //获取id下面的第二个元素div
+    var bd = box.getElementsByTagName("div")[1];
+    //找到li里面的元素
+    var liList = bd.getElementsByTagName("li");
+    //获取hd里面的span的标签
+    var spans = hd.getElementsByTagName("span");
+    //这里获取的是一个数组，是需要循环遍历的
+    for(var i = 0; i<spans.length; i++) {
+        //给li里面添加index的索引
+        spans[i].setAttribute("index",i);
+        //点击span的触发的事件
+        spans[i].onclick = function () {
+            //我们获取到的spans[i]是数组，所以需要循环遍历
+            for (var j = 0; j < spans.length; j++) {
+                //移除全部的class书写
+                spans[j].removeAttribute("class");
+            }
+            //点击那个增加那个的class的属性
+            this.className = "current";
+            //获取index的索引
+            var indexs = this.getAttribute("index");
+            //我们需要把li里面的class全部清除
+            for(var k = 0 ; k<liList.length;k++){
+                liList[k].removeAttribute("class");
+            }
+            //增加class
+            liList[indexs].className = "current";
+        }
+    }
+
+</script>
+</body>
+</html>

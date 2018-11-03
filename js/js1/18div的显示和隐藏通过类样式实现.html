@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 10px solid red;
+        }
+        .divShowNone{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="隐藏">
+<div id="dv" class="divShowNone"></div>
+
+<script src="../js/common.js"></script>
+<script>
+    // 点击按钮，通过类样式的方式设置div的显示和隐藏
+    my$("btn").onclick = function () {
+        //判断div是不是应用了类样式
+        console.log(my$("dv").className);
+        if (my$("dv").className != "divShowNone"){
+        //    现在是显示的，应该是隐藏
+            my$("dv").className = "divShowNone";
+            this.value = "隐藏 ";
+
+        }else {
+            //现在隐藏的状态，应该显示
+            my$("dv").className = "";
+            this.value = "显示";
+        }
+    }
+</script>
+</body>
+</html>

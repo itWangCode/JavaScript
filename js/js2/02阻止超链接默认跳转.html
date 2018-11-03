@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--// 点击超链接 不跳转，并且弹出框
+//    阻止超链接默认跳转：return false-->
+<a href="http://www.baidu.com" onclick="alert(); return false">百度</a>
+
+
+
+
+<a href="http://www.baidu.com" onclick="return f1()">百度</a>
+
+<script>
+// 点击超链接 不跳转，并且弹出框
+//    阻止超链接默认跳转：return false
+function f1() {
+    alert("11");
+    return false;
+}
+</script>
+
+
+<a href="http://www.baidu.com" id="ak">百度</a>
+<script>
+document.getElementById("ak").onclick = function () {
+    alert();
+    return false;
+}
+</script>
+</body>
+</html>

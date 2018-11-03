@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<img src="../images/1.gif" alt="">
+<img src="../images/1.gif" alt="">
+<img src="../images/1.gif" alt="">
+
+
+<script>
+    // 根据标签的名字获取图片标签，分别注册点击事情
+    var imgObj = document.getElementsByTagName("img");
+    //循环遍历数组，获取每一个图片标签，注册点击事件，添加事件处理函数
+    for (var i = 0; i < imgObj.length; i++){
+        imgObj[i].onclick = function () {
+            alert("22");
+        };
+    }
+
+</script>
+</body>
+</html>

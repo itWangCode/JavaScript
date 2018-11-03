@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="显示图片" id="btn">
+<img src="" alt="" id="imgPic">
+
+
+<script>
+    /*
+    * 点击按显示图片
+    * 点击按钮的时候设置img标签的src属性有一个图片的路径
+    * 根据id获取按钮
+    * 为按钮注册点击事件，增加事件处理函数
+    * 根据id获取图片的标签，设置图片的src属性值
+    * */
+    // 根据id获取按钮
+    var btnObj = document.getElementById("btn");
+    // 为按钮注册点击事件，增加事件处理函数
+    btnObj.onclick = function () {
+        // 根据id获取图片的标签，设置图片的src属性值
+        var imgObj = document.getElementById("imgPic");
+        imgObj.src = "../images/1.gif";
+    //    设置图片的大小
+        imgObj.width = "200";
+        imgObj.height = "300";
+    };
+
+</script>
+</body>
+</html>

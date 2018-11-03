@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="点餐" id="btn">
+<select>
+    <option value="1">菜品1</option>
+    <option value="2">菜品2</option>
+    <option value="3">菜品3</option>
+    <option value="4" id="op1">菜品4</option>
+    <option value="5">菜品5</option>
+</select>
+
+<script src="../js/common.js"></script>
+<script>
+   /* function my$(id) {
+        return document.getElementById(id);
+    }*/
+    my$("btn").onclick = function () {
+        my$("op1").selected = true;
+    }
+</script>
+
+
+
+
+
+<textarea name="" id="tt" readonly cols="30" rows="10">
+    我要怎么做，怎么做
+</textarea>
+<input type="button" id="btn1" value="注册">
+<script>
+    // disabled---这个属性是禁用的
+//    readonly----只读，是可以复制的
+//    html中属性和值是自己的，并且只有一个的，其实，可以只写这个属性，不用赋值的
+
+my$("btn1").onclick = function () {
+    my$("tt").value = "11";//推荐用value值,因为看成了是表单的标签
+    //my$("tt").innerText = "ww";
+}
+</script>
+</body>
+</html>

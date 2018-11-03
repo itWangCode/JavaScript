@@ -1,0 +1,56 @@
+<!--
+    Created by wangyang on 2018/11/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 150px;
+            background-color: green;
+            float: left;
+            margin-left: 10px;
+            border: 2px solid green;
+        }
+    </style>
+
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+<script src="common.js"></script>
+<script>
+    var divObj = document.getElementsByTagName("div");
+    for (var i = 0 ; divObj.length; i++){
+        divObj[i].onmouseover = function () {
+            this.style.border = "2px solid red";
+        };
+        divObj[i].onmouseout = function () {
+            this.style.border = "";
+        }
+    }
+</script>
+</body>
+</html>

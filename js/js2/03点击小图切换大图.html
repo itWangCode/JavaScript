@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<a href="../images/derm-max.jpg" id="ak"><img src="../images/derm-min.jpg"></a>
+<img src="" alt="" id="big">
+<script>
+    function my$(id) {
+       return document.getElementById(id);
+    }
+    my$("ak").onclick = function () {
+        // 这个事件是哪个对象的，this就是那个的
+        my$("big").src = this.href;
+        return false;
+    }
+</script>
+</body>
+</html>

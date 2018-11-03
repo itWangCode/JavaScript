@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="修改文本框的值" id="btn">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+<input type="text" value="显示效果">
+
+
+<script>
+    document.getElementById("btn").onclick = function () {
+        var inputs = document.getElementsByTagName("input");
+        for(var i = 0; i < inputs.length; i++){
+        //    判断这个元素是不是按钮
+            if (inputs[i] != "button"){
+                inputs[i].value = "我很帅的";
+            }
+        }
+    };
+</script>
+</body>
+</html>

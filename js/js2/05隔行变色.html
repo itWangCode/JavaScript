@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="隔行变色" id="btn">
+
+<ul id="uu">
+    <li>宏碁</li>
+    <li>红旗</li>
+    <li>五菱宏光</li>
+    <li>北汽</li>
+    <li>荣威</li>
+    <li>大众</li>
+    <li>兰博基里</li>
+    <li>奥拓</li>
+</ul>
+<script src="common.js"></script>
+<script>
+    // 点击按钮
+    // my$("btn").onclick = function () {
+    //     var list = my$("uu").getElementsByTagName("li");
+    //     for (var i = 0;i <list.length; i++){
+    //         if (i%2==0){
+    //             list[i].style.backgroundColor = "red";
+    //         }else{
+    //             list[i].style.backgroundColor = "yellow";
+    //         }
+    //     }
+    // }
+
+//    简写
+    my$("btn").onclick = function () {
+        var list = my$("uu").getElementsByTagName("li");
+        for (var i = 0;i <list.length; i++){
+            list[i].style.backgroundColor = i%2==0 ? "red" : "yellow";
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

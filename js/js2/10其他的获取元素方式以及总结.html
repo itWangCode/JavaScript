@@ -1,0 +1,69 @@
+<!--
+    Created by wangyang on 2018/11/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        .cls{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<p>这个一个p</p>
+<p class="cls">这个一个p</p>
+<span>这个一个p</span>
+<span class="cls">这个一个p</span>
+<p>这个一个p</p>
+
+<script src="common.js"></script>
+<script>
+    //点击按钮
+    //根据选择器的方式获取元素
+   /*var btnObj = document.querySelector("#btn");
+    btnObj.onclick = function () {
+        alert("哈哈，我变帅了");
+    };*/
+
+   /* var btnObj = document.querySelectorAll(".cls");
+    for(var i = 0; i < btnObj.length; i++){
+        btnObj[i].style.backgroundColor = "yellow";
+    }*/
+
+   /*
+   * 根据id属性的遏制，获取的元素，返回来的是一个元素对象
+   * document.getElementById("id的数学的值");
+   *
+   * 根据标签名字获取元素，返回的是一个伪数组，里面保存多个DOM对象
+   * document.getElementsByTagName("标签名");
+   *
+   * 根据那么属性的值获取元素，返回来的是一个伪数组，里面保存多个DOM对象
+   * document.getElementsByName("name属性的值")
+   *
+   * 根据类样式的名字来获取元素，返回来的是一个伪数组，里面保存多个DOM对象
+   * document.getElementsByClassName("类样式的名字");
+   *
+   * 根据选择器获取元素，返回来的是一个元素对象
+   * document.querySelector("选择器的名字");
+   *
+   * 根据选择器获取元素，返回来的是一个伪数组，里面保存多个DOM对象
+   * document.querySelectorAll("多个选择器的名字");
+   * */
+</script>
+</body>
+</html>

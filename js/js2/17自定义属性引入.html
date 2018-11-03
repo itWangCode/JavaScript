@@ -1,0 +1,56 @@
+<!--
+    Created by wangyang on 2018/11/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        ul{
+            list-style-type: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="uu">
+    <li>我的成绩</li>
+    <li>你的成绩</li>
+    <li>她的成绩</li>
+    <li>他的成绩</li>
+    <li>它的成绩</li>
+</ul>
+
+<script src="common.js"></script>
+<script>
+    //设置自定义属性setAttribute("自定义的名字",属性的值)，
+    //获取自定义的属性getAttribute("属性的名字");
+    //本身HTML标签没有这个属性，自己添加的，
+    //获取所有的li，然后为每个标签中动态的添加 自定义属性和值
+    var list = my$("uu").getElementsByTagName("li");
+    for (var i = 0; i <list.length; i++){
+        //先为每一个li添加自定义属性
+        //list[i].score = (i+1)*10;
+        list[i].setAttribute("score",(i+1)*10);
+        //点击每一个li标签
+        list[i].onclick = function () {
+            alert(this.getAttribute("score"));
+        }
+    }
+
+
+</script>
+</body>
+</html>

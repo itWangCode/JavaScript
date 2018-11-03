@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if it IE 7]>
+<html class=no-js ie ie6 ite9 ite8 ite7"><![endif]-->
+<!--[if IE 7]>
+<html class=no-js ie ie7 ite9 ite8 ite7"><![endif]-->
+<!--[if IE 8]>
+<html class=no-js ie ie8 ite9 ite7"><![endif]-->
+<!--[if IE 9]>
+<html class=no-js ie ie9 ite8 ite7"><![endif]-->
+<!--[if gt IE 9]>
+<html class=no-js"><![endif]-->
+<!--[if !IE]>
+<html><![endif]-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+</head>
+<body>
+
+<select>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<script src="http://libs.baidu.com/jquery/1.7.0/jquery.min.js"></script>
+<script>
+    function ww() {
+        $(function (aa) {
+            $("select").change(function () {
+                aa = $(this).find("option:checked").attr("value");
+                console.log(aa);
+            });
+        })
+    }
+    ww();
+
+
+
+
+</script>
+</body>
+</html>

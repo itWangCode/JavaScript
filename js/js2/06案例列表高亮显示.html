@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<ul>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+</ul>
+
+
+<script src="common.js"></script>
+<script>
+    // 鼠标进去鼠标离开
+    var list = document.getElementsByTagName("li");
+    for (var i = 0; i < list.length; i++){
+        list[i].onmouseover = function () {
+            this.style.backgroundColor = "red";
+        };
+        list[i].onmouseout = function () {
+            this.style.backgroundColor = "";
+        }
+    }
+</script>
+</body>
+</html>

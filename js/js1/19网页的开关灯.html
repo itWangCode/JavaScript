@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cls{
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="开/关灯" id="btn">
+
+<script src="../js/common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        document.body.className = document.body.className != "cls" ? "cls" : "";
+    }
+</script>
+</body>
+</html>

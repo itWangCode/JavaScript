@@ -1,0 +1,88 @@
+<!--
+    Created by wangyang on 2018/11/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="设置" id="btn">
+<div id="dv">太神奇啦</div>
+
+<script src="common.js"></script>
+<script>
+    /**
+     * 设置标签中的文本内容，应该使用textContent属性，谷歌，火狐支持，IE8不支持
+     * 设置标签中的文本内容，应该用innerText属性，谷歌，火狐支持，IE8都支持
+     * 如果这个属性在浏览器不支持，那么这属性的类型：undefined
+     * 我想知道这个浏览器支不支持 这个代码？就是看有没有undefined
+     * 兼容代码
+     * 设置任意的标签中间的文本内容
+     *
+     */
+    //点击按钮设置div中的文本内容
+   /* my$("btn").onclick = function () {
+        //设置标签中间的文本内容，应该使用textContent属性
+        my$("dv").textContent = "this id div";
+    };*/
+
+  /*  my$("btn").onclick = function () {
+        //设置标签中间的文本内容，应该使用textContent属性
+        my$("dv").innerText = "this id div";
+    }*/
+
+   /* my$("btn").onclick = function () {
+        //设置标签中间的文本内容，应该使用textContent属性
+        //console.log(my$("dv").innerText);
+        console.log(my$("dv").textContent);
+    }*/
+
+   //设置任意的标签中间的任意文本内容
+   function setInnerText(element,text) {
+       //判断浏览器是否支持这个属性
+       if (typeof  element.textContent == "undefined"){
+           //浏览器不支持
+           element.innerText = text;
+       }else {
+           //支持这个属性
+           element.textContent = text;
+       }
+   }
+
+   //获取任何标签中间的文本内容
+   function getInnerText(element) {
+       if (typeof element.textContent == "undefined"){
+           element.innerText;
+       }else {
+           return element.textContent;
+       }
+   }
+
+   //测试
+    my$("btn").onclick = function () {
+        //console.log(getInnerText(my$("dv")));
+        setInnerText(my$("dv"),"哈哈，我又变帅了");
+    }
+</script>
+</body>
+</html>

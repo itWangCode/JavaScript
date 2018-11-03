@@ -1,0 +1,54 @@
+<!--
+    Created by wangyang on 2018/11/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 2px dashed red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="显示效果" id="btn">
+<input type="button" value="显示效果" id="btn2">
+<div id="dv">
+    这是一个div
+    <p>这是一个P</p>
+</div>
+
+<script src="common.js"></script>
+<script>
+    /**
+     * 如果使用innerText主要是设置文本内容的，设置标签的内容，没有标签的效果
+     *  如果使用innerHtml主要是设置文本内容的，设置标签的内容，有标签的效果
+     *  innerHtml主要:在标签中设置新的html标签内容，就用这个
+     */
+    my$("btn").onclick = function () {
+        //my$("dv").innerText = "哈哈";
+        //my$("dv").innerText = "<p>这是一盒p</p>";//会显示代码标签的
+        my$("dv").innerHTML ="<p>这是一盒p</p>";
+    };
+    my$("btn2").onclick = function () {
+        //console.log(my$("dv").innerText);
+        console.log(my$("dv").innerHTML);
+    }
+</script>
+</body>
+</html>

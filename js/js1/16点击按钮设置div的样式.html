@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="改变样式" id="btn">
+<div id="dv"></div>
+
+<script src="../js/common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        //style又是属性，又是样式
+        //凡是css中这个属性是多个单词的写法；在js代码中DOM操作的时候，把-干掉，后面的单词的首字母需要大写
+        my$("dv").style.width = "200px";
+        my$("dv").style.height = "100px";
+        my$("dv").style.backgroundColor = "red";
+    }
+</script>
+</body>
+</html>
