@@ -1,0 +1,118 @@
+<!--
+    Created by wangyang on 2018/11/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<div id="dv">
+    <span>这是div中的span</span>
+    <p>这是第二个元素的p</p>
+    <ul id="uu">
+        <li>乔峰</li>
+        <li>汪洋</li>
+        <li id="three">我</li>
+        <li>你</li>
+        <li>她</li>
+    </ul>
+</div>
+
+
+<script src="common.js"></script>
+<script>
+    /**
+     *
+     * 节点的属性：（可以使用标签--元素.出来，可以室友属性节点.出来）
+     * nodeType:节点的类型：1--标签,2---属性,3--文本
+     * nodeName:节点的名字：标签节点-大学的标签名字，属性节点--小写的数学名字，文本节点--#text
+     * nodeValue:节点的值：标签节点--null，属性节点--属性值，文本节点---文本内容
+     *
+     *
+     */
+// var ulObj = my$("uu");
+// console.log(ulObj.parentNode);//div
+// console.log(ulObj.parentNode.parentNode);//body
+// console.log(ulObj.parentNode.parentNode.parentNode);//html
+//     console.log(ulObj.parentNode.parentNode.parentNode.parentNode);//document
+//     console.log(ulObj.parentNode.parentNode.parentNode.parentNode.parentNode);//null
+
+// //ul标签的父节点
+// console.log(ulObj.parentNode);
+// //ul标签的父级元素
+// console.log(ulObj.parentElement);
+//
+//     console.log(ulObj.parentNode.nodeType);//标签--1
+//     console.log(ulObj.parentNode.nodeName);//标签----大写的标签名字
+//     console.log(ulObj.parentNode.nodeValue);//标签--null
+
+
+    // //div
+    // var dvObj = my$("dv");
+    // //子节点
+    // console.log(dvObj.childNodes);
+    // //子元素
+    // console.log(dv.children);
+
+    // var dvObj = my$("dv");
+    // for (var i = 0;i<dvObj.childNodes.length; i++){
+    //     //console.log(dvObj.childNodes[i]);
+    //     var node = dvObj.childNodes[i];
+    //     //nodeType-->节点的类型：1---标签，2---属性，3---文本
+    //     //nodeName--->节点的名字：大写的标签--标签：小写的属性名，#text---文本
+    //     //nodeValue-->节点的值：标签--null，属性---属性的值，文本--文本内容
+    //     console.log(node.nodeType + "=====" + node.nodeName + "====" + node.nodeValue);
+    // }
+
+    //    ul
+    var ulObj = document.getElementById("uu");
+    //父级节点
+    console.log(ulObj.parentNode);
+//    父级元素
+    console.log(ulObj.parentElement);
+//    子节点
+    console.log(ulObj.childNodes);
+//    子元素
+    console.log(ulObj.childElementCount);
+//    第一个子节点
+    console.log(ulObj.firstChild);
+//    第一个子元素
+    console.log(ulObj.firstElementChild);
+//    最后一个子节点
+    console.log(ulObj.lastChild);
+//    最后一个子元素
+    console.log(ulObj.lastElementChild);
+    //    某一个元素的前一个兄弟节点
+    console.log(my$("three").previousSibling);
+    //    某一个元素的前一个兄弟元素
+    console.log(my$("three").previousElementSibling);
+//    某个元素的后一个兄弟节点
+    console.log(my$("three").nextSibling);
+//    某个元素的后一个兄弟元素
+    console.log(my$("three").nextElementSibling);
+
+    /*
+    * 总结：凡是获取节点的代码再谷歌火狐得到的都是相关节点
+    * 凡是获取元素的代码再谷歌和火狐的到都是相关的元素
+    * 从子节点和兄弟节点开始，凡是获取节点的代码在IE8中的到是元素，获取元素的相关diamante，在IE8中得到的是undefined---元素的代码，ie总不支持
+    * */
+
+
+
+</script>
+</body>
+</html>
