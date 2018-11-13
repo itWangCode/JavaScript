@@ -1,0 +1,54 @@
+<!--
+    Created by wangyang on 2018/11/12.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<input type="button" value="变色" id="btn">
+
+<ul id="uu">
+    <li>nuibds</li>
+    <li>vsags</li>
+    <li>vfdsgre</li>
+    <li>hyt</li>
+    <li>jr</li>
+    <li>e5ytg</li>
+    <li>gtrgtr</li>
+    <li>grthtr</li>
+</ul>
+
+
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        var count = 0;//记录有多少li
+        //获取ul中所有的子节点
+        var nodes = my$("uu").childNodes;
+        for (var i = 0; i < nodes.length; i++){
+        //    判断这个结点是不是li标签
+            if (nodes[i].nodeType == 1 && nodes[i].nodeName == "LI"){
+                nodes[i].style.backgroundColor = count % 2 == 0 ? "red" :"yellow";
+                count++;
+               //nodes[i].style.backgroundColor = i%2 == 0 ? "red" :"yellow";
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

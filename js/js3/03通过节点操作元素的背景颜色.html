@@ -16,7 +16,13 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="stylesheet" href="">
-
+    <style>
+        div {
+            width: 300px;
+            height: 750px;
+            border: 1px solid red;
+        }
+    </style>
 </head>
 <body>
 
@@ -39,6 +45,28 @@
 
 
 <script src="common.js"></script>
-<script></script>
+<script>
+    //点击按钮，设置p
+
+    my$("btn").onclick = function () {
+        //先获取div
+        var dvObj = my$("dv");
+
+        //获取里面所得子节点
+        var nodes = dvObj.childNodes;
+
+        //循环遍历所有的子节点
+        for (var i = 0; i < nodes.length; i++) {
+            //盘对你这个子节点是不是p标签,1是便签节点
+            //nodeName--->节点的名字：大写的标签"P"
+            if (nodes[i].nodeType == 1 && nodes[i].nodeName == "P") {
+                nodes[i].style.backgroundColor = "red";
+            }
+        }
+    }
+
+
+
+</script>
 </body>
 </html>
