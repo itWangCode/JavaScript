@@ -1,0 +1,99 @@
+<!--
+    Created by wangyang on 2018/11/18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+<input type="button" value="按钮" id="btn">
+
+<script src="common.js"></script>
+
+<script>
+    //这个按钮同时执行了多个事件
+    //为元素绑定事件(DOM):一种，但是不兼容：有两种
+    //1。对象.addEventListener("事件类型"，事件处理函数，false);就是IE8以下不兼容，主流的都兼容
+    //2.对象.attachEvents("有on的事件类型"，事件处理函数)----谷歌不支持，火狐不支持，IE支持
+
+    //addEventListener();
+    //为按钮绑定事件
+    //参数1：事件的类型---事件的名字，没有on
+    //参数2：事件处理函数----函数(命名，匿名)
+    //参数3：布尔类型
+
+    //为同一个元素绑定多个相同的事件
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("我好帅");
+    // },false);
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("你好美");
+    // },false);
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("你真好");
+    // },false);
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("我是一个好小伙");
+    // },false);
+
+    //---->IE
+    //参数1：事件类型---事件名字，有on
+    //参数2：事件处理函数--函数（命名函数，匿名函数）
+   /* my$("btn").attachEvents("onclick",function () {
+        console.log("我真帅");
+    })*/
+
+   //------>全部兼容代码
+    //为任意元素.绑定任意的事件, 任意的元素,事件的类型,事件处理函数
+    function addEventListener(element,type,fn) {
+        //判断浏览器是否支持这个方法
+        if(element.addEventListener){
+            element.addEventListener(type,fn,false);
+        }else if(element.attachEvent){
+            element.attachEvent("on"+type,fn);
+        }else{
+            element["on"+type]=fn;
+        }
+    }
+    addEventListener(my$("btn"),"click",function () {
+        console.log("哇，好神奇");
+    });
+    addEventListener(my$("btn"),"click",function () {
+        console.log("哇，好神奇2");
+    });
+    addEventListener(my$("btn"),"click",function () {
+        console.log("哇，好神奇");
+    });
+
+
+    /* function Person(name) {
+         this.name = name;
+         this.sayHi = function () {
+             console.log("您好");
+         };
+     }
+     var per = new Person("小明");
+     if (per.sayHi){//判断这个对象中有没有这个方法
+         per.sayHi();
+     }else {
+         console.log("没有这个方法");
+     }*/
+
+</script>
+</body>
+</html>

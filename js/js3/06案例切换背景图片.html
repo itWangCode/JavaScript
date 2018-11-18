@@ -40,7 +40,7 @@
    //循环遍历所有的img。
     for (var i = 0; i <imgObj.length;i++){
         imgObj[i].onclick = function () {
-            document.body.style.backgroundImage = url()
+            document.body.style.backgroundImage = "url("+this.src+")";
         }
     }
 </script>

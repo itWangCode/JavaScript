@@ -1,0 +1,63 @@
+<!--
+    Created by wangyang on 2018/11/17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #d3d3d3;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="创建列表" id="btn">
+<div id="dv"></div>
+
+<script src="common.js"></script>
+<script>
+    var kungfu = ["我的女神","小龙女","爱心给你","你若安好","便是晴天"];
+    //点击按钮动态的创建列表，把列表加到div中
+    my$("btn").onclick = function () {
+        //创建ul,把ul立刻加入到父级元素div中
+        var ulObj = document.createElement("ul");
+        my$("dv").appendChild(ulObj);
+        //动态的创建li,加载ul中
+        for (var i = 0; i < kungfu.length; i++){
+            var liObj = document.createElement("li");
+            //设置li中中间的文字内容
+            liObj.innerHTML = kungfu[i];
+            ulObj.appendChild(liObj);
+            //为li添加鼠标进入事件
+            liObj.onmouseover = mouseoverandle;
+            liObj.onmouseout = mouseoutHandle;
+        }
+    };
+    function mouseoverandle() {
+        this.style.backgroundColor = "red";
+        this.style.color = "#ffffff";
+    }
+    function mouseoutHandle() {
+        this.style.backgroundColor = "";
+        this.style.color = "";
+    }
+    //如果是循环的方式增加事件，推荐使用命名函数
+    //如果不是循环的方式增加事件，推荐使用匿名函数
+</script>
+</body>
+</html>

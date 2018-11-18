@@ -1,0 +1,63 @@
+<!--
+    Created by wangyang on 2018/11/18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            height: 200px;
+            width: 400px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="显示效果" id="btn">
+<input type="button" value="干掉第一个子元素" id="btn2">
+<input type="button" value="点击全部没有了" id="btn3">
+<div id="dv"></div>
+
+<script src="common.js"></script>
+<script>
+    var i = 0;
+    my$("btn").onclick = function () {
+        i++;
+        var obj = document.createElement("input");
+        obj.type = "button";
+        obj.value = "haha" + i;
+        //my$("dv").appendChild(obj);//追加子元素
+
+        //吧新的子元素插入到第一个子元素的前面
+        my$("dv").insertBefore(obj,my$("dv").firstElementChild);
+        //my$("dv").replaceChild();
+    };
+    my$("btn2").onclick = function () {
+        //移除父级元素中第一个子级元素
+        my$("dv").removeChild(my$("dv").firstElementChild);
+    };
+    my$("btn3").onclick = function () {
+        //点击按钮删除div中所有的子级元素
+        //判断父级元素中有没有第一个元素
+        while (my$("dv").firstElementChild){
+            my$("dv").removeChild(my$("dv").firstElementChild);
+        }
+    };
+    
+
+</script>
+</body>
+</html>

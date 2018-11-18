@@ -1,0 +1,64 @@
+<!--
+    Created by wangyang on 2018/11/18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            height: 200px;
+            width: 400px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+
+<script src="common.js"></script>
+<script>
+    //有则删除，无则创建
+
+
+
+    // //先判断有没有，有的话删除
+    // my$("btn").onclick = function () {
+    //     //判断div中有没有这个按钮，有就删除
+    //     if (my$("btn2")){//如果有位true就删除
+    //         my$("dv").removeChild(my$("btn2"));
+    //     }
+    //     var obj = document.createElement("input");
+    //     obj.type = "button";
+    //     obj.value = "按钮";
+    //     obj.id = "btn2";
+    //     my$("dv").appendChild(obj);
+    // }
+
+
+    my$("btn").onclick = function () {
+        //判断div中有没有这个按钮，有就删除
+        if (!my$("btn2")){//如果有位true就删除
+        var obj = document.createElement("input");
+        obj.type = "button";
+        obj.value = "按钮";
+        obj.id = "btn2";
+        my$("dv").appendChild(obj);
+        }
+    }
+</script>
+</body>
+</html>

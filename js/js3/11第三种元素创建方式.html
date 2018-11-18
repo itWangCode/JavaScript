@@ -1,0 +1,45 @@
+<!--
+    Created by wangyang on 2018/11/17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        #dv{
+            width: 200px;
+            height: 300px;
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="创建" id="btn">
+<div id="dv"></div>
+
+<script src="common.js"></script>
+<script>
+    //把元素追加到父级元素中
+    //点击安装，在div中创建一个P
+    my$("btn").onclick = function () {
+        //创建元素的
+        var pObj =  document.createElement("p");
+        setInnerText(pObj,"这是一个P");
+        //把创建后的子元素追加到父级元素中
+        my$("dv").appendChild(pObj);
+    }
+</script>
+</body>
+</html>
