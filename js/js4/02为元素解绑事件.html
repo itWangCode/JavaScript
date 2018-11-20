@@ -1,0 +1,93 @@
+<!--
+    Created by wangyang on 2018/11/19.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+<input type="button" value="按钮" id="btn">
+
+<input type="button" value="干掉第一个" id="btn1">
+<script src="common.js"></script>
+<script>
+    //第一种种解绑试讲
+    //对象.on事情的名字 = 事件处理函数----绑定事件
+    // my$("btn").onclick = function () {
+    //     console.log("我帅");
+    // };
+    //
+    // my$("btn1").onclick = function () {
+    //     //1。解绑事件
+    //     my$("btn").onclick = null;
+    // };
+
+
+
+    //第二种解绑试讲
+    // function f1() {
+    //     console.log("第一个");
+    // }
+    // function f2() {
+    //     console.log("第二个");
+    // }
+    // my$("btn").addEventListener("click",f1,false);
+    // my$("btn").addEventListener("click",f2,false);
+    //
+    // //点击第二个按钮把第一个按钮的第一个点击事件解绑
+    // my$("btn1").onclick = function () {
+    //     //解绑事件的时候，需要在昂定事件的时候，使用命名函数
+    //     my$("btn").removeEventListener("click",f1,false);
+    // };
+
+    //第二种解绑事件---IE8]
+    function f1() {
+        console.log("第一个");
+    }
+    function f2() {
+        console.log("第二个");
+    }
+     my$("btn").attachEvents("onclick",f1,false);
+    my$("btn").attachEvents("onclick",f2,false);
+    my$("btn1").onclick = function () {
+        my$("btn").detachEvents("onclick",f1,false);
+    };
+
+
+
+
+    /**
+     *  注意：用什么方式绑定事件，应该用对应的方式解绑事件
+     *
+     *  1.解绑事件
+     *    对象.on事件名字 = 事件处理函数---->绑定事件
+     *    对象.on事件名字 = null;
+     *  2.解绑事件
+     *    对象.addEventListener("m没有on的事件类型",命名函数,false);---绑定事件
+     *    对象.removeEventListener("m没有on的事件类型",命名名字,false);---解绑事件
+     *
+     *  3.解绑事件(IE8)
+     *    对象.attachEvents("on事件类型",命名函数,false);----绑定事件
+     *    对象.detachEvents("on事件类型",命名名字,false);
+     *
+     *
+     *
+     */
+</script>
+</body>
+</html>

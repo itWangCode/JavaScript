@@ -1,0 +1,53 @@
+<!--
+    Created by wangyang on 2018/11/18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<input type="button" value="按钮" id="btn">
+
+<script src="common.js"></script>
+<script>
+    //为按钮绑定多个点击事件
+    my$("btn").addEventListener("click",function () {
+        console.log(this);
+    },false);
+
+    //总结绑定事件的区别
+    //addEventListener();
+    //attachEvent()
+    //相同点：都可以为元素绑定事件
+    //不用点：1。方法名不一样2.参数个数不一样3.addEventListener--主流的浏览器支持，ie8以下不支持  attachEvent--只有IE8支持 4.this不同，addEventListener中this是当前绑定事件的对象
+    //   attachEvent this是window  5.addEventListener中事件的类型（事件的名字）没有on
+    //  attachEvent 中事件的类型（事件的名字）有on
+
+  /*  function f1() {
+
+    }
+    f1();
+
+    var obj = {
+        sayHi:function () {
+            
+        }
+    };
+    obj.sayHi();*/
+</script>
+</body>
+</html>

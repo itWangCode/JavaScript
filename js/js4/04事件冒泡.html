@@ -1,0 +1,83 @@
+<!--
+    Created by wangyang on 2018/11/19.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        #dv1{
+            width:300px;
+            height: 200px;
+            background-color: red;
+        }
+        #dv2{
+            width:250px;
+            height: 150px;
+            background-color: green;
+        }
+        #dv3{
+            width:150px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dv1">
+    <div id="dv2">
+        <div id="dv3"></div>
+    </div>
+</div>
+
+
+<script src="common.js"></script>
+<script>
+    //事件冒泡：多个元素嵌套，有层次关系,这些元素都注册了相同的事件，如果里面的元素的时间出发了，外面的元素的改时间自动的触发了，这就是事件冒泡
+    // my$("dv1").onclick = function () {
+    //     console.log(this.id);
+    // };
+    // my$("dv2").onclick = function () {
+    //     console.log(this.id);
+    // };
+    // my$("dv3").onclick = function () {
+    //     console.log(this.id);
+    // };
+    // document.body.onclick = function () {
+    //     console.log("哈哈，来吧");
+    // }
+
+    //事件冒泡，阻止事件冒泡
+    //如果阻止事件冒泡
+    //window.event.cancelBubble = true;//阻止事件冒泡  ,  ie，谷歌支持，火狐不支持
+    //e.stopPropagation();谷歌火狐支持，IE不支持
+    my$("dv1").onclick = function () {
+        console.log(this.id);
+    };
+    my$("dv2").onclick = function (e) {
+        console.log(this.id);
+        e.stopPropagation();//阻止事件冒泡，火狐谷歌支持的
+        console.log(e)
+    };
+    //事件处理参数对象
+    my$("dv3").onclick = function () {
+        console.log(this.id);
+        window.event.cancelBubble = true;//阻止事件冒泡
+    };
+
+
+</script>
+</body>
+</html>
