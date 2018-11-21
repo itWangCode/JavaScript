@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+/*=========================DOM的操作===========================*/
+/**
+ * DOM操作页面元素
+ * 基本标签--属性
+ * 表单标签--属性
+ * 元素的样式操作
+ * 总结样式操作的不同方式
+ * 自定义属性
+ * 兼容问题
+ * 元素的创建不同方式
+ * 事件的操作
+ * 特效的一些练习
+ * WEB API结束
+ */
+
+/**
+ *
+ *js:分为三部分：
+ * ECMAScript标准：js的基本的语法
+ * DOM：Document Object Model--->文档对象模型-----操作页面的元素
+ * BOM：Brower Object Model--->浏览器的对象模型---操作是浏览器
+ *
+ *
+ * 文档：吧一个html文件看成是一个文档由于万物皆对象，所有吧这个文档看成是一个对象
+ * xml文件也可以看成一个文档
+ * html:展示数据
+ * xml:存储数据
+ *
+ * html:文件看成一个文档， 这个文档看成一个对象，文档中所有的标签都可以看成一个对象
+ * 页面中每一个标签，都是一个元素，每个元素都可以看成一个对象
+ * 标签只可以嵌套，，标签中有标签，元素中有元素
+ *
+ * html页面中都有一个跟元素---html---也叫做根元素
+ * 页面中有一个根元素（标签--html）,里面有很多的元素
+ *
+ * 文档（document）：一个页面就是一个文档
+ * 元素（element）：页面中所有的标签都是元素，元素可以看成是对象
+ * 节点（node）：页面中所有的内容都是节点（元素：节点？大    节点范围大）（有标签，文本，属性）
+ *
+ * 页面就是文档（document），文档中有很元素：html
+ *
+ * 由文档及文档中的所有的元素(标签)注册的一个属性结构图，叫做树状图（DOM树）
+ */
+
+/*===========================点击弹出框====================================*/
+
+// <input type="button" value="弹窗" onclick="alert('我又变帅了')">
+/**
+ * 最终极的弹出对话框
+ *  <input type="button" value="按我" id="btn">
+ *
+ *  document.getElementById("btn").onclick=function () {
+ *         alert("我又变帅帅了");
+ *     };
+ */
+
+/*function f1() {
+	alert("我很帅");
+}
+<input type="button" value="显示效果" onclick="f1()">*/
+
+
+/*
+     <input type="button" id="btn" value="最终的代码">
+    // 根据id属性的值从整个文档中获取这个元素（标签）
+    var btnObj = document.getElementById("btn");
+    //为改元素注册点击事件
+    btnObj.onclick = function () {
+        alert("这个感觉就是倍爽");
+    };
+    //简写为：
+
+        document.getElementById("btn").onclick = function () {
+            alert("我很帅的");
+        };
+*/
+
+
+/*========================点击按显示图片=================================*/
+    /*
+    *   出现这个问题：
+    * ❤️Uncaught TypeError: Cannot set property 'onclick' of null❤️
+    * 就是说，预加载了，没有被执行到
+    * 有两个解决方法：1.window.onload
+    * 2.放在body最下面
+    *
+    * */
+
+/*
+
+<input type="button" value="显示图片" id="btn">
+<img src="" alt="" id="imgPic">
+
+    * 点击按显示图片
+    * 点击按钮的时候设置img标签的src属性有一个图片的路径
+    * 根据id获取按钮
+    * 为按钮注册点击事件，增加事件处理函数
+    * 根据id获取图片的标签，设置图片的src属性值
+    *
+
+    // 根据id获取按钮
+    var btnObj = document.getElementById("btn");
+    // 为按钮注册点击事件，增加事件处理函数
+    btnObj.onclick = function () {
+        // 根据id获取图片的标签，设置图片的src属性值
+        var imgObj = document.getElementById("imgPic");
+        imgObj.src = "../images/1.gif";
+        //    设置图片的大小
+        imgObj.width = "200";
+        imgObj.height = "300";
+    };
+ */
+
+
+
+/*==========================点击按钮，修改P标签的显示的内容======================================*/
+
+/*
+   * 案例：点击按钮，修改P标签的显示的内容
+   * ❤️（凡是成对的标签，中间的文本内容，设置的时候都使用innerText这个属性的方法）❤️
+   * 根据id获取按钮，为按钮注册点击事件，添加事件处理函数
+   * */
+
+/*
+    // 根据id获取按钮，为按钮注册点击事件，添加事件处理函数
+    document.getElementById("btn").onclick = function () {
+        document.getElementById("p1").innerText="这是一个p";
+    };
+*/
+
+
+/*===========================点击修改a标签的文字和热点文字=========================*/
+/*
+<input type="button" value="显示效果" id="btn">
+<a href="http://itwangyang.xyz" id="ak">你好</a>
+
+document.getElementById("btn").onclick = function () {
+    var obj = document.getElementById("ak");
+    obj.href = "http://www.google.com";
+    obj.innerText = "汪洋";
+};
+ */
+
+/*========================点击按钮修改多个p标签的文字内容=============================*/
+
+/*
+
+<input type="button" value="显示效果" id="btn">
+<div id="div1">
+    <p>我帅了</p>
+    <p>我帅了</p>
+    <p>我帅了</p>
+    <p>我帅了</p>
+    <p>我帅了</p>
+    <p>我帅了</p>
+</div>
+<div>
+    <p>ni</p>
+</div>
+
+     //案例：点击按钮设置多个p标签的文字内容
+    document.getElementById("btn").onclick = function () {
+        //    根据标签名字获取标签
+        //var pObj = document.getElementsByTagName("p");//返回来是一个伪数组，无论是获取一个标签还是多个标签，最终都是在数组中存储的，折行代码返回值就是数组
+        var pObj =document.getElementById("div1").getElementsByTagName("p");//获取p标签的时候，你要看，是从哪个地方获取的，你要观察，不然全部都会获取改变的
+        console.log(pObj);//HTMLCollection(6) [p, p, p, p, p, p]--返回来是数组
+        //    循环遍历这个数组
+        for (var i = 0; i < pObj.length; i++){
+            //每个P标签，设置文字内容
+            pObj[i].innerText="我们都是P";
+        }
+    };
+
+ */
+
+/*=======================点击按钮修改图片的alt和title属性=======================*/
+/*
+<input type="button" value="显示效果" id="btn">
+<img src="../images/1.gif" title="我好帅1" alt="我好帅2">
+
+  document.getElementById("btn").onclick = function () {
+        var objImg = document.getElementsByTagName("img");
+        objImg[0].alt = "改了";//返回的是数组，数组是第一个，就写索引0
+        objImg[0].title = "现实吧";
+    };
+ */
+
+
+/*=========================点击按钮  修改input修改里面的值=============================*/
+/*
+    <input type="button" value="修改文本框的值" id="btn">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+    <input type="text" value="显示效果">
+
+    document.getElementById("btn").onclick = function () {
+        var inputs = document.getElementsByTagName("input");
+        for(var i = 0; i < inputs.length; i++){
+        //    判断这个元素是不是按钮
+            if (inputs[i] != "button"){
+                inputs[i].value = "我很帅的";
+            }
+        }
+    };
+*/
+
+/*=========================点击每个图片弹出对话框============================*/
+/*
+<img src="../images/1.gif" alt="">
+<img src="../images/1.gif" alt="">
+<img src="../images/1.gif" alt="">
+
+ // 根据标签的名字获取图片标签，分别注册点击事情
+    var imgObj = document.getElementsByTagName("img");
+    //循环遍历数组，获取每一个图片标签，注册点击事件，添加事件处理函数
+    for (var i = 0; i < imgObj.length; i++){
+        imgObj[i].onclick = function () {
+            alert("22");
+        };
+    }
+ */
+
+/*=========================点击按钮修改按钮的属性============================*/
+/*
+<input type="button" value="按钮" id="btn">
+  // 在某个元素的事件中，自己的事件中的this就是当前这个元素对象
+    var btnObj = document.getElementById("btn");
+        btnObj.onclick = function () {
+    //    修改按钮的value属性
+            this.value = "我变了";
+            this.type = "text";
+            this.id = "btn2";
+    };
+ */
+/*=========================点击图片修改自身的长宽============================*/
+/*
+<img src="../images/1.gif" alt="" id="imgPic">
+var imgObj = document.getElementById("imgPic");
+    imgObj.onclick = function () {
+        // this.style.width = "300px";
+        // this.style.height = "400px";
+        this.width = "300";
+        this.height = "400";
+    }
+ */
+/*=========================排他功能============================*/
+/*
+<input type="button" value="没有怀孕">
+<input type="button" value="没有怀孕">
+<input type="button" value="没有怀孕">
+<input type="button" value="没有怀孕">
+<input type="button" value="没有怀孕">
+
+// 每一个按钮都有点击事件的
+//    获取所有的按钮，分别注册点击事件
+    var btnObj = document.getElementsByTagName("input");
+    //循环遍历所有的按钮
+    for (var i = 0; i < btnObj.length; i++){
+    //为每个按钮都要注册点击事件
+        btnObj[i].onclick = function () {
+        //    把所有的按钮的value值设置为默认的值：没怀孕
+            for (var j = 0; j < btnObj.length; j++){
+                btnObj[j].value = "没有怀孕";
+            }
+        //    当前被点击的按钮设置为：怀孕了
+            this.value = "怀孕了";
+        //这块不能用   btnObj[i].value = "怀孕了";
+        };
+    }
+    console.log(i);
+
+
+
+    注意：
+     //for循环页面加载就执行完毕了，事件是出发的时候去执行
+    for (var k = 0; k < 5; k++) {
+        console.log(k);//0,1,2,3,4
+    }
+
+    for (var k = 0; k < 5; k++) {
+    }
+    console.log(k);//5
+ */
+
+/*=========================点击图片切换图片============================*/
+/*
+<a href="../images/2.gif" id="ak"><img src="../images/1.gif" alt="" id="im"></a>
+  // 点击图片标签，设置图片标签的src路径为超链接中大图的路径
+    document.getElementById("im").onclick = function(){
+        this.src=document.getElementById("ak").href;
+        return false;
+    };
+
+ */
+
+/*=========================点击按钮修改图片============================*/
+/*
+<input type="button" value="显示大图" id="btn">
+<img src="../images/1.gif" id="im">
+
+  function my$(id){
+        return document.getElementById(id);
+    }
+
+    my$("btn").onclick = function () {
+        my$("im").src = "../images/2.gif";
+    }
+ */
+
+/*=========================案例点击按钮选择性别和兴趣============================*/
+/*
+
+
+
+<input type="button" value="修改性别" id="btn">
+<input type="radio" value="1" name="sex">男
+<input type="radio" value="2" name="sex" id="rad">女
+<input type="radio" value="3" name="sex">保密
+<br>
+
+
+<input type="button" value="选着兴趣" id="btn1">
+<input type="checkbox" value="1" name="兴趣">吃饭
+<input type="checkbox" value="2" name="兴趣">睡觉
+<input type="checkbox" value="3" name="兴趣" id="ck1">打豆豆
+<input type="checkbox" value="4" name="兴趣">美女
+<input type="checkbox" value="5" name="兴趣">聊天
+<input type="checkbox" value="6" name="兴趣" id="ck2">qq
+<input type="checkbox" value="7" name="兴趣">weChat
+<input type="checkbox" value="8" name="兴趣">看图片
+<input type="checkbox" value="9" name="兴趣">刷抖音
+<input type="checkbox" value="10" name="兴趣">快手
+<!--规律：在表单标签中，如果属性和值只有一个，并且值是这个属性本身，那么在写js代码，DOM操作的时候这个属性，是布尔类型-->
+
+
+    function my$(id){
+       return document.getElementById(id);
+    }
+    my$("btn").onclick = function () {
+    //非空字符串转布尔类型是true;  这样写也是可以选中的：my$("rad").checked = "3fewfe";
+    my$("rad").checked = true;
+}
+
+    my$("btn1").onclick = function () {
+            my$("ck1").checked = true;
+            my$("ck2").checked = true;
+        }
+ */
+/*=========================案例选择下拉框和文本域的相关属性设置============================*/
+/*
+<input type="button" value="点餐" id="btn">
+<select>
+    <option value="1">菜品1</option>
+    <option value="2">菜品2</option>
+    <option value="3">菜品3</option>
+    <option value="4" id="op1">菜品4</option>
+    <option value="5">菜品5</option>
+</select>
+
+     function my$(id) {
+         return document.getElementById(id);
+     }
+    my$("btn").onclick = function () {
+        my$("op1").selected = true;
+    }
+
+ */
+
+/*
+<textarea name="" id="tt" readonly cols="30" rows="10">
+    我要怎么做，怎么做
+</textarea>
+<input type="button" id="btn1" value="注册">
+    // disabled---这个属性是禁用的
+//    readonly----只读，是可以复制的
+//    html中属性和值是自己的，并且只有一个的，其实，可以只写这个属性，不用赋值的
+
+my$("btn1").onclick = function () {
+    my$("tt").value = "11";//推荐用value值,因为看成了是表单的标签
+    //my$("tt").innerText = "ww";
+}
+ */
+
+/*=========================设置div的样式============================*/
+/*
+    <input type="button" value="改变样式" id="btn">
+<div id="dv"></div>
+
+    my$("btn").onclick = function () {
+            //style又是属性，又是样式
+            //凡是css中这个属性是多个单词的写法；在js代码中DOM操作的时候，把-干掉，后面的单词的首字母需要大写
+            my$("dv").style.width = "200px";
+            my$("dv").style.height = "100px";
+            my$("dv").style.backgroundColor = "red";
+        }
+*/
+/*=========================案例点击按钮显示和隐藏div============================*/
+/*
+<input type="button" value="隐藏" id="btn">
+<div id="dv" style="width: 100px;height: 100px; background-color: pink"></div>
+
+//根据id获取按钮，注册点击事件，增加事件处理函数
+    my$("btn").onclick = function () {
+        if (this.value == "隐藏"){
+            my$("dv").style.display = "none";
+            this.value = "显示";
+        }else if (this.value == "显示") {
+            my$("dv").style.display = "block";
+            this.value = "隐藏";
+        }
+
+    }
+ */
+/*=========================div的显示和隐藏通过类样式实现============================*/
+/*
+ .divStyle{
+            width: 100px;
+            height: 100px;
+            border: 10px solid red;
+        }
+
+<input type="button" id="btn" value="样式改变">
+<div id="dv"></div>
+
+ // 在js代码中DOM操作中的时候，设置元素的类样式，不用class的关键字，应该使用className
+    my$("btn").onclick = function () {
+        my$("dv").className = "divStyle";
+    }
+
+ */
+
+
+/*
+        div{
+            width: 100px;
+            height: 100px;
+            border: 10px solid red;
+        }
+        .divShowNone{
+            display: none;
+        }
+
+<input type="button" id="btn" value="隐藏">
+<div id="dv" class="divShowNone"></div>
+
+ // 点击按钮，通过类样式的方式设置div的显示和隐藏
+    my$("btn").onclick = function () {
+        //判断div是不是应用了类样式
+        console.log(my$("dv").className);
+        if (my$("dv").className != "divShowNone"){
+        //    现在是显示的，应该是隐藏
+            my$("dv").className = "divShowNone";
+            this.value = "隐藏 ";
+
+        }else {
+            //现在隐藏的状态，应该显示
+            my$("dv").className = "";
+            this.value = "显示";
+        }
+    }
+ */
+
+
+/*=========================网页的开关灯============================*/
+/*
+     .cls{
+            background-color: #000000;
+        }
+
+<input type="button" value="开/关灯" id="btn">
+
+ my$("btn").onclick = function () {
+        document.body.className = document.body.className != "cls" ? "cls" : "";
+    }
+ */
+/*=========================案例禁用文本框和改变列表背景色============================*/
+/*
+<input type="button" value="禁用文本框" id="btn">
+<input type="text" value="文本框" id="txt">
+
+ // 先根据id获取按钮没按钮注册点击事件，增加事件处理函数
+    document.getElementById("btn").onclick = function () {
+    //    根据id获取文本框，设置disabled属性
+        document.getElementById("txt").disabled = true;
+    }
+ */
+
+/*
+
+<input type="button" value="变颜色" id="btn1">
+<ul id="uu">
+    <li>我</li>
+    <li>你</li>
+    <li>她</li>
+    <li>他</li>
+    <li>它</li>
+</ul>
+
+    document.getElementById("btn1").onclick = function () {
+        document.getElementById("uu").style.backgroundColor = "red";
+    }
+ */
+
+/*=====================阻止超链接默认跳转=========================*/
+/*
+第一种写法：
+<a href="http://www.baidu.com" onclick="alert(); return false">百度</a>
+// 点击超链接 不跳转，并且弹出框
+//    阻止超链接默认跳转：return false
+
+ */
+
+
+/*
+第二种写法：
+<a href="http://www.baidu.com" onclick="return f1()">百度</a>
+// 点击超链接 不跳转，并且弹出框
+//    阻止超链接默认跳转：return false
+function f1() {
+    alert("11");
+    return false;
+}
+ */
+
+/*
+第三种写法：
+<a href="http://www.baidu.com" id="ak">百度</a>
+<script>
+document.getElementById("ak").onclick = function () {
+    alert();
+    return false;
+}
+ */
+
+/*=====================点击小图切换大图=========================*/
+/*
+<a href="../images/derm-max.jpg" id="ak"><img src="../images/derm-min.jpg"></a>
+<img src="" alt="" id="big">
+
+    function my$(id) {
+       return document.getElementById(id);
+    }
+    my$("ak").onclick = function () {
+        // 这个事件是哪个对象的，this就是那个的
+        my$("big").src = this.href;
+        return false;
+    }
+
+ */
+
+
+/*=====================美女相册=========================*/
+/*
+
+        body {
+            font-family: "Helvetica", "Arial", serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+
+        #imagegallery {
+
+            list-style: none;
+        }
+
+        #imagegallery li {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery li a img {
+            border: 0;
+        }
+
+
+<h2>
+    美女画廊
+</h2>
+
+<ul id="imagegallery">
+    <li><a href="images/1.jpg" title="美女A">
+        <img src="images/1-small.jpg" width="100" alt="美女1"/>
+    </a></li>
+    <li><a href="images/2.jpg" title="美女B">
+        <img src="images/2-small.jpg" width="100" alt="美女2"/>
+    </a></li>
+    <li><a href="images/3.jpg" title="美女C">
+        <img src="images/3-small.jpg" width="100" alt="美女3"/>
+    </a></li>
+    <li><a href="images/4.jpg" title="美女D">
+        <img src="images/4-small.jpg" width="100" alt="美女4"/>
+    </a></li>
+</ul>
+
+
+<div style="clear:both"></div>
+<!--显示大图的-->
+<img id="image" src="images/placeholder.png" alt="" width="450"/>
+<p id="des">选择一个图片</p>
+
+ src="common.js"
+
+    // 点击a标签，吧a标签的href的属性值给id为images的src属性
+    // 把a的title的数学的值给id为des的p的标签赋值
+    // 从li大的标签中获取所有的a标签
+    var aObjs = my$("imagegallery").getElementsByTagName("a");
+    // 循环遍历a标签
+    for (var i = 0; i < aObjs.length; i++){
+        aObjs[i].onclick = function () {
+            //    为id为images的标签的src赋值
+            my$("image").src= this.href;
+            //    为p标签赋值
+            my$("des").innerText = this.title;
+            //    阻止超链接默认的跳转
+            return false;
+        };
+    }
+ */
+
+/*==========================隔行变色=========================================*/
+/*
+<input type="button" value="隔行变色" id="btn">
+<ul id="uu">
+    <li>宏碁</li>
+    <li>红旗</li>
+    <li>五菱宏光</li>
+    <li>北汽</li>
+    <li>荣威</li>
+    <li>大众</li>
+    <li>兰博基里</li>
+    <li>奥拓</li>
+</ul>
+
+  // 点击按钮
+    // my$("btn").onclick = function () {
+    //     var list = my$("uu").getElementsByTagName("li");
+    //     for (var i = 0;i <list.length; i++){
+    //         if (i%2==0){
+    //             list[i].style.backgroundColor = "red";
+    //         }else{
+    //             list[i].style.backgroundColor = "yellow";
+    //         }
+    //     }
+    // }
+
+//    简写
+    my$("btn").onclick = function () {
+        var list = my$("uu").getElementsByTagName("li");
+        for (var i = 0;i <list.length; i++){
+            list[i].style.backgroundColor = i%2==0 ? "red" : "yellow";
+        }
+    }
+*/
+
+/*=============================案例列表高亮显示============================*/
+/*
+<ul>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+    <li>啤酒</li>
+</ul>
+
+    // 鼠标进去鼠标离开
+    var list = document.getElementsByTagName("li");
+    for (var i = 0; i < list.length; i++){
+        list[i].onmouseover = function () {
+            this.style.backgroundColor = "red";
+        };
+        list[i].onmouseout = function () {
+            this.style.backgroundColor = "";
+        }
+    }
+ */
+
+/*=============================案例显示和隐藏二维码=========================*/
+/*
+ .nodeSmall {
+      width: 50px;
+      height: 50px;
+      background: url(images/bgs.png) no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 40%;
+    }
+    .erweima {
+      position: absolute;
+      top: 0;
+      left: -150px;
+    }
+    .nodeSmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+
+
+    <div class="nodeSmall" id="node_small">
+  <a href="#"></a><!--锚定-->
+  <div class="erweima hide" id="er">
+    <img src="images/456.png" alt=""/>
+  </div>
+</div>
+
+//获取鼠标要进入的a标签
+
+  //先获取最外面的div
+  var aObj = my$("node_small").getElementsByTagName("a")[0];
+  //为a注册鼠标进入
+  aObj.onmouseover = function () {
+      my$("er").className ="erweima "
+  };
+  //为a注册鼠标离开
+  aObj.onmouseout = function () {
+      my$("er").className ="erweima hide"
+  }
+*/
+
+/*===========================根据name属性值获取元素==================================*/
+
+	/*
+	<input type="button" value="您好" id="btn" name="name1"><br>
+	<input type="text" value="您好" name="name1"><br>
+	<input type="text" value="您好" name="name1"><br>
+	<input type="text" value="您好" name="name1"><br>
+	<input type="text" value="您好" name="name1"><br>
+	<input type="text" value="您好" name="name3"><br>
+	<input type="text" value="您好" name="name2"><br>
+	<input type="text" value="您好" name="name1"><br>
+	<input type="text" value="您好" name="name1"><br>
+	<input type="text" value="您好" name="name1"><br>
+
+    my$("btn").onclick = function () {
+            //    通过name属性值获取元素---表单元素
+            var inputs = document.getElementsByName("name1");
+            for(var i = 0; i< inputs.length; i++){
+                inputs[i].value = "我很好";
+            }
+        }
+	 */
+/*=========================根据类样式的名字获取元素===========================*/
+	/*
+
+	<p>这是一个p</p>
+	<p class="cls">这是另一个p</p>
+	<span class="cls">这是第一个span</span><br/>
+	<span>这是第二个span</span><br/>
+	<div class="cls">这是第一个div</div>
+	<div>这是第二个div</div>
+	<input type="button" value="显示效果" id="btn"/><br/>
+
+    //点击按钮设置应用cls类样式的标签的背景颜色为红色
+    //getElementsByClassName();------>h5的
+
+    my$("btn").onclick = function () {
+            var Obj = document.getElementsByClassName("cls");
+            for(var i = 0; i<Obj.length; i++){
+                Obj[i].style.backgroundColor = "red";
+            }
+        }
+        */
+
+	/*========================隔行变色====================*/
+	/*
+
+
+	<input type="button" value="变色" id="btn">
+
+<ul id="uu">
+    <li>nuibds</li>
+    <li>vsags</li>
+    <li>vfdsgre</li>
+    <li>hyt</li>
+    <li>jr</li>
+    <li>e5ytg</li>
+    <li>gtrgtr</li>
+    <li>grthtr</li>
+</ul>
+
+    my$("btn").onclick = function () {
+            var count = 0;//记录有多少li
+            //获取ul中所有的子节点
+            var nodes = my$("uu").childNodes;
+            for (var i = 0; i < nodes.length; i++){
+                //    判断这个结点是不是li标签
+                if (nodes[i].nodeType == 1 && nodes[i].nodeName == "LI"){
+                    nodes[i].style.backgroundColor = count % 2 == 0 ? "red" :"yellow";
+                    count++;
+                    //nodes[i].style.backgroundColor = i%2 == 0 ? "red" :"yellow";
+                }
+            }
+
+        }
+	 */
+
+	/*==========================封装兼容性的代码=======================================*/
+/*
+
+<ul id="uu">
+    <li>cdv</li>
+    <li>vdfv</li>
+    <li>dvfdv</li>
+    <li>vgdfv</li>
+    <li>vdfes</li>
+    </ul>
+
+    //第一个节点和第一个元素的获取的代码再IE中可能不支持
+    //学习节点操作还是为了操作元素
+    //获取任意一个父级元素的第一个子元素
+    // element.firstChild--->google,fixbox获取的是一个子节点
+    // element.firstChild--->IE8获取的是第一个子元素
+    // element.firsElementChild-->谷歌和火狐是第一个子元素，IE8不支持
+
+    function  getFirstElementChildByParentElement(element) {
+        // if (typeof element.firstElementChild != "undefined"){
+        //
+        // }
+        if (element.firstElementChild){//true-->支持
+            return element.firstElementChild;
+        }else {
+            var node = element.firstChild;//第一个节点
+            while (node&&node.nodeType!=1){
+                node = node.nextSibling;
+            }
+            return node;
+
+        }
+    }
+
+
+    //获取任意一个父级元素的第一个子元素
+    function getLastElementChild(element) {
+        if (element.lastElementChild){//true-->支持
+            return element.lastElementChild;
+        }else {
+            var node = element.lastChild;//第一个节点
+            while (node&&node.nodeType!=1){
+                node = node.previousSibling;
+            }
+            return node;
+
+        }
+    }
+
+    console.log(getFirstElementChildByParentElement(my$("uu")));
+    console.log(getLastElementChild(my$("uu")))
+
+
+    */
+
+/*=========================案例切换背景图片===================================*/
+/*
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-image: url("images/1.jpg");
+        }
+
+        #mask {
+            background-color: rgba(255, 255, 255, 0.3);
+            height: 200px;
+            text-align: center;
+        }
+
+        #mask img {
+            width: 200px;
+            margin-top: 35px;
+            cursor: pointer;
+        }
+
+
+<body id="bd">
+<div id="mask">
+    <img src="images/1.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+</div>
+
+    var imgObj = my$("mask").children;//获取的所有的子元素
+    //循环遍历所有的img。
+    for (var i = 0; i <imgObj.length;i++){
+        imgObj[i].onclick = function () {
+            document.body.style.backgroundImage = "url("+this.src+")";
+        }
+    }
+*/
+
+/*==============================全选全不选============================*/
+/*
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_cbAll"/>
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>油炸榴莲</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>清蒸助教</td>
+            <td>田老师</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+    //获取全选的这个复选框
+    var ckAll = my$("j_cbAll");
+    //获取body中所有的小复选框
+    var cks = my$("j_tb").getElementsByTagName("input");
+    //    点击全选的这个复选框获取当前的状态，设置tbody中所有复选框的状态
+    ckAll.onclick = function () {
+        console.log(this.checked);
+        for(var i = 0; i < cks.length; i++){
+            cks[i].checked = this.checked;
+        }
+    };
+    //    获取tbody中所有的复选框，分别注册点击事件
+    for(var i = 0 ; i < cks.length; i++){
+        cks[i].onclick = function () {
+            //    判断是否所有的复选框都选中
+            var flag  = true;//默认都被选中了
+            for(var j = 0; j < cks.length; j++){
+                if (!cks[j].checked){
+                    //没选中就进来了
+                    flag = false;
+                    break;
+                }
+            }
+            //    都选中了:全选的这个复选框的状态就是flag这个变量的值
+            ckAll.checked = flag;
+        }
+    }
+
+*/
+
+	/*=====================元素创建的不同的方式====================*/
+/*
+* 元素创建---为了提高用户的体验
+* 元素创建三种方式：
+* 1.document.write("标签的代码以及内容");
+* 2.对象.innerHTML= "标签以及代码";
+* 3.document.createElement();
+* */
+
+/*
+
+<input type="button" value="创建一个p" id="btn">
+<div id="dv"></div>
+
+ //第一种创建方式
+ // my$("btn").onclick = function () {
+ //     document.write("<p>这是一个P</p>")
+ // };
+ //document.write()，创建元素有缺陷，如果是在页面加载完毕后，如果用此元素创建,那么页面上存在的所有的内容全部被干掉的
+
+
+ //第二种创建方式
+ //点击阿牛子啊div中创建一个p标签
+ my$("btn").onclick = function () {
+     my$("dv").innerHTML = "<p>我在这等你</p>";
+ }
+
+
+ */
+
+/*==========================动态创建列表====================================*/
+/*
+
+
+<input type="button" value="来一个图片" id="btn">
+<div id="dv"></div>
+
+
+    //点击按钮，在div中创建一个图片
+    my$("btn").onclick = function () {
+            //如果里面都是字符串，没有变量，外双内单
+            my$("dv").innerHTML = "<img src=\'images/1.jpg\'>";
+        }
+
+        */
+
+/*
+
+ <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="来一个图片" id="btn">
+<div id="dv"></div>
+
+
+
+    // my$("btn").onclick = function () {
+    //     my$("dv").innerHTML = "<ul><li>小美女</li><li>小龙女</li></ul>";
+    // }
+
+    var names = ["杨过","小龙女","我的女神"];
+    my$("btn").onclick =function () {
+            var str = "<ul>";
+            //根据循环创建一对的对应的Li
+            for (var i = 0; i < names.length; i++){
+                str+="<li>"+names[i]+"</li>";
+            }
+            str+="</ul>";
+            my$("dv").innerHTML = str;
+
+            //代码执行到这里，li已经有了
+            //获取所有的li,遍历，增加鼠标进去时间，鼠标移开事件
+            var list = my$("dv").getElementsByTagName("li");
+            for (var i = 0;i <list.length; i++){
+                list[i].onmouseover = function () {
+                    this.style.backgroundColor = "yellow";
+                };
+                list[i].onmouseout = function () {
+                    this.style.backgroundColor = "";
+                }
+            }
+        }
+
+        */
+
+/*==================================扩展的页面中嵌套广告=====================================*/
+/*
+        div {
+            font-size: 12px;
+            font-family: arial
+        }
+
+        .baidu {
+            font-size: 14px;
+            line-height: 24px;
+            font-family: arial
+        }
+
+        a, a:link {
+            color: #0000cc;
+        }
+
+        .baidu span {
+            color: #6f6f6f;
+            font-size: 12px
+        }
+
+        a.more {
+            color: #008000;
+        }
+
+        a.blk {
+            color: #000;
+            font-weight: bold;
+        }</style>
+
+
+		src="http://news.baidu.com/ns?word=x%20title%3Aiphone&tn=newsfcu&from=news&cl=2&rn=5&ct=0">
+
+
+ */
+
+
+/*=========================三种元素创建方式===========================*/
+	/*
+
+
+	        #dv{
+            width: 200px;
+            height: 300px;
+            border: 1px dashed red;
+        }
+
+
+<input type="button" value="创建" id="btn">
+<div id="dv"></div>
+
+    //把元素追加到父级元素中
+    //点击安装，在div中创建一个P
+    my$("btn").onclick = function () {
+            //创建元素的
+            var pObj =  document.createElement("p");
+            setInnerText(pObj,"这是一个P");
+            //把创建后的子元素追加到父级元素中
+            my$("dv").appendChild(pObj);
+        }
+	 */
+
+
+	/*
+
+
+
+        div{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #d3d3d3;
+        }
+
+
+<input type="button" value="创建列表" id="btn">
+<div id="dv"></div>
+
+    var kungfu = ["我的女神","小龙女","爱心给你","你若安好","便是晴天"];
+    //点击按钮动态的创建列表，把列表加到div中
+    my$("btn").onclick = function () {
+        //创建ul,把ul立刻加入到父级元素div中
+        var ulObj = document.createElement("ul");
+        my$("dv").appendChild(ulObj);
+        //动态的创建li,加载ul中
+        for (var i = 0; i < kungfu.length; i++){
+            var liObj = document.createElement("li");
+            //设置li中中间的文字内容
+            liObj.innerHTML = kungfu[i];
+            ulObj.appendChild(liObj);
+            //为li添加鼠标进入事件
+            liObj.onmouseover = mouseoverandle;
+            liObj.onmouseout = mouseoutHandle;
+        }
+    };
+    function mouseoverandle() {
+        this.style.backgroundColor = "red";
+        this.style.color = "#ffffff";
+    }
+    function mouseoutHandle() {
+        this.style.backgroundColor = "";
+        this.style.color = "";
+    }
+    //如果是循环的方式增加事件，推荐使用命名函数
+    //如果不是循环的方式增加事件，推荐使用匿名函数
+	 */
+
+
+	/*
+        div{
+            height: 400px;
+            width: 400px;
+            border: 1px solid red;
+        }
+
+<input type="button" value="haha" id="btn">
+<div id="dv"></div>
+
+    var arr = [
+        {name:"百度",href:"http://www.baidu.com"},
+        {name:"谷歌",href:"http://www.baidu.com"},
+        {name:"优酷",href:"http://www.baidu.com"},
+        {name:"快播",href:"http://www.baidu.com"},
+        {name:"爱奇艺",href:"http://www.baidu.com"}
+    ];
+
+    //点击按钮创建表格
+    my$("btn").onclick = function () {
+            //创建table加入到div中
+            var tableObj = document.createElement("table");
+            tableObj.border = "1";
+            tableObj.cellPadding = "0";
+            tableObj.cellSpacing = "0";
+            my$("dv").appendChild(tableObj);
+            //创建行，吧行加入table中
+            for (var i =0; i < arr.length; i++){
+                var dt = arr[i];
+                var trObj = document.createElement("tr");
+                tableObj.appendChild(trObj);
+                //创建第一列,然后加入到行中
+                var td1 = document.createElement("td");
+                td1.innerText = dt.name;
+                trObj.appendChild(td1);
+                //创建第一列
+                var td2 = document.createElement("td");
+                td2.innerHTML = "<a href="+dt.href+">"+dt.name+"</a>";
+                trObj.appendChild(td2);
+
+            }
+
+        }
+	 */
+
+	/*====================元素相关的方法=====================*/
+	/*
+
+	        div{
+            height: 200px;
+            width: 400px;
+            border: 1px solid red;
+        }
+
+<input type="button" value="显示效果" id="btn">
+<input type="button" value="干掉第一个子元素" id="btn2">
+<input type="button" value="点击全部没有了" id="btn3">
+<div id="dv"></div>
+
+
+    var i = 0;
+    my$("btn").onclick = function () {
+        i++;
+        var obj = document.createElement("input");
+        obj.type = "button";
+        obj.value = "haha" + i;
+        //my$("dv").appendChild(obj);//追加子元素
+
+        //吧新的子元素插入到第一个子元素的前面
+        my$("dv").insertBefore(obj,my$("dv").firstElementChild);
+        //my$("dv").replaceChild();
+    };
+    my$("btn2").onclick = function () {
+        //移除父级元素中第一个子级元素
+        my$("dv").removeChild(my$("dv").firstElementChild);
+    };
+    my$("btn3").onclick = function () {
+        //点击按钮删除div中所有的子级元素
+        //判断父级元素中有没有第一个元素
+        while (my$("dv").firstElementChild){
+            my$("dv").removeChild(my$("dv").firstElementChild);
+        }
+    };
+
+    */
+
+
+	/*===============================只创建一个元素=====================================*/
+	/*
+
+
+	        div{
+            height: 200px;
+            width: 400px;
+            border: 1px solid red;
+        }
+
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+
+
+    //有则删除，无则创建
+
+
+
+    // //先判断有没有，有的话删除
+    // my$("btn").onclick = function () {
+    //     //判断div中有没有这个按钮，有就删除
+    //     if (my$("btn2")){//如果有位true就删除
+    //         my$("dv").removeChild(my$("btn2"));
+    //     }
+    //     var obj = document.createElement("input");
+    //     obj.type = "button";
+    //     obj.value = "按钮";
+    //     obj.id = "btn2";
+    //     my$("dv").appendChild(obj);
+    // }
+
+
+    my$("btn").onclick = function () {
+            //判断div中有没有这个按钮，有就删除
+            if (!my$("btn2")){//如果有位true就删除
+                var obj = document.createElement("input");
+                obj.type = "button";
+                obj.value = "按钮";
+                obj.id = "btn2";
+                my$("dv").appendChild(obj);
+            }
+        }
+	 */
+
+	/*===================为元素绑定事件引入======================*/
+/*
+
+
+<input type="button" value="按钮" id="btn">
+
+
+    //这个按钮同时执行了多个事件
+    //为元素绑定事件(DOM):一种，但是不兼容：有两种
+    //1。对象.addEventListener("事件类型"，事件处理函数，false);就是IE8以下不兼容，主流的都兼容
+    //2.对象.attachEvents("有on的事件类型"，事件处理函数)----谷歌不支持，火狐不支持，IE支持
+
+    //addEventListener();
+    //为按钮绑定事件
+    //参数1：事件的类型---事件的名字，没有on
+    //参数2：事件处理函数----函数(命名，匿名)
+    //参数3：布尔类型
+
+    //为同一个元素绑定多个相同的事件
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("我好帅");
+    // },false);
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("你好美");
+    // },false);
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("你真好");
+    // },false);
+    // my$("btn").addEventListener("click",function () {
+    //     console.log("我是一个好小伙");
+    // },false);
+
+    //---->IE
+    //参数1：事件类型---事件名字，有on
+    //参数2：事件处理函数--函数（命名函数，匿名函数）
+    //  my$("btn").attachEvents("onclick",function () {
+    //      console.log("我真帅");
+    //  })
+
+      //------>全部兼容代码
+    //为任意元素.绑定任意的事件, 任意的元素,事件的类型,事件处理函数
+    function addEventListener(element,type,fn) {
+        //判断浏览器是否支持这个方法
+        if(element.addEventListener){
+            element.addEventListener(type,fn,false);
+        }else if(element.attachEvent){
+            element.attachEvent("on"+type,fn);
+        }else{
+            element["on"+type]=fn;
+        }
+    }
+    addEventListener(my$("btn"),"click",function () {
+        console.log("哇，好神奇");
+    });
+    addEventListener(my$("btn"),"click",function () {
+        console.log("哇，好神奇2");
+    });
+    addEventListener(my$("btn"),"click",function () {
+        console.log("哇，好神奇");
+    });
+
+     // function Person(name) {
+     //     this.name = name;
+     //     this.sayHi = function () {
+     //         console.log("您好");
+     //     };
+     // }
+     // var per = new Person("小明");
+     // if (per.sayHi){//判断这个对象中有没有这个方法
+     //     per.sayHi();
+     // }else {
+     //     console.log("没有这个方法");
+     // }
+
+ */
+
+/*=========================复习节点=====================================================*/
+/*
+* 节点：
+* 节点：页面中所有的内容都是节点（标签，属性，文本，文字，空格，换行）
+* 文档：document----页面中顶级对象
+* 元素：页面中所有的标签，标签--可以叫做元素--对象（通过DOM获取这个标签，得到了这个对象，此时这个对象叫做DOM对象）
+* 节点的属性：作用：为了将来获取很多节点，得到节点中的标签（元素），识别节点中的标签元素
+*           节点类型：标签节点，属性节点，文本节点
+*           nodeType:节点的类型：1---标签节点，2---属性节点，3--文本节点
+*           nodeName:标签节点---大写的标签名字  if(node.nodeType == 1 && node.nodeName == "P" && node.nodeValue == null),属性节点---小写的属性名字，文件节点---#text
+*           nodeValue：标签--null, 属性---属性的值，文本--文本内容
+*  获取节点以及元素的代码
+*     获取当前节点父级节点
+*     console.log(my("uu").parentNode);
+*     获取当前节点的父级元素
+*     console.log(my("uu").parentElement);
+*     获取当前节点的子级节点
+*     console.log(my("uu").childNodes);
+*     获取当前节点的子级元素
+*     console.log(my("uu").children);
+*     获取当前节点第一个子级节点
+*     console.log(my("uu").firstChild);
+*     获取当前节点的第一个子级元素
+*     console.log(my("uu").firstElementChild);
+*     获取当前节点的最后一个子级节点
+*     console.log(my("uu").lastChild);
+*     获取当前节点的最后一个子级元素
+*     console.log(my("uu").lastElementChild);
+*     获取当前节点的前一个兄弟节点
+*     console.log(my("uu").previousSibling);
+*     获取当前节点的前一个兄弟元素
+*     console.log(my("uu").previousElementSibling);
+*     获取当前节点的后一个兄弟节点
+*     console.log(my("uu").nextSibling);
+*     获取当前节点的后一个兄弟元素
+*     console.log(my("uu").nextElementSibling);
+*
+* 三种元素创建的方式
+* 1.document.write("标签代码以及内容");如果在页面加载完毕后创建元素，页面中的内容会被干掉
+* 2.父级对象.innerHTML = "标签代码以及内容";
+* 3.document.createElement("标签名字");得到的是一个对象
+*   父级元素.appendChild(子级元素对象);
+*
+* */
+
+
+/*=========================绑定事件的区别====================================*/
+	/*
+
+	    //为按钮绑定多个点击事件
+    my$("btn").addEventListener("click",function () {
+        console.log(this);
+    },false);
+
+    //总结绑定事件的区别
+    //addEventListener();
+    //attachEvent()
+    //相同点：都可以为元素绑定事件
+       //不用点：1。方法名不一样2.参数个数不一样3.addEventListener--主流的浏览器支持，ie8以下不支持  attachEvent--只有IE8支持 4.this不同，addEventListener中this是当前绑定事件的对象
+    //   attachEvent this是window  5.addEventListener中事件的类型（事件的名字）没有on
+    //  attachEvent 中事件的类型（事件的名字）有on
+	 */
+
+	/*=======================解绑事件===============================*/
+//第一种种解绑试讲
+//对象.on事情的名字 = 事件处理函数----绑定事件
+// my$("btn").onclick = function () {
+//     console.log("我帅");
+// };
+//
+// my$("btn1").onclick = function () {
+//     //1。解绑事件
+//     my$("btn").onclick = null;
+// };
+
+
+
+//第二种解绑试讲
+// function f1() {
+//     console.log("第一个");
+// }
+// function f2() {
+//     console.log("第二个");
+// }
+// my$("btn").addEventListener("click",f1,false);
+// my$("btn").addEventListener("click",f2,false);
+//
+// //点击第二个按钮把第一个按钮的第一个点击事件解绑
+// my$("btn1").onclick = function () {
+//     //解绑事件的时候，需要在昂定事件的时候，使用命名函数
+//     my$("btn").removeEventListener("click",f1,false);
+// };
+
+//第二种解绑事件---IE8]
+// function f1() {
+//     console.log("第一个");
+// }
+// function f2() {
+//     console.log("第二个");
+// }
+// my$("btn").attachEvents("onclick",f1,false);
+// my$("btn").attachEvents("onclick",f2,false);
+// my$("btn1").onclick = function () {
+//     my$("btn").detachEvents("onclick",f1,false);
+// };
+
+
+
+
+/**
+ *  注意：用什么方式绑定事件，应该用对应的方式解绑事件
+ *
+ *  1.解绑事件
+ *    对象.on事件名字 = 事件处理函数---->绑定事件
+ *    对象.on事件名字 = null;
+ *  2.解绑事件
+ *    对象.addEventListener("m没有on的事件类型",命名函数,false);---绑定事件
+ *    对象.removeEventListener("m没有on的事件类型",命名名字,false);---解绑事件
+ *
+ *  3.解绑事件(IE8)
+ *    对象.attachEvents("on事件类型",命名函数,false);----绑定事件
+ *    对象.detachEvents("on事件类型",命名名字,false);
+ *
+ */
+
+/*=====================元素绑定事件和解绑事件的兼容性代码================================*/
+/*
+    //绑定事件的兼容代码
+    function addEventListener(element,type,fn) {
+        if (element.addEventListener){
+            element.addEventListener(type,fn,false);
+        }else if(element.attachEvents){
+            element.attachEvent("on"+type,fn);
+        }else {
+            element["on"+type] = fn;
+        }
+    }
+
+
+    //解绑事件的兼容性代码
+    //为任意的一个元素，解绑对应的事件
+    function removeEventListener(element,type,fnName) {
+        if (element.removeEventListener){
+            element.removeEventListener(type,fnName,false);
+        }else if(element.datachEvent){
+            element.datachEvent("on"+type,fnName);
+        }else {
+            element["on"+type] = null;
+        }
+    }
+
+    function f1(){
+        console.log("第一个");
+    }
+    function f2(){
+        console.log("第二个");
+    }
+    addEventListener(my$("btn"),"click",f1);
+    addEventListener(my$("btn"),"click",f2);
+
+    my$("btn1").onclick = function () {
+        removeEventListener(my$("btn"),"click",f1);
+    }
+
+ */
+
+/*==================事件冒泡===========================*/
+/*
+
+       #dv1{
+            width:300px;
+            height: 200px;
+            background-color: red;
+        }
+        #dv2{
+            width:250px;
+            height: 150px;
+            background-color: green;
+        }
+        #dv3{
+            width:150px;
+            height: 100px;
+            background-color: blue;
+        }
+
+<div id="dv1">
+    <div id="dv2">
+        <div id="dv3"></div>
+    </div>
+</div>
+
+
+
+    //事件冒泡：多个元素嵌套，有层次关系,这些元素都注册了相同的事件，如果里面的元素的时间出发了，外面的元素的改时间自动的触发了，这就是事件冒泡
+    my$("dv1").onclick = function () {
+        console.log(this.id);
+    };
+    my$("dv2").onclick = function () {
+        console.log(this.id);
+    };
+    my$("dv3").onclick = function () {
+        console.log(this.id);
+    };
+    document.body.onclick = function () {
+            console.log("哈哈，来吧");
+        }
+ */
+
+
+
+/*
+
+    //事件冒泡，阻止事件冒泡
+    //如果阻止事件冒泡
+    //window.event.cancelBubble = true;//阻止事件冒泡  ,  ie，谷歌支持，火狐不支持
+    //e.stopPropagation();谷歌火狐支持，IE不支持
+    my$("dv1").onclick = function () {
+        console.log(this.id);
+    };
+    my$("dv2").onclick = function (e) {
+        console.log(this.id);
+        e.stopPropagation();//阻止事件冒泡，火狐谷歌支持的
+        console.log(e)
+    };
+    //事件处理参数对象
+    my$("dv3").onclick = function () {
+        console.log(this.id);
+        window.event.cancelBubble = true;//阻止事件冒泡
+    };
+
+
+
+ */
+
+/*=================================总结事件=====================================*/
+
+/**
+ * 事件有三个阶段：
+ * 1.事件捕获阶段：从外向内
+ * 2.事件目标阶段：最开始选择哪个
+ * 3.事件冒泡阶段：从里向外
+ *
+ * 为元素绑定事件
+ * addEventListener("没有on的事件类型",事件处理函数,控制事件阶段的)
+ * 事件触发的过程中，可能会出现事件冒泡的效果，为了阻止事件冒泡---》
+ * window.event.cancelBubble = true;谷歌，IE8支持，火狐不支持
+ * window.event就是一个对象，是IE中的标准
+ * e.stopPropagation();阻止事件冒泡--->谷歌和火狐支持
+ * window.event和e都是时间参数对象，一个是IE的标准，衣蛾是火狐的标准
+ * 事件参数E在IE的浏览器中是不存在的，此时用window.event来代替
+ *addEventListener中第三个参数是控制事件阶段的：
+ * 时间的阶段有是三个：
+ * 通过e.eventPhase这个属性可以知道当前的时间是什么阶段的
+ * 如果这个属性的值是：
+ * 1-----》捕获阶段
+ * 2-----》目标阶段
+ * 3-----》冒泡阶段
+ * 一般默认都是冒泡阶段，很少用捕获阶段
+ * 冒泡阶段：从里向外
+ * 捕获阶段：从外向内
+ *
+ *
+ */
+
+
+
+
+/*
+ //false事件冒泡是从里向外。true事件冒泡是从外向里
+    //同时注册点击事件
+    var objs = [my$("dv3"),my$("dv2"),my$("dv1")];
+    //遍历事件
+    objs.forEach(function (ele) {
+        //console.log(arguments[0],arguments[1],arguments[2]);
+        //为每个元素绑定事件
+        ele.addEventListener("click",function (e) {
+            console.log(this.id+"======>" + e.eventPhase);
+        },true)
+    })
+
+    //该属性在事件参数对象中存在
+
+	 */
+
+/*===================================为同一个元素绑定多个不同事件，指向相同的事件处理函数=====================================================*/
+	/*
+
+
+
+<input type="button" value="显示效果" id="btn">
+
+
+    //为同一个元素绑定多个不同事件，指向相同的事件处理函数
+    my$("btn").onclick = f1;
+    my$("btn").onmouseover = f1;
+    my$("btn").onmouseout = f1;
+
+    function f1(e) {
+        switch (e.type) {
+            case "click" :
+                alert("我好帅");
+                break;
+            case "mouseover" :
+                alert("我很帅");
+                this.style.backgroundColor = "red";
+                break;
+            case "mouseout" :
+                alert("我帅爆了");
+                this.style.backgroundColor = "green";
+                break;
+        }
+    }
+
+    // my$("btn").onmouseover = function (event) {
+    //     console.log(event);
+    // }
+
+
+    */
+
+	/*=========================百度搜索==================================*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!--
+    Created by wangyang on 2018/11/20.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+
+    </style>
+</head>
+<body>
+
+
+
+<script src="common.js"></script>
+<script>
+    /**
+     * JavaScript分为三个部分：
+     * 1.ECMAScript标准--基本语法
+     * 2.DOM--》Document Object Model 文档对象模型，操作页面元素的
+     * 3.BOM--》Browser OBject Model  浏览器对象模型，操作浏览器的
+     *
+     * 浏览器中有个顶级对象：window
+     * 页面中顶级对象：document
+     * 页面中所有的内容都是属于浏览器的，页面中的内容也都是window
+     *
+     *
+     */
+
+    //变量是window的
+    var num = 10;
+    console.log(window.num);
+
+    //函数也是window的，，，方法本质函数，函数也可以看做是方法
+    function f() {
+        console.log("我很帅");
+    }
+    window.f();
+
+
+    //因为页面中的所有内容都是window的window是可以省略的
+
+    var name = "小汪";
+    console.log(window.name);
+
+    console.log(top);
+    console.log(window);
+
+</script>
+</body>
+</html>

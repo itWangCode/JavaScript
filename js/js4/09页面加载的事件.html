@@ -1,0 +1,46 @@
+<!--
+    Created by wangyang on 2018/11/20.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <script>
+        //页面加载的时候，不能放在head标签上面，要放在body结束位置,最好是在下面呢
+        //页面加载完毕，在获取按钮,页面中所有的内容
+        window.onload = function(){
+            document.getElementById("btn").onclick = function () {
+                alert("你好");
+            }
+        };
+
+
+        //页面关闭事件----页面关闭后才触发的这个事件
+        window.onunload = function () {
+            alert("haha");
+        };
+
+        //页面关闭之前触发了
+        window.onbeforeunload = function () {
+            alert("xixi");
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" value="按钮" id="btn">
+
+
+</body>
+</html>

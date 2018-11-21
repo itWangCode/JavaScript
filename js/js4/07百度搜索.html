@@ -1,0 +1,126 @@
+<!--
+    Created by wangyang on 2018/11/20.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+    <style>
+        #box {
+            width: 450px;
+            margin: 200px auto;
+        }
+
+        #txt {
+            width: 350px;
+        }
+
+        #pop {
+            width: 350px;
+            border: 1px solid red;
+        }
+
+        #pop ul {
+            margin: 10px;
+            padding: 0px;
+            width: 200px;
+            list-style-type: none;
+
+        }
+
+        #pop ul li {
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <input type="text" id="txt" value="">
+    <input type="button" value="搜索" id="btn">
+</div>
+
+<script src="common.js"></script>
+<script>
+    var keyWords = ["小汪才是最纯洁的", "小汪才是最帅的", "小段是最猥琐的", "小超是最龌龊的", "传智播客是一个培训机构", "传说在四川有个很帅很纯洁的小杨", "苹果好吃", "苹果此次召回还是没有中国"];
+    my$("txt").onkeyup = function () {
+        //每一次的键盘抬起都判断页面中有没有这个div
+        if (my$("dv")){
+            //删除一次
+            my$("box").removeChild(my$("dv"));
+        }
+
+
+        var text = this.value;
+         var tempArr = [];//临时数组--空数组---》存放对应上的数据
+        //吧文本框输入放入内容和数组中的每个数据对比
+        for (var i = 0; i < keyWords.length; i++){
+            //是否是最开始出现的
+            if (keyWords[i].indexOf(text)==0){
+            //如果是的话，放入临时的数组里面
+                tempArr.push(keyWords[i]);//追加
+            }
+        }
+        //console.log(tempArr.length);
+        //临时数组有数据了
+        console.log(tempArr);
+        //如果文本框是空的，临时数组是空的，不用创建div
+        if (this.value.length == 0 || tempArr == 0){
+            //如果页面中有这个div，删除这个div
+            if (my$("dv")){
+                my$("box").removeChild(my$("dv"));
+            }
+            //后面的代码不执行了
+            return;
+        }
+        //遍历临时数组，创建div,把div加入id为box的div中
+        var dvObj = document.createElement("div");
+        my$("box").appendChild(dvObj);
+        dvObj.id = "dv";
+        dvObj.style.width = "350px";
+        dvObj.style.height = "100%";
+        dvObj.style.border = "1px solid green";
+
+        //循环遍历临死数组，创建对应的p标签
+        for (var i = 0; i < tempArr.length; i++){
+            //创建p标签
+            var pObj = document.createElement("p");
+            //把p标签加入到div中
+            dvObj.appendChild(pObj);
+            setInnerText(pObj,tempArr[i]);
+            pObj.style.margin = 0;
+            pObj.style.padding = 0;
+            pObj.style.cursor = "pointer";
+            pObj.style.marginTop = "5px";
+            pObj.style.marginLeft = "5px";
+
+            //鼠标进入
+            pObj.onmouseover = function () {
+                this.style.backgroundColor = "#d3d3d3";
+            };
+            pObj.onmouseout = function () {
+                this.style.backgroundColor = "";
+            }
+        }
+
+    }
+
+
+    // var str = "小红还漂亮";
+    // var index = str.indexOf("小红");
+    // console.log(index);
+</script>
+</body>
+</html>
