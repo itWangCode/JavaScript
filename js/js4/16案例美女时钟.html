@@ -1,0 +1,48 @@
+<!--
+    Created by wangyang on 2018/11/21.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+<img src="" alt="" id="img">
+
+<script src="common.js"></script>
+<script>
+    function f1() {
+        //获取当前时间
+        var dt = new Date();
+        //获取小时
+        var hour = dt.getHours();
+        //获取秒
+        var second = dt.getSeconds();
+
+        hour = hour < 10 ? "0"+hour : hour;
+        second = second < 10 ? "0"+second : second;
+        console.log(hour + "=======" +second);
+        my$("img").src = "meimei/"+hour+"_"+second+".jpg";
+    }
+
+    //页面加载完毕后，过了1秒才执行，函数的代码
+    setInterval(f1,1000);
+
+
+</script>
+</body>
+</html>

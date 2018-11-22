@@ -1,0 +1,51 @@
+<!--
+    Created by wangyang on 2018/11/21.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dv"></div>
+<input type="button" value="渐变" id="btn">
+
+<script src="common.js"></script>
+<script>
+    var opacity = 10;
+
+    my$("btn").onclick = function () {
+       var timeId = setInterval(function () {
+            //透明化
+            opacity--;
+            if (opacity <= 0){
+                clearInterval(timeId);
+            }
+            //设置div的透明度
+           my$("dv").style.opacity = opacity/10;
+
+        },100);
+
+    }
+</script>
+</body>
+</html>

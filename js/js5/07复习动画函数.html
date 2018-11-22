@@ -1,0 +1,50 @@
+<!--
+    Created by wangyang on 2018/11/21.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+
+<script src="common.js"></script>
+<script>
+
+    //设置任意的一个元素，移动到指定的目标位置
+    function animate(element,target) {
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //获取当前的元素的位置
+            var current = element.offsetLeft;//数字类型
+            //每次移动的距离
+            var step = 10;
+            step = current - target ? step : -step;
+            //当前移动的位置
+            current += step;
+            if (Math.abs(current-target) > Math.abs(step)){
+                element.style.left = current + "px";
+            }else{
+                clearInterval(element.timeId);
+                element.style.left = target + "px";
+            }
+
+        },20)
+    }
+</script>
+</body>
+</html>

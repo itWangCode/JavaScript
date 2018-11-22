@@ -1,0 +1,51 @@
+<!--
+    Created by wangyang on 2018/11/21.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dv"></div>
+<input type="button" value="边长" id="btn">
+
+<script src="common.js"></script>
+<script>
+my$("btn").onclick = function () {
+    var width = 300;
+    var timeId = setInterval(function () {
+        width+=10;
+        if (width == 800){
+            clearInterval(timeId);
+        }
+        my$("dv").style.width = width + "px";
+    },20)
+}
+</script>
+</body>
+</html>

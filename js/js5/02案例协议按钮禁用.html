@@ -1,0 +1,54 @@
+<!--
+    Created by wangyang on 2018/11/21.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+<textarea name="" id="" cols="30" rows="10">
+    这个世界就是很疯狂
+</textarea>
+
+<input type="button" value="请仔细阅读协议(5)" id="btn" disabled>
+
+<script src="common.js"></script>
+<script>
+    var time = 5;
+    var timeId = setInterval(function () {
+
+        // if (time>= 0){
+        //     time--;
+        // }else {
+        //     time=0;
+        // }
+
+        time--;
+        my$("btn").value = "请仔细阅读协议("+time+")";
+        if (time<=0) {
+            //停止定时器
+            clearInterval(timeId);
+            //按钮可以被点击了
+            my$("btn").disabled = false;
+            my$("btn").value = "同意";
+        }
+
+    },1000)
+</script>
+</body>
+</html>
