@@ -200,5 +200,27 @@ var EventTools= {
     }
 };
 
+//动画函数---任意一个元素移动到指定的目标位置
+function animate(element, target) {
+    //先清理定时器
+    clearInterval(element.timeId);
+    element.timeId = setInterval(function () {
+        //获取当前的位置
+        var current = element.offsetLeft;//数字类型，没有px
+        //div每次移动多少px
+        var step = 10;
+        step = current < target ? step : -step;
+        //每次移动后的距离
+        current += step;
+        //判断当前移动后的位置是否到达目标位置Math.abs()绝对值
+        if (Math.abs(target - current) > Math.abs(step)) {
+            //设置div的目标位置
+            element.style.left = current + "px";
+        } else {
+            clearInterval(element.timeId);
+            element.style.left = target + "px";
+        }
+    }, 10)
+}
 
 

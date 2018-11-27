@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if it IE 7]>
+<html class=no-js ie ie6 ite9 ite8 ite7"><![endif]-->
+<!--[if IE 7]>
+<html class=no-js ie ie7 ite9 ite8 ite7"><![endif]-->
+<!--[if IE 8]>
+<html class=no-js ie ie8 ite9 ite7"><![endif]-->
+<!--[if IE 9]>
+<html class=no-js ie ie9 ite8 ite7"><![endif]-->
+<!--[if gt IE 9]>
+<html class=no-js"><![endif]-->
+<!--[if !IE]>
+<html><![endif]-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+</head>
+<body>
+
+<script>
+    /**
+     * 获取指定格式的时间
+     * @param dt 日期的对象
+     * @returns {string}  返回的是字符串的日期时间
+     */
+    // 格式化日期和时间
+    // 格式化后的指定格式的日期----封装一个函数
+    function getDate(dt){
+        var dt = new Date();//创建日期的对象
+        // 获取年
+        var year = dt.getFullYear();
+        // 获取月
+        var month = dt.getMonth()+1;
+        // 获取日
+        var day = dt.getDate();
+        // 获取小时
+        var hour = dt.getHours();
+        // 获取分钟
+        var minute = dt.getMinutes();
+        // 获取秒
+        var second = dt.getSeconds();
+        // 获取星期
+        // var week = dt.getDay();
+
+        month = month < 10 ?  "0"+month:month;
+        day = day < 10 ?  "0"+day:day;
+        hour = hour < 10 ?  "0"+hour:hour;
+        minute = minute < 10 ? "0"+minute:minute;
+        second = second < 10 ? "0"+second:second;
+
+        return year + "年" + month + "月" + day + "日" + "  " + hour + "时" + minute + "分" + second + "秒";
+    }
+    var dt = new Date();
+    console.log(getDate(dt));
+</script>
+</body>
+</html>

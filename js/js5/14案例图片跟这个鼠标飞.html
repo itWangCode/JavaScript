@@ -1,0 +1,43 @@
+<!--
+    Created by wangyang on 2018/11/25.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+
+<img src="images/tianshi.gif" alt="" id="img">
+
+<script src="common.js"></script>
+<script>
+    //鼠标在页面中移动，图片跟着鼠标移动
+    document.onmousemove = function (e) {
+        console.log("我动了");
+        //鼠标的移动的
+        //可是区域的横坐标
+        //可是区域的纵坐标
+        my$("img").style.left = e.clientX + "px";
+        my$("img").style.top = e.clientY + "px";
+    }
+</script>
+</body>
+</html>
