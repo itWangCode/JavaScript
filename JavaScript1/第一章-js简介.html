@@ -1117,6 +1117,139 @@ switch (jibie) {
     console.log(arr);
 
     //函数
+    //作用：就是把一堆代码封装起来，在需要的时候，我们拿来调用，代码重用
+   /* function function_name(argument) {
+        // body...
+    }*/
+
+    /**
+     *  argument是一个作为函数输入的值（原始数据或者对象），一个对应于传递给函数的参数的类数组对象，实参
+     *  函数需要先定义，然后才能使用
+     *  function_name函数名字：遵循驼峰命名法，（并且函数名是不能一样）
+     */
+
+    //求两个数字的和
+    var num1 = 10;
+    var num2 = 20;
+    var sum = num1 + num2;
+    console.log(sum);
+
+    function consoleSum() {//函数定义
+        var num1 = 10;
+        var num2 = 20;
+        var sum = num1 + num2;
+        console.log(sum);
+    }
+    //调用
+    consoleSum();
+
+
+    function consoleSum(x,y) {//函数定义
+        var sum = x + y;
+        console.log(sum);
+    }
+    //调用
+    consoleSum(parseInt(prompt("请您输入第一个数字")),parseInt(prompt("请您输入第二个数字")));
+
+
+
+
+    //求三个数的最大值
+    function consoleSum() {//函数定义
+        var num1 = 10;
+        var num2 = 20;
+        var num3 = 120;
+        var max = num1 > num2 ? (num3 > num1 ?  num3 : num1) : (num2 > num3 ? num2 : num3);
+        console.log(max);
+    }
+    //调用
+    consoleSum();
+
+
+    //求两个数字的最大值
+    function consoleSum() {//函数定义
+        var x = 10;
+        var y = 20;
+        var max = x > y ? x : y;
+        console.log(max);
+    }
+    //调用
+    consoleSum();
+
+
+    //求1-100和
+    function everySum() {
+        var sum = 0;
+        for (var i = 1; i <= 100; i++){
+            sum += i;
+        }
+        console.log(sum);
+    }
+    everySum();
+
+    //1-100直接的偶数
+    function everySum() {
+        var sum = 0;
+        for (var i = 1; i <= 100; i++){
+            if (i % 2 == 0){
+                sum += i;
+            }
+        }
+        console.log(sum);
+    }
+    everySum();
+
+    //求一组函数的和
+    function everySum() {
+        var sum = 0;
+        var arr = [20,30,20,10,3,2,4,2];
+        for (var i = 0; i < arr.length; i++){
+            sum += arr[i];
+        }
+        console.log(sum);
+    }
+    everySum();
+
+    //函数返回值   set：设置    get:获取
+    function getSum(x,y,z) {
+        var sum = x + y;//形参的个数，与实参的个数可以不一致
+        return sum;   //这里的return，就是相当于console.log(sum)，直接把值算出来了
+    }
+    getSum(10,20);
+    
+    function f1(x,y) {
+        var sum = x + y;
+    }
+    f1();//undefined   1.函数没有返回值，但是在调用的时候接受了，那么结果就是undefined，2.变量声明了，但是没有赋值，结果还是undefined
+
+    function f1(x,y) {
+        var sum = x + y;
+    }
+    f1(10,20);//undefined  变量声明了，但是没有返回，结果还是undefined
+
+    //函数案例
+    function  f1() {
+        console.log("我很帅");
+        return 100;
+    }
+    console.log(f1());
+
+    //求n-m直接所有数字的和
+    function getSum() {
+        
+    }
+
+
+
+
+
+
+    
+
+
+
+
+
 
 
 
