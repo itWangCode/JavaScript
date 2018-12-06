@@ -1,0 +1,67 @@
+<!--
+    Created by wangyang on 2018/12/6.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+
+<script src="common.js"></script>
+<script>
+    //荣光构造函数实例对象，并且初始化
+    var arr = new Array(10,20,30,40);
+    //var per = new Person("小明",20,"男");
+    //join是方法，实例对象调用的方法
+    arr.join("|");
+    console.log(arr);
+    //join方法在实例对象__proto__原型中
+     console.log(arr.__proto__ == Array.prototype);//true
+</script>
+
+<script>
+    //构造函数
+    function Person(age,sex) {
+        this.age = age;
+        this.sex = sex;
+    }
+
+    //通过构造函数的原型增加一个方法
+    Person.prototype.eat = function () {
+        console.log("吃饭");
+    };
+    var per = new Person(20,"男");
+    per.eat();
+
+    //构造函数和原型对象和实例对象的关系
+
+    /**
+     * 1.通过构造函数创建实例对象
+     * 2.原型在构造函数里面
+     * 3.实例对象可以调用方法
+     *
+     *
+     *
+     */
+
+    console.dir(Person);
+    console.dir(per);
+
+</script>
+</body>
+</html>

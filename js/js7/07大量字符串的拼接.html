@@ -1,0 +1,44 @@
+<!--
+    Created by wangyang on 2018/12/1.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+
+</head>
+<body>
+<input type="button" value="拼接吧" id="btn"/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<script src="common.js"></script>
+<script>
+    var str = "assdd";
+    console.log(str[2]);
+    str[2] = "h";
+    console.log(str);
+
+
+    //字符串特性：不可改变
+    //点击按钮实现拼接-->推荐使用数组，返回值就是字符串类型
+    document.getElementById("btn").onclick = function () {
+        var str =[];
+        //获取所有的文本框
+        var inputAll = document.getElementsByTagName("input");
+        for (var i = 0; i < inputAll.length; i++){
+            if (inputAll[i].type !=="button"){
+                str.push(inputAll[i].value);
+            }
+        }
+        console.log(str.join("|"));
+    }
+</script>
+
+</body>
+</html>

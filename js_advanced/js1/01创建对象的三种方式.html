@@ -1,0 +1,81 @@
+<!--
+    Created by wangyang on 2018/12/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+</head>
+<body>
+
+
+
+
+<script>
+    //对象：特值的某个事物，具有属性和方法（一组无序的属性的集合）
+    //特征---》属性
+    //行为---》方法
+    //小汪--》姓名,性别，年龄，吃，睡觉，玩
+
+    //创建对象三种方式：
+//    1.字面量的
+//    2.调用系统的构造函数
+//    3.自定义构造函数方式
+
+
+    //字面量
+    var per1 = {
+       name:"xixi",
+       age:20,
+        sex:"男",
+         eat:function () {
+             console.log("吃饭");
+         },
+        readBook:function () {
+            console.log("散文诗歌");
+        }
+    };
+
+    //调用系统函数的构造函数
+    var per2 = new Object();
+    per2.name = "haha";
+    per2.age = 18;
+    per2.sex = function () {
+        console.log("吃榴莲")
+    };
+    per2.play = function () {
+        console.log("真好玩")
+    };
+    function Person(){
+
+    }
+    //console.log(per2 instanceof Person)
+    console.log(per2 instanceof Object);
+
+
+//自定义构造函数
+    function Person(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+
+        this.play = function () {
+            console.log("好玩");
+        };
+    }
+    var per =  new Person("汪程序员",19,"女");
+    console.log(per instanceof Person);
+    console.log(per);
+</script>
+</body>
+</html>

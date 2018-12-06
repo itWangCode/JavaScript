@@ -1,0 +1,101 @@
+<!--
+    Created by wangyang on 2018/12/4.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    /*
+        function Person(name,age) {
+            this.name = name;
+            this.age = age;
+            this.eat = function () {
+                console.log("吃肉");
+            }
+        }
+        var per1 = new Person("小白",20);
+        var per2 = new Person("小黑",22);
+        per1.eat();
+        per2.eat();
+        //不是同一个方法
+        console.log(per1.eat == per2.eat);//false,这两个不是同一个对象，也不是调用同一个方法
+
+        console.dir(per1);
+        console.log(per2);
+    */
+
+    /*  function myEat() {
+          console.log("吃肉");
+      }
+
+      function Person(name, age) {
+          this.name = name;
+          this.age = age;
+          this.eat = myEat;
+      }
+
+      var per1 = new Person("小白", 20);
+      var per2 = new Person("小黑", 22);
+      per1.eat();
+      per2.eat();
+
+      console.log(per1.eat == per2.eat);//true*/
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    //通过原型来增加方法,解决数据共享，节省内存空间
+    Person.prototype.eat = function () {
+        console.log("吃肉");
+    };
+    var p1 = new Person("小明", 10);
+    var p2 = new Person("小红", 20);
+    console.log(p1 == p2);//false
+    console.log(p1.eat == p2.eat);//true
+    console.dir(p1);
+    console.dir(p2);
+    console.dir(Person);
+    p1.__proto__.eat();//调用了，
+    Person.prototype.constructor;
+    console.log(p1.__proto__==Person.prototype);//true
+
+    //实例对象中根本没有eat方法，但是能够使用，这是为什么呢？
+    //window是对象
+    //document是属性，document也是一个对象
+    //write()是方法
+    //window.document.write("哈哈");
+    //对象.style.color=值;
+
+
+    /**
+     *  原型？
+     *  实例对象中有__proto__这个属性，叫原型，也是一个对象，这个属性是给浏览器使用的，不是标准属性
+     *  构造函数中有prototype这个属性，叫做原型，也是一个对象,这个属性，是给程序员用的，是标准的属性----》prototype---》可以叫做原型对象
+     *  实例对象的__proto__和构造函数中的prototype相等 ---》true
+     *  有因为实例对象是通过构造函数来创建的，构造函数中有原型对象prototype
+     *  实例对象的__proto__指向了构造函数的原型对象prototype
+     *
+     *
+     */
+
+</script>
+</body>
+</html>

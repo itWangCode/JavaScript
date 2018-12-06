@@ -1,0 +1,49 @@
+<!--
+    Created by wangyang on 2018/12/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    // 自定义构造函数
+    function Person(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.play = function () {
+            console.log("跑步");
+        };
+    }
+    //创建对象---》实例化一个对象的同时对属性进行初始化
+    var per = new Person("小汪",18,"男");
+    console.log(per);
+
+
+    /*
+    * 1.开辟空间存储对象
+    * 2.把this设置当前的对象
+    * 3.设置属性和方法的值
+    * 4.把this对象返回
+    * */
+
+
+
+</script>
+</body>
+</html>

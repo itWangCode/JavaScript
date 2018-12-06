@@ -1,0 +1,149 @@
+<!--
+    Created by wangyang on 2018/11/29.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<img src="images/tianshi.gif" alt="" id="img">
+
+<script src="common.js"></script>
+<script>
+    //文档的鼠标移动事件
+    //对象  事件  事件处理函数，事件触发了，函数的代码就会执行，执行的时候，函数调用的时候
+    //通过arguments.length，可以得出：事件处理函数中实际上市有一个参数的，这个参数和时间有关系的，是一个对象---》事件参数对象
+
+    //谷歌和火狐中都有这个事件参数对象，ie8中没有
+    //时间参数对象：e----在IE8中用Window.event来代替
+    // document.onmousemove = function (ev) {
+    //     //console.log(arguments.length);
+    //     //console.log(arguments[0]);
+    //     console.log(ev);
+    //
+    // };
+    
+    // document.onmousemove = function (e) {
+    //     //document.title = e.clientX + "---->" + e.clientY;
+    //     my$("img").style.left = e.clientX + "px";
+    //     my$("img").style.top = e.clientY + "px";
+    // };
+
+
+    //这里面都兼容的
+    // document.onmousemove = function (e) {
+    //     e = window.event || e;
+    //     //可视区域的横坐标
+    //     //可视区域的纵坐标
+    //     my$("img").style.left = e.clientX + "px";
+    //     my$("img").style.top = e.clientY + "px";
+    // };
+
+    // document.onmousemove = function (e) {
+    //     //pageX,pageY在IE8不支持的，主流都支持（谷歌，火狐都支持）
+    //     // my$("img").style.left = e.pageX + "px";
+    //     // my$("img").style.top = e.pageY + "px";
+    //
+    //     function getScroll() {
+    //         return{
+    //             left: window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft || 0,
+    //             top:window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop || 0
+    //         }
+    //     }
+    //     //可视区域的横坐标+向左卷曲出去的横坐标
+    //     my$("img").style.left = window.event.clientX + getScroll().left + "px";
+    //     //可视区域的纵坐标+向上卷曲出去的纵坐标
+    //     my$("img").style.top = window.event.clientY + getScroll().top + "px";
+    //
+    // };
+    
+    
+    // var obj = {
+    //     sayHi:function () {
+    //         console.log("xixi");
+    //         this.eat();//
+    //         console.log(this);
+    //     },
+    //     eat:function () {
+    //         console.log("吃饭");
+    //     }
+    // };
+    // //调用sayHi方法的同事，调用eat方法，是否可以在一个方法中调用另一个方法？
+    // //在对象的方法中调用另一个方法如何调用？
+    // obj.sayHi();
+
+
+    //图片跟着鼠标飞，可以早任何的浏览器中实现
+    //Window.event和时间参数对象e的兼容
+    //clientX和clientY单独的使用的兼容代码
+    //scrollLeft和scrollTop的兼容代码
+    //pageX，pageY和clientX + scrollLeft 及 clientY+scrollTop
+
+    //把代码封装在一个函数
+    //吧代码放在一个对象中
+    var evt={
+        //window.event和事件参数对象e的兼容
+        getEvent:function (evt) {
+            return window.event||evt;
+        },
+        //可视区域的横坐标的兼容代码
+        getClientX:function (evt) {
+            return this.getEvent(evt).clientX;
+        },
+        //可视区域的纵坐标的兼容代码
+        getClientY:function (evt) {
+            return this.getEvent(evt).clientY;
+        },
+        //页面向左卷曲出去的横坐标
+        getScrollLeft:function () {
+            return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0;
+        },
+        //页面向上卷曲出去的纵坐标
+        getScrollTop:function () {
+            return window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0;
+        },
+        //相对于页面的横坐标(pageX或者是clientX+scrollLeft)
+        getPageX:function (evt) {
+            return this.getEvent(evt).pageX? this.getEvent(evt).pageX:this.getClientX(evt)+this.getScrollLeft();
+        },
+        //相对于页面的纵坐标(pageY或者是clientY+scrollTop)
+        getPageY:function (evt) {
+            return this.getEvent(evt).pageY?this.getEvent(evt).pageY:this.getClientY(evt)+this.getScrollTop();
+        }
+
+
+
+    };
+    //最终的代码
+
+    document.onmousemove=function (e) {
+        my$("img").style.left=evt.getPageX(e)+"px";
+        my$("img").style.top=evt.getPageY(e)+"px";
+    };
+
+
+</script>
+</body>
+</html>

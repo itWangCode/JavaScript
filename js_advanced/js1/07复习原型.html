@@ -1,0 +1,56 @@
+<!--
+    Created by wangyang on 2018/12/5.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+
+<script src="common.js"></script>
+<script>
+   //构造函数
+   function Person(name,age) {
+       this.name = name;
+       this.age = age;
+   }
+   //通过原型增加方法
+    Person.prototype.sayHi = function () {
+        console.log("hey");
+    };
+    var per = new Person("小明",20);
+    console.dir(per);
+    console.dir(Person);
+
+    var per2 = new Person("女",20);
+    console.log(per.sayHi == per2.sayHi);//true
+
+    //实例对象中，有两个属性（这两个属性是通过构造函数来获取的），__proto__这个属性
+    //构造函数中并没有sex和age的两个属性
+
+
+   /**
+    * 实例对象中有个属性__proto__，也是对象，叫原型，不是标准的属性，浏览器使用的
+    * 构造函数中有一个属性，prototype,也是对象，叫原型，程序员用的
+    * 原型----》__proto__或者是prototype，都是原型对象
+    * 原型的作用：共享数据，节省内存空间
+    *
+    */
+</script>
+</body>
+</html>

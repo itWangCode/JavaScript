@@ -1,0 +1,47 @@
+<!--
+    Created by wangyang on 2018/12/4.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<input type="button" value="点击出现图片" id="btn">
+<img src="" alt="" id="imgPic">
+<script src="common.js"></script>
+<script>
+    /*
+    * 点击按钮设置img标签的src的属性有一个图片路径
+    * 根据id获取按钮
+    *
+    * */
+
+    //获取id按钮
+    var btnObj = my$("btn");
+    //为按钮注册点击事件，增加事件处理函数
+    btnObj.onclick = function () {
+        //根据id获取图片的标签，设置图片的src属性
+        var imgObj = my$("imgPic");
+        imgObj.src = "images/1.png";
+
+        //设置图片的大小
+        imgObj.width = "150";
+        imgObj.height = "300";
+    }
+</script>
+</body>
+</html>

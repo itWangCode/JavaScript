@@ -1,0 +1,95 @@
+<!--
+    Created by wangyang on 2018/12/5.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        #dv {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+    //点击按钮，改变div的背景颜色
+
+    //面向过程
+    // my$("btn").onclick = function () {
+    //     my$("dv").style.backgroundColor = "yellow";
+    // };
+
+    /*    //面向对象写法：---初级
+        //按钮是一个对象，div是一个对象，颜色是一个属性
+        function ChangeStyle(btnId, dvId, color) {
+            this.btnObj = my$(btnId);//按钮对象
+            this.dvObj = my$(dvId);//div的对象
+            this.color = color;//颜色
+        }
+
+        //数据共享来改变背景颜色
+        ChangeStyle.prototype.init = function () {
+            //console.log(this);//就是实例对象--当前对象
+            var that = this;
+            this.btnObj.onclick = function () {
+                that.dvObj.style.backgroundColor = that.color;
+            }
+        };
+
+        //实例化对象
+        var cs = new ChangeStyle("btn", "dv", "yellow");
+        cs.init();
+    */
+
+
+    // function Person() {
+    //     this.sayHi = function () {
+    //         console.log(this);
+    //     };
+    // }
+    // var per  = new Person();
+    // per.sayHi();
+
+
+    //面向对象写法：---高级
+    function ChangeStyle(btnObj, dvObj, json) {
+        this.btnObj = btnObj;
+        this.dvObj = dvObj;
+        this.json = json;
+    }
+    ChangeStyle.prototype.init = function () {
+        //点击按钮，改变div对个样式属性
+        var that = this;
+        this.btnObj.onclick = function () {//按钮
+            for (var key in that.json){
+                that.dvObj.style[key] = that.json[key];
+            }
+        }
+    };
+    //实例化对象
+    var json = {"width":"500px","height":"800px","backgroundColor":"yellow"};
+    var cs = new ChangeStyle(my$("btn"),my$("dv"),json);
+    cs.init();//调用方法
+
+
+</script>
+</body>
+</html>

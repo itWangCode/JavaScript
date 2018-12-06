@@ -1,0 +1,88 @@
+<!--
+    Created by wangyang on 2018/12/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    //面向对象的思想是------抽象的过程----实例化的过程
+    //我这个人：姓名，年龄，性别，吃饭，打招呼，睡觉。。。
+    //自定义构造函数---实例化对象
+    //这是构造函数
+    function Person(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.sayHi = function () {
+            console.log("hello");
+        };
+        this.sleep = function () {
+            console.log("sleep")
+        };
+        this.eat = function () {
+            console.log("吃");
+        }
+    }//构造函数end
+
+
+    //构造函数---》创建对象
+    var per = new Person("汪洋",28,"男");
+    per.eat();
+    //实例对象是通过构造函数来创建
+    //实例对象会指向自己的构造函数（暂时理解，是错误的）
+
+
+    console.dir(per);//把这个对象的结构显示出来
+    console.dir(Person);
+    //实例对象的构造器是指向Person的，结构是true，所以，这个实例对象per就是通过Person来创建的
+    console.log(per.constructor==Person);//true   //实例对象的构造器（构造函数）
+    console.log(per.__proto__.constructor==Person);//true
+    console.log(per.__proto__.constructor == Person.prototype.constructor);//true
+
+    //构造函数
+    function Animal(name) {
+        this.name = name;
+    }
+    //实例对象
+    var dog = new Animal("大黄");
+    console.dir(dog);//实例对象
+    console.dir(Animal);//构造函数的名字
+
+    console.log(dog.__proto__.constructor == Person);//false
+    console.log(dog.__proto__.constructor == Animal);//true
+
+    //判断这个是不是这种数据类型
+    console.log(dog.constructor==Animal);
+    console.log(dog instanceof Person);
+
+    //总结：
+    /**
+     * 实例对象和构造函数之间的关系
+     * 1.实例对象是通过 构造函数来创建的----创建的构成叫实例化
+     * 2.如何判断对象是不是这个数据类型
+     *   1）通过构造器的方式实例对象，构造器==构造函数名字
+     *   2）对象instanceof构造函数名字
+     *   尽可能使用 第二种方式来识别，为什么？原型讲完就明白了
+     *
+     *
+     */
+
+</script>
+</body>
+</html>

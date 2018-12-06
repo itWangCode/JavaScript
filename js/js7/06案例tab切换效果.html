@@ -1,0 +1,73 @@
+<!--
+    Created by wangyang on 2018/12/1.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #list li {
+            list-style-type: none;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color: beige;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #list li.current {
+            background-color: burlywood;
+        }
+
+        #list li a {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+<div id="menu">
+    <ul id="list">
+        <li class="current"><a href="http://www.baidu.com">首页</a>
+        </li>
+        <li><a href="javascript:void(0)">播客</a></li>
+        <li><a href="javascript:void(0)">博客</a></li>
+        <li><a href="javascript:void(0)">相册</a></li>
+        <li><a href="javascript:void(0)">关于</a></li>
+        <li><a href="javascript:void(0)">帮助</a></li>
+    </ul>
+</div>
+<script src="common.js"></script>
+<script>
+//先获取所有的li标签
+    var listObj = my$("list").getElementsByTagName("li");
+    //循环遍历，找到每个li中的a,注册点击事件
+    for (var i = 0; i <listObj.length; i++){
+        var aObj = getFirstElement(listObj[i]);//获取获取父级元素中的第一个子元素、
+        aObj.onclick = function () {
+            //第一件事：吧这个a所在的li的所有的兄弟元素的类样式全部移除
+            for (var j = 0 ; j < listObj.length; j++){
+                listObj[j].removeAttribute("class");
+            }
+
+
+            // 第二件事
+            //当前点击a的父级元素，(点击的这个a坐在的父级元素li)设置背景颜色
+            this.parentNode.className = "current";
+
+
+            //第三件事：阻止跳转
+            return false;
+        }
+
+
+    }
+</script>
+
+</body>
+</html>

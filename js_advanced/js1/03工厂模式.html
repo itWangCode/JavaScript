@@ -1,0 +1,58 @@
+<!--
+    Created by wangyang on 2018/12/3.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    // 工厂模式创建对象
+    function createObject(name,age) {
+        var  obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.sayHi = function () {
+            console.log("你好");
+        };
+        return obj;
+    }
+
+    var per = createObject("小汪",19);
+    console.log(per);
+
+
+    /*
+    *  自定义构造函数与工厂模式
+    *  共同点：都是函数，都可以创建对象，都可以传入参数
+    *
+    *  工厂模式：函数名是小写,
+    *           有new，有返回值
+    *           new之后对象是当前的对象
+    *           直接调用函数就可以创建对象
+    *
+    *
+    *  自定义构造函数：函数名首字母是大写的，
+    *               没有new，没有返回值
+    *               this是当前的对象
+    *               通过new的方式创建对象的
+    *
+    *
+    * */
+</script>
+</body>
+</html>

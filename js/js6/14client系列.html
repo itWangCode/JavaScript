@@ -16,22 +16,54 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="stylesheet" href="">
-
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: 20px solid red;
+        }
+    </style>
 </head>
 <body>
 
 
-
+<input type="button" value="显示" id="btn">
+<div id="dv"></div>
 <script src="common.js"></script>
 <script>
     /**
-     *  offset系列：获取元素的宽，高，left,
+     *  offset系列：获取元素的宽，高，left,top,parent
+     *  offsetWidth:元素的宽，有边框
+     *  offsetHeight:元素的高，有边框
+     *  offsetLeft:元素距离左边的位置的值
+     *  offsetTop:元素距离上面的位置的值
      *
      *
+     *  scroll：系列:卷曲出去的值
+     *  scrollLeft:向左卷曲出去的距离
+     *  scrollTop:向上卷曲出去的距离
+     *  scrollWidth:元素中内容的实际的宽（如果内容很少，没有内容，元素自身的宽），没有边框
+     *  scrollHeight:元素中内容实际的高（如果内容很少，没有内容，元素自身的高），没有边框
      *
      *
+     *  client系列：
+     *  clientWidth：可是区域的宽，（没有边框)，边框内的宽
+     *  clientHeight：可是区域的高，（没有边框)，边框内的宽
+     *  clientLeft:左边的边框的宽度
+     *  clientTop：上面的边框的宽度
      *
      */
+
+    console.log(my$("dv").clientWidth);
+    console.log(my$("dv").clientHeight);
+    console.log(my$("dv").clientLeft);
+    console.log(my$("dv").clientTop);
+
+
 </script>
 </body>
 </html>

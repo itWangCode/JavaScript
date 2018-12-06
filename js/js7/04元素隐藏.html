@@ -1,0 +1,50 @@
+<!--
+    Created by wangyang on 2018/12/1.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        #dv{
+            width: 300px;
+            height: 200px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="显示" id="btn">
+<div id="dv">哈哈</div>哈哈
+<script src="common.js"></script>
+<script>
+    document.getElementById("btn").onclick = function () {
+        //隐藏div
+         //这种方式不占位
+        //my$("dv").style.display = "none";
+        //这种方式占位
+        //my$("dv").style.visibility = "hidden";
+        //这种方式占位
+        //my$("dv").style.opacity = 0;
+        //这种方式占位
+        my$("dv").style.height = 0;
+        my$("dv").style.border = 0;
+    }
+
+
+
+</script>
+</body>
+</html>

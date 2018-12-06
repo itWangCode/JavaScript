@@ -1235,9 +1235,175 @@ switch (jibie) {
     console.log(f1());
 
     //求n-m直接所有数字的和
-    function getSum() {
-        
+    function getSum(n,m) {
+        var sum = 0;
+        for (var i = n; i <= m;i++){
+            sum += i;
+        }
+        return sum;
     }
+    console.log(getSum(1,5));//15   1+2+3+4+5=15
+
+
+    //求圆的面积：πr²
+    function  getSum(r) {
+        return Math.PI * r * r;
+    }
+    console.log(getSum(2));//3.14*4
+
+    //阶乘
+    function  getJieCheng(num) {
+        var result = 1;
+        for (var i = 1; i <= num; i++){
+            result *= i;
+        }//end for
+        return result;
+    }
+    console.log(getJieCheng(5));//1*2*3*4*5
+
+    /*=============================对象============================================*/
+    /**
+     * 1.面向过程：就是相当于凡是都要亲力亲为，每件事的具体过程都要知道，注重的是过程
+     * 2.面向对象：值需要格局需要找对象，所有的事情都是用对象来完成，注重的是结果
+     * 面向对象特征：封装，继承，多态（抽象性）
+     * js是一门基于对象的语言：万物皆对象---程序猿，程序媛
+     *  什么是对象？
+     *     （看得见的，摸得着的，具体特质的某个东西）
+     *
+     * 创建对象有三种方式：
+     *    1.调用系统的构造函数来创建对象
+     *    var 变量名 = new Object();
+     *
+     *    2.字面量的方式创建对象
+     *
+     *    3.自定义构造函数创建对象（结合第一种和需求通过工程模式来创建对象）
+     */
+
+
+    //第一种创建对象的方式
+    //1.先实例化一个对象
+    var obj = new Object();
+
+    //2.对象有特征--属性和行为--方法
+    //增加属性
+    obj.name = "小白";
+    obj.age = 19;
+    obj.sex = "男";
+
+    //增加方法
+    obj.eat = function () {
+        console.log("我喜欢吃肉");
+    };
+    obj.play = function () {
+        console.log("我喜欢玩球");
+    };
+
+    //3.方法调用
+    obj.eat();
+    obj.play();
+
+
+
+    //第二种：字面量
+
+    var obj = {};//空对象
+
+
+    var person = {
+        name : "小黑",
+        age : 10,
+        sex: "女",
+        eat:function () {
+            console.log("吃饭");
+        }
+    };
+    console.log(person);
+
+
+    //第三种：工厂模式
+    //点语法：=======对象.名字 = 值.名字 = 函数;
+    function  creatObj(name,age) {
+        var obj = new Object();//创建对象
+        //增加属性
+        obj.name = name;
+        obj.age = age;
+        // 增加方法
+        obj.sayHi = function () {
+            console.log(this.name + this.age);
+        };
+        return obj;
+    }
+    //实例化对象
+    var per1 = creatObj("小芳",18);
+    per1.sayHi();
+    var per2 = creatObj("小汪",19);
+    per2.sayHi();
+
+    //函数和构造函数的区别：名字是不是大写
+
+    //自定义一个构造函数
+    function  Person() {
+        this.name = "小明";
+        this.age = 10;
+        this.sayHi = function () {
+            console.log(this.name + this.age);
+        }
+    }
+
+    //创建对象
+    var obj = new Person();
+    console.log(obj.name);
+    console.log(obj.age);
+    obj.sayHi();
+
+
+
+    /*============================json==========================*/
+    //json====={key,value}
+    var json = {
+        "name":"小明",
+        "age":"10",
+        "sex":"男"
+    };
+
+    for (var key in json){
+        console.log(key);//json对象的属性名
+        console.log(json[key]);//增加属性
+    }
+
+
+
+    //值类型的值在那一块空间中存储？栈中存储
+    //引用类型（object)的值在那一块空间中存储？栈和堆中存储（对象在堆中存储，地址在栈中存储）
+    function f1() {
+        x = 100;
+    }
+    var num = 10;//栈，先执行代码
+    f1(num);
+    console.log(num);//10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
