@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    /*itwangyang@gmail.com*/
+    /*==================================创建对象的三种方式===================================*/
+    /*
+
+       //对象：特值的某个事物，具有属性和方法（一组无序的属性的集合）
+        //特征---》属性
+        //行为---》方法
+        //小汪--》姓名,性别，年龄，吃，睡觉，玩
+
+        //创建对象三种方式：
+    //    1.字面量的
+    //    2.调用系统的构造函数
+    //    3.自定义构造函数方式
+
+
+        //字面量
+        var per1 = {
+           name:"xixi",
+           age:20,
+            sex:"男",
+             eat:function () {
+                 console.log("吃饭");
+             },
+            readBook:function () {
+                console.log("散文诗歌");
+            }
+        };
+
+        //调用系统函数的构造函数
+        var per2 = new Object();
+        per2.name = "haha";
+        per2.age = 18;
+        per2.sex = function () {
+            console.log("吃榴莲")
+        };
+        per2.play = function () {
+            console.log("真好玩")
+        };
+        function Person(){
+
+        }
+        //console.log(per2 instanceof Person)
+        console.log(per2 instanceof Object);
+
+
+    //自定义构造函数
+        function Person(name,age,sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+
+            this.play = function () {
+                console.log("好玩");
+            };
+        }
+        var per =  new Person("汪程序员",19,"女");
+        console.log(per instanceof Person);
+        console.log(per);
+     */
+
+    /*==================================自定义构造函数创建对象做的事情================================================*/
+    /*
+
+
+        function Person(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.play = function () {
+            console.log("跑步");
+        };
+    }
+    //创建对象---》实例化一个对象的同时对属性进行初始化
+    var per = new Person("小汪",18,"男");
+    console.log(per);
+
+*/
+    /*
+    * 1.开辟空间存储对象
+    * 2.把this设置当前的对象
+    * 3.设置属性和方法的值
+    * 4.把this对象返回
+    * */
+    /*============================工厂模式=====================================*/
+    /*
+
+        // 工厂模式创建对象
+    function createObject(name,age) {
+        var  obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.sayHi = function () {
+            console.log("你好");
+        };
+        return obj;
+    }
+
+    var per = createObject("小汪",19);
+    console.log(per);
+     */
+
+
+    /*
+    *  自定义构造函数与工厂模式
+    *  共同点：都是函数，都可以创建对象，都可以传入参数
+    *
+    *  工厂模式：函数名是小写,
+    *           有new，有返回值
+    *           new之后对象是当前的对象
+    *           直接调用函数就可以创建对象
+    *
+    *
+    *  自定义构造函数：函数名首字母是大写的，
+    *               没有new，没有返回值
+    *               this是当前的对象
+    *               通过new的方式创建对象的
+    *
+    *
+    * */
+
+
+    /*=======================构造函数和实例对象之间的关系=======================================*/
+    /*
+
+       //面向对象的思想是------抽象的过程----实例化的过程
+        //我这个人：姓名，年龄，性别，吃饭，打招呼，睡觉。。。
+        //自定义构造函数---实例化对象
+        //这是构造函数
+        function Person(name,age,sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.sayHi = function () {
+                console.log("hello");
+            };
+            this.sleep = function () {
+                console.log("sleep")
+            };
+            this.eat = function () {
+                console.log("吃");
+            }
+        }//构造函数end
+
+
+        //构造函数---》创建对象
+        var per = new Person("汪洋",28,"男");
+        per.eat();
+        //实例对象是通过构造函数来创建
+        //实例对象会指向自己的构造函数（暂时理解，是错误的）
+
+
+        console.dir(per);//把这个对象的结构显示出来
+        console.dir(Person);
+        //实例对象的构造器是指向Person的，结构是true，所以，这个实例对象per就是通过Person来创建的
+        console.log(per.constructor==Person);//true   //实例对象的构造器（构造函数）
+        console.log(per.__proto__.constructor==Person);//true
+        console.log(per.__proto__.constructor == Person.prototype.constructor);//true
+
+        //构造函数
+        function Animal(name) {
+            this.name = name;
+        }
+        //实例对象
+        var dog = new Animal("大黄");
+        console.dir(dog);//实例对象
+        console.dir(Animal);//构造函数的名字
+
+        console.log(dog.__proto__.constructor == Person);//false
+        console.log(dog.__proto__.constructor == Animal);//true
+
+        //判断这个是不是这种数据类型
+        console.log(dog.constructor==Animal);
+        console.log(dog instanceof Person);
+     */
+
+    //总结：
+    /**
+     * 实例对象和构造函数之间的关系
+     * 1.实例对象是通过 构造函数来创建的----创建的构成叫实例化
+     * 2.如何判断对象是不是这个数据类型
+     *   1）通过构造器的方式实例对象，构造器==构造函数名字
+     *   2）对象instanceof构造函数名字
+     *   尽可能使用 第二种方式来识别，为什么？原型讲完就明白了
+     *
+     *
+     */
+    /*=============================原型引入==================================*/
+    //数据共享，节省内存空间，作用之一
+    /*
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+        this.eat = function () {
+            console.log("吃肉");
+        }
+    }
+    var per1 = new Person("小白",20);
+    var per2 = new Person("小黑",22);
+    per1.eat();
+    per2.eat();
+    //不是同一个方法
+    console.log(per1.eat == per2.eat);//false,这两个不是同一个对象，也不是调用同一个方法
+
+    console.dir(per1);
+    console.log(per2);
+*/
+
+    /*
+    function myEat() {
+        console.log("吃肉");
+    }
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.eat = myEat;
+    }
+
+    var per1 = new Person("小白", 20);
+    var per2 = new Person("小黑", 22);
+    per1.eat();
+    per2.eat();
+
+    console.log(per1.eat == per2.eat);//true
+
+      //实例对象中根本没有eat方法，但是能够使用，这是为什么呢？
+    //window是对象
+    //document是属性，document也是一个对象
+    //write()是方法
+    //window.document.write("哈哈");
+    //对象.style.color=值;
+
+    */
+
+    /**
+     *  原型？
+     *  实例对象中有__proto__这个属性，叫原型，也是一个对象，这个属性是给浏览器使用的，不是标准属性
+     *  构造函数中有prototype这个属性，叫做原型，也是一个对象,这个属性，是给程序员用的，是标准的属性----》prototype---》可以叫做原型对象
+     *  实例对象的__proto__和构造函数中的prototype相等 ---》true
+     *  有因为实例对象是通过构造函数来创建的，构造函数中有原型对象prototype
+     *  实例对象的__proto__指向了构造函数的原型对象prototype
+     *
+     *
+     */
+
+/*=======================================体会面向过程和面向对象思想编程============================================*/
+    /*
+
+        <style>
+        #dv {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+
+    //点击按钮，改变div的背景颜色
+
+    //面向过程
+    // my$("btn").onclick = function () {
+    //     my$("dv").style.backgroundColor = "yellow";
+    // };
+
+       // function Person() {
+    //     this.sayHi = function () {
+    //         console.log(this);
+    //     };
+    // }
+    // var per  = new Person();
+    // per.sayHi();
+
+
+     */
+
+    /*    //面向对象写法：---初级
+    //按钮是一个对象，div是一个对象，颜色是一个属性
+    function ChangeStyle(btnId, dvId, color) {
+        this.btnObj = my$(btnId);//按钮对象
+        this.dvObj = my$(dvId);//div的对象
+        this.color = color;//颜色
+    }
+
+    //数据共享来改变背景颜色
+    ChangeStyle.prototype.init = function () {
+        //console.log(this);//就是实例对象--当前对象
+        var that = this;
+        this.btnObj.onclick = function () {
+            that.dvObj.style.backgroundColor = that.color;
+        }
+    };
+
+    //实例化对象
+    var cs = new ChangeStyle("btn", "dv", "yellow");
+    cs.init();
+
+
+    //❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+      //面向对象写法：---高级
+    function ChangeStyle(btnObj, dvObj, json) {
+        this.btnObj = btnObj;
+        this.dvObj = dvObj;
+        this.json = json;
+    }
+    ChangeStyle.prototype.init = function () {
+        //点击按钮，改变div对个样式属性
+        var that = this;
+        this.btnObj.onclick = function () {//按钮
+            for (var key in that.json){
+                that.dvObj.style[key] = that.json[key];
+            }
+        }
+    };
+    //实例化对象
+    var json = {"width":"500px","height":"800px","backgroundColor":"yellow"};
+    var cs = new ChangeStyle(my$("btn"),my$("dv"),json);
+    cs.init();//调用方法
+
+*/
+
+/*============================复习原型==============================*/
+/*
+   //构造函数
+   function Person(name,age) {
+       this.name = name;
+       this.age = age;
+   }
+   //通过原型增加方法
+    Person.prototype.sayHi = function () {
+        console.log("hey");
+    };
+    var per = new Person("小明",20);
+    console.dir(per);
+    console.dir(Person);
+
+    var per2 = new Person("女",20);
+    console.log(per.sayHi == per2.sayHi);//true
+
+    //实例对象中，有两个属性（这两个属性是通过构造函数来获取的），__proto__这个属性
+    //构造函数中并没有sex和age的两个属性
+ */
+
+   /**
+    * 实例对象中有个属性__proto__，也是对象，叫原型，不是标准的属性，浏览器使用的
+    * 构造函数中有一个属性，prototype,也是对象，叫原型，程序员用的
+    * 原型----》__proto__或者是prototype，都是原型对象
+    * 原型的作用：共享数据，节省内存空间
+    *
+    */
+
+/*============================构造函数和实例对象和原型对象的关系================================*/
+
+
+
+
+</script>
+</html>

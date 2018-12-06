@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
 </head>
 <body>
 <script>
-/*=========================DOM的操作===========================*/
-/**
- * DOM操作页面元素
- * 基本标签--属性
- * 表单标签--属性
- * 元素的样式操作
- * 总结样式操作的不同方式
- * 自定义属性
- * 兼容问题
- * 元素的创建不同方式
- * 事件的操作
- * 特效的一些练习
- * WEB API结束
- */
+    /*itwangyang@gmail.com*/
+    /*===============================DOM的操作===========================*/
+    /**
+     * DOM操作页面元素
+     * 基本标签--属性
+     * 表单标签--属性
+     * 元素的样式操作
+     * 总结样式操作的不同方式
+     * 自定义属性
+     * 兼容问题
+     * 元素的创建不同方式
+     * 事件的操作
+     * 特效的一些练习
+     * WEB API结束
+     */
 
-/**
- *
- *js:分为三部分：
- * ECMAScript标准：js的基本的语法
- * DOM：Document Object Model--->文档对象模型-----操作页面的元素
- * BOM：Brower Object Model--->浏览器的对象模型---操作是浏览器
- *
- *
- * 文档：吧一个html文件看成是一个文档由于万物皆对象，所有吧这个文档看成是一个对象
- * xml文件也可以看成一个文档
- * html:展示数据
- * xml:存储数据
- *
- * html:文件看成一个文档， 这个文档看成一个对象，文档中所有的标签都可以看成一个对象
- * 页面中每一个标签，都是一个元素，每个元素都可以看成一个对象
- * 标签只可以嵌套，，标签中有标签，元素中有元素
- *
- * html页面中都有一个跟元素---html---也叫做根元素
- * 页面中有一个根元素（标签--html）,里面有很多的元素
- *
- * 文档（document）：一个页面就是一个文档
- * 元素（element）：页面中所有的标签都是元素，元素可以看成是对象
- * 节点（node）：页面中所有的内容都是节点（元素：节点？大    节点范围大）（有标签，文本，属性）
- *
- * 页面就是文档（document），文档中有很元素：html
- *
- * 由文档及文档中的所有的元素(标签)注册的一个属性结构图，叫做树状图（DOM树）
- */
+    /**
+     *
+     *js:分为三部分：
+     * ECMAScript标准：js的基本的语法
+     * DOM：Document Object Model--->文档对象模型-----操作页面的元素
+     * BOM：Brower Object Model--->浏览器的对象模型---操作是浏览器
+     *
+     *
+     * 文档：吧一个html文件看成是一个文档由于万物皆对象，所有吧这个文档看成是一个对象
+     * xml文件也可以看成一个文档
+     * html:展示数据
+     * xml:存储数据
+     *
+     * html:文件看成一个文档， 这个文档看成一个对象，文档中所有的标签都可以看成一个对象
+     * 页面中每一个标签，都是一个元素，每个元素都可以看成一个对象
+     * 标签只可以嵌套，，标签中有标签，元素中有元素
+     *
+     * html页面中都有一个跟元素---html---也叫做根元素
+     * 页面中有一个根元素（标签--html）,里面有很多的元素
+     *
+     * 文档（document）：一个页面就是一个文档
+     * 元素（element）：页面中所有的标签都是元素，元素可以看成是对象
+     * 节点（node）：页面中所有的内容都是节点（元素：节点？大    节点范围大）（有标签，文本，属性）
+     *
+     * 页面就是文档（document），文档中有很元素：html
+     *
+     * 由文档及文档中的所有的元素(标签)注册的一个属性结构图，叫做树状图（DOM树）
+     */
 
-/*===========================点击弹出框====================================*/
+    /*===========================点击弹出框====================================*/
 
-// <input type="button" value="弹窗" onclick="alert('我又变帅了')">
-/**
- * 最终极的弹出对话框
- *  <input type="button" value="按我" id="btn">
- *
- *  document.getElementById("btn").onclick=function () {
- *         alert("我又变帅帅了");
- *     };
- */
+    // <input type="button" value="弹窗" onclick="alert('我又变帅了')">
+    /**
+     * 最终极的弹出对话框
+     *  <input type="button" value="按我" id="btn">
+     *
+     *  document.getElementById("btn").onclick=function () {
+     *         alert("我又变帅帅了");
+     *     };
+     */
 
-/*function f1() {
-	alert("我很帅");
-}
-<input type="button" value="显示效果" onclick="f1()">*/
+    /*function f1() {
+        alert("我很帅");
+    }
+    <input type="button" value="显示效果" onclick="f1()">*/
 
 
-/*
-     <input type="button" id="btn" value="最终的代码">
-    // 根据id属性的值从整个文档中获取这个元素（标签）
-    var btnObj = document.getElementById("btn");
-    //为改元素注册点击事件
-    btnObj.onclick = function () {
-        alert("这个感觉就是倍爽");
-    };
-    //简写为：
-
-        document.getElementById("btn").onclick = function () {
-            alert("我很帅的");
+    /*
+         <input type="button" id="btn" value="最终的代码">
+        // 根据id属性的值从整个文档中获取这个元素（标签）
+        var btnObj = document.getElementById("btn");
+        //为改元素注册点击事件
+        btnObj.onclick = function () {
+            alert("这个感觉就是倍爽");
         };
-*/
+        //简写为：
+
+            document.getElementById("btn").onclick = function () {
+                alert("我很帅的");
+            };
+    */
 
 
-/*========================点击按显示图片=================================*/
+    /*========================点击按显示图片=================================*/
     /*
     *   出现这个问题：
     * ❤️Uncaught TypeError: Cannot set property 'onclick' of null❤️
@@ -93,694 +94,694 @@
     *
     * */
 
-/*
+    /*
 
-<input type="button" value="显示图片" id="btn">
-<img src="" alt="" id="imgPic">
+    <input type="button" value="显示图片" id="btn">
+    <img src="" alt="" id="imgPic">
 
-    * 点击按显示图片
-    * 点击按钮的时候设置img标签的src属性有一个图片的路径
-    * 根据id获取按钮
-    * 为按钮注册点击事件，增加事件处理函数
-    * 根据id获取图片的标签，设置图片的src属性值
-    *
+        * 点击按显示图片
+        * 点击按钮的时候设置img标签的src属性有一个图片的路径
+        * 根据id获取按钮
+        * 为按钮注册点击事件，增加事件处理函数
+        * 根据id获取图片的标签，设置图片的src属性值
+        *
 
-    // 根据id获取按钮
-    var btnObj = document.getElementById("btn");
-    // 为按钮注册点击事件，增加事件处理函数
-    btnObj.onclick = function () {
-        // 根据id获取图片的标签，设置图片的src属性值
-        var imgObj = document.getElementById("imgPic");
-        imgObj.src = "../images/1.gif";
-        //    设置图片的大小
-        imgObj.width = "200";
-        imgObj.height = "300";
-    };
- */
-
-
-
-/*==========================点击按钮，修改P标签的显示的内容======================================*/
-
-/*
-   * 案例：点击按钮，修改P标签的显示的内容
-   * ❤️（凡是成对的标签，中间的文本内容，设置的时候都使用innerText这个属性的方法）❤️
-   * 根据id获取按钮，为按钮注册点击事件，添加事件处理函数
-   * */
-
-/*
-    // 根据id获取按钮，为按钮注册点击事件，添加事件处理函数
-    document.getElementById("btn").onclick = function () {
-        document.getElementById("p1").innerText="这是一个p";
-    };
-*/
-
-
-/*===========================点击修改a标签的文字和热点文字=========================*/
-/*
-<input type="button" value="显示效果" id="btn">
-<a href="http://itwangyang.xyz" id="ak">你好</a>
-
-document.getElementById("btn").onclick = function () {
-    var obj = document.getElementById("ak");
-    obj.href = "http://www.google.com";
-    obj.innerText = "汪洋";
-};
- */
-
-/*========================点击按钮修改多个p标签的文字内容=============================*/
-
-/*
-
-<input type="button" value="显示效果" id="btn">
-<div id="div1">
-    <p>我帅了</p>
-    <p>我帅了</p>
-    <p>我帅了</p>
-    <p>我帅了</p>
-    <p>我帅了</p>
-    <p>我帅了</p>
-</div>
-<div>
-    <p>ni</p>
-</div>
-
-     //案例：点击按钮设置多个p标签的文字内容
-    document.getElementById("btn").onclick = function () {
-        //    根据标签名字获取标签
-        //var pObj = document.getElementsByTagName("p");//返回来是一个伪数组，无论是获取一个标签还是多个标签，最终都是在数组中存储的，折行代码返回值就是数组
-        var pObj =document.getElementById("div1").getElementsByTagName("p");//获取p标签的时候，你要看，是从哪个地方获取的，你要观察，不然全部都会获取改变的
-        console.log(pObj);//HTMLCollection(6) [p, p, p, p, p, p]--返回来是数组
-        //    循环遍历这个数组
-        for (var i = 0; i < pObj.length; i++){
-            //每个P标签，设置文字内容
-            pObj[i].innerText="我们都是P";
-        }
-    };
-
- */
-
-/*=======================点击按钮修改图片的alt和title属性=======================*/
-/*
-<input type="button" value="显示效果" id="btn">
-<img src="../images/1.gif" title="我好帅1" alt="我好帅2">
-
-  document.getElementById("btn").onclick = function () {
-        var objImg = document.getElementsByTagName("img");
-        objImg[0].alt = "改了";//返回的是数组，数组是第一个，就写索引0
-        objImg[0].title = "现实吧";
-    };
- */
-
-
-/*=========================点击按钮  修改input修改里面的值=============================*/
-/*
-    <input type="button" value="修改文本框的值" id="btn">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-    <input type="text" value="显示效果">
-
-    document.getElementById("btn").onclick = function () {
-        var inputs = document.getElementsByTagName("input");
-        for(var i = 0; i < inputs.length; i++){
-        //    判断这个元素是不是按钮
-            if (inputs[i] != "button"){
-                inputs[i].value = "我很帅的";
-            }
-        }
-    };
-*/
-
-/*=========================点击每个图片弹出对话框============================*/
-/*
-<img src="../images/1.gif" alt="">
-<img src="../images/1.gif" alt="">
-<img src="../images/1.gif" alt="">
-
- // 根据标签的名字获取图片标签，分别注册点击事情
-    var imgObj = document.getElementsByTagName("img");
-    //循环遍历数组，获取每一个图片标签，注册点击事件，添加事件处理函数
-    for (var i = 0; i < imgObj.length; i++){
-        imgObj[i].onclick = function () {
-            alert("22");
-        };
-    }
- */
-
-/*=========================点击按钮修改按钮的属性============================*/
-/*
-<input type="button" value="按钮" id="btn">
-  // 在某个元素的事件中，自己的事件中的this就是当前这个元素对象
-    var btnObj = document.getElementById("btn");
+        // 根据id获取按钮
+        var btnObj = document.getElementById("btn");
+        // 为按钮注册点击事件，增加事件处理函数
         btnObj.onclick = function () {
-    //    修改按钮的value属性
-            this.value = "我变了";
-            this.type = "text";
-            this.id = "btn2";
-    };
- */
-/*=========================点击图片修改自身的长宽============================*/
-/*
-<img src="../images/1.gif" alt="" id="imgPic">
-var imgObj = document.getElementById("imgPic");
-    imgObj.onclick = function () {
-        // this.style.width = "300px";
-        // this.style.height = "400px";
-        this.width = "300";
-        this.height = "400";
-    }
- */
-/*=========================排他功能============================*/
-/*
-<input type="button" value="没有怀孕">
-<input type="button" value="没有怀孕">
-<input type="button" value="没有怀孕">
-<input type="button" value="没有怀孕">
-<input type="button" value="没有怀孕">
-
-// 每一个按钮都有点击事件的
-//    获取所有的按钮，分别注册点击事件
-    var btnObj = document.getElementsByTagName("input");
-    //循环遍历所有的按钮
-    for (var i = 0; i < btnObj.length; i++){
-    //为每个按钮都要注册点击事件
-        btnObj[i].onclick = function () {
-        //    把所有的按钮的value值设置为默认的值：没怀孕
-            for (var j = 0; j < btnObj.length; j++){
-                btnObj[j].value = "没有怀孕";
-            }
-        //    当前被点击的按钮设置为：怀孕了
-            this.value = "怀孕了";
-        //这块不能用   btnObj[i].value = "怀孕了";
+            // 根据id获取图片的标签，设置图片的src属性值
+            var imgObj = document.getElementById("imgPic");
+            imgObj.src = "../images/1.gif";
+            //    设置图片的大小
+            imgObj.width = "200";
+            imgObj.height = "300";
         };
-    }
-    console.log(i);
+     */
 
 
 
-    注意：
-     //for循环页面加载就执行完毕了，事件是出发的时候去执行
-    for (var k = 0; k < 5; k++) {
-        console.log(k);//0,1,2,3,4
-    }
+    /*==========================点击按钮，修改P标签的显示的内容======================================*/
 
-    for (var k = 0; k < 5; k++) {
-    }
-    console.log(k);//5
- */
+    /*
+       * 案例：点击按钮，修改P标签的显示的内容
+       * ❤️（凡是成对的标签，中间的文本内容，设置的时候都使用innerText这个属性的方法）❤️
+       * 根据id获取按钮，为按钮注册点击事件，添加事件处理函数
+       * */
 
-/*=========================点击图片切换图片============================*/
-/*
-<a href="../images/2.gif" id="ak"><img src="../images/1.gif" alt="" id="im"></a>
-  // 点击图片标签，设置图片标签的src路径为超链接中大图的路径
-    document.getElementById("im").onclick = function(){
-        this.src=document.getElementById("ak").href;
-        return false;
-    };
-
- */
-
-/*=========================点击按钮修改图片============================*/
-/*
-<input type="button" value="显示大图" id="btn">
-<img src="../images/1.gif" id="im">
-
-  function my$(id){
-        return document.getElementById(id);
-    }
-
-    my$("btn").onclick = function () {
-        my$("im").src = "../images/2.gif";
-    }
- */
-
-/*=========================案例点击按钮选择性别和兴趣============================*/
-/*
+    /*
+        // 根据id获取按钮，为按钮注册点击事件，添加事件处理函数
+        document.getElementById("btn").onclick = function () {
+            document.getElementById("p1").innerText="这是一个p";
+        };
+    */
 
 
+    /*===========================点击修改a标签的文字和热点文字=========================*/
+    /*
+    <input type="button" value="显示效果" id="btn">
+    <a href="http://itwangyang.xyz" id="ak">你好</a>
 
-<input type="button" value="修改性别" id="btn">
-<input type="radio" value="1" name="sex">男
-<input type="radio" value="2" name="sex" id="rad">女
-<input type="radio" value="3" name="sex">保密
-<br>
-
-
-<input type="button" value="选着兴趣" id="btn1">
-<input type="checkbox" value="1" name="兴趣">吃饭
-<input type="checkbox" value="2" name="兴趣">睡觉
-<input type="checkbox" value="3" name="兴趣" id="ck1">打豆豆
-<input type="checkbox" value="4" name="兴趣">美女
-<input type="checkbox" value="5" name="兴趣">聊天
-<input type="checkbox" value="6" name="兴趣" id="ck2">qq
-<input type="checkbox" value="7" name="兴趣">weChat
-<input type="checkbox" value="8" name="兴趣">看图片
-<input type="checkbox" value="9" name="兴趣">刷抖音
-<input type="checkbox" value="10" name="兴趣">快手
-<!--规律：在表单标签中，如果属性和值只有一个，并且值是这个属性本身，那么在写js代码，DOM操作的时候这个属性，是布尔类型-->
-
-
-    function my$(id){
-       return document.getElementById(id);
-    }
-    my$("btn").onclick = function () {
-    //非空字符串转布尔类型是true;  这样写也是可以选中的：my$("rad").checked = "3fewfe";
-    my$("rad").checked = true;
-}
-
-    my$("btn1").onclick = function () {
-            my$("ck1").checked = true;
-            my$("ck2").checked = true;
-        }
- */
-/*=========================案例选择下拉框和文本域的相关属性设置============================*/
-/*
-<input type="button" value="点餐" id="btn">
-<select>
-    <option value="1">菜品1</option>
-    <option value="2">菜品2</option>
-    <option value="3">菜品3</option>
-    <option value="4" id="op1">菜品4</option>
-    <option value="5">菜品5</option>
-</select>
-
-     function my$(id) {
-         return document.getElementById(id);
-     }
-    my$("btn").onclick = function () {
-        my$("op1").selected = true;
-    }
-
- */
-
-/*
-<textarea name="" id="tt" readonly cols="30" rows="10">
-    我要怎么做，怎么做
-</textarea>
-<input type="button" id="btn1" value="注册">
-    // disabled---这个属性是禁用的
-//    readonly----只读，是可以复制的
-//    html中属性和值是自己的，并且只有一个的，其实，可以只写这个属性，不用赋值的
-
-my$("btn1").onclick = function () {
-    my$("tt").value = "11";//推荐用value值,因为看成了是表单的标签
-    //my$("tt").innerText = "ww";
-}
- */
-
-/*=========================设置div的样式============================*/
-/*
-    <input type="button" value="改变样式" id="btn">
-<div id="dv"></div>
-
-    my$("btn").onclick = function () {
-            //style又是属性，又是样式
-            //凡是css中这个属性是多个单词的写法；在js代码中DOM操作的时候，把-干掉，后面的单词的首字母需要大写
-            my$("dv").style.width = "200px";
-            my$("dv").style.height = "100px";
-            my$("dv").style.backgroundColor = "red";
-        }
-*/
-/*=========================案例点击按钮显示和隐藏div============================*/
-/*
-<input type="button" value="隐藏" id="btn">
-<div id="dv" style="width: 100px;height: 100px; background-color: pink"></div>
-
-//根据id获取按钮，注册点击事件，增加事件处理函数
-    my$("btn").onclick = function () {
-        if (this.value == "隐藏"){
-            my$("dv").style.display = "none";
-            this.value = "显示";
-        }else if (this.value == "显示") {
-            my$("dv").style.display = "block";
-            this.value = "隐藏";
-        }
-
-    }
- */
-/*=========================div的显示和隐藏通过类样式实现============================*/
-/*
- .divStyle{
-            width: 100px;
-            height: 100px;
-            border: 10px solid red;
-        }
-
-<input type="button" id="btn" value="样式改变">
-<div id="dv"></div>
-
- // 在js代码中DOM操作中的时候，设置元素的类样式，不用class的关键字，应该使用className
-    my$("btn").onclick = function () {
-        my$("dv").className = "divStyle";
-    }
-
- */
-
-
-/*
-        div{
-            width: 100px;
-            height: 100px;
-            border: 10px solid red;
-        }
-        .divShowNone{
-            display: none;
-        }
-
-<input type="button" id="btn" value="隐藏">
-<div id="dv" class="divShowNone"></div>
-
- // 点击按钮，通过类样式的方式设置div的显示和隐藏
-    my$("btn").onclick = function () {
-        //判断div是不是应用了类样式
-        console.log(my$("dv").className);
-        if (my$("dv").className != "divShowNone"){
-        //    现在是显示的，应该是隐藏
-            my$("dv").className = "divShowNone";
-            this.value = "隐藏 ";
-
-        }else {
-            //现在隐藏的状态，应该显示
-            my$("dv").className = "";
-            this.value = "显示";
-        }
-    }
- */
-
-
-/*=========================网页的开关灯============================*/
-/*
-     .cls{
-            background-color: #000000;
-        }
-
-<input type="button" value="开/关灯" id="btn">
-
- my$("btn").onclick = function () {
-        document.body.className = document.body.className != "cls" ? "cls" : "";
-    }
- */
-/*=========================案例禁用文本框和改变列表背景色============================*/
-/*
-<input type="button" value="禁用文本框" id="btn">
-<input type="text" value="文本框" id="txt">
-
- // 先根据id获取按钮没按钮注册点击事件，增加事件处理函数
     document.getElementById("btn").onclick = function () {
-    //    根据id获取文本框，设置disabled属性
-        document.getElementById("txt").disabled = true;
-    }
- */
+        var obj = document.getElementById("ak");
+        obj.href = "http://www.google.com";
+        obj.innerText = "汪洋";
+    };
+     */
 
-/*
+    /*========================点击按钮修改多个p标签的文字内容=============================*/
 
-<input type="button" value="变颜色" id="btn1">
-<ul id="uu">
-    <li>我</li>
-    <li>你</li>
-    <li>她</li>
-    <li>他</li>
-    <li>它</li>
-</ul>
+    /*
 
-    document.getElementById("btn1").onclick = function () {
-        document.getElementById("uu").style.backgroundColor = "red";
-    }
- */
+    <input type="button" value="显示效果" id="btn">
+    <div id="div1">
+        <p>我帅了</p>
+        <p>我帅了</p>
+        <p>我帅了</p>
+        <p>我帅了</p>
+        <p>我帅了</p>
+        <p>我帅了</p>
+    </div>
+    <div>
+        <p>ni</p>
+    </div>
 
-/*=====================阻止超链接默认跳转=========================*/
-/*
-第一种写法：
-<a href="http://www.baidu.com" onclick="alert(); return false">百度</a>
-// 点击超链接 不跳转，并且弹出框
-//    阻止超链接默认跳转：return false
+         //案例：点击按钮设置多个p标签的文字内容
+        document.getElementById("btn").onclick = function () {
+            //    根据标签名字获取标签
+            //var pObj = document.getElementsByTagName("p");//返回来是一个伪数组，无论是获取一个标签还是多个标签，最终都是在数组中存储的，折行代码返回值就是数组
+            var pObj =document.getElementById("div1").getElementsByTagName("p");//获取p标签的时候，你要看，是从哪个地方获取的，你要观察，不然全部都会获取改变的
+            console.log(pObj);//HTMLCollection(6) [p, p, p, p, p, p]--返回来是数组
+            //    循环遍历这个数组
+            for (var i = 0; i < pObj.length; i++){
+                //每个P标签，设置文字内容
+                pObj[i].innerText="我们都是P";
+            }
+        };
 
- */
+     */
 
+    /*=======================点击按钮修改图片的alt和title属性=======================*/
+    /*
+    <input type="button" value="显示效果" id="btn">
+    <img src="../images/1.gif" title="我好帅1" alt="我好帅2">
 
-/*
-第二种写法：
-<a href="http://www.baidu.com" onclick="return f1()">百度</a>
-// 点击超链接 不跳转，并且弹出框
-//    阻止超链接默认跳转：return false
-function f1() {
-    alert("11");
-    return false;
-}
- */
-
-/*
-第三种写法：
-<a href="http://www.baidu.com" id="ak">百度</a>
-<script>
-document.getElementById("ak").onclick = function () {
-    alert();
-    return false;
-}
- */
-
-/*=====================点击小图切换大图=========================*/
-/*
-<a href="../images/derm-max.jpg" id="ak"><img src="../images/derm-min.jpg"></a>
-<img src="" alt="" id="big">
-
-    function my$(id) {
-       return document.getElementById(id);
-    }
-    my$("ak").onclick = function () {
-        // 这个事件是哪个对象的，this就是那个的
-        my$("big").src = this.href;
-        return false;
-    }
-
- */
+      document.getElementById("btn").onclick = function () {
+            var objImg = document.getElementsByTagName("img");
+            objImg[0].alt = "改了";//返回的是数组，数组是第一个，就写索引0
+            objImg[0].title = "现实吧";
+        };
+     */
 
 
-/*=====================美女相册=========================*/
-/*
+    /*=========================点击按钮  修改input修改里面的值=============================*/
+    /*
+        <input type="button" value="修改文本框的值" id="btn">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
+        <input type="text" value="显示效果">
 
-        body {
-            font-family: "Helvetica", "Arial", serif;
-            color: #333;
-            background-color: #ccc;
-            margin: 1em 10%;
+        document.getElementById("btn").onclick = function () {
+            var inputs = document.getElementsByTagName("input");
+            for(var i = 0; i < inputs.length; i++){
+            //    判断这个元素是不是按钮
+                if (inputs[i] != "button"){
+                    inputs[i].value = "我很帅的";
+                }
+            }
+        };
+    */
+
+    /*=========================点击每个图片弹出对话框============================*/
+    /*
+    <img src="../images/1.gif" alt="">
+    <img src="../images/1.gif" alt="">
+    <img src="../images/1.gif" alt="">
+
+     // 根据标签的名字获取图片标签，分别注册点击事情
+        var imgObj = document.getElementsByTagName("img");
+        //循环遍历数组，获取每一个图片标签，注册点击事件，添加事件处理函数
+        for (var i = 0; i < imgObj.length; i++){
+            imgObj[i].onclick = function () {
+                alert("22");
+            };
+        }
+     */
+
+    /*=========================点击按钮修改按钮的属性============================*/
+    /*
+    <input type="button" value="按钮" id="btn">
+      // 在某个元素的事件中，自己的事件中的this就是当前这个元素对象
+        var btnObj = document.getElementById("btn");
+            btnObj.onclick = function () {
+        //    修改按钮的value属性
+                this.value = "我变了";
+                this.type = "text";
+                this.id = "btn2";
+        };
+     */
+    /*=========================点击图片修改自身的长宽============================*/
+    /*
+    <img src="../images/1.gif" alt="" id="imgPic">
+    var imgObj = document.getElementById("imgPic");
+        imgObj.onclick = function () {
+            // this.style.width = "300px";
+            // this.style.height = "400px";
+            this.width = "300";
+            this.height = "400";
+        }
+     */
+    /*=========================排他功能============================*/
+    /*
+    <input type="button" value="没有怀孕">
+    <input type="button" value="没有怀孕">
+    <input type="button" value="没有怀孕">
+    <input type="button" value="没有怀孕">
+    <input type="button" value="没有怀孕">
+
+    // 每一个按钮都有点击事件的
+    //    获取所有的按钮，分别注册点击事件
+        var btnObj = document.getElementsByTagName("input");
+        //循环遍历所有的按钮
+        for (var i = 0; i < btnObj.length; i++){
+        //为每个按钮都要注册点击事件
+            btnObj[i].onclick = function () {
+            //    把所有的按钮的value值设置为默认的值：没怀孕
+                for (var j = 0; j < btnObj.length; j++){
+                    btnObj[j].value = "没有怀孕";
+                }
+            //    当前被点击的按钮设置为：怀孕了
+                this.value = "怀孕了";
+            //这块不能用   btnObj[i].value = "怀孕了";
+            };
+        }
+        console.log(i);
+
+
+
+        注意：
+         //for循环页面加载就执行完毕了，事件是出发的时候去执行
+        for (var k = 0; k < 5; k++) {
+            console.log(k);//0,1,2,3,4
         }
 
-        h1 {
-            color: #333;
-            background-color: transparent;
+        for (var k = 0; k < 5; k++) {
         }
+        console.log(k);//5
+     */
 
-        a {
-            color: #c60;
-            background-color: transparent;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        ul {
-            padding: 0;
-        }
-
-        li {
-            float: left;
-            padding: 1em;
-            list-style: none;
-        }
-
-        #imagegallery {
-
-            list-style: none;
-        }
-
-        #imagegallery li {
-            margin: 0px 20px 20px 0px;
-            padding: 0px;
-            display: inline;
-        }
-
-        #imagegallery li a img {
-            border: 0;
-        }
-
-
-<h2>
-    美女画廊
-</h2>
-
-<ul id="imagegallery">
-    <li><a href="images/1.jpg" title="美女A">
-        <img src="images/1-small.jpg" width="100" alt="美女1"/>
-    </a></li>
-    <li><a href="images/2.jpg" title="美女B">
-        <img src="images/2-small.jpg" width="100" alt="美女2"/>
-    </a></li>
-    <li><a href="images/3.jpg" title="美女C">
-        <img src="images/3-small.jpg" width="100" alt="美女3"/>
-    </a></li>
-    <li><a href="images/4.jpg" title="美女D">
-        <img src="images/4-small.jpg" width="100" alt="美女4"/>
-    </a></li>
-</ul>
-
-
-<div style="clear:both"></div>
-<!--显示大图的-->
-<img id="image" src="images/placeholder.png" alt="" width="450"/>
-<p id="des">选择一个图片</p>
-
- src="common.js"
-
-    // 点击a标签，吧a标签的href的属性值给id为images的src属性
-    // 把a的title的数学的值给id为des的p的标签赋值
-    // 从li大的标签中获取所有的a标签
-    var aObjs = my$("imagegallery").getElementsByTagName("a");
-    // 循环遍历a标签
-    for (var i = 0; i < aObjs.length; i++){
-        aObjs[i].onclick = function () {
-            //    为id为images的标签的src赋值
-            my$("image").src= this.href;
-            //    为p标签赋值
-            my$("des").innerText = this.title;
-            //    阻止超链接默认的跳转
+    /*=========================点击图片切换图片============================*/
+    /*
+    <a href="../images/2.gif" id="ak"><img src="../images/1.gif" alt="" id="im"></a>
+      // 点击图片标签，设置图片标签的src路径为超链接中大图的路径
+        document.getElementById("im").onclick = function(){
+            this.src=document.getElementById("ak").href;
             return false;
         };
-    }
- */
 
-/*==========================隔行变色=========================================*/
-/*
-<input type="button" value="隔行变色" id="btn">
-<ul id="uu">
-    <li>宏碁</li>
-    <li>红旗</li>
-    <li>五菱宏光</li>
-    <li>北汽</li>
-    <li>荣威</li>
-    <li>大众</li>
-    <li>兰博基里</li>
-    <li>奥拓</li>
-</ul>
+     */
 
-  // 点击按钮
-    // my$("btn").onclick = function () {
-    //     var list = my$("uu").getElementsByTagName("li");
-    //     for (var i = 0;i <list.length; i++){
-    //         if (i%2==0){
-    //             list[i].style.backgroundColor = "red";
-    //         }else{
-    //             list[i].style.backgroundColor = "yellow";
-    //         }
-    //     }
-    // }
+    /*=========================点击按钮修改图片============================*/
+    /*
+    <input type="button" value="显示大图" id="btn">
+    <img src="../images/1.gif" id="im">
 
-//    简写
-    my$("btn").onclick = function () {
-        var list = my$("uu").getElementsByTagName("li");
-        for (var i = 0;i <list.length; i++){
-            list[i].style.backgroundColor = i%2==0 ? "red" : "yellow";
+      function my$(id){
+            return document.getElementById(id);
         }
-    }
-*/
 
-/*=============================案例列表高亮显示============================*/
-/*
-<ul>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-    <li>啤酒</li>
-</ul>
-
-    // 鼠标进去鼠标离开
-    var list = document.getElementsByTagName("li");
-    for (var i = 0; i < list.length; i++){
-        list[i].onmouseover = function () {
-            this.style.backgroundColor = "red";
-        };
-        list[i].onmouseout = function () {
-            this.style.backgroundColor = "";
+        my$("btn").onclick = function () {
+            my$("im").src = "../images/2.gif";
         }
+     */
+
+    /*=========================案例点击按钮选择性别和兴趣============================*/
+    /*
+
+
+
+    <input type="button" value="修改性别" id="btn">
+    <input type="radio" value="1" name="sex">男
+    <input type="radio" value="2" name="sex" id="rad">女
+    <input type="radio" value="3" name="sex">保密
+    <br>
+
+
+    <input type="button" value="选着兴趣" id="btn1">
+    <input type="checkbox" value="1" name="兴趣">吃饭
+    <input type="checkbox" value="2" name="兴趣">睡觉
+    <input type="checkbox" value="3" name="兴趣" id="ck1">打豆豆
+    <input type="checkbox" value="4" name="兴趣">美女
+    <input type="checkbox" value="5" name="兴趣">聊天
+    <input type="checkbox" value="6" name="兴趣" id="ck2">qq
+    <input type="checkbox" value="7" name="兴趣">weChat
+    <input type="checkbox" value="8" name="兴趣">看图片
+    <input type="checkbox" value="9" name="兴趣">刷抖音
+    <input type="checkbox" value="10" name="兴趣">快手
+    <!--规律：在表单标签中，如果属性和值只有一个，并且值是这个属性本身，那么在写js代码，DOM操作的时候这个属性，是布尔类型-->
+
+
+        function my$(id){
+           return document.getElementById(id);
+        }
+        my$("btn").onclick = function () {
+        //非空字符串转布尔类型是true;  这样写也是可以选中的：my$("rad").checked = "3fewfe";
+        my$("rad").checked = true;
     }
- */
 
-/*=============================案例显示和隐藏二维码=========================*/
-/*
- .nodeSmall {
-      width: 50px;
-      height: 50px;
-      background: url(images/bgs.png) no-repeat -159px -51px;
-      position: fixed;
-      right: 10px;
-      top: 40%;
+        my$("btn1").onclick = function () {
+                my$("ck1").checked = true;
+                my$("ck2").checked = true;
+            }
+     */
+    /*=========================案例选择下拉框和文本域的相关属性设置============================*/
+    /*
+    <input type="button" value="点餐" id="btn">
+    <select>
+        <option value="1">菜品1</option>
+        <option value="2">菜品2</option>
+        <option value="3">菜品3</option>
+        <option value="4" id="op1">菜品4</option>
+        <option value="5">菜品5</option>
+    </select>
+
+         function my$(id) {
+             return document.getElementById(id);
+         }
+        my$("btn").onclick = function () {
+            my$("op1").selected = true;
+        }
+
+     */
+
+    /*
+    <textarea name="" id="tt" readonly cols="30" rows="10">
+        我要怎么做，怎么做
+    </textarea>
+    <input type="button" id="btn1" value="注册">
+        // disabled---这个属性是禁用的
+    //    readonly----只读，是可以复制的
+    //    html中属性和值是自己的，并且只有一个的，其实，可以只写这个属性，不用赋值的
+
+    my$("btn1").onclick = function () {
+        my$("tt").value = "11";//推荐用value值,因为看成了是表单的标签
+        //my$("tt").innerText = "ww";
     }
-    .erweima {
-      position: absolute;
-      top: 0;
-      left: -150px;
+     */
+
+    /*=========================设置div的样式============================*/
+    /*
+        <input type="button" value="改变样式" id="btn">
+    <div id="dv"></div>
+
+        my$("btn").onclick = function () {
+                //style又是属性，又是样式
+                //凡是css中这个属性是多个单词的写法；在js代码中DOM操作的时候，把-干掉，后面的单词的首字母需要大写
+                my$("dv").style.width = "200px";
+                my$("dv").style.height = "100px";
+                my$("dv").style.backgroundColor = "red";
+            }
+    */
+    /*=========================案例点击按钮显示和隐藏div============================*/
+    /*
+    <input type="button" value="隐藏" id="btn">
+    <div id="dv" style="width: 100px;height: 100px; background-color: pink"></div>
+
+    //根据id获取按钮，注册点击事件，增加事件处理函数
+        my$("btn").onclick = function () {
+            if (this.value == "隐藏"){
+                my$("dv").style.display = "none";
+                this.value = "显示";
+            }else if (this.value == "显示") {
+                my$("dv").style.display = "block";
+                this.value = "隐藏";
+            }
+
+        }
+     */
+    /*=========================div的显示和隐藏通过类样式实现============================*/
+    /*
+     .divStyle{
+                width: 100px;
+                height: 100px;
+                border: 10px solid red;
+            }
+
+    <input type="button" id="btn" value="样式改变">
+    <div id="dv"></div>
+
+     // 在js代码中DOM操作中的时候，设置元素的类样式，不用class的关键字，应该使用className
+        my$("btn").onclick = function () {
+            my$("dv").className = "divStyle";
+        }
+
+     */
+
+
+    /*
+            div{
+                width: 100px;
+                height: 100px;
+                border: 10px solid red;
+            }
+            .divShowNone{
+                display: none;
+            }
+
+    <input type="button" id="btn" value="隐藏">
+    <div id="dv" class="divShowNone"></div>
+
+     // 点击按钮，通过类样式的方式设置div的显示和隐藏
+        my$("btn").onclick = function () {
+            //判断div是不是应用了类样式
+            console.log(my$("dv").className);
+            if (my$("dv").className != "divShowNone"){
+            //    现在是显示的，应该是隐藏
+                my$("dv").className = "divShowNone";
+                this.value = "隐藏 ";
+
+            }else {
+                //现在隐藏的状态，应该显示
+                my$("dv").className = "";
+                this.value = "显示";
+            }
+        }
+     */
+
+
+    /*=========================网页的开关灯============================*/
+    /*
+         .cls{
+                background-color: #000000;
+            }
+
+    <input type="button" value="开/关灯" id="btn">
+
+     my$("btn").onclick = function () {
+            document.body.className = document.body.className != "cls" ? "cls" : "";
+        }
+     */
+    /*=========================案例禁用文本框和改变列表背景色============================*/
+    /*
+    <input type="button" value="禁用文本框" id="btn">
+    <input type="text" value="文本框" id="txt">
+
+     // 先根据id获取按钮没按钮注册点击事件，增加事件处理函数
+        document.getElementById("btn").onclick = function () {
+        //    根据id获取文本框，设置disabled属性
+            document.getElementById("txt").disabled = true;
+        }
+     */
+
+    /*
+
+    <input type="button" value="变颜色" id="btn1">
+    <ul id="uu">
+        <li>我</li>
+        <li>你</li>
+        <li>她</li>
+        <li>他</li>
+        <li>它</li>
+    </ul>
+
+        document.getElementById("btn1").onclick = function () {
+            document.getElementById("uu").style.backgroundColor = "red";
+        }
+     */
+
+    /*=====================阻止超链接默认跳转=========================*/
+    /*
+    第一种写法：
+    <a href="http://www.baidu.com" onclick="alert(); return false">百度</a>
+    // 点击超链接 不跳转，并且弹出框
+    //    阻止超链接默认跳转：return false
+
+     */
+
+
+    /*
+    第二种写法：
+    <a href="http://www.baidu.com" onclick="return f1()">百度</a>
+    // 点击超链接 不跳转，并且弹出框
+    //    阻止超链接默认跳转：return false
+    function f1() {
+        alert("11");
+        return false;
     }
-    .nodeSmall a {
-      display: block;
-      width: 50px;
-      height: 50px;
+     */
+
+    /*
+    第三种写法：
+    <a href="http://www.baidu.com" id="ak">百度</a>
+    <script>
+    document.getElementById("ak").onclick = function () {
+        alert();
+        return false;
     }
-    .hide {
-      display: none;
-    }
+     */
 
-    .show {
-      display: block;
-    }
+    /*=====================点击小图切换大图=========================*/
+    /*
+    <a href="../images/derm-max.jpg" id="ak"><img src="../images/derm-min.jpg"></a>
+    <img src="" alt="" id="big">
+
+        function my$(id) {
+           return document.getElementById(id);
+        }
+        my$("ak").onclick = function () {
+            // 这个事件是哪个对象的，this就是那个的
+            my$("big").src = this.href;
+            return false;
+        }
+
+     */
 
 
-    <div class="nodeSmall" id="node_small">
-  <a href="#"></a><!--锚定-->
-  <div class="erweima hide" id="er">
-    <img src="images/456.png" alt=""/>
-  </div>
-</div>
+    /*=====================美女相册=========================*/
+    /*
 
-//获取鼠标要进入的a标签
+            body {
+                font-family: "Helvetica", "Arial", serif;
+                color: #333;
+                background-color: #ccc;
+                margin: 1em 10%;
+            }
 
-  //先获取最外面的div
-  var aObj = my$("node_small").getElementsByTagName("a")[0];
-  //为a注册鼠标进入
-  aObj.onmouseover = function () {
-      my$("er").className ="erweima "
-  };
-  //为a注册鼠标离开
-  aObj.onmouseout = function () {
-      my$("er").className ="erweima hide"
-  }
-*/
+            h1 {
+                color: #333;
+                background-color: transparent;
+            }
 
-/*===========================根据name属性值获取元素==================================*/
+            a {
+                color: #c60;
+                background-color: transparent;
+                font-weight: bold;
+                text-decoration: none;
+            }
 
-	/*
-	<input type="button" value="您好" id="btn" name="name1"><br>
-	<input type="text" value="您好" name="name1"><br>
-	<input type="text" value="您好" name="name1"><br>
-	<input type="text" value="您好" name="name1"><br>
-	<input type="text" value="您好" name="name1"><br>
-	<input type="text" value="您好" name="name3"><br>
-	<input type="text" value="您好" name="name2"><br>
-	<input type="text" value="您好" name="name1"><br>
-	<input type="text" value="您好" name="name1"><br>
-	<input type="text" value="您好" name="name1"><br>
+            ul {
+                padding: 0;
+            }
+
+            li {
+                float: left;
+                padding: 1em;
+                list-style: none;
+            }
+
+            #imagegallery {
+
+                list-style: none;
+            }
+
+            #imagegallery li {
+                margin: 0px 20px 20px 0px;
+                padding: 0px;
+                display: inline;
+            }
+
+            #imagegallery li a img {
+                border: 0;
+            }
+
+
+    <h2>
+        美女画廊
+    </h2>
+
+    <ul id="imagegallery">
+        <li><a href="images/1.jpg" title="美女A">
+            <img src="images/1-small.jpg" width="100" alt="美女1"/>
+        </a></li>
+        <li><a href="images/2.jpg" title="美女B">
+            <img src="images/2-small.jpg" width="100" alt="美女2"/>
+        </a></li>
+        <li><a href="images/3.jpg" title="美女C">
+            <img src="images/3-small.jpg" width="100" alt="美女3"/>
+        </a></li>
+        <li><a href="images/4.jpg" title="美女D">
+            <img src="images/4-small.jpg" width="100" alt="美女4"/>
+        </a></li>
+    </ul>
+
+
+    <div style="clear:both"></div>
+    <!--显示大图的-->
+    <img id="image" src="images/placeholder.png" alt="" width="450"/>
+    <p id="des">选择一个图片</p>
+
+     src="common.js"
+
+        // 点击a标签，吧a标签的href的属性值给id为images的src属性
+        // 把a的title的数学的值给id为des的p的标签赋值
+        // 从li大的标签中获取所有的a标签
+        var aObjs = my$("imagegallery").getElementsByTagName("a");
+        // 循环遍历a标签
+        for (var i = 0; i < aObjs.length; i++){
+            aObjs[i].onclick = function () {
+                //    为id为images的标签的src赋值
+                my$("image").src= this.href;
+                //    为p标签赋值
+                my$("des").innerText = this.title;
+                //    阻止超链接默认的跳转
+                return false;
+            };
+        }
+     */
+
+    /*==========================隔行变色=========================================*/
+    /*
+    <input type="button" value="隔行变色" id="btn">
+    <ul id="uu">
+        <li>宏碁</li>
+        <li>红旗</li>
+        <li>五菱宏光</li>
+        <li>北汽</li>
+        <li>荣威</li>
+        <li>大众</li>
+        <li>兰博基里</li>
+        <li>奥拓</li>
+    </ul>
+
+      // 点击按钮
+        // my$("btn").onclick = function () {
+        //     var list = my$("uu").getElementsByTagName("li");
+        //     for (var i = 0;i <list.length; i++){
+        //         if (i%2==0){
+        //             list[i].style.backgroundColor = "red";
+        //         }else{
+        //             list[i].style.backgroundColor = "yellow";
+        //         }
+        //     }
+        // }
+
+    //    简写
+        my$("btn").onclick = function () {
+            var list = my$("uu").getElementsByTagName("li");
+            for (var i = 0;i <list.length; i++){
+                list[i].style.backgroundColor = i%2==0 ? "red" : "yellow";
+            }
+        }
+    */
+
+    /*=============================案例列表高亮显示============================*/
+    /*
+    <ul>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+        <li>啤酒</li>
+    </ul>
+
+        // 鼠标进去鼠标离开
+        var list = document.getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++){
+            list[i].onmouseover = function () {
+                this.style.backgroundColor = "red";
+            };
+            list[i].onmouseout = function () {
+                this.style.backgroundColor = "";
+            }
+        }
+     */
+
+    /*=============================案例显示和隐藏二维码=========================*/
+    /*
+     .nodeSmall {
+          width: 50px;
+          height: 50px;
+          background: url(images/bgs.png) no-repeat -159px -51px;
+          position: fixed;
+          right: 10px;
+          top: 40%;
+        }
+        .erweima {
+          position: absolute;
+          top: 0;
+          left: -150px;
+        }
+        .nodeSmall a {
+          display: block;
+          width: 50px;
+          height: 50px;
+        }
+        .hide {
+          display: none;
+        }
+
+        .show {
+          display: block;
+        }
+
+
+        <div class="nodeSmall" id="node_small">
+      <a href="#"></a><!--锚定-->
+      <div class="erweima hide" id="er">
+        <img src="images/456.png" alt=""/>
+      </div>
+    </div>
+
+    //获取鼠标要进入的a标签
+
+      //先获取最外面的div
+      var aObj = my$("node_small").getElementsByTagName("a")[0];
+      //为a注册鼠标进入
+      aObj.onmouseover = function () {
+          my$("er").className ="erweima "
+      };
+      //为a注册鼠标离开
+      aObj.onmouseout = function () {
+          my$("er").className ="erweima hide"
+      }
+    */
+
+    /*===========================根据name属性值获取元素==================================*/
+
+    /*
+    <input type="button" value="您好" id="btn" name="name1"><br>
+    <input type="text" value="您好" name="name1"><br>
+    <input type="text" value="您好" name="name1"><br>
+    <input type="text" value="您好" name="name1"><br>
+    <input type="text" value="您好" name="name1"><br>
+    <input type="text" value="您好" name="name3"><br>
+    <input type="text" value="您好" name="name2"><br>
+    <input type="text" value="您好" name="name1"><br>
+    <input type="text" value="您好" name="name1"><br>
+    <input type="text" value="您好" name="name1"><br>
 
     my$("btn").onclick = function () {
             //    通过name属性值获取元素---表单元素
@@ -789,17 +790,17 @@ document.getElementById("ak").onclick = function () {
                 inputs[i].value = "我很好";
             }
         }
-	 */
-/*=========================根据类样式的名字获取元素===========================*/
-	/*
+     */
+    /*=========================根据类样式的名字获取元素===========================*/
+    /*
 
-	<p>这是一个p</p>
-	<p class="cls">这是另一个p</p>
-	<span class="cls">这是第一个span</span><br/>
-	<span>这是第二个span</span><br/>
-	<div class="cls">这是第一个div</div>
-	<div>这是第二个div</div>
-	<input type="button" value="显示效果" id="btn"/><br/>
+    <p>这是一个p</p>
+    <p class="cls">这是另一个p</p>
+    <span class="cls">这是第一个span</span><br/>
+    <span>这是第二个span</span><br/>
+    <div class="cls">这是第一个div</div>
+    <div>这是第二个div</div>
+    <input type="button" value="显示效果" id="btn"/><br/>
 
     //点击按钮设置应用cls类样式的标签的背景颜色为红色
     //getElementsByClassName();------>h5的
@@ -812,11 +813,11 @@ document.getElementById("ak").onclick = function () {
         }
         */
 
-	/*========================隔行变色====================*/
-	/*
+    /*========================隔行变色====================*/
+    /*
 
 
-	<input type="button" value="变色" id="btn">
+    <input type="button" value="变色" id="btn">
 
 <ul id="uu">
     <li>nuibds</li>
@@ -843,360 +844,360 @@ document.getElementById("ak").onclick = function () {
             }
 
         }
-	 */
+     */
 
-	/*==========================封装兼容性的代码=======================================*/
-/*
+    /*==========================封装兼容性的代码=======================================*/
+    /*
 
-<ul id="uu">
-    <li>cdv</li>
-    <li>vdfv</li>
-    <li>dvfdv</li>
-    <li>vgdfv</li>
-    <li>vdfes</li>
-    </ul>
+    <ul id="uu">
+        <li>cdv</li>
+        <li>vdfv</li>
+        <li>dvfdv</li>
+        <li>vgdfv</li>
+        <li>vdfes</li>
+        </ul>
 
-    //第一个节点和第一个元素的获取的代码再IE中可能不支持
-    //学习节点操作还是为了操作元素
-    //获取任意一个父级元素的第一个子元素
-    // element.firstChild--->google,fixbox获取的是一个子节点
-    // element.firstChild--->IE8获取的是第一个子元素
-    // element.firsElementChild-->谷歌和火狐是第一个子元素，IE8不支持
+        //第一个节点和第一个元素的获取的代码再IE中可能不支持
+        //学习节点操作还是为了操作元素
+        //获取任意一个父级元素的第一个子元素
+        // element.firstChild--->google,fixbox获取的是一个子节点
+        // element.firstChild--->IE8获取的是第一个子元素
+        // element.firsElementChild-->谷歌和火狐是第一个子元素，IE8不支持
 
-    function  getFirstElementChildByParentElement(element) {
-        // if (typeof element.firstElementChild != "undefined"){
-        //
-        // }
-        if (element.firstElementChild){//true-->支持
-            return element.firstElementChild;
-        }else {
-            var node = element.firstChild;//第一个节点
-            while (node&&node.nodeType!=1){
-                node = node.nextSibling;
+        function  getFirstElementChildByParentElement(element) {
+            // if (typeof element.firstElementChild != "undefined"){
+            //
+            // }
+            if (element.firstElementChild){//true-->支持
+                return element.firstElementChild;
+            }else {
+                var node = element.firstChild;//第一个节点
+                while (node&&node.nodeType!=1){
+                    node = node.nextSibling;
+                }
+                return node;
+
             }
-            return node;
-
         }
-    }
 
 
-    //获取任意一个父级元素的第一个子元素
-    function getLastElementChild(element) {
-        if (element.lastElementChild){//true-->支持
-            return element.lastElementChild;
-        }else {
-            var node = element.lastChild;//第一个节点
-            while (node&&node.nodeType!=1){
-                node = node.previousSibling;
+        //获取任意一个父级元素的第一个子元素
+        function getLastElementChild(element) {
+            if (element.lastElementChild){//true-->支持
+                return element.lastElementChild;
+            }else {
+                var node = element.lastChild;//第一个节点
+                while (node&&node.nodeType!=1){
+                    node = node.previousSibling;
+                }
+                return node;
+
             }
-            return node;
-
         }
-    }
 
-    console.log(getFirstElementChildByParentElement(my$("uu")));
-    console.log(getLastElementChild(my$("uu")))
+        console.log(getFirstElementChildByParentElement(my$("uu")));
+        console.log(getLastElementChild(my$("uu")))
 
+
+        */
+
+    /*=========================案例切换背景图片===================================*/
+    /*
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            body {
+                background-image: url("images/1.jpg");
+            }
+
+            #mask {
+                background-color: rgba(255, 255, 255, 0.3);
+                height: 200px;
+                text-align: center;
+            }
+
+            #mask img {
+                width: 200px;
+                margin-top: 35px;
+                cursor: pointer;
+            }
+
+
+    <body id="bd">
+    <div id="mask">
+        <img src="images/1.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">
+    </div>
+
+        var imgObj = my$("mask").children;//获取的所有的子元素
+        //循环遍历所有的img。
+        for (var i = 0; i <imgObj.length;i++){
+            imgObj[i].onclick = function () {
+                document.body.style.backgroundImage = "url("+this.src+")";
+            }
+        }
+    */
+
+    /*==============================全选全不选============================*/
+    /*
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            .wrap {
+                width: 300px;
+                margin: 100px auto 0;
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+                border: 1px solid #c0c0c0;
+                width: 300px;
+            }
+
+            th,
+            td {
+                border: 1px solid #d0d0d0;
+                color: #404060;
+                padding: 10px;
+            }
+
+            th {
+                background-color: #09c;
+                font: bold 16px "微软雅黑";
+                color: #fff;
+            }
+
+            td {
+                font: 14px "微软雅黑";
+            }
+
+            tbody tr {
+                background-color: #f0f0f0;
+            }
+
+            tbody tr:hover {
+                cursor: pointer;
+                background-color: #fafafa;
+            }
+        </style>
+
+    <div class="wrap">
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="j_cbAll"/>
+                </th>
+                <th>菜名</th>
+                <th>饭店</th>
+            </tr>
+            </thead>
+            <tbody id="j_tb">
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>红烧肉</td>
+                <td>田老师</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>西红柿鸡蛋</td>
+                <td>田老师</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>油炸榴莲</td>
+                <td>田老师</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>清蒸助教</td>
+                <td>田老师</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+        //获取全选的这个复选框
+        var ckAll = my$("j_cbAll");
+        //获取body中所有的小复选框
+        var cks = my$("j_tb").getElementsByTagName("input");
+        //    点击全选的这个复选框获取当前的状态，设置tbody中所有复选框的状态
+        ckAll.onclick = function () {
+            console.log(this.checked);
+            for(var i = 0; i < cks.length; i++){
+                cks[i].checked = this.checked;
+            }
+        };
+        //    获取tbody中所有的复选框，分别注册点击事件
+        for(var i = 0 ; i < cks.length; i++){
+            cks[i].onclick = function () {
+                //    判断是否所有的复选框都选中
+                var flag  = true;//默认都被选中了
+                for(var j = 0; j < cks.length; j++){
+                    if (!cks[j].checked){
+                        //没选中就进来了
+                        flag = false;
+                        break;
+                    }
+                }
+                //    都选中了:全选的这个复选框的状态就是flag这个变量的值
+                ckAll.checked = flag;
+            }
+        }
 
     */
 
-/*=========================案例切换背景图片===================================*/
-/*
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
+    /*=====================元素创建的不同的方式====================*/
+    /*
+    * 元素创建---为了提高用户的体验
+    * 元素创建三种方式：
+    * 1.document.write("标签的代码以及内容");
+    * 2.对象.innerHTML= "标签以及代码";
+    * 3.document.createElement();
+    * */
 
-        body {
-            background-image: url("images/1.jpg");
-        }
+    /*
 
-        #mask {
-            background-color: rgba(255, 255, 255, 0.3);
-            height: 200px;
-            text-align: center;
-        }
+    <input type="button" value="创建一个p" id="btn">
+    <div id="dv"></div>
 
-        #mask img {
-            width: 200px;
-            margin-top: 35px;
-            cursor: pointer;
-        }
+     //第一种创建方式
+     // my$("btn").onclick = function () {
+     //     document.write("<p>这是一个P</p>")
+     // };
+     //document.write()，创建元素有缺陷，如果是在页面加载完毕后，如果用此元素创建,那么页面上存在的所有的内容全部被干掉的
 
 
-<body id="bd">
-<div id="mask">
-    <img src="images/1.jpg" alt="">
-    <img src="images/2.jpg" alt="">
-    <img src="images/3.jpg" alt="">
-</div>
+     //第二种创建方式
+     //点击阿牛子啊div中创建一个p标签
+     my$("btn").onclick = function () {
+         my$("dv").innerHTML = "<p>我在这等你</p>";
+     }
 
-    var imgObj = my$("mask").children;//获取的所有的子元素
-    //循环遍历所有的img。
-    for (var i = 0; i <imgObj.length;i++){
-        imgObj[i].onclick = function () {
-            document.body.style.backgroundImage = "url("+this.src+")";
-        }
-    }
-*/
 
-/*==============================全选全不选============================*/
-/*
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
+     */
 
-        .wrap {
-            width: 300px;
-            margin: 100px auto 0;
-        }
+    /*==========================动态创建列表====================================*/
+    /*
 
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border: 1px solid #c0c0c0;
-            width: 300px;
-        }
 
-        th,
-        td {
-            border: 1px solid #d0d0d0;
-            color: #404060;
-            padding: 10px;
-        }
+    <input type="button" value="来一个图片" id="btn">
+    <div id="dv"></div>
 
-        th {
-            background-color: #09c;
-            font: bold 16px "微软雅黑";
-            color: #fff;
-        }
 
-        td {
-            font: 14px "微软雅黑";
-        }
+        //点击按钮，在div中创建一个图片
+        my$("btn").onclick = function () {
+                //如果里面都是字符串，没有变量，外双内单
+                my$("dv").innerHTML = "<img src=\'images/1.jpg\'>";
+            }
 
-        tbody tr {
-            background-color: #f0f0f0;
-        }
+            */
 
-        tbody tr:hover {
-            cursor: pointer;
-            background-color: #fafafa;
-        }
-    </style>
+    /*
 
-<div class="wrap">
-    <table>
-        <thead>
-        <tr>
-            <th>
-                <input type="checkbox" id="j_cbAll"/>
-            </th>
-            <th>菜名</th>
-            <th>饭店</th>
-        </tr>
-        </thead>
-        <tbody id="j_tb">
-        <tr>
-            <td>
-                <input type="checkbox"/>
-            </td>
-            <td>红烧肉</td>
-            <td>田老师</td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox"/>
-            </td>
-            <td>西红柿鸡蛋</td>
-            <td>田老师</td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox"/>
-            </td>
-            <td>油炸榴莲</td>
-            <td>田老师</td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox"/>
-            </td>
-            <td>清蒸助教</td>
-            <td>田老师</td>
-        </tr>
+     <style>
+            div{
+                width: 300px;
+                height: 300px;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
 
-        </tbody>
-    </table>
-</div>
+    <input type="button" value="来一个图片" id="btn">
+    <div id="dv"></div>
 
-    //获取全选的这个复选框
-    var ckAll = my$("j_cbAll");
-    //获取body中所有的小复选框
-    var cks = my$("j_tb").getElementsByTagName("input");
-    //    点击全选的这个复选框获取当前的状态，设置tbody中所有复选框的状态
-    ckAll.onclick = function () {
-        console.log(this.checked);
-        for(var i = 0; i < cks.length; i++){
-            cks[i].checked = this.checked;
-        }
-    };
-    //    获取tbody中所有的复选框，分别注册点击事件
-    for(var i = 0 ; i < cks.length; i++){
-        cks[i].onclick = function () {
-            //    判断是否所有的复选框都选中
-            var flag  = true;//默认都被选中了
-            for(var j = 0; j < cks.length; j++){
-                if (!cks[j].checked){
-                    //没选中就进来了
-                    flag = false;
-                    break;
+
+
+        // my$("btn").onclick = function () {
+        //     my$("dv").innerHTML = "<ul><li>小美女</li><li>小龙女</li></ul>";
+        // }
+
+        var names = ["杨过","小龙女","我的女神"];
+        my$("btn").onclick =function () {
+                var str = "<ul>";
+                //根据循环创建一对的对应的Li
+                for (var i = 0; i < names.length; i++){
+                    str+="<li>"+names[i]+"</li>";
+                }
+                str+="</ul>";
+                my$("dv").innerHTML = str;
+
+                //代码执行到这里，li已经有了
+                //获取所有的li,遍历，增加鼠标进去时间，鼠标移开事件
+                var list = my$("dv").getElementsByTagName("li");
+                for (var i = 0;i <list.length; i++){
+                    list[i].onmouseover = function () {
+                        this.style.backgroundColor = "yellow";
+                    };
+                    list[i].onmouseout = function () {
+                        this.style.backgroundColor = "";
+                    }
                 }
             }
-            //    都选中了:全选的这个复选框的状态就是flag这个变量的值
-            ckAll.checked = flag;
-        }
-    }
 
-*/
+            */
 
-	/*=====================元素创建的不同的方式====================*/
-/*
-* 元素创建---为了提高用户的体验
-* 元素创建三种方式：
-* 1.document.write("标签的代码以及内容");
-* 2.对象.innerHTML= "标签以及代码";
-* 3.document.createElement();
-* */
-
-/*
-
-<input type="button" value="创建一个p" id="btn">
-<div id="dv"></div>
-
- //第一种创建方式
- // my$("btn").onclick = function () {
- //     document.write("<p>这是一个P</p>")
- // };
- //document.write()，创建元素有缺陷，如果是在页面加载完毕后，如果用此元素创建,那么页面上存在的所有的内容全部被干掉的
-
-
- //第二种创建方式
- //点击阿牛子啊div中创建一个p标签
- my$("btn").onclick = function () {
-     my$("dv").innerHTML = "<p>我在这等你</p>";
- }
-
-
- */
-
-/*==========================动态创建列表====================================*/
-/*
-
-
-<input type="button" value="来一个图片" id="btn">
-<div id="dv"></div>
-
-
-    //点击按钮，在div中创建一个图片
-    my$("btn").onclick = function () {
-            //如果里面都是字符串，没有变量，外双内单
-            my$("dv").innerHTML = "<img src=\'images/1.jpg\'>";
-        }
-
-        */
-
-/*
-
- <style>
-        div{
-            width: 300px;
-            height: 300px;
-            background-color: gray;
-        }
-    </style>
-</head>
-<body>
-
-<input type="button" value="来一个图片" id="btn">
-<div id="dv"></div>
-
-
-
-    // my$("btn").onclick = function () {
-    //     my$("dv").innerHTML = "<ul><li>小美女</li><li>小龙女</li></ul>";
-    // }
-
-    var names = ["杨过","小龙女","我的女神"];
-    my$("btn").onclick =function () {
-            var str = "<ul>";
-            //根据循环创建一对的对应的Li
-            for (var i = 0; i < names.length; i++){
-                str+="<li>"+names[i]+"</li>";
+    /*==================================扩展的页面中嵌套广告=====================================*/
+    /*
+            div {
+                font-size: 12px;
+                font-family: arial
             }
-            str+="</ul>";
-            my$("dv").innerHTML = str;
 
-            //代码执行到这里，li已经有了
-            //获取所有的li,遍历，增加鼠标进去时间，鼠标移开事件
-            var list = my$("dv").getElementsByTagName("li");
-            for (var i = 0;i <list.length; i++){
-                list[i].onmouseover = function () {
-                    this.style.backgroundColor = "yellow";
-                };
-                list[i].onmouseout = function () {
-                    this.style.backgroundColor = "";
-                }
+            .baidu {
+                font-size: 14px;
+                line-height: 24px;
+                font-family: arial
             }
-        }
 
-        */
+            a, a:link {
+                color: #0000cc;
+            }
 
-/*==================================扩展的页面中嵌套广告=====================================*/
-/*
-        div {
-            font-size: 12px;
-            font-family: arial
-        }
+            .baidu span {
+                color: #6f6f6f;
+                font-size: 12px
+            }
 
-        .baidu {
-            font-size: 14px;
-            line-height: 24px;
-            font-family: arial
-        }
+            a.more {
+                color: #008000;
+            }
 
-        a, a:link {
-            color: #0000cc;
-        }
-
-        .baidu span {
-            color: #6f6f6f;
-            font-size: 12px
-        }
-
-        a.more {
-            color: #008000;
-        }
-
-        a.blk {
-            color: #000;
-            font-weight: bold;
-        }</style>
+            a.blk {
+                color: #000;
+                font-weight: bold;
+            }</style>
 
 
-		src="http://news.baidu.com/ns?word=x%20title%3Aiphone&tn=newsfcu&from=news&cl=2&rn=5&ct=0">
+            src="http://news.baidu.com/ns?word=x%20title%3Aiphone&tn=newsfcu&from=news&cl=2&rn=5&ct=0">
 
 
- */
+     */
 
 
-/*=========================三种元素创建方式===========================*/
-	/*
+    /*=========================三种元素创建方式===========================*/
+    /*
 
 
-	        #dv{
+            #dv{
             width: 200px;
             height: 300px;
             border: 1px dashed red;
@@ -1215,10 +1216,10 @@ document.getElementById("ak").onclick = function () {
             //把创建后的子元素追加到父级元素中
             my$("dv").appendChild(pObj);
         }
-	 */
+     */
 
 
-	/*
+    /*
 
 
 
@@ -1259,10 +1260,10 @@ document.getElementById("ak").onclick = function () {
     }
     //如果是循环的方式增加事件，推荐使用命名函数
     //如果不是循环的方式增加事件，推荐使用匿名函数
-	 */
+     */
 
 
-	/*
+    /*
         div{
             height: 400px;
             width: 400px;
@@ -1305,12 +1306,12 @@ document.getElementById("ak").onclick = function () {
             }
 
         }
-	 */
+     */
 
-	/*====================元素相关的方法=====================*/
-	/*
+    /*====================元素相关的方法=====================*/
+    /*
 
-	        div{
+            div{
             height: 200px;
             width: 400px;
             border: 1px solid red;
@@ -1349,11 +1350,11 @@ document.getElementById("ak").onclick = function () {
     */
 
 
-	/*===============================只创建一个元素=====================================*/
-	/*
+    /*===============================只创建一个元素=====================================*/
+    /*
 
 
-	        div{
+            div{
             height: 200px;
             width: 400px;
             border: 1px solid red;
@@ -1391,134 +1392,134 @@ document.getElementById("ak").onclick = function () {
                 my$("dv").appendChild(obj);
             }
         }
-	 */
+     */
 
-	/*===================为元素绑定事件引入======================*/
-/*
-
-
-<input type="button" value="按钮" id="btn">
+    /*===================为元素绑定事件引入======================*/
+    /*
 
 
-    //这个按钮同时执行了多个事件
-    //为元素绑定事件(DOM):一种，但是不兼容：有两种
-    //1。对象.addEventListener("事件类型"，事件处理函数，false);就是IE8以下不兼容，主流的都兼容
-    //2.对象.attachEvents("有on的事件类型"，事件处理函数)----谷歌不支持，火狐不支持，IE支持
+    <input type="button" value="按钮" id="btn">
 
-    //addEventListener();
-    //为按钮绑定事件
-    //参数1：事件的类型---事件的名字，没有on
-    //参数2：事件处理函数----函数(命名，匿名)
-    //参数3：布尔类型
 
-    //为同一个元素绑定多个相同的事件
-    // my$("btn").addEventListener("click",function () {
-    //     console.log("我好帅");
-    // },false);
-    // my$("btn").addEventListener("click",function () {
-    //     console.log("你好美");
-    // },false);
-    // my$("btn").addEventListener("click",function () {
-    //     console.log("你真好");
-    // },false);
-    // my$("btn").addEventListener("click",function () {
-    //     console.log("我是一个好小伙");
-    // },false);
+        //这个按钮同时执行了多个事件
+        //为元素绑定事件(DOM):一种，但是不兼容：有两种
+        //1。对象.addEventListener("事件类型"，事件处理函数，false);就是IE8以下不兼容，主流的都兼容
+        //2.对象.attachEvents("有on的事件类型"，事件处理函数)----谷歌不支持，火狐不支持，IE支持
 
-    //---->IE
-    //参数1：事件类型---事件名字，有on
-    //参数2：事件处理函数--函数（命名函数，匿名函数）
-    //  my$("btn").attachEvents("onclick",function () {
-    //      console.log("我真帅");
-    //  })
+        //addEventListener();
+        //为按钮绑定事件
+        //参数1：事件的类型---事件的名字，没有on
+        //参数2：事件处理函数----函数(命名，匿名)
+        //参数3：布尔类型
 
-      //------>全部兼容代码
-    //为任意元素.绑定任意的事件, 任意的元素,事件的类型,事件处理函数
-    function addEventListener(element,type,fn) {
-        //判断浏览器是否支持这个方法
-        if(element.addEventListener){
-            element.addEventListener(type,fn,false);
-        }else if(element.attachEvent){
-            element.attachEvent("on"+type,fn);
-        }else{
-            element["on"+type]=fn;
+        //为同一个元素绑定多个相同的事件
+        // my$("btn").addEventListener("click",function () {
+        //     console.log("我好帅");
+        // },false);
+        // my$("btn").addEventListener("click",function () {
+        //     console.log("你好美");
+        // },false);
+        // my$("btn").addEventListener("click",function () {
+        //     console.log("你真好");
+        // },false);
+        // my$("btn").addEventListener("click",function () {
+        //     console.log("我是一个好小伙");
+        // },false);
+
+        //---->IE
+        //参数1：事件类型---事件名字，有on
+        //参数2：事件处理函数--函数（命名函数，匿名函数）
+        //  my$("btn").attachEvents("onclick",function () {
+        //      console.log("我真帅");
+        //  })
+
+          //------>全部兼容代码
+        //为任意元素.绑定任意的事件, 任意的元素,事件的类型,事件处理函数
+        function addEventListener(element,type,fn) {
+            //判断浏览器是否支持这个方法
+            if(element.addEventListener){
+                element.addEventListener(type,fn,false);
+            }else if(element.attachEvent){
+                element.attachEvent("on"+type,fn);
+            }else{
+                element["on"+type]=fn;
+            }
         }
-    }
-    addEventListener(my$("btn"),"click",function () {
-        console.log("哇，好神奇");
-    });
-    addEventListener(my$("btn"),"click",function () {
-        console.log("哇，好神奇2");
-    });
-    addEventListener(my$("btn"),"click",function () {
-        console.log("哇，好神奇");
-    });
+        addEventListener(my$("btn"),"click",function () {
+            console.log("哇，好神奇");
+        });
+        addEventListener(my$("btn"),"click",function () {
+            console.log("哇，好神奇2");
+        });
+        addEventListener(my$("btn"),"click",function () {
+            console.log("哇，好神奇");
+        });
 
-     // function Person(name) {
-     //     this.name = name;
-     //     this.sayHi = function () {
-     //         console.log("您好");
-     //     };
-     // }
-     // var per = new Person("小明");
-     // if (per.sayHi){//判断这个对象中有没有这个方法
-     //     per.sayHi();
-     // }else {
-     //     console.log("没有这个方法");
-     // }
+         // function Person(name) {
+         //     this.name = name;
+         //     this.sayHi = function () {
+         //         console.log("您好");
+         //     };
+         // }
+         // var per = new Person("小明");
+         // if (per.sayHi){//判断这个对象中有没有这个方法
+         //     per.sayHi();
+         // }else {
+         //     console.log("没有这个方法");
+         // }
 
- */
+     */
 
-/*=========================复习节点=====================================================*/
-/*
-* 节点：
-* 节点：页面中所有的内容都是节点（标签，属性，文本，文字，空格，换行）
-* 文档：document----页面中顶级对象
-* 元素：页面中所有的标签，标签--可以叫做元素--对象（通过DOM获取这个标签，得到了这个对象，此时这个对象叫做DOM对象）
-* 节点的属性：作用：为了将来获取很多节点，得到节点中的标签（元素），识别节点中的标签元素
-*           节点类型：标签节点，属性节点，文本节点
-*           nodeType:节点的类型：1---标签节点，2---属性节点，3--文本节点
-*           nodeName:标签节点---大写的标签名字  if(node.nodeType == 1 && node.nodeName == "P" && node.nodeValue == null),属性节点---小写的属性名字，文件节点---#text
-*           nodeValue：标签--null, 属性---属性的值，文本--文本内容
-*  获取节点以及元素的代码
-*     获取当前节点父级节点
-*     console.log(my("uu").parentNode);
-*     获取当前节点的父级元素
-*     console.log(my("uu").parentElement);
-*     获取当前节点的子级节点
-*     console.log(my("uu").childNodes);
-*     获取当前节点的子级元素
-*     console.log(my("uu").children);
-*     获取当前节点第一个子级节点
-*     console.log(my("uu").firstChild);
-*     获取当前节点的第一个子级元素
-*     console.log(my("uu").firstElementChild);
-*     获取当前节点的最后一个子级节点
-*     console.log(my("uu").lastChild);
-*     获取当前节点的最后一个子级元素
-*     console.log(my("uu").lastElementChild);
-*     获取当前节点的前一个兄弟节点
-*     console.log(my("uu").previousSibling);
-*     获取当前节点的前一个兄弟元素
-*     console.log(my("uu").previousElementSibling);
-*     获取当前节点的后一个兄弟节点
-*     console.log(my("uu").nextSibling);
-*     获取当前节点的后一个兄弟元素
-*     console.log(my("uu").nextElementSibling);
-*
-* 三种元素创建的方式
-* 1.document.write("标签代码以及内容");如果在页面加载完毕后创建元素，页面中的内容会被干掉
-* 2.父级对象.innerHTML = "标签代码以及内容";
-* 3.document.createElement("标签名字");得到的是一个对象
-*   父级元素.appendChild(子级元素对象);
-*
-* */
+    /*=========================复习节点=====================================================*/
+    /*
+    * 节点：
+    * 节点：页面中所有的内容都是节点（标签，属性，文本，文字，空格，换行）
+    * 文档：document----页面中顶级对象
+    * 元素：页面中所有的标签，标签--可以叫做元素--对象（通过DOM获取这个标签，得到了这个对象，此时这个对象叫做DOM对象）
+    * 节点的属性：作用：为了将来获取很多节点，得到节点中的标签（元素），识别节点中的标签元素
+    *           节点类型：标签节点，属性节点，文本节点
+    *           nodeType:节点的类型：1---标签节点，2---属性节点，3--文本节点
+    *           nodeName:标签节点---大写的标签名字  if(node.nodeType == 1 && node.nodeName == "P" && node.nodeValue == null),属性节点---小写的属性名字，文件节点---#text
+    *           nodeValue：标签--null, 属性---属性的值，文本--文本内容
+    *  获取节点以及元素的代码
+    *     获取当前节点父级节点
+    *     console.log(my("uu").parentNode);
+    *     获取当前节点的父级元素
+    *     console.log(my("uu").parentElement);
+    *     获取当前节点的子级节点
+    *     console.log(my("uu").childNodes);
+    *     获取当前节点的子级元素
+    *     console.log(my("uu").children);
+    *     获取当前节点第一个子级节点
+    *     console.log(my("uu").firstChild);
+    *     获取当前节点的第一个子级元素
+    *     console.log(my("uu").firstElementChild);
+    *     获取当前节点的最后一个子级节点
+    *     console.log(my("uu").lastChild);
+    *     获取当前节点的最后一个子级元素
+    *     console.log(my("uu").lastElementChild);
+    *     获取当前节点的前一个兄弟节点
+    *     console.log(my("uu").previousSibling);
+    *     获取当前节点的前一个兄弟元素
+    *     console.log(my("uu").previousElementSibling);
+    *     获取当前节点的后一个兄弟节点
+    *     console.log(my("uu").nextSibling);
+    *     获取当前节点的后一个兄弟元素
+    *     console.log(my("uu").nextElementSibling);
+    *
+    * 三种元素创建的方式
+    * 1.document.write("标签代码以及内容");如果在页面加载完毕后创建元素，页面中的内容会被干掉
+    * 2.父级对象.innerHTML = "标签代码以及内容";
+    * 3.document.createElement("标签名字");得到的是一个对象
+    *   父级元素.appendChild(子级元素对象);
+    *
+    * */
 
 
-/*=========================绑定事件的区别====================================*/
-	/*
+    /*=========================绑定事件的区别====================================*/
+    /*
 
-	    //为按钮绑定多个点击事件
+        //为按钮绑定多个点击事件
     my$("btn").addEventListener("click",function () {
         console.log(this);
     },false);
@@ -1530,231 +1531,228 @@ document.getElementById("ak").onclick = function () {
        //不用点：1。方法名不一样2.参数个数不一样3.addEventListener--主流的浏览器支持，ie8以下不支持  attachEvent--只有IE8支持 4.this不同，addEventListener中this是当前绑定事件的对象
     //   attachEvent this是window  5.addEventListener中事件的类型（事件的名字）没有on
     //  attachEvent 中事件的类型（事件的名字）有on
-	 */
+     */
 
-	/*=======================解绑事件===============================*/
-//第一种种解绑试讲
-//对象.on事情的名字 = 事件处理函数----绑定事件
-// my$("btn").onclick = function () {
-//     console.log("我帅");
-// };
-//
-// my$("btn1").onclick = function () {
-//     //1。解绑事件
-//     my$("btn").onclick = null;
-// };
-
-
-
-//第二种解绑试讲
-// function f1() {
-//     console.log("第一个");
-// }
-// function f2() {
-//     console.log("第二个");
-// }
-// my$("btn").addEventListener("click",f1,false);
-// my$("btn").addEventListener("click",f2,false);
-//
-// //点击第二个按钮把第一个按钮的第一个点击事件解绑
-// my$("btn1").onclick = function () {
-//     //解绑事件的时候，需要在昂定事件的时候，使用命名函数
-//     my$("btn").removeEventListener("click",f1,false);
-// };
-
-//第二种解绑事件---IE8]
-// function f1() {
-//     console.log("第一个");
-// }
-// function f2() {
-//     console.log("第二个");
-// }
-// my$("btn").attachEvents("onclick",f1,false);
-// my$("btn").attachEvents("onclick",f2,false);
-// my$("btn1").onclick = function () {
-//     my$("btn").detachEvents("onclick",f1,false);
-// };
+    /*=======================解绑事件===============================*/
+    //第一种种解绑试讲
+    //对象.on事情的名字 = 事件处理函数----绑定事件
+    // my$("btn").onclick = function () {
+    //     console.log("我帅");
+    // };
+    //
+    // my$("btn1").onclick = function () {
+    //     //1。解绑事件
+    //     my$("btn").onclick = null;
+    // };
 
 
+    //第二种解绑试讲
+    // function f1() {
+    //     console.log("第一个");
+    // }
+    // function f2() {
+    //     console.log("第二个");
+    // }
+    // my$("btn").addEventListener("click",f1,false);
+    // my$("btn").addEventListener("click",f2,false);
+    //
+    // //点击第二个按钮把第一个按钮的第一个点击事件解绑
+    // my$("btn1").onclick = function () {
+    //     //解绑事件的时候，需要在昂定事件的时候，使用命名函数
+    //     my$("btn").removeEventListener("click",f1,false);
+    // };
+
+    //第二种解绑事件---IE8]
+    // function f1() {
+    //     console.log("第一个");
+    // }
+    // function f2() {
+    //     console.log("第二个");
+    // }
+    // my$("btn").attachEvents("onclick",f1,false);
+    // my$("btn").attachEvents("onclick",f2,false);
+    // my$("btn1").onclick = function () {
+    //     my$("btn").detachEvents("onclick",f1,false);
+    // };
 
 
-/**
- *  注意：用什么方式绑定事件，应该用对应的方式解绑事件
- *
- *  1.解绑事件
- *    对象.on事件名字 = 事件处理函数---->绑定事件
- *    对象.on事件名字 = null;
- *  2.解绑事件
- *    对象.addEventListener("m没有on的事件类型",命名函数,false);---绑定事件
- *    对象.removeEventListener("m没有on的事件类型",命名名字,false);---解绑事件
- *
- *  3.解绑事件(IE8)
- *    对象.attachEvents("on事件类型",命名函数,false);----绑定事件
- *    对象.detachEvents("on事件类型",命名名字,false);
- *
- */
+    /**
+     *  注意：用什么方式绑定事件，应该用对应的方式解绑事件
+     *
+     *  1.解绑事件
+     *    对象.on事件名字 = 事件处理函数---->绑定事件
+     *    对象.on事件名字 = null;
+     *  2.解绑事件
+     *    对象.addEventListener("m没有on的事件类型",命名函数,false);---绑定事件
+     *    对象.removeEventListener("m没有on的事件类型",命名名字,false);---解绑事件
+     *
+     *  3.解绑事件(IE8)
+     *    对象.attachEvents("on事件类型",命名函数,false);----绑定事件
+     *    对象.detachEvents("on事件类型",命名名字,false);
+     *
+     */
 
-/*=====================元素绑定事件和解绑事件的兼容性代码================================*/
-/*
-    //绑定事件的兼容代码
-    function addEventListener(element,type,fn) {
-        if (element.addEventListener){
-            element.addEventListener(type,fn,false);
-        }else if(element.attachEvents){
-            element.attachEvent("on"+type,fn);
-        }else {
-            element["on"+type] = fn;
-        }
-    }
-
-
-    //解绑事件的兼容性代码
-    //为任意的一个元素，解绑对应的事件
-    function removeEventListener(element,type,fnName) {
-        if (element.removeEventListener){
-            element.removeEventListener(type,fnName,false);
-        }else if(element.datachEvent){
-            element.datachEvent("on"+type,fnName);
-        }else {
-            element["on"+type] = null;
-        }
-    }
-
-    function f1(){
-        console.log("第一个");
-    }
-    function f2(){
-        console.log("第二个");
-    }
-    addEventListener(my$("btn"),"click",f1);
-    addEventListener(my$("btn"),"click",f2);
-
-    my$("btn1").onclick = function () {
-        removeEventListener(my$("btn"),"click",f1);
-    }
-
- */
-
-/*==================事件冒泡===========================*/
-/*
-
-       #dv1{
-            width:300px;
-            height: 200px;
-            background-color: red;
-        }
-        #dv2{
-            width:250px;
-            height: 150px;
-            background-color: green;
-        }
-        #dv3{
-            width:150px;
-            height: 100px;
-            background-color: blue;
+    /*=====================元素绑定事件和解绑事件的兼容性代码================================*/
+    /*
+        //绑定事件的兼容代码
+        function addEventListener(element,type,fn) {
+            if (element.addEventListener){
+                element.addEventListener(type,fn,false);
+            }else if(element.attachEvents){
+                element.attachEvent("on"+type,fn);
+            }else {
+                element["on"+type] = fn;
+            }
         }
 
-<div id="dv1">
-    <div id="dv2">
-        <div id="dv3"></div>
+
+        //解绑事件的兼容性代码
+        //为任意的一个元素，解绑对应的事件
+        function removeEventListener(element,type,fnName) {
+            if (element.removeEventListener){
+                element.removeEventListener(type,fnName,false);
+            }else if(element.datachEvent){
+                element.datachEvent("on"+type,fnName);
+            }else {
+                element["on"+type] = null;
+            }
+        }
+
+        function f1(){
+            console.log("第一个");
+        }
+        function f2(){
+            console.log("第二个");
+        }
+        addEventListener(my$("btn"),"click",f1);
+        addEventListener(my$("btn"),"click",f2);
+
+        my$("btn1").onclick = function () {
+            removeEventListener(my$("btn"),"click",f1);
+        }
+
+     */
+
+    /*==================事件冒泡===========================*/
+    /*
+
+           #dv1{
+                width:300px;
+                height: 200px;
+                background-color: red;
+            }
+            #dv2{
+                width:250px;
+                height: 150px;
+                background-color: green;
+            }
+            #dv3{
+                width:150px;
+                height: 100px;
+                background-color: blue;
+            }
+
+    <div id="dv1">
+        <div id="dv2">
+            <div id="dv3"></div>
+        </div>
     </div>
-</div>
 
 
 
-    //事件冒泡：多个元素嵌套，有层次关系,这些元素都注册了相同的事件，如果里面的元素的时间出发了，外面的元素的改时间自动的触发了，这就是事件冒泡
-    my$("dv1").onclick = function () {
-        console.log(this.id);
-    };
-    my$("dv2").onclick = function () {
-        console.log(this.id);
-    };
-    my$("dv3").onclick = function () {
-        console.log(this.id);
-    };
-    document.body.onclick = function () {
-            console.log("哈哈，来吧");
-        }
- */
+        //事件冒泡：多个元素嵌套，有层次关系,这些元素都注册了相同的事件，如果里面的元素的时间出发了，外面的元素的改时间自动的触发了，这就是事件冒泡
+        my$("dv1").onclick = function () {
+            console.log(this.id);
+        };
+        my$("dv2").onclick = function () {
+            console.log(this.id);
+        };
+        my$("dv3").onclick = function () {
+            console.log(this.id);
+        };
+        document.body.onclick = function () {
+                console.log("哈哈，来吧");
+            }
+     */
 
 
 
-/*
+    /*
 
-    //事件冒泡，阻止事件冒泡
-    //如果阻止事件冒泡
-    //window.event.cancelBubble = true;//阻止事件冒泡  ,  ie，谷歌支持，火狐不支持
-    //e.stopPropagation();谷歌火狐支持，IE不支持
-    my$("dv1").onclick = function () {
-        console.log(this.id);
-    };
-    my$("dv2").onclick = function (e) {
-        console.log(this.id);
-        e.stopPropagation();//阻止事件冒泡，火狐谷歌支持的
-        console.log(e)
-    };
-    //事件处理参数对象
-    my$("dv3").onclick = function () {
-        console.log(this.id);
-        window.event.cancelBubble = true;//阻止事件冒泡
-    };
-
-
-
- */
-
-/*=================================总结事件=====================================*/
-
-/**
- * 事件有三个阶段：
- * 1.事件捕获阶段：从外向内
- * 2.事件目标阶段：最开始选择哪个
- * 3.事件冒泡阶段：从里向外
- *
- * 为元素绑定事件
- * addEventListener("没有on的事件类型",事件处理函数,控制事件阶段的)
- * 事件触发的过程中，可能会出现事件冒泡的效果，为了阻止事件冒泡---》
- * window.event.cancelBubble = true;谷歌，IE8支持，火狐不支持
- * window.event就是一个对象，是IE中的标准
- * e.stopPropagation();阻止事件冒泡--->谷歌和火狐支持
- * window.event和e都是时间参数对象，一个是IE的标准，衣蛾是火狐的标准
- * 事件参数E在IE的浏览器中是不存在的，此时用window.event来代替
- *addEventListener中第三个参数是控制事件阶段的：
- * 时间的阶段有是三个：
- * 通过e.eventPhase这个属性可以知道当前的时间是什么阶段的
- * 如果这个属性的值是：
- * 1-----》捕获阶段
- * 2-----》目标阶段
- * 3-----》冒泡阶段
- * 一般默认都是冒泡阶段，很少用捕获阶段
- * 冒泡阶段：从里向外
- * 捕获阶段：从外向内
- *
- *
- */
+        //事件冒泡，阻止事件冒泡
+        //如果阻止事件冒泡
+        //window.event.cancelBubble = true;//阻止事件冒泡  ,  ie，谷歌支持，火狐不支持
+        //e.stopPropagation();谷歌火狐支持，IE不支持
+        my$("dv1").onclick = function () {
+            console.log(this.id);
+        };
+        my$("dv2").onclick = function (e) {
+            console.log(this.id);
+            e.stopPropagation();//阻止事件冒泡，火狐谷歌支持的
+            console.log(e)
+        };
+        //事件处理参数对象
+        my$("dv3").onclick = function () {
+            console.log(this.id);
+            window.event.cancelBubble = true;//阻止事件冒泡
+        };
 
 
 
+     */
 
-/*
- //false事件冒泡是从里向外。true事件冒泡是从外向里
-    //同时注册点击事件
-    var objs = [my$("dv3"),my$("dv2"),my$("dv1")];
-    //遍历事件
-    objs.forEach(function (ele) {
-        //console.log(arguments[0],arguments[1],arguments[2]);
-        //为每个元素绑定事件
-        ele.addEventListener("click",function (e) {
-            console.log(this.id+"======>" + e.eventPhase);
-        },true)
-    })
+    /*=================================总结事件=====================================*/
 
-    //该属性在事件参数对象中存在
+    /**
+     * 事件有三个阶段：
+     * 1.事件捕获阶段：从外向内
+     * 2.事件目标阶段：最开始选择哪个
+     * 3.事件冒泡阶段：从里向外
+     *
+     * 为元素绑定事件
+     * addEventListener("没有on的事件类型",事件处理函数,控制事件阶段的)
+     * 事件触发的过程中，可能会出现事件冒泡的效果，为了阻止事件冒泡---》
+     * window.event.cancelBubble = true;谷歌，IE8支持，火狐不支持
+     * window.event就是一个对象，是IE中的标准
+     * e.stopPropagation();阻止事件冒泡--->谷歌和火狐支持
+     * window.event和e都是时间参数对象，一个是IE的标准，衣蛾是火狐的标准
+     * 事件参数E在IE的浏览器中是不存在的，此时用window.event来代替
+     *addEventListener中第三个参数是控制事件阶段的：
+     * 时间的阶段有是三个：
+     * 通过e.eventPhase这个属性可以知道当前的时间是什么阶段的
+     * 如果这个属性的值是：
+     * 1-----》捕获阶段
+     * 2-----》目标阶段
+     * 3-----》冒泡阶段
+     * 一般默认都是冒泡阶段，很少用捕获阶段
+     * 冒泡阶段：从里向外
+     * 捕获阶段：从外向内
+     *
+     *
+     */
 
-	 */
 
-/*===================================为同一个元素绑定多个不同事件，指向相同的事件处理函数=====================================================*/
-	/*
+
+
+    /*
+     //false事件冒泡是从里向外。true事件冒泡是从外向里
+        //同时注册点击事件
+        var objs = [my$("dv3"),my$("dv2"),my$("dv1")];
+        //遍历事件
+        objs.forEach(function (ele) {
+            //console.log(arguments[0],arguments[1],arguments[2]);
+            //为每个元素绑定事件
+            ele.addEventListener("click",function (e) {
+                console.log(this.id+"======>" + e.eventPhase);
+            },true)
+        })
+
+        //该属性在事件参数对象中存在
+
+         */
+
+    /*===================================为同一个元素绑定多个不同事件，指向相同的事件处理函数=====================================================*/
+    /*
 
 
 
@@ -1789,8 +1787,3525 @@ document.getElementById("ak").onclick = function () {
 
     */
 
-	/*=========================百度搜索==================================*/
+    /*=========================百度搜索==================================*/
 
+    /*
+            #box {
+            width: 450px;
+            margin: 200px auto;
+        }
+
+        #txt {
+            width: 350px;
+        }
+
+        #pop {
+            width: 350px;
+            border: 1px solid red;
+        }
+
+        #pop ul {
+            margin: 10px;
+            padding: 0px;
+            width: 200px;
+            list-style-type: none;
+
+        }
+
+        #pop ul li {
+
+        }
+
+<div id="box">
+    <input type="text" id="txt" value="">
+    <input type="button" value="搜索" id="btn">
+</div>
+
+
+    var keyWords = ["小汪才是最纯洁的", "小汪才是最帅的", "小段是最猥琐的", "小超是最龌龊的", "传智播客是一个培训机构", "传说在四川有个很帅很纯洁的小杨", "苹果好吃", "苹果此次召回还是没有中国"];
+    my$("txt").onkeyup = function () {
+            //每一次的键盘抬起都判断页面中有没有这个div
+            if (my$("dv")){
+                //删除一次
+                my$("box").removeChild(my$("dv"));
+            }
+
+
+            var text = this.value;
+            var tempArr = [];//临时数组--空数组---》存放对应上的数据
+            //吧文本框输入放入内容和数组中的每个数据对比
+            for (var i = 0; i < keyWords.length; i++){
+                //是否是最开始出现的
+                if (keyWords[i].indexOf(text)==0){
+                    //如果是的话，放入临时的数组里面
+                    tempArr.push(keyWords[i]);//追加
+                }
+            }
+            //console.log(tempArr.length);
+            //临时数组有数据了
+            console.log(tempArr);
+            //如果文本框是空的，临时数组是空的，不用创建div
+            if (this.value.length == 0 || tempArr == 0){
+                //如果页面中有这个div，删除这个div
+                if (my$("dv")){
+                    my$("box").removeChild(my$("dv"));
+                }
+                //后面的代码不执行了
+                return;
+            }
+            //遍历临时数组，创建div,把div加入id为box的div中
+            var dvObj = document.createElement("div");
+            my$("box").appendChild(dvObj);
+            dvObj.id = "dv";
+            dvObj.style.width = "350px";
+            dvObj.style.height = "100%";
+            dvObj.style.border = "1px solid green";
+
+            //循环遍历临死数组，创建对应的p标签
+            for (var i = 0; i < tempArr.length; i++){
+                //创建p标签
+                var pObj = document.createElement("p");
+                //把p标签加入到div中
+                dvObj.appendChild(pObj);
+                setInnerText(pObj,tempArr[i]);
+                pObj.style.margin = 0;
+                pObj.style.padding = 0;
+                pObj.style.cursor = "pointer";
+                pObj.style.marginTop = "5px";
+                pObj.style.marginLeft = "5px";
+
+                //鼠标进入
+                pObj.onmouseover = function () {
+                    this.style.backgroundColor = "#d3d3d3";
+                };
+                pObj.onmouseout = function () {
+                    this.style.backgroundColor = "";
+                }
+            }
+
+        }
+
+
+        // var str = "小红还漂亮";
+        // var index = str.indexOf("小红");
+        // console.log(index);
+
+     */
+    /*============================BOM介绍==========================================*/
+    /**
+     * JavaScript分为三个部分：
+     * 1.ECMAScript标准--基本语法
+     * 2.DOM--》Document Object Model 文档对象模型，操作页面元素的
+     * 3.BOM--》Browser OBject Model  浏览器对象模型，操作浏览器的
+     *
+     * 浏览器中有个顶级对象：window
+     * 页面中顶级对象：document
+     * 页面中所有的内容都是属于浏览器的，页面中的内容也都是window
+     *
+     *
+     */
+
+
+
+    /*
+
+        //变量是window的
+    var num = 10;
+    console.log(window.num);
+
+    //函数也是window的，，，方法本质函数，函数也可以看做是方法
+    function f() {
+        console.log("我很帅");
+    }
+    window.f();
+
+
+    //因为页面中的所有内容都是window的window是可以省略的
+
+    var name = "小汪";
+    console.log(window.name);
+
+    console.log(top);
+    console.log(window);
+    */
+
+
+    /*=======================系统对话框=====================================*/
+    /*
+
+
+    //window.alert("haha");//点开直接加载，测试的时候使用
+    //window.prompt("请输入账号");
+    window.confirm("请确定退出么么");
+
+
+     */
+
+
+    /*
+
+        //页面加载的时候，不能放在head标签上面，要放在body结束位置,最好是在下面呢
+        //页面加载完毕，在获取按钮,页面中所有的内容
+        window.onload = function(){
+            document.getElementById("btn").onclick = function () {
+                alert("你好");
+            }
+        };
+
+
+        //页面关闭事件----页面关闭后才触发的这个事件
+        window.onunload = function () {
+            alert("haha");
+        };
+
+        //页面关闭之前触发了
+        window.onbeforeunload = function () {
+            alert("xixi");
+        }
+
+<input type="button" value="按钮" id="btn">
+
+*/
+
+    /*=======================10location对象===========================*/
+    /*
+
+
+<input type="button" value="显示效果" id="btn">
+<script>
+    //对象中的属性和方法
+    //location对象
+    //console.log(window.location);
+    // console.log(window.location.hash);
+    // console.log(window.location.host);//主机名+端口号
+    // console.log(window.location.hostname);//主机名
+    // console.log(window.location.pathname);//文件的相对路径
+    // console.log(window.location.port);//端口号
+    // console.log(window.location.protocol);//协议
+    // console.log(window.location.search);//?后面的内容
+
+
+    onload = function () {
+        document.getElementById("btn").onclick = function () {
+            //设置跳转页面的跳转的地址
+            //location.href = "http://www.baidu.com";//属性
+            //location.assign("http://www.baidu.com");//方法
+
+            //刷新，重新加载
+            //location.reload();
+
+            //直接替换当前地址，不能后退，没有历史记录
+            location.replace("http://www.baidu.com")
+        }
+    }
+     */
+
+    /*=======================history对象================*/
+    /*
+
+
+    <input type="button" value="跳过去" id="btn1">
+<input type="button" value="前进" id="btn2">
+
+    //跳转
+    my$("btn1").onclick = function () {
+        window.location.href = "test.html";
+    };
+    //前进
+    my$("btn2").onclick = function () {
+            window.history.forward();
+        }
+     */
+
+
+
+    /*
+test.html:
+
+
+<input type="button" value="后退" id="btn">
+
+    my$("btn").onclick = function () {
+            window.history.back();
+        }
+     */
+    /*======================navigator对象==============================*/
+    /*
+
+     //系统浏览器的类型
+    console.log(window.navigator.userAgent);
+    //通过platform可以判断浏览器所在的系统平台类型
+    //console.log(window.navigator.platform);
+     */
+
+
+    /*======================定时器==============================*/
+    /*
+
+
+    <input type="button" value="停止" id="btn">
+
+
+        //BOM中的定时器
+        //参数1：函数
+        //参数2：时间--毫秒---1000--1s
+        //执行过程：页面加载完毕后，过了一秒，执行一次函数的代码，有过一秒在执行函数。。。
+        //返回值就是定时器的id值
+        var timeId =  window.setInterval(function () {
+            alert("hello myLove");
+        },2000);
+        document.getElementById("btn").onclick = function () {
+                //点击按钮停止定时器
+                //参数：要清理的定时器的id的值
+                window.clearInterval(timeId);
+            }
+
+
+     */
+
+    /*====================案例一起摇起来==========================*/
+
+    /*
+
+        <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        div{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="动起来" id="btn">
+<input type="button" value="停止" id="btn1">
+
+<div id="dv">
+    <img src="images/heihei.jpg" alt="">
+    <img src="images/lyml.jpg" alt="">
+</div>
+
+    var timeId = "";
+    my$("btn").onclick = function () {
+         timeId = setInterval(function () {
+            //随机数
+            var x =parseInt(Math.random()*100+1);
+            var y =parseInt(Math.random()*100+1);
+            my$("dv").style.left = x + "px";
+            my$("dv").style.top = y + "px";
+        },100);
+    };
+
+    my$("btn1").onclick = function () {
+        window.clearInterval(timeId);
+    }
+
+    */
+
+    /*==========================星星=========================*/
+    /*
+
+            #dv{
+                width: 600px;
+                height: 600px;
+                background-color: #000;
+            }
+            span{
+                font-size: 30px;
+                color: yellow;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+
+
+    <input type="button" value="亮起来" id="btn">
+    <div id="dv">
+
+    </div>
+
+
+        my$("btn").onclick = function () {
+            setInterval(function () {
+                my$("dv").innerHTML = "<span>✨</span>";
+                var x = parseInt(Math.random()*600+1);
+                var y = parseInt(Math.random()*600+1);
+                my$("dv").firstElementChild.style.left = x + "px";
+                my$("dv").firstElementChild.style.top = y + "px";
+            },100);
+
+        };
+
+     */
+
+    /*====================案例美女时钟============================*/
+    /*
+
+    <img src="" alt="" id="img">
+
+
+        function f1() {
+            //获取当前时间
+            var dt = new Date();
+            //获取小时
+            var hour = dt.getHours();
+            //获取秒
+            var second = dt.getSeconds();
+
+            hour = hour < 10 ? "0"+hour : hour;
+            second = second < 10 ? "0"+second : second;
+            console.log(hour + "=======" +second);
+            my$("img").src = "meimei/"+hour+"_"+second+".jpg";
+        }
+
+        //页面加载完毕后，过了1秒才执行，函数的代码
+        setInterval(f1,1000);
+
+
+    */
+
+    /*=============================一次性的定时器===================================*/
+    /*
+
+
+
+    <input type="button" value="停下" id="btn">
+
+        // //定时器
+        // window.setInterval(function () {
+        //     alert("hello");
+        // },1000);
+        // //清理定时器
+        // window.clearInterval(定时器的id);
+
+        //另一个定时器
+        //参数1：函数
+        //参数2：时间---毫秒---1000---1s
+        //window.setTimeout(函数,时间);
+
+
+        window.onload = function () {
+            //一次性定时器
+            var timeId = window.setTimeout(function () {
+                alert("hello");
+            },1000);
+            my$("btn").onclick = function () {
+                clearTimeout(timeId);
+            }
+        };
+
+     */
+
+    /*=======================案例协议按钮禁用===========================*/
+    /*
+
+    <textarea name="" id="" cols="30" rows="10">
+        这个世界就是很疯狂
+    </textarea>
+
+    <input type="button" value="请仔细阅读协议(5)" id="btn" disabled>
+
+
+        var time = 5;
+        var timeId = setInterval(function () {
+
+                // if (time>= 0){
+                //     time--;
+                // }else {
+                //     time=0;
+                // }
+
+                time--;
+                my$("btn").value = "请仔细阅读协议("+time+")";
+                if (time<=0) {
+                    //停止定时器
+                    clearInterval(timeId);
+                    //按钮可以被点击了
+                    my$("btn").disabled = false;
+                    my$("btn").value = "同意";
+                }
+
+            },1000)
+
+     */
+
+    /*======================案例div的渐变============================*/
+    /*
+            div{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+
+
+<div id="dv"></div>
+<input type="button" value="渐变" id="btn">
+
+
+    var opacity = 10;
+
+    my$("btn").onclick = function () {
+            var timeId = setInterval(function () {
+                //透明化
+                opacity--;
+                if (opacity <= 0){
+                    clearInterval(timeId);
+                }
+                //设置div的透明度
+                my$("dv").style.opacity = opacity/10;
+
+            },100);
+
+        }
+
+     */
+
+    /*=====================设置div的宽度=============================*/
+    /*
+
+            *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            border-radius: 100px;
+        }
+
+
+<div id="dv"></div>
+<input type="button" value="边长" id="btn">
+
+
+    my$("btn").onclick = function () {
+            var width = 300;
+            var timeId = setInterval(function () {
+                width+=10;
+                if (width == 800){
+                    clearInterval(timeId);
+                }
+                my$("dv").style.width = width + "px";
+            },20)
+        }
+
+     */
+
+    /*===========================移动元素===============================*/
+    /*
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            input{
+                margin-top: 20px;
+            }
+            div{
+                margin-top: 30px;
+                width: 200px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                left: 20px;
+            }
+
+    <input type="button" value="移动到400px" id="btn1">
+    <input type="button" value="移动到800px" id="btn2">
+    <div id="dv"></div>
+
+        //div要移动，要脱离文档流--position：absolute
+        //如果样式的代码是在style的标签中设置，外面是获取不到的
+        //如果样式的代码是在标签中设置，是可以获取的
+        //offset。。。都可以拿到的
+        //点击第一个按钮移动到400px
+        my$("btn1").onclick = function () {
+            //console.log(my$("dv").offsetLeft);
+
+            var  timeId = setInterval(function () {
+                //获取当前的位置
+                var current = my$("dv").offsetLeft;//数字类型，没有px
+                //div每次移动多少px
+                var step = 10;
+                //每次移动后的距离
+                current+=step;
+                //判断当前移动后的位置是否到达目标位置
+                if (current <= 400){
+                    //设置div的目标位置
+                    my$("dv").style.left = current + "px";
+                }else {
+                    clearInterval(timeId);
+                }
+
+            },20)
+        }
+
+        //点击第二个按钮地洞到800px
+        my$("btn2").onclick = function () {
+                //console.log(my$("dv").offsetLeft);
+                var  timeId = setInterval(function () {
+                    //获取当前的位置
+                    var current = my$("dv").offsetLeft;//数字类型，没有px
+                    //div每次移动多少px
+                    var step = 10;
+                    //每次移动后的距离
+                    current+=step;
+                    //判断当前移动后的位置是否到达目标位置
+                    if (current <= 800){
+                        //设置div的目标位置
+                        my$("dv").style.left = current + "px";
+                    }else {
+                        clearInterval(timeId);
+                    }
+                },20)
+            }
+
+     */
+
+    /*============================封装动画函数=====================================*/
+    /*
+
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            input {
+                margin-top: 20px;
+            }
+
+            div {
+                margin-top: 30px;
+                width: 200px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+
+    <input type="button" value="移动到400px" id="btn1">
+    <input type="button" value="移动到800px" id="btn2">
+    <div id="dv"></div>
+
+        //div要移动，要脱离文档流--position：absolute
+        //如果样式的代码是在style的标签中设置，外面是获取不到的
+        //如果样式的代码是在标签中设置，是可以获取的
+        //offset。。。都可以拿到的
+        //点击第一个按钮移动到400px
+        my$("btn1").onclick = function () {
+            animate(my$("dv"), 400)
+        };
+
+        //点击第二个按钮地洞到800px
+        my$("btn2").onclick = function () {
+            animate(my$("dv"), 800)
+        };
+
+        //动画函数---任意一个元素移动到指定的目标位置
+        function animate(element, target) {
+            //先清理定时器
+            clearInterval(element.timeId);
+            element.timeId = setInterval(function () {
+                //获取当前的位置
+                var current = element.offsetLeft;//数字类型，没有px
+                //div每次移动多少px
+                var step = 10;
+                step = current < target ? step : -step;
+                //每次移动后的距离
+                current += step;
+                //判断当前移动后的位置是否到达目标位置Math.abs()绝对值
+                if (Math.abs(target - current) > Math.abs(step)) {
+                    //设置div的目标位置
+                    element.style.left = current + "px";
+                } else {
+                    clearInterval(element.timeId);
+                    element.style.left = target + "px";
+                }
+            }, 20)
+        }
+     */
+
+    /*===================封装动画函数=============================*/
+    /*
+
+
+     //设置任意的一个元素，移动到指定的目标位置
+    function animate(element,target) {
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //获取当前的元素的位置
+            var current = element.offsetLeft;//数字类型
+            //每次移动的距离
+            var step = 10;
+            step = current - target ? step : -step;
+            //当前移动的位置
+            current += step;
+            if (Math.abs(current-target) > Math.abs(step)){
+                element.style.left = current + "px";
+            }else{
+                clearInterval(element.timeId);
+                element.style.left = target + "px";
+            }
+
+        },20)
+    }
+     */
+
+    /*================简单的轮播图====================*/
+    /*
+
+            * {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        img {
+            vertical-align: top
+        }
+
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .inner {
+            width: 730px;
+            height: 454px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .inner li {
+            float: left;
+        }
+
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+
+
+<div class="box" id="box">
+    <div class="inner"><!--相框-->
+        <ul>
+            <li><a href="#"><img src="images/1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/6.jpg" alt=""/></a></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+        </div>
+    </div>
+</div>
+
+    //获取最外面的div
+    var box = my$("box");
+    //获取相框
+    var inner = box.children[0];//<div class="box" id="box">
+    //获取相框的宽度
+    var imgWidth = inner.offsetWidth;
+
+    //获取ul
+    var ulObj = inner.children[0];//<div class="inner">
+    //获取所有的span的标签
+    var spanObjs = inner.children[1].children;// children[1]获取这个<div class="square">  .children获取span
+
+    //循环遍历所有的span标签，注册鼠标进入的事件
+    for (var i = 0; i < spanObjs.length; i++){
+        //循环的时候把索引值保存在每个span的自定义属性中
+        spanObjs[i].setAttribute("index",i);
+        //注册鼠标进入事件
+        spanObjs[i].onmouseover = function () {
+            //排他功能
+            //先干掉所有的span的背景颜色
+            for (var j = 0; j < spanObjs.length; j++){
+                //移除每个span的类样式
+                spanObjs[j].removeAttribute("class");
+            }
+            //设置当前的span的背景颜色
+            this.className = "current";
+            //移动ul（每一张图片的的宽度*手边放在这个按钮的索引值）
+            //获取当前鼠标进入的span的索引
+            var index = this.getAttribute("index");
+            animate(ulObj,-index*imgWidth);
+        };
+    }
+
+    //动画函数---任意一个元素移动到指定的目标位置
+    function animate(element, target) {
+        //先清理定时器
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //获取当前的位置
+            var current = element.offsetLeft;//数字类型，没有px
+            //div每次移动多少px
+            var step = 10;
+            step = current < target ? step : -step;
+            //每次移动后的距离
+            current += step;
+            //判断当前移动后的位置是否到达目标位置Math.abs()绝对值
+            if (Math.abs(target - current) > Math.abs(step)) {
+                //设置div的目标位置
+                element.style.left = current + "px";
+            } else {
+                clearInterval(element.timeId);
+                element.style.left = target + "px";
+            }
+        }, 10)
+    }
+
+     */
+
+
+    /*===========================左右移动的轮播图=================================*/
+    /*
+
+            body, ul, ol, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 520px;
+            height: 280px;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+        }
+
+        .ad {
+            width: 520px;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #box img {
+            width: 520px;
+        }
+
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ad ol li {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            _display: inline;
+        }
+
+        .ad ol li.current {
+            background: yellow;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+
+        .ad ul {
+            position: absolute;
+            top: 0;
+            width: 2940px;
+        }
+
+        .ad ul li.current {
+            display: block;
+        }
+
+        #focusD {
+            display: none;
+        }
+
+        #focusD span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #focusD #right {
+            right: 5px;
+            left: auto;
+        }
+
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/01.jpg"/></li>
+            <li><img src="images/02.jpg"/></li>
+            <li><img src="images/03.jpg"/></li>
+            <li><img src="images/04.jpg"/></li>
+            <li><img src="images/05.jpg"/></li>
+        </ul>
+    </div><!--相框-->
+    <div id="focusD"><span id="left">&lt;</span><span id="right">&gt;</span>
+    </div>
+</div>
+
+    //获取最外面的div
+    var box = my$("box");
+
+    //获取相框
+    var ad = box.children[0];
+
+    //获取相框的宽度
+    var imgWidth = ad.offsetWidth;
+
+    //获取ul
+    var ulObj = ad.children[0];
+
+    //获取左右焦点的div
+    var focusD = my$("focusD");
+
+    //显示和隐藏左右的焦点的div--为box注册事件
+    box.onmouseover = function(){
+        focusD.style.display = "block";
+    };
+    box.onmouseout = function(){
+        focusD.style.display = "none";
+    };
+
+    //点击右边按钮
+    var index = 0;
+    my$("right").onclick = function () {
+        if (index < ulObj.children.length - 1){
+            index++;
+            animate(ulObj,-index*imgWidth);
+        }
+    };
+    //点击左边按钮
+    my$("left").onclick = function () {
+        if (index > 0){
+            index--;
+            animate(ulObj,-index*imgWidth);
+        }
+    };
+
+    //动画函数---任意一个元素移动到指定的目标位置
+    function animate(element, target) {
+        //先清理定时器
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //获取当前的位置
+            var current = element.offsetLeft;//数字类型，没有px
+            //div每次移动多少px
+            var step = 10;
+            step = current < target ? step : -step;
+            //每次移动后的距离
+            current += step;
+            //判断当前移动后的位置是否到达目标位置Math.abs()绝对值
+            if (Math.abs(target - current) > Math.abs(step)) {
+                //设置div的目标位置
+                element.style.left = current + "px";
+            } else {
+                clearInterval(element.timeId);
+                element.style.left = target + "px";
+            }
+        }, 10)
+    }
+     */
+
+    /*============================无缝轮播图===============================*/
+    /*
+
+            * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        // 取消图片底部3像素距离
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: pink;
+            border: 1px solid red;
+            position: relative;
+            overflow: hidden;
+        }
+
+.box ul li {
+    float: left;
+}
+
+.box ul {
+    width: 1500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+<div class="box" id="screen">
+    <ul>
+    <li><img src="imagess/01.jpg" alt=""/></li>
+    <li><img src="imagess/02.jpg" alt=""/></li>
+    <li><img src="imagess/03.jpg" alt=""/></li>
+    <li><img src="imagess/04.jpg" alt=""/></li>
+    <li><img src="imagess/01.jpg" alt=""/></li>
+    </ul>
+    </div>
+
+    var current = 0;//只声明了一次
+    function f1() {
+        current-=10;
+        var ulObj = my$("screen").children[0];
+        if (current<-1200){
+            ulObj.style.left = 0+ "px";
+            current = 0;
+        }else {
+            ulObj.style.left = current + "px";
+        }
+    }
+    var timeId = setInterval(f1, 20);
+
+    my$("screen").onmouseover = function () {
+        //停止
+        clearInterval(timeId);
+    };
+    my$("screen").onmouseout = function () {
+            //继续
+            timeId = setInterval(f1, 20);
+        }
+
+     */
+
+    /*======================全部的轮播================================*/
+    /*
+
+            * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: #DB192A;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen"><!--相框-->
+        <ul>
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+        </ol>
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+
+    //获取最外面的div
+    var box = my$("box");
+    //获取相框
+    var screen = box.children[0];
+    //获取相框的宽度
+    var imgWidth = screen.offsetWidth;
+    //获取ul
+    var ulObj = screen.children[0];
+    //获取ul里面所有的li数组对象
+    var list = ulObj.children;
+    //获取ol
+    var olObj = screen.children[1];
+    //焦点div
+    var arr = my$("arr");
+
+
+    var picIndex = 0;//全局变量
+    //创建小按钮---根据ul中的li个数
+    for (var i = 0; i < list.length; i++) {
+        //创建li标签，加入ol中
+        var liObj = document.createElement("li");
+
+
+        olObj.appendChild(liObj);
+        liObj.innerHTML = (i + 1);
+        //在每个ol中的li标签上增加一个自定义属性，存储索引值
+        liObj.setAttribute("index", i);
+
+        //注册鼠标进入事件
+        liObj.onmouseover = function () {
+            //先干掉所有的ol中的li的背景颜色
+            for (var j = 0; j < olObj.children.length; j++) {
+                olObj.children[j].removeAttribute("class");
+            }
+            //设置当前鼠标进来的li的背景颜色
+            this.className = "current";
+            //获取鼠标进入的li的当前索引值
+            picIndex = this.getAttribute("index");
+            //移动ul
+            animate(ulObj, -picIndex * imgWidth);
+        }
+
+    }
+    olObj.children[0].className = "current";
+
+    //clone一个ul中第一个li，加入到ul中的最=====克隆
+    ulObj.appendChild(ulObj.children[0].cloneNode(true));
+
+    //自动播放
+    var timeId = setInterval(clickHandle,1000);
+
+    //鼠标进去到box的div，显示左右检点的div
+    box.onmouseover = function () {
+        arr.style.display = "block";
+        //鼠标进去废掉之前的定时器
+        clearInterval(timeId);
+    };
+    box.onmouseout = function () {
+        arr.style.display = "none";
+        //鼠标离开自动播放
+        timeId = setInterval(clickHandle,1000);
+    };
+    //右边按钮
+
+    my$("right").onclick =clickHandle;
+    function clickHandle() {
+        //如果pic的值是5,恰巧是ul中li的个数-1的值,此时页面显示第六个图片,而用户会认为这是第一个图,
+        //所以,如果用户再次点击按钮,用户应该看到第二个图片
+        if (picIndex == list.length - 1) {
+            //如何从第6个图,跳转到第一个图
+            picIndex = 0;//先设置pic=0
+            ulObj.style.left = 0 + "px";//把ul的位置还原成开始的默认位置
+        }
+        picIndex++;//立刻设置pic加1,那么此时用户就会看到第二个图片了
+        animate(ulObj, -picIndex * imgWidth);//pic从0的值加1之后,pic的值是1,然后ul移动出去一个图片
+        //如果pic==5说明,此时显示第6个图(内容是第一张图片),第一个小按钮有颜色,
+        if (picIndex == list.length - 1) {
+            //第五个按钮颜色干掉
+            olObj.children[olObj.children.length - 1].className = "";
+            //第一个按钮颜色设置上
+            olObj.children[0].className = "current";
+        } else {
+            //干掉所有的小按钮的背景颜色
+            for (var i = 0; i < olObj.children.length; i++) {
+                olObj.children[i].removeAttribute("class");
+            }
+            olObj.children[picIndex].className = "current";
+        }
+
+    };
+    //左按钮
+    my$("left").onclick = function () {
+        if (picIndex == 0){
+            picIndex = 5;
+            ulObj.style.left = -picIndex * imgWidth + "px";
+        }
+        picIndex--;
+        animate(ulObj,-picIndex * imgWidth);
+        //设置小按钮的颜色
+        for (var  i = 0; i<olObj.children.length;i++){
+            olObj.children[i].removeAttribute("class");
+        }
+        olObj.children[picIndex].className = "current";
+    };
+
+
+    //设置任意的一个元素,移动到指定的目标位置
+    function animate(element, target) {
+        clearInterval(element.timeId);
+        //定时器的id值存储到对象的一个属性中
+        element.timeId = setInterval(function () {
+            //获取元素的当前的位置,数字类型
+            var current = element.offsetLeft;
+            //每次移动的距离
+            var step = 10;
+            step = current < target ? step : -step;
+            //当前移动到位置
+            current += step;
+            if (Math.abs(current - target) > Math.abs(step)) {
+                element.style.left = current + "px";
+            } else {
+                //清理定时器
+                clearInterval(element.timeId);
+                //直接到达目标
+                element.style.left = target + "px";
+            }
+        }, 10);
+    }
+
+*/
+
+    /*===============================offset属性================================================*/
+    /*
+            *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            top: 250px;
+            position: absolute;
+        }
+        #dv1{
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 30px;
+        }
+        #dv2{
+            width: 100px;
+            height: 50px;
+            background-color:green;
+        }
+
+<div id="dv1">
+    <div id="dv2"></div>
+</div>
+
+<input type="button" value="显示效果" id="btn">
+
+
+
+    my$("btn").onclick = function () {
+            //offsetWidth获取宽
+            //offsetHeight获取高
+            //offsetLeft湖区元素距离作为位置的值
+            //offsetTop获取元素距离上面位置的值
+            console.log(my$("dv1").offsetWidth);
+            console.log(my$("dv1").offsetHeight);
+            console.log(my$("dv1").offsetLeft);
+            console.log(my$("dv1").offsetTop);
+        }
+
+        */
+
+
+    //没有脱离文档流
+    //脱离文档流
+    /*
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            top: 250px;
+            position: absolute;
+        }
+父级元素
+#dv1{
+    width: 200px;
+    height: 150px;
+    background-color: red;
+    margin-left: 100px;
+    padding-left: 50px;
+    border: 20px solid yellow;
+}
+子级元素
+#dv2{
+    width: 100px;
+    height: 50px;
+    background-color:green;
+    margin-left: 30px;
+    padding-left: 20px;
+    border: 30px solid yellowgreen ;
+}
+</style>
+</head>
+<body>
+<div id="dv1">
+    <div id="dv2"></div>
+    </div>
+
+    <input type="button" value="显示效果" id="btn">
+
+
+
+    my$("btn").onclick = function () {
+
+            //没有脱离文档流：offsetLeft:父级元素margin+父级元素padding+父级元素的border+自己的margin
+            //脱离文档流：offsetLeft：主要是自己的left和自己的margin
+            //子元素的
+            console.log(my$("dv2").offsetLeft);
+        }
+
+
+
+     */
+
+    /*========================直接通过document获取元素================================*/
+    /*
+
+        //获取body
+    console.log(document.body);
+    //获取title
+    console.log(document.title);
+    //修改title
+    document.title = "hahah";
+    console.log(document.title);
+    //获取html
+    console.log(document.documentElement);
+
+     */
+
+/*==================案例图片跟这个鼠标飞==================================*/
+    /*
+
+        <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+
+<img src="images/tianshi.gif" alt="" id="img">
+
+
+    //鼠标在页面中移动，图片跟着鼠标移动
+    document.onmousemove = function (e) {
+            console.log("我动了");
+            //鼠标的移动的
+            //可是区域的横坐标
+            //可是区域的纵坐标
+            my$("img").style.left = e.clientX + "px";
+            my$("img").style.top = e.clientY + "px";
+        }
+
+     */
+
+/*==================scroll系列==================================*/
+/*
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            border: 2px solid red;
+            overflow: auto;
+        }
+        input{
+            left: 350px;
+            position: absolute;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dv">
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+    vcdnsovnfsiovnsdiovnsvbsdbdfsbfdbfdbfd
+
+</div>
+<input type="button" value="显示效果" id="btn">
+
+
+    //scrollWidth:元素中内容的实际的宽(没有边框)，如果没有内容就是元素的宽
+    //scrollHeight：元素中内容的实际的高（没有边框）如果没有内容就是元素的宽
+    //scrollTop
+    my$("btn").onclick = function () {
+            console.log(my$("dv").scrollWidth);
+            console.log(my$("dv").scrollHeight);
+            console.log(my$("dv").scrollTop);
+        };
+     my$("dv").onscroll = function () {
+        console.log(this.scrollTop);//鼠标拉动滚动条的值
+    }
+ */
+
+/*===============================滚动固定导航条======================================*/
+    /*
+
+            * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="top" id="topPart">
+    <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+    <img src="images/main.png" alt=""/>
+</div>
+
+    //获取浏览器向上卷曲出去的距离的值，向左卷去的距离
+    //  function getScroll() {
+    //      var obj = {};
+    //      //向上卷曲的值
+    //      var top = window.pageYffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    //
+    //      //向左卷去的值
+    //      var left = window.pageXffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+    //
+    //      obj.left = left;
+    //      obj.top = top;
+    //      return obj;
+    //  }
+    // console.log( getScroll());
+
+    // function getScroll() {
+    //     var obj = {};
+    //     //向上卷曲的值
+    //     obj.left = window.pageYffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    //     //向左卷去的值
+    //     obj.top =  window.pageXffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+    //     return obj;
+    // }
+    // console.log( getScroll());
+
+    // function getScroll() {
+    //     var obj = {
+    //         left:window.pageYffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+    //         top:window.pageXffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+    // };
+    //     return obj;
+    // }
+    // console.log(getScroll());
+
+    function getScroll() {
+        return {
+            left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft||0,
+            top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        };
+    }
+
+    //滚动事件
+    window.onscroll = function () {
+            //console.log(getScroll().top);
+            //向上卷曲的出去的距离和最上面的div高度对比
+            if (getScroll().top >= my$("topPart").offsetHeight) {
+                // my$("navBar").style.position = "fixed";
+                // my$("navBar").style.top = 0;
+                my$("navBar").className = "nav fixed";
+                my$("mainPart").style.marginTop = my$("navBar").offsetHeight + "px";
+            }else {
+                my$("navBar").className = "nav";
+                my$("mainPart").style.marginTop = 10 + "px";
+            }
+        }
+
+
+        */
+
+    /*==========================动画函数封装======================================*/
+    /*
+
+            *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin-top: 50px;
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="btn1">
+<input type="button" value="移动到800" id="btn2">
+<div id="dv"></div>
+
+
+    //点击按钮移动div
+    my$("btn1").onclick = function () {
+        animate(my$("dv"),400);
+    };
+    my$("btn2").onclick = function () {
+        animate(my$("dv"),800);
+    };
+
+    //匀速动画
+    // function animate(element,target) {
+    //     //清理定时器
+    //     clearInterval(element.target);
+    //     element.timeId = setInterval(function () {
+    //         //获取元素的当前位置
+    //         var current = element.offsetLeft;
+    //         //移动的步数
+    //         var step = 10;
+    //
+    //         step = target > current ? step : -step;
+    //         current+=step;
+    //         if (Math.abs(current-target)>Math.abs(step)){
+    //             element.style.left = current + "px";
+    //         }else {
+    //             clearInterval(element.timeId);
+    //             element.style.left = target + "px";
+    //         }
+    //
+    //     },20)
+    // }
+
+    //变速运动动画
+    function animate(element,target) {
+        //清理定时器
+        clearInterval(element.target);
+        element.timeId = setInterval(function () {
+            //获取元素的当前位置
+            var current = element.offsetLeft;
+            //移动的步数
+            var step = (target-current)/10;
+
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            current+=step;
+            element.style.left = current + "px";
+            if (current==target){
+                clearInterval(element.timeId);
+            }
+            //测试代码
+            console.log("目标位置："+target+"，当前位置："+current+"，每次移动的步数："+step+"")
+
+        },20)
+    }
+     */
+
+    /*==============================筋斗云导航条=========================================*/
+    /*
+
+
+        * {
+      margin: 0;
+      padding: 0
+    }
+
+    ul {
+      list-style: none
+    }
+
+    body {
+      background-color: #333;
+    }
+
+    .nav {
+      width: 800px;
+      height: 42px;
+      margin: 100px auto;
+      background: url(images/rss.png) right center no-repeat;
+      background-color: #fff;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .nav li {
+      width: 83px;
+      height: 42px;
+      text-align: center;
+      line-height: 42px;
+      float: left;
+      cursor: pointer;
+    }
+
+    .nav span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 83px;
+      height: 42px;
+      background: url(images/cloud.gif) no-repeat;
+    }
+
+    ul {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+<div class="nav">
+  <span id="cloud"></span>
+  <ul id="navBar">
+    <li>北京校区</li>
+    <li>上海校区</li>
+    <li>广州校区</li>
+    <li>深圳校区</li>
+    <li>武汉校区</li>
+    <li>关于我们</li>
+    <li>联系我们</li>
+    <li>招贤纳士</li>
+  </ul>
+</div>
+
+    //匀速动画
+    function animate(element, target) {
+        //清理定时器
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //获取元素的当前位置
+            var current = element.offsetLeft;
+            //移动的步数
+            var step = (target - current) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            current += step;
+            element.style.left = current + "px";
+            if (current == target) {
+                //清理定时器
+                clearInterval(element.timeId);
+            }
+            //测试代码:
+            console.log("目标位置:" + target + ",当前位置:" + current + ",每次移动步数:" + step);
+        }, 20);
+    }
+
+
+    //获取云彩
+    var cloud = my$("cloud");
+    //获取所有的li标签
+    var list = my$("navBar").children;
+    for (var i = 0; i< list.length; i++){
+        //鼠标进入事件
+        list[i].onmouseover = mouseoverHandle;
+        //点击事件
+        list[i].onclick = clickHandle;
+        //鼠标离开事件
+        list[i].onmouseout = mouseoutHandle;
+    }
+    function mouseoverHandle() {
+    //移动的到鼠标li的位置
+        animate(cloud,this.offsetLeft);
+    }
+
+    var lastPosition = 0;
+    function clickHandle() {
+    //点击的位置
+        lastPosition = this.offsetLeft;
+    }
+    function mouseoutHandle() {
+    //鼠标离开的位置
+        animate(cloud,lastPosition);
+    }
+
+    */
+
+    /*=======================获取元素计算后样式属性值===============================*/
+    /*
+
+            *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 100px;
+            background-color: red;
+            left: 100px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+
+    //my$("btn").onclick = function () {
+    //console.log(my$("dv").offsetLeft);
+    //console.log(window.getComputedStyle(my$("dv"),null).left);//火狐-谷歌支持，ie不支持
+    //console.log(my$("dv").currentStyle.left);//IE支持,火狐-谷歌不支持
+    //};
+
+    // function getStyle(element,attr) {
+    //     //判断浏览器是否支持这个方法
+    //     if (window.getComputedStyle){
+    //         return window.getComputedStyle(element,null)[attr];
+    //     }else {
+    //         return element.currentStyle[attr];
+    //     }
+    // }
+
+    function getStyle(element,attr) {
+        //判断浏览器是否支持这个方法
+        return window.getComputedStyle ? window.getComputedStyle(element,null)[attr] : element.currentStyle[attr];
+    }
+
+    my$("btn").onclick = function () {
+            console.log(getStyle(my$("dv"),"top"));
+        }
+
+        */
+
+    /*==============================变速动画函数增加任意一个属性=============================*/
+    /*
+
+
+            *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin-top: 50px;
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="btn1">
+<input type="button" value="移动到800" id="btn2">
+<div id="dv"></div>
+
+    //点击按钮移动div
+    my$("btn1").onclick = function () {
+        animate(my$("dv"),"margin",400);
+    };
+
+    //计算后的样式和属性，---一个元素的任意一个样式属性值--字符类型
+
+    function getStyle(element,attr) {
+        //判断浏览器是否支持这个方法
+        return window.getComputedStyle ? window.getComputedStyle(element,null)[attr] : element.currentStyle[attr];
+    }
+    //变速运动动画
+    //element:元素   attr:属性名字  target：目标位置
+    function animate(element,attr,target) {
+        //清理定时器
+        clearInterval(element.target);
+        element.timeId = setInterval(function () {
+            //获取元素的当前位置
+            var current = parseInt(getStyle(element,attr));//转数字类型
+            //移动的步数
+            var step = (target-current)/10;
+
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            current+=step;
+            element.style[attr] = current + "px";
+            if (current==target){
+                clearInterval(element.timeId);
+            }
+            //测试代码
+            console.log("目标位置："+target+"，当前位置："+current+"，每次移动的步数："+step+"")
+
+        },20)
+    }
+     */
+
+    /*============================变速动画函数增加任意多个属性===========================================*/
+    /*
+
+
+            * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin-top: 50px;
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="btn1">
+<input type="button" value="移动到800" id="btn2">
+<div id="dv"></div>
+
+
+    //点击按钮移动div
+    my$("btn1").onclick = function () {
+        // var json = {
+        //     width: 200,
+        //     height:400,
+        //     left:500,
+        //     top:600
+        // };
+        // animate(my$("dv"), json);
+
+        animate(my$("dv"),{"width": 400,"height":400,"left":500,"top":400});
+    };
+
+    //计算后的样式和属性，---一个元素的任意多个样式属性值--字符类型
+
+
+    //变速运动动画
+    //element:元素   attr:属性名字  target：目标位置
+    function animate(element, json) {
+        var flag = true;//默认假设，全部到达目标
+        //清理定时器
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            for (var attr in json){
+                //获取元素的当前位置
+                var current = parseInt(getStyle(element, attr));//转数字类型
+                //移动的步数
+                //当前的数学对应的目标值
+                var target = json[attr];
+                var step = (target - current) / 10;
+
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                current += step;
+                element.style[attr] = current + "px";
+                if (current != target){
+                    flag = false;
+                }
+
+            }
+            if (flag) {
+                clearInterval(element.timeId);
+            }
+
+            //测试代码
+            console.log("目标位置：" + target + "，当前位置：" + current + "，每次移动的步数：" + step + "")
+
+        }, 20)
+    }
+
+    //获取任意的一个属性的当前的属性值
+    function getStyle(element, attr) {
+        //判断浏览器是否支持这个方法
+        return window.getComputedStyle ? window.getComputedStyle(element, null)[attr] : element.currentStyle[attr];
+    }
+
+     */
+
+    /*========================封装缓动动画函数增加回调函数================================*/
+    /*
+
+            * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin-top: 50px;
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="btn1">
+<input type="button" value="移动到800" id="btn2">
+<div id="dv"></div>
+
+
+
+    //element:元素   json：对象--对个属性0多个目标值， fn:是函数
+    function animate(element,json,fn) {
+        clearInterval(element.timeId);
+        element.timeId=setInterval(function () {
+            var flag=true;//默认,假设,全部到达目标
+            for(var attr in json){
+                //获取元素这个属性的当前的值
+                var current=parseInt(getStyle(element,attr));
+                //当前的属性对应的目标值
+                var target=json[attr];
+                //移动的步数
+                var step=(target-current)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                current+=step;//移动后的值
+                element.style[attr]=current+"px";
+                if(current!=target){
+                    flag=false;
+                }
+            }
+            if(flag){
+                //清理定时器
+                clearInterval(element.timeId);
+                //所有的属性到达目标才能使用这个函数,前提是用户传入了这个函数
+                if(fn){
+                    fn();
+                }
+            }
+
+
+            //测试代码
+            console.log("目标位置：" + target + "，当前位置：" + current + "，每次移动的步数：" + step + "")
+
+        }, 20)
+    }
+
+    //获取任意的一个属性的当前的属性值
+    function getStyle(element, attr) {
+        //判断浏览器是否支持这个方法
+        return window.getComputedStyle ? window.getComputedStyle(element, null)[attr] : element.currentStyle[attr];
+    }
+
+    //点击按钮移动div
+    my$("btn1").onclick=function () {
+
+        var json1={"width":400,"height":500,"left":500,"top":80};
+        animate(my$("dv"),json1,function () {
+            var json2={"width":40,"height":50,"left":50,"top":800};
+            animate(my$("dv"),json2,function () {
+                var json3={"width":450,"height":550,"left":550,"top":600};
+                animate(my$("dv"),json3);
+            });
+        });
+    };
+     */
+
+
+    /*====================最终的动画函数封装=======================*/
+    /*
+
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin-top: 50px;
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="btn1">
+<input type="button" value="移动到800" id="btn2">
+<div id="dv"></div>
+
+
+
+    //element:元素   json：对象--对个属性0多个目标值， fn:是函数
+    //json ==={"zIndex":1000,"opacity":0.2}
+    function animate(element, json, fn) {
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            var flag = true;//默认,假设,全部到达目标
+            for (var attr in json) {
+                //判断在和俄国属性attr中是不是opacity
+                if (attr == "opacity") {
+                    //获取元素当前的透明度，当前的透明度放大100倍
+                    var current = getStyle(element, attr)*100;
+                    //目标的透明度也要放大100倍
+                    var target = json[attr]*100;
+
+                    var step = (target - current) / 10;
+
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                    current += step;//移动后的值
+                    element.style[attr] = current/100;
+
+                } else if (attr == "zIndex") {//判断这个属性attr中是不是zIndex
+                    //层级改变就是直接改变这个属性的值
+                    element.style[attr] = json[attr];
+                } else {//普通的属性
+
+                    //获取元素这个属性的当前的值
+                    var current = parseInt(getStyle(element, attr));
+                    //当前的属性对应的目标值
+                    var target = json[attr];
+                    //移动的步数
+                    var step = (target - current) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    current += step;//移动后的值
+                    element.style[attr] = current + "px";
+                }
+
+
+
+
+                //是否到达目标
+                if (current != target) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                //清理定时器
+                clearInterval(element.timeId);
+                //所有的属性到达目标才能使用这个函数,前提是用户传入了这个函数
+                if (fn) {
+                    fn();
+                }
+            }
+
+
+            //测试代码
+            console.log("目标位置：" + target + "，当前位置：" + current + "，每次移动的步数：" + step + "")
+
+        }, 20)
+    }
+
+    //获取任意的一个属性的当前的属性值
+    function getStyle(element, attr) {
+        //判断浏览器是否支持这个方法
+        return window.getComputedStyle ? window.getComputedStyle(element, null)[attr] : element.currentStyle[attr];
+    }
+
+    //点击按钮移动div
+    my$("btn1").onclick = function () {
+        var json1 = {"width":200,"height":100,"left":100,"top":100,"opacity":0.5,"zIndex":1000};
+        animate(my$("dv"),json1);
+    };
+
+     */
+
+    /*===================手风琴====================================*/
+/*
+
+  <style>
+
+    ul {
+      list-style: none;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 1150px;
+      height: 400px;
+      margin: 50px auto;
+      border: 1px solid red;
+      overflow: hidden;
+    }
+
+    div li {
+      width: 240px;
+      height: 400px;
+      float: left;
+    }
+
+    div ul {
+      width: 1300px;
+    }
+
+
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+    function getStyle(element, attr) {
+        return window.getComputedStyle ? window.getComputedStyle(element, null)[attr] : element.currentStyle[attr] || 0;
+    }
+    function animate(element, json, fn) {
+        clearInterval(element.timeId);//清理定时器
+        //定时器,返回的是定时器的id
+        element.timeId = setInterval(function () {
+            var flag = true;//默认,假设,全部到达目标
+            //遍历json对象中的每个属性还有属性对应的目标值
+            for (var attr in json) {
+                //判断这个属性attr中是不是opacity
+                if (attr == "opacity") {
+                    //获取元素的当前的透明度,当前的透明度放大100倍
+                    var current = getStyle(element, attr) * 100;
+                    //目标的透明度放大100倍
+                    var target = json[attr] * 100;
+                    var step = (target - current) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    current += step;//移动后的值
+                    element.style[attr] = current / 100;
+                } else if (attr == "zIndex") { //判断这个属性attr中是不是zIndex
+                    //层级改变就是直接改变这个属性的值
+                    element.style[attr] = json[attr];
+                } else {
+                    //普通的属性
+                    //获取元素这个属性的当前的值
+                    var current = parseInt(getStyle(element, attr));
+                    //当前的属性对应的目标值
+                    var target = json[attr];
+                    //移动的步数
+                    var step = (target - current) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    current += step;//移动后的值
+                    element.style[attr] = current + "px";
+                }
+                //是否到达目标
+                if (current != target) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                //清理定时器
+                clearInterval(element.timeId);
+                //所有的属性到达目标才能使用这个函数,前提是用户传入了这个函数
+                if (fn) {
+                    fn();
+                }
+            }
+            //测试代码
+            console.log("目标:" + target + ",当前:" + current + ",每次的移动步数:" + step);
+        }, 20);
+    }
+    //在li里面加入图片
+    var list = my$("box").getElementsByTagName("li");
+    for (var i = 0; i < list.length; i++){
+        list[i].style.backgroundImage = "url('images/"+(i+1)+".jpg')";
+        //鼠标进入
+        list[i].onmouseover = mouseoverHandle;
+
+        //鼠标离开
+        list[i].onmouseout = mouseoutHandle;
+
+    }
+
+    function mouseoverHandle() {
+        for (var j = 0; j < list.length; j++){
+            animate(list[j],{"width":100});
+        }
+        animate(this,{"width":800});
+    }
+
+    function mouseoutHandle() {
+        for (var j = 0; j < list.length; j++){
+            animate(list[j],{"width":240});
+        }
+    }
+
+    */
+
+/*=======================开关机动画=========================================================*/
+    /*
+
+
+
+            .box {
+            width: 322px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <span id="closeButton"></span>
+    <div class="hd" id="headPart">
+        <img src="images/t.jpg" alt=""/>
+    </div>
+    <div class="bd" id="bottomPart">
+        <img src="images/b.jpg" alt=""/>
+    </div>
+</div>
+
+
+    my$("closeButton").onclick = function () {
+        //设置最下面的div的高见见的变成0
+        animate(my$("bottomPart"),{"height":0},function () {
+            animate(my$("box"),{"width":0});
+        });
+    };
+    */
+
+
+    /*=========================旋转木马===============================*/
+    /*
+
+    //复习的数组
+
+    var arr = [10,39,40];
+    console.log(arr.shift());//把数值中的第一个值删除
+    console.log(arr);
+
+
+    //就是一直删除前面的第一个，然后把删除的第一个元素值增加到最后一个
+    var arr = [10,39,40];
+    arr.push(arr.shift());
+    console.log(arr);
+
+    arr.push(arr.shift());
+    console.log(arr);
+
+    arr.push(arr.shift());
+    console.log(arr);
+
+
+    //就是最后一个元素往前面拿
+    var arr = [10,39,40];
+    arr.unshift(arr.pop());
+    console.log(arr);
+    arr.unshift(arr.pop());
+    console.log(arr);
+
+     */
+
+
+    /*
+
+
+
+
+    <link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+        <ul>
+            <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+        </ul>
+        <div class="arrow" id="arrow">
+            <a href="javascript:;" class="prev" id="arrLeft"></a>
+            <a href="javascript:;" class="next" id="arrRight"></a>
+        </div>
+    </div>
+</div>
+
+    var config = [
+        {
+            width: 400,
+            top: 20,
+            left: 50,
+            opacity: 0.2,
+            zIndex: 2
+        },//0
+        {
+            width: 600,
+            top: 70,
+            left: 0,
+            opacity: 0.8,
+            zIndex: 3
+        },//1
+        {
+            width: 800,
+            top: 100,
+            left: 200,
+            opacity: 1,
+            zIndex: 4
+        },//2
+        {
+            width: 600,
+            top: 70,
+            left: 600,
+            opacity: 0.8,
+            zIndex: 3
+        },//3
+        {
+            width: 400,
+            top: 20,
+            left: 750,
+            opacity: 0.2,
+            zIndex: 2
+        }//4
+
+    ];
+    //页面加载的事件
+    window.onload = function () {
+            //假设所有的动画执行完毕了
+            var flag = true;
+            //散开图片
+            var list = my$("slide").getElementsByTagName("li");
+            function assign() {
+                for(var i = 0; i < list.length; i++){
+                    animate(list[i],config[i],function () {
+                        flag = true;
+                    });
+                }
+            }
+            assign();
+
+            //左边按钮
+            my$("arrLeft").onclick = function(){
+                if (flag){
+                    flag = false;
+                    config.push(config.shift());
+                    assign();
+                }
+
+            };
+
+            //右边按钮
+            my$("arrRight").onclick = function(){
+                if (flag){
+                    flag = false;
+                    config.unshift(config.pop());
+                    assign();
+                }
+
+
+            };
+
+
+            //焦点按钮
+            //鼠标进入，显示
+            my$("slide").onmouseover = function () {
+                animate(my$("arrow"),{"opacity":1});
+            };
+            //鼠标离开，隐藏
+            my$("slide").onmouseout = function () {
+                animate(my$("arrow"),{"opacity":0});
+            };
+        }
+
+        */
+
+
+    /*========================client系列==================================*/
+    /**
+     *  offset系列：获取元素的宽，高，left,top,parent
+     *  offsetWidth:元素的宽，有边框
+     *  offsetHeight:元素的高，有边框
+     *  offsetLeft:元素距离左边的位置的值
+     *  offsetTop:元素距离上面的位置的值
+     *
+     *
+     *  scroll：系列:卷曲出去的值
+     *  scrollLeft:向左卷曲出去的距离
+     *  scrollTop:向上卷曲出去的距离
+     *  scrollWidth:元素中内容的实际的宽（如果内容很少，没有内容，元素自身的宽），没有边框
+     *  scrollHeight:元素中内容实际的高（如果内容很少，没有内容，元素自身的高），没有边框
+     *
+     *
+     *  client系列：
+     *  clientWidth：可是区域的宽，（没有边框)，边框内的宽
+     *  clientHeight：可是区域的高，（没有边框)，边框内的宽
+     *  clientLeft:左边的边框的宽度
+     *  clientTop：上面的边框的宽度
+     *
+     */
+
+    /*
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: 20px solid red;
+        }
+
+
+        <input type="button" value="显示" id="btn">
+        <div id="dv"></div>
+
+
+        console.log(my$("dv").clientWidth);
+        console.log(my$("dv").clientHeight);
+        console.log(my$("dv").clientLeft);
+        console.log(my$("dv").clientTop);
+
+
+     */
+
+
+    /*=========================图片跟着鼠标飞=====================================*/
+    /*
+
+
+          *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<img src="images/tianshi.gif" alt="" id="img">
+
+    //文档的鼠标移动事件
+    //对象  事件  事件处理函数，事件触发了，函数的代码就会执行，执行的时候，函数调用的时候
+    //通过arguments.length，可以得出：事件处理函数中实际上市有一个参数的，这个参数和时间有关系的，是一个对象---》事件参数对象
+
+    //谷歌和火狐中都有这个事件参数对象，ie8中没有
+    //时间参数对象：e----在IE8中用Window.event来代替
+    // document.onmousemove = function (ev) {
+    //     //console.log(arguments.length);
+    //     //console.log(arguments[0]);
+    //     console.log(ev);
+    //
+    // };
+
+    // document.onmousemove = function (e) {
+    //     //document.title = e.clientX + "---->" + e.clientY;
+    //     my$("img").style.left = e.clientX + "px";
+    //     my$("img").style.top = e.clientY + "px";
+    // };
+
+
+    //这里面都兼容的
+    document.onmousemove = function (e) {
+            e = window.event || e;
+            //可视区域的横坐标
+            //可视区域的纵坐标
+            my$("img").style.left = e.clientX + "px";
+            my$("img").style.top = e.clientY + "px";
+        }
+
+     */
+
+    /*
+
+
+        document.onmousemove = function (e) {
+        //pageX,pageY在IE8不支持的，主流都支持（谷歌，火狐都支持）
+        // my$("img").style.left = e.pageX + "px";
+        // my$("img").style.top = e.pageY + "px";
+
+        function getScroll() {
+            return{
+                left: window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft || 0,
+                top:window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop || 0
+            }
+        }
+        //可视区域的横坐标+向左卷曲出去的横坐标
+        my$("img").style.left = window.event.clientX + getScroll().left + "px";
+        //可视区域的纵坐标+向上卷曲出去的纵坐标
+        my$("img").style.top = window.event.clientY + getScroll().top + "px";
+
+    };
+
+
+     */
+
+
+
+    // var obj = {
+    //     sayHi:function () {
+    //         console.log("xixi");
+    //         this.eat();//
+    //         console.log(this);
+    //     },
+    //     eat:function () {
+    //         console.log("吃饭");
+    //     }
+    // };
+    // //调用sayHi方法的同事，调用eat方法，是否可以在一个方法中调用另一个方法？
+    // //在对象的方法中调用另一个方法如何调用？
+    // obj.sayHi();
+
+
+
+    /*
+       //*************************最终代码
+
+    //图片跟着鼠标飞，可以早任何的浏览器中实现
+    //Window.event和时间参数对象e的兼容
+    //clientX和clientY单独的使用的兼容代码
+    //scrollLeft和scrollTop的兼容代码
+    //pageX，pageY和clientX + scrollLeft 及 clientY+scrollTop
+
+    //把代码封装在一个函数
+    //吧代码放在一个对象中
+    var evt={
+        //window.event和事件参数对象e的兼容
+        getEvent:function (evt) {
+            return window.event||evt;
+        },
+        //可视区域的横坐标的兼容代码
+        getClientX:function (evt) {
+            return this.getEvent(evt).clientX;
+        },
+        //可视区域的纵坐标的兼容代码
+        getClientY:function (evt) {
+            return this.getEvent(evt).clientY;
+        },
+        //页面向左卷曲出去的横坐标
+        getScrollLeft:function () {
+            return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0;
+        },
+        //页面向上卷曲出去的纵坐标
+        getScrollTop:function () {
+            return window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0;
+        },
+        //相对于页面的横坐标(pageX或者是clientX+scrollLeft)
+        getPageX:function (evt) {
+            return this.getEvent(evt).pageX? this.getEvent(evt).pageX:this.getClientX(evt)+this.getScrollLeft();
+        },
+        //相对于页面的纵坐标(pageY或者是clientY+scrollTop)
+        getPageY:function (evt) {
+            return this.getEvent(evt).pageY?this.getEvent(evt).pageY:this.getClientY(evt)+this.getScrollTop();
+        }
+
+
+
+    };
+    //最终的代码
+
+    document.onmousemove=function (e) {
+        my$("img").style.left=evt.getPageX(e)+"px";
+        my$("img").style.top=evt.getPageY(e)+"px";
+    };
+
+
+     */
+
+/*================================案拖拽对话框上===========================================*/
+/*
+
+    my$("link").onclick = function (e) {
+        my$("login").style.display = "block";
+        console.log("我显示了");
+
+        // return false;
+        // e.preventDefault();
+        //上面这两个是阻止默认事件的
+
+
+        //下面这两个是阻止事件冒泡的
+        //window.event.cancelBubble = true;
+        e.stopPropagation();//或者是window.event.cancelBubble = true;
+    };
+    document.onclick = function () {
+        my$("login").style.display = "none";
+        console.log("我隐藏了");
+
+    }
+
+
+ */
+
+
+
+/*
+
+
+        .login-header {
+            width: 100%;
+            text-align: center;
+            height: 30px;
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        ul, li, ol, dl, dt, dd, div, p, span, h1, h2, h3, h4, h5, h6, a {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .login {
+            width: 512px;
+            position: absolute;
+            border: #ebebeb solid 1px;
+            height: 280px;
+            left: 50%;
+            right: 50%;
+            background: #ffffff;
+            box-shadow: 0px 0px 20px #ddd;
+            z-index: 9999;
+            margin-left: -250px;
+            margin-top: 140px;
+            display: none;
+        }
+
+        .login-title {
+            width: 100%;
+            margin: 10px 0px 0px 0px;
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            font-size: 18px;
+            position: relative;
+            cursor: move;
+            -moz-user-select: none; 火狐
+    -webkit-user-select: none; webkit浏览器
+    -ms-user-select: none; IE10
+    -khtml-user-select: none;早期浏览器
+    user-select: none;
+    }
+
+    .login-input-content {
+        margin-top: 20px;
+    }
+
+    .login-button {
+        width: 50%;
+        margin: 30px auto 0px auto;
+        line-height: 40px;
+        font-size: 14px;
+        border: #ebebeb 1px solid;
+        text-align: center;
+    }
+
+    .login-bg {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background: #000000;
+        filter: alpha(opacity=30);
+        -moz-opacity: 0.3;
+        -khtml-opacity: 0.3;
+        opacity: 0.3;
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .login-button a {
+        display: block;
+    }
+
+    .login-input input.list-input {
+        float: left;
+        line-height: 35px;
+        height: 35px;
+        width: 350px;
+        border: #ebebeb 1px solid;
+        text-indent: 5px;
+    }
+
+    .login-input {
+        overflow: hidden;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .login-input label {
+        float: left;
+        width: 90px;
+        padding-right: 10px;
+        text-align: right;
+        line-height: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .login-title span {
+        position: absolute;
+        font-size: 12px;
+        right: -20px;
+        top: -30px;
+        background: #ffffff;
+        border: #ebebeb solid 1px;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+
+
+
+    <div class="login-header"><a id="link" href="javascript:void(0);">点击，弹出登录框</a></div>
+    <div id="login" class="login">
+        <div id="title" class="login-title">登录会员
+        <span><a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a></span></div>
+    <div class="login-input-content">
+        <div class="login-input">
+        <label>用户名：</label>
+    <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input">
+        </div>
+        <div class="login-input">
+        <label>登录密码：</label>
+    <input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input">
+        </div>
+        </div>
+        <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">登录会员</a></div>
+    </div><!--登录框-->
+    <div id="bg" class="login-bg"></div><!--遮挡层-->
+
+    //获取草超链接，注册点击事件，显示登录框和遮挡层
+    my$("link").onclick = function () {
+        my$("login").style.display = "block";
+        my$("bg").style.display = "block";
+    };
+    //获取关闭，注册点击事件，隐藏登录框和遮挡层
+    my$("closeBtn").onclick = function () {
+        my$("login").style.display = "none";
+        my$("bg").style.display = "none";
+    };
+
+
+    //按下鼠标,移动鼠标,移动登录框
+    my$("title").onmousedown = function (e) {
+        //获取此时的可视区域的横坐标-此时登录框距离左侧页面的横坐标
+        var spaceX = e.clientX - my$("login").offsetLeft;
+        var spaceY = e.clientY - my$("login").offsetTop;
+        //移动的事件
+        document.onmousemove = function (e) {
+            //新的可视区域的横坐标-spaceX====>新的值--->登录框的left属性
+            var x = e.clientX - spaceX+250;
+            var y = e.clientY - spaceY-140;
+            my$("login").style.left = x + "px";
+            my$("login").style.top = y + "px";
+        }
+    };
+    document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+
+
+ */
+
+/*=================================高清放大镜========================================*/
+/*
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>哈哈</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="small"><!--小层-->
+        <img src="images/small.png" width="350" alt=""/>
+        <div class="mask"></div><!--遮挡层-->
+    </div><!--小图-->
+    <div class="big"><!--大层-->
+        <img src="images/big.jpg" width="800" alt=""/><!--大图-->
+    </div><!--大图-->
+</div>
+<!--导入外部的js文件-->
+<script src="common.js">
+<!--<script>
+
+  //获取需要的元素
+  var box = my$("box");
+  //获取小图的div
+  var small = box.children[0];
+  //遮挡层
+  var mask = small.children[1];
+  //获取大图的div
+  var big = box.children[1];
+  //获取大图
+  var bigImg = big.children[0];
+
+  //鼠标进入显示遮挡层和大图的div
+  box.onmouseover = function () {
+    mask.style.display = "block";
+    big.style.display = "block";
+  };
+  //鼠标离开隐藏遮挡层和大图的div
+  box.onmouseout = function () {
+    mask.style.display = "none";
+    big.style.display = "none";
+  };
+
+  //鼠标的移动事件-&#45;&#45;鼠标是在小层上移动
+  small.onmousemove = function (e) {
+    //鼠标此时的可视区域的横坐标和纵坐标
+    //主要是设置鼠标在遮挡层的中间显示
+    var x = e.clientX - mask.offsetWidth / 2;
+    var y = e.clientY - mask.offsetHeight / 2;
+    //主要是margin的100px的问题
+    x = x - 100;
+    y = y - 100;
+    //横坐标的最小值
+    x = x < 0 ? 0 : x;
+    //纵坐标的最小值
+    y = y < 0 ? 0 : y;
+    //横坐标的最大值
+    x = x > small.offsetWidth - mask.offsetWidth ? small.offsetWidth - mask.offsetWidth : x;
+    //纵坐标的最大值
+    y = y > small.offsetHeight - mask.offsetHeight ? small.offsetHeight - mask.offsetHeight : y;
+    //为遮挡层的left和top赋值
+    mask.style.left = x + "px";
+    mask.style.top = y + "px";
+
+    //遮挡层的移动距离/大图的移动距离=遮挡层的最大移动距离/大图的最大移动距离
+    //大图的移动距离=遮挡层的移动距离*大图的最大移动距离/遮挡层的最大移动距离
+
+    //大图的横向的最大移动距离
+    var maxX = bigImg.offsetWidth - big.offsetWidth;
+
+    //大图的纵向的最大移动距离
+    //var maxY = bigImg.offsetHeight - big.offsetHeight;
+
+    //大图的横向移动的坐标
+    var bigImgMoveX = x * maxX / (small.offsetWidth - mask.offsetWidth);
+    //大图的纵向移动的坐标
+    var bigImgMoveY = y * maxX / (small.offsetWidth - mask.offsetWidth);
+
+    //设置图片移动
+    bigImg.style.marginLeft = -bigImgMoveX + "px";
+    bigImg.style.marginTop = -bigImgMoveY + "px";
+
+  };
+ */
+
+/*=============================滚动条===============================================*/
+    /*
+
+
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            padding: 5px 18px 5px 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .scroll {
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+
+        .bar {
+            height: 100px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="content" id="content">
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头
+        床前明月光啊，明月光，疑是地上霜啊，举头嘿嘿
+
+    </div><!--文字内容-->
+    <div id="scroll" class="scroll"><!--装滚动条的层-->
+        <div class="bar" id="bar"></div><!--滚动条-->
+    </div>
+</div>
+<script src="common.js">
+
+    //获取需要的元素
+
+    //最外面的div
+    var box = my$("box");
+    //文字div
+    var content = my$("content");
+    //装滚动条的div-&#45;&#45;容器
+    var scroll = my$("scroll");
+    //滚动条
+    var bar = my$("bar");
+
+    //设置滚动条的高度
+    //滚动条的高/装滚动条的div的高=box的高/文字div的高
+    //滚动条的高=装滚动条的div的高*box的高/文字div的高
+    var height = scroll.offsetHeight * box.offsetHeight / content.offsetHeight;
+    bar.style.height = height + "px";
+
+    //移动滚动条
+    bar.onmousedown = function (e) {
+        var spaceY = e.clientY - bar.offsetTop;
+        document.onmousemove = function (e) {//移动事件
+            var y = e.clientY - spaceY;
+            y=y<0?0:y;//最小值
+            y=y>scroll.offsetHeight-bar.offsetHeight?scroll.offsetHeight-bar.offsetHeight:y;
+            bar.style.top = y + "px";
+
+            //设置鼠标移动的时候,文字不被选中
+
+            window.getSelection? window.getSelection().removeAllRanges():document.selection.empty();
+
+            //滚动条的移动距离/文字div的移动距离=滚动条最大的移动距离/文字div的最大移动距离
+
+            //文字div的移动距离=滚动条的移动距离*文字div的最大移动距离/滚动条最大的移动距离
+
+            var moveY=y*(content.offsetHeight-box.offsetHeight)/(scroll.offsetHeight-bar.offsetHeight);
+            //设置文字div的移动距离
+            content.style.marginTop=-moveY+"px";
+
+
+
+
+        };
+    };
+
+    document.onmouseup=function () {
+        //鼠标抬起的时候,把移动事件干掉
+        document.onmousemove=null;
+    };
+
+
+     */
+
+    /*==========================元素隐藏=====================================*/
+    /*
+
+
+        <style>
+        #dv{
+            width: 300px;
+            height: 200px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="显示" id="btn">
+<div id="dv">哈哈</div>哈哈
+<script src="common.js">
+    document.getElementById("btn").onclick = function () {
+            //隐藏div
+            //这种方式不占位
+            //my$("dv").style.display = "none";
+            //这种方式占位
+            //my$("dv").style.visibility = "hidden";
+            //这种方式占位
+            //my$("dv").style.opacity = 0;
+            //这种方式占位
+            my$("dv").style.height = 0;
+            my$("dv").style.border = 0;
+        }
+        */
+
+    /*=====================================隔行变色===============================================*/
+    /*
+
+     <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 500px;
+            cursor: pointer;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>课程</th>
+            <th>成绩</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                1
+            </td>
+            <td>柳岩</td>
+            <td>语文</td>
+            <td>100</td>
+
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>苍老师</td>
+            <td>日语</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>凤姐</td>
+            <td>营销学</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td>芙蓉姐姐</td>
+            <td>数学</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td>佐助</td>
+            <td>英语</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td>卡卡西</td>
+            <td>体育</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>
+                7
+            </td>
+            <td>乔峰</td>
+            <td>体育</td>
+            <td>100</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+    //先获取所有的行
+    var trs = my$("j_tb").getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++){
+        trs[i].style.backgroundColor = i % 2==0 ? "red":"yellow";
+        //鼠标进入
+        trs[i].onmouseover = mouseoverHandle;
+        //鼠标离开
+        trs[i].onmouseout = mouseoutHandle;
+
+    }
+    //当鼠标进入的时候，先把设置后的颜色保存起来，等到鼠标离开在恢复
+    var lastColor="";
+    function mouseoverHandle() {
+        lastColor = this.style.backgroundColor;
+        this.style.backgroundColor = "green";
+    }
+    function mouseoutHandle() {
+        this.style.backgroundColor = lastColor;
+
+    }
+
+     */
+
+    /*=============================案例tab切换效果====================================*/
+    /*
+
+        <style>
+        #list li {
+            list-style-type: none;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color: beige;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #list li.current {
+            background-color: burlywood;
+        }
+
+        #list li a {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+<div id="menu">
+    <ul id="list">
+        <li class="current"><a href="http://www.baidu.com">首页</a>
+        </li>
+        <li><a href="javascript:void(0)">播客</a></li>
+        <li><a href="javascript:void(0)">博客</a></li>
+        <li><a href="javascript:void(0)">相册</a></li>
+        <li><a href="javascript:void(0)">关于</a></li>
+        <li><a href="javascript:void(0)">帮助</a></li>
+    </ul>
+</div>
+
+    //先获取所有的li标签
+    var listObj = my$("list").getElementsByTagName("li");
+    //循环遍历，找到每个li中的a,注册点击事件
+    for (var i = 0; i <listObj.length; i++){
+        var aObj = getFirstElement(listObj[i]);//获取获取父级元素中的第一个子元素、
+        aObj.onclick = function () {
+            //第一件事：吧这个a所在的li的所有的兄弟元素的类样式全部移除
+            for (var j = 0 ; j < listObj.length; j++){
+                listObj[j].removeAttribute("class");
+            }
+
+
+            // 第二件事
+            //当前点击a的父级元素，(点击的这个a坐在的父级元素li)设置背景颜色
+            this.parentNode.className = "current";
+
+
+            //第三件事：阻止跳转
+            return false;
+        }
+
+
+    }
+
+     */
+
+    /*====================================大量字符串的拼接======================================*/
+    /*
+
+<input type="button" value="拼接吧" id="btn"/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+
+    //字符串特性：不可改变
+    //点击按钮实现拼接
+    document.getElementById("btn").onclick = function () {
+            var str ="";
+            //获取所有的文本框
+            var inputAll = document.getElementsByTagName("input");
+            for (var i = 0; i < inputAll.length-1; i++){
+                if (inputAll[i].type !=="button"){
+                    str+=inputAll[i].value + "|";
+                }
+            }
+            console.log(str+inputAll[inputAll.length-1].value+"|");
+        }
+
+
+     */
+
+
+    /*
+
+           //字符串特性：不可改变
+    //点击按钮实现拼接-->推荐使用数组，返回值就是字符串类型
+    document.getElementById("btn").onclick = function () {
+        var str =[];
+        //获取所有的文本框
+        var inputAll = document.getElementsByTagName("input");
+        for (var i = 0; i < inputAll.length; i++){
+            if (inputAll[i].type !=="button"){
+                str.push(inputAll[i].value);
+            }
+        }
+        console.log(str.join("|"));
+    }
+
+
+     */
+
+    /*==========================案例无刷新评论===========================*/
+    /*
+
+
+    <table id="tb" border="1">
+    <tbody id="tbd">
+    <tr>
+        <td>猪猪:</td>
+        <td>我喜欢吃肉</td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    昵称:<input type="text" value="" id="userName"/><br/>
+    <textarea name="" id="tt" cols="30" rows="10"></textarea><br/>
+    <input type="button" value="评论一下" id="btn"/><br/>
+</div>
+
+<script>
+  //获取按钮,注册点击事件
+  document.getElementById("btn").onclick = function () {
+    //获取昵称的元素
+    var userName = my$("userName");
+    //获取评论的元素
+    var tt = my$("tt");
+    //创建行
+    var tr = document.createElement("tr");
+    //行加到tbody中
+    my$("tbd").appendChild(tr);
+    //创建列
+    var td1 = document.createElement("td");
+    tr.appendChild(td1);
+    td1.innerHTML = userName.value;
+    //创建列
+    var td2 = document.createElement("td");
+    tr.appendChild(td2);
+    td2.innerHTML = tt.value;
+    //清空
+    userName.value = "";
+    tt.value = "";
+  };
+
+  var arr=[20,10,40,50,30];
+  for(var i=0;i<arr.length-1;i++){
+      for(var j=0;j<arr.length-1-i;j++){
+          if(arr[j]<arr[j+1]){
+              var temp=arr[j];
+              arr[j]=arr[j+1];
+              arr[j+1]=temp;
+          }//end if
+      }// end for
+  }//end for
+  for(var i=0;i<arr.length;i++){
+      console.log(arr[i]);
+  }
+     */
 </script>
 </body>
 </html>
