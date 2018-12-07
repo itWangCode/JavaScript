@@ -1,0 +1,49 @@
+<!--
+    Created by wangyang on 2018/12/7.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+
+<script src="common.js"></script>
+<script>
+    //该函数的自调用
+    //一次性的函数，声明的同时，直接调用了
+    //页面加载后，这个自调用函数代码，就执行完了
+    // (function (形参) {
+    //     var num = 10;
+    //     console.log(num);
+    // })(实参);
+    // console.log(num);//报错
+
+
+    (function (win) {
+        var num = 10;
+        //js是一门动态类型的语言，对象没有属性，点了就有了
+        win.number = num;
+    })(window);
+    console.log(number);//10
+
+
+    //如何把局部变量编程全局
+    //把局部变量给window就可以了
+</script>
+</body>
+</html>

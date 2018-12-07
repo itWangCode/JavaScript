@@ -10,7 +10,6 @@
 
 </body>
 <script type="text/javascript">
-    /*itwangyang@gmail.com*/
     /*==================================创建对象的三种方式===================================*/
     /*
 
@@ -255,7 +254,7 @@
      *
      */
 
-/*=======================================体会面向过程和面向对象思想编程============================================*/
+    /*=======================================体会面向过程和面向对象思想编程============================================*/
     /*
 
         <style>
@@ -334,40 +333,351 @@
 
 */
 
-/*============================复习原型==============================*/
-/*
-   //构造函数
-   function Person(name,age) {
-       this.name = name;
-       this.age = age;
-   }
-   //通过原型增加方法
-    Person.prototype.sayHi = function () {
-        console.log("hey");
+    /*============================复习原型==============================*/
+    /*
+       //构造函数
+       function Person(name,age) {
+           this.name = name;
+           this.age = age;
+       }
+       //通过原型增加方法
+        Person.prototype.sayHi = function () {
+            console.log("hey");
+        };
+        var per = new Person("小明",20);
+        console.dir(per);
+        console.dir(Person);
+
+        var per2 = new Person("女",20);
+        console.log(per.sayHi == per2.sayHi);//true
+
+        //实例对象中，有两个属性（这两个属性是通过构造函数来获取的），__proto__这个属性
+        //构造函数中并没有sex和age的两个属性
+     */
+
+    /**
+     * 实例对象中有个属性__proto__，也是对象，叫原型，不是标准的属性，浏览器使用的
+     * 构造函数中有一个属性，prototype,也是对象，叫原型，程序员用的
+     * 原型----》__proto__或者是prototype，都是原型对象
+     * 原型的作用：共享数据，节省内存空间
+     *
+     */
+
+    /*============================构造函数和实例对象和原型对象的关系================================*/
+
+    /*
+
+
+        //荣光构造函数实例对象，并且初始化
+        var arr = new Array(10,20,30,40);
+        //var per = new Person("小明",20,"男");
+        //join是方法，实例对象调用的方法
+        arr.join("|");
+        console.log(arr);
+        //join方法在实例对象__proto__原型中
+         console.log(arr.__proto__ == Array.prototype);//true
+
+        //构造函数
+        function Person(age,sex) {
+            this.age = age;
+            this.sex = sex;
+        }
+
+        //通过构造函数的原型增加一个方法
+        Person.prototype.eat = function () {
+            console.log("吃饭");
+        };
+        var per = new Person(20,"男");
+        per.eat();
+
+        //构造函数和原型对象和实例对象的关系
+        console.dir(Person);
+        console.dir(per);
+     */
+    /**
+     * 1.通过构造函数创建实例对象
+     * 2.原型在构造函数里面
+     * 3.实例对象可以调用方法
+     */
+
+
+    /*======================总结三者之间的关系=============================*/
+
+    //总结三种的关系
+
+    /**
+     * 构造函数可以实例化对象
+     * 构造函数中有一个函数叫prototype，是构造函数的原型对象、
+     * 构造函数的原型对象（prototype）中有一个constructor构造器，这个构造器指向的就是自己所在的原型对象所在的构造函数
+     * 实例对象的原型对象（__proto__）指向的是该构造的原型对象
+     * 构造函数的原型对象（prototype）中的方法是可以被实例对象直接访问
+     *
+     *
+     */
+    /*===========================利用原型共享数据======================================*/
+    /*
+
+        //什么样的额数据是需要写在原型中？
+    //需要共享的数据就可以写在原型中
+    //原型的作用之一：数据共享
+
+    //属性需要共享，方法也需要共享，写在原型中
+    //不需要共享的带哦你关系，写在构造函数中
+
+    //构造函数
+    function Student(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    //所有学生的身高188，所有的体重都是55
+    //所有的学生每天都要写500行代码
+    //所有的学生每天都要吃10斤西瓜
+    //原型对象
+    Student.prototype.height = "188cm";
+    Student.prototype.weight = "55kg";
+    Student.prototype.coding = function () {
+        console.log("敲代码。500行");
     };
-    var per = new Person("小明",20);
-    console.dir(per);
-    console.dir(Person);
+    Student.prototype.eat = function () {
+        console.log("吃10斤西瓜");
+    };
 
-    var per2 = new Person("女",20);
-    console.log(per.sayHi == per2.sayHi);//true
+    //实例化对象，并且初始化
+    var stu = new Student("小明",20,"男");
+    console.dir(Student);
+    console.dir(stu);//方法在__proto__中
+    stu.coding();
+    stu.eat();
 
-    //实例对象中，有两个属性（这两个属性是通过构造函数来获取的），__proto__这个属性
-    //构造函数中并没有sex和age的两个属性
- */
 
-   /**
-    * 实例对象中有个属性__proto__，也是对象，叫原型，不是标准的属性，浏览器使用的
-    * 构造函数中有一个属性，prototype,也是对象，叫原型，程序员用的
-    * 原型----》__proto__或者是prototype，都是原型对象
-    * 原型的作用：共享数据，节省内存空间
-    *
+     */
+
+    /*===========================原型的简单语法===================================*/
+    /*
+
+        //构造函数
+    function Student(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    //简单的原型写法
+    Student.prototype = {
+        //手动修改构造器的指向
+        constructor:Student,
+        height:"188cm",
+        weight :"55kg",
+        study : function () {
+            console.log("学习好开心呀");
+        },
+        eat : function () {
+            console.log("吃饭啦");
+        }
+    };
+
+    var stu  = new Student("小明",20,"男");
+    console.dir(Student);//原型对象
+    console.dir(stu);//实例对象
+    stu.study();
+    stu.eat();
+
+
+
+
+     */
+
+    /*==========================原型中的方法是可以相互访问的==============================*/
+
+    /*    function Person(age) {
+            this.age = age;
+            this.sayHi = function () {
+                console.log("hey");
+                //打招呼的同时，直接调用吃的方法
+                // this.eat();
+            };
+            this.eat = function () {
+                console.log("吃饭");
+                this.sayHi();
+            };
+        }
+        //实例化对象。并且初始化
+        var per = new Person(20);
+        //调用方法
+
+        //per.sayHi();
+        per.eat();
+
+        //实例对象的方法是可以相互调用的*/
+
+    /*
+        //原型中的方法是可以相互访问的
+        function Animal(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+        //原型中添加方法
+        Animal.prototype.eat = function () {
+            console.log("动物吃东西");
+            this.play();
+        };
+        Animal.prototype.play = function () {
+            console.log("玩球");
+            this.sleep();
+        };
+        Animal.prototype.sleep = function () {
+            console.log("睡觉");
+        };
+
+        var dog = new Animal("小汪",20,"男");
+        dog.eat();
+        //原型对象中的方法，是可以相互调用的
     */
 
-/*============================构造函数和实例对象和原型对象的关系================================*/
+    /*=======================实例对象使用的属性和方法层层的搜索========================================*/
+    /*
 
 
+        function Person(age,sex) {
+        this.age = age;//年龄
+        this.sex = sex;//性别
+        this.eat = function () {
+            console.log("构造函数中的吃");
+        };
+    }
+    Person.prototype.sex = "女";
+    Person.prototype.eat = function () {
+      console.log("原型对象吃大餐");
+    };
+    var per  = new Person(20,"男");
+    console.log(per.sex);
+    per.eat();
+    console.dir(Person);
+    console.log(per);
+    //先从实例化对象中去找，如果实例对象中部存在，就会在原型中去找
 
 
+     */
+
+    /*
+
+        实例对象使用的属性或者方法，现在实例中查找，找到了则直接使用，找不到则去实例对象的__proto__指向的原型对象prototype中找，找到了则使用，找不到就会报错
+
+     */
+
+
+    /*=========================为内置对象的原型对象中添加方法======================================*/
+    /*
+
+        //为内置对象增加原型对象方法
+    var arr = new Array(10,20,30,40);
+    arr.join("|");
+    console.log(arr);
+    console.dir(arr);
+
+    var str = new String("哦，哈哈");
+    str.indexOf("哦");
+    console.dir(str);
+    //实例中的方法如果没有，去创建改实例对象的构造函数的原型对象中找
+
+
+    //我们能否为系统的对象的原型中增加方法，相当于改变源码
+    //我希望字符串中有一个倒序的这个方法
+    String.prototype.myReverse = function () {
+        for (var i = this.length-1; i >= 0; i--){
+            console.log(this[i])
+        }
+    };
+    var str = "abcdefg";
+    str.myReverse();
+
+
+    //为Array内置对象的原型对象中增加方法
+    Array.prototype.mySort = function () {
+        for (var i = 0; i <this.length- 1; i++){
+            for(var j = 0; j < this.length - 1; j++){
+                if (this[j] < this[j+1]){
+                    var temp = this[j];
+                    this[j] = this [j +1];
+                    this[j+1]=temp;
+                }
+            }
+        }
+    };
+    var arr = [100,20,30,4056,30,20];
+    arr.mySort();
+    console.log(arr);
+
+
+    String.prototype.sayHi = function () {
+        console.log(this+"哈哈，我又变帅了");
+    };
+    //字符串就有了打招呼的方法了
+    var str2 = "小样";
+    str2.sayHi();
+
+
+     */
+
+    /*========================局部变量变成全局变量==================================*/
+
+    /*
+
+        //该函数的自调用
+    //一次性的函数，声明的同时，直接调用了
+    //页面加载后，这个自调用函数代码，就执行完了
+    // (function (形参) {
+    //     var num = 10;
+    //     console.log(num);
+    // })(实参);
+    // console.log(num);//报错
+
+
+    (function (win) {
+        var num = 10;
+        //js是一门动态类型的语言，对象没有属性，点了就有了
+        win.number = num;
+    })(window);
+
+    console.log(number);//10
+
+
+    //如何把局部变量编程全局
+    //把局部变量给window就可以了
+
+     */
+
+
+    /*=====================产生随机数对象==============================================*/
+
+    /*
+
+        //通过自调用函数产生一个随机数对象，在自调用函数外面，调用改随机数对象方法产生随机数
+
+    (function (window) {
+        //产生随机数的构造函数
+        function Random() {
+
+        }
+        //在原型对象中添加方法
+        Random.prototype.getRandom = function () {
+            return Math.floor(Math.random()*5);//0-4
+        };
+
+        // var rm = new Random();
+        // var num = rm.getRandom();
+        // console.log(num);
+
+        window.Random = Random;
+
+    })(window);
+
+    console.log(window.Random);
+    var rm =new Random();
+    console.log(rm.getRandom());
+
+     */
 </script>
 </html>

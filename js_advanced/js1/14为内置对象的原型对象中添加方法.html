@@ -1,0 +1,77 @@
+<!--
+    Created by wangyang on 2018/12/7.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+
+<script src="common.js"></script>
+<script>
+    //为内置对象增加原型对象方法
+    var arr = new Array(10,20,30,40);
+    arr.join("|");
+    console.log(arr);
+    console.dir(arr);
+
+    var str = new String("哦，哈哈");
+    str.indexOf("哦");
+    console.dir(str);
+    //实例中的方法如果没有，去创建改实例对象的构造函数的原型对象中找
+
+
+    //我们能否为系统的对象的原型中增加方法，相当于改变源码
+    //我希望字符串中有一个倒序的这个方法
+    String.prototype.myReverse = function () {
+        for (var i = this.length-1; i >= 0; i--){
+            console.log(this[i])
+        }
+    };
+    var str = "abcdefg";
+    str.myReverse();
+
+
+    //为Array内置对象的原型对象中增加方法
+    Array.prototype.mySort = function () {
+        for (var i = 0; i <this.length- 1; i++){
+            for(var j = 0; j < this.length - 1; j++){
+                if (this[j] < this[j+1]){
+                    var temp = this[j];
+                    this[j] = this [j +1];
+                    this[j+1]=temp;
+                }
+            }
+        }
+    };
+    var arr = [100,20,30,4056,30,20];
+    arr.mySort();
+    console.log(arr);
+
+    
+    String.prototype.sayHi = function () {
+        console.log(this+"哈哈，我又变帅了");
+    };
+    //字符串就有了打招呼的方法了
+    var str2 = "小样";
+    str2.sayHi();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!--
+    Created by wangyang on 2018/12/7.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+
+<script src="common.js"></script>
+<script>
+
+    //什么样的额数据是需要写在原型中？
+    //需要共享的数据就可以写在原型中
+    //原型的作用之一：数据共享
+
+    //属性需要共享，方法也需要共享，写在原型中
+    //不需要共享的带哦你关系，写在构造函数中
+
+    //构造函数
+    function Student(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    //所有学生的身高188，所有的体重都是55
+    //所有的学生每天都要写500行代码
+    //所有的学生每天都要吃10斤西瓜
+    //原型对象
+    Student.prototype.height = "188cm";
+    Student.prototype.weight = "55kg";
+    Student.prototype.coding = function () {
+        console.log("敲代码。500行");
+    };
+    Student.prototype.eat = function () {
+        console.log("吃10斤西瓜");
+    };
+
+    //实例化对象，并且初始化
+    var stu = new Student("小明",20,"男");
+    console.dir(Student);
+    console.dir(stu);//方法在__proto__中
+    stu.coding();
+    stu.eat();
+
+</script>
+</body>
+</html>
