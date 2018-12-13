@@ -1,0 +1,153 @@
+<!--
+    Created by wangyang on 2018/12/13.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<!--画出地图，设置样式-->
+<div class="map"></div>
+
+<script src="common.js"></script>
+<script>
+
+    //自调用函数---食物的
+    (function () {
+        var elements = [];//用来保存每个小方块食物的
+        //事物就是一个对象，有宽，有高，有颜色,有横纵坐标，先定义构造函数，然后创建对象
+        function Food(x, y, width, height, color) {
+            //横纵坐标
+            this.x = x || 0;
+            this.y = y || 0;
+            //宽高
+            this.width = width || 20;
+            this.height = height || 20;
+            //背景颜色
+            this.color = color || "green";
+        }
+
+        //为原型增加初始化的方法（作用：在页面上显示这个食物）
+        //因为食物要在地图上显示，所有，需要地图的这个参数(map--就是页面的上的.class=map的这个div)
+        Food.prototype.init = function (map) {
+            //先删除这个小食物
+            //外部无法使用
+            remove();
+
+            //创建div
+            var div = document.createElement("div");
+            //把div加入到map中
+            map.appendChild(div);
+            //设置div的样式
+            div.style.width = this.width + "px";
+            div.style.height = this.height + "px";
+            div.style.backgroundColor = this.color;
+            //先脱离文档流
+            div.style.position = "absolute";
+            //横纵坐标----随机产生
+            this.x = parseInt(Math.random() * map.offsetWidth / this.width) * this.width;
+            this.y = parseInt(Math.random() * map.offsetHeight / this.height) * this.height;
+            div.style.left = this.x + "px";
+            div.style.top = this.y + "px";
+            //吧这个div加入到elements数组中
+            elements.push(div);
+        };
+
+        //私有函数--删除食物
+        function remove() {
+            //elements数组中有这个事物
+            for (var i = 0; i < elements.length; i++) {
+                var ele = elements[i];
+                //找到这个子元素的父级元素，然后删除这个子元素
+                ele.parentNode.removeChild(ele);
+                //咋次吧elements中这个子元素也是要删除的
+                elements.splice(i, 1);
+            }
+        }
+
+
+        //把Food暴露给window，外部可以使用
+        window.Food = Food;
+    }());
+
+    //自调用函数---小蛇的
+    (function () {
+        var elements = [];//存放小蛇身体的每个部分
+        //小蛇的构造函数
+        function Snake(width, height, direction) {
+            //小蛇的每个部位的宽和高和方向
+            this.width = width || 20;
+            this.height = height || 20;
+            //小蛇的身体
+            this.body = [
+                {x: 3, y: 2, color: "#f00"},//头
+                {x: 2, y: 2, color: "#f60"},//身体
+                {x: 1, y: 2, color: "#f60"},//身体
+            ];
+            this.direction = direction || "right";
+        }
+
+        //为原型增加方法---小蛇初始化的方法
+        Snake.prototype.init = function (map) {
+            //循环遍历创建div
+            for (var i = 0; i < this.body.length; i++) {
+                //数组中的而每个数组元素都是一个对象
+                var obj = this.body[i];
+
+                //创建div
+                var div = document.createElement("div");
+                //把div加入到map地图中
+                map.appendChild(div);
+                //设置div的样式
+                div.style.position = "absolute";
+                div.style.width = this.width + "px";
+                div.style.height = this.height + "px";
+                //横纵坐标
+                div.style.left = obj.x * this.width + "px";
+                div.style.top = obj.y * this.height + "px";
+                //背景颜色
+                div.style.backgroundColor = obj.color;
+
+
+                //吧div加入到elements数组中----目的是为了删除
+                elements.push(div);
+            }
+        };
+        //吧Snake暴露给window，外部可以访问
+        window.Snake = Snake;
+    }());
+
+
+    //外部测试代码
+    var fd = new Food();
+    //console.log(fd.color);
+    fd.init(document.querySelector(".map"));
+    //fd.init(document.querySelector(".map"));
+    //创建小蛇
+    var snake = new Snake();
+    snake.init(document.querySelector(".map"));
+
+</script>
+</body>
+</html>

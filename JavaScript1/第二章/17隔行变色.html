@@ -1,0 +1,50 @@
+<!--
+    Created by wangyang on 2018/12/8.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<input type="button" value="变颜色" id="btn">
+<ul id="uu">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        var list = my$("uu").getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++) {
+            /*if (i%2==0){
+                list[i].style.backgroundColor = "red";
+            }else {
+                list[i].style.backgroundColor = "yellow";
+            }*/
+            list[i].style.backgroundColor = i % 2 == 0 ? "red" : "yellow";
+        }
+    }
+</script>
+</body>
+</html>
