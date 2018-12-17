@@ -1,0 +1,33 @@
+<!--
+    Created by wangyang on 2018/12/17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<div id="dv"></div>
+<script>
+    //原型链：实例对象和原型对象之间的关系，通过__proto__来联系的
+
+    var divObj = document.getElementById("dv");
+    console.dir(divObj);
+
+    //divObj.__proto__---->HTMLDivElement.prototype的__proto__----->指向的HTMLElement.prototype的__proto__----->指向的是Element.prototype的__proto__---->指向的是Node.prototype的__proto__---->指向是EventTarget.prototype的__proto---->指向Object.prototype没有__proto__没有
+    //所以，prototype中的__proto__是null
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!--
+    Created by wangyang on 2018/12/17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+     // //人的构造函数
+     //  function Person(age) {
+     //      this.age = age;
+     //  }
+     //  //人的原型中添加方法
+     //  Person.prototype.eat = function () {
+     //      console.log("人吃东西");
+     //  };
+     //
+     //  //学生的构造函数
+     //  function Student(sex) {
+     //      this.sex = sex;
+     //  }
+     //  //学生的原型中添加方法---先在原型中添加方法
+     //  Student.prototype.sayHi = function () {
+     //      console.log("您好啊")
+     //  };
+     //  //改变原型对象的指向
+     //  Student.prototype = new Person(10);
+     //
+     //  var stu = new Student("男");
+     //  stu.sayHi();//不能被访问
+     //  stu.eat();
+
+
+
+
+
+
+
+    // //人的构造函数
+    // function Person(age) {
+    //     this.age = age;
+    // }
+    //
+    // //人的原型中添加方法
+    // Person.prototype.eat = function () {
+    //     console.log("人吃东西");
+    // };
+    //
+    // //学生的构造函数
+    // function Student(sex) {
+    //     this.sex = sex;
+    // }
+    //
+    // //改变原型对象的指向
+    // Student.prototype = new Person(10);
+    // //学生的原型中添加方法---先在原型中添加方法
+    // Student.prototype.sayHi = function () {
+    //     console.log("您好啊")
+    // };
+    // var stu = new Student("男");
+    // stu.sayHi();//能被访问
+    // stu.eat();
+    // //一定要在原型对象之前添加方法
+    // console.dir(stu);
+    // //如果原型指向改变了。那么就应该在原型改变之后增加原型方法
+
+
+
+
+
+    function Person(age) {
+        this.age = age;
+    }
+
+    Person.prototype = {
+        eat:function () {
+            console.log("吃");
+        }
+    };
+     //指向改变了。先添加方法，后改变指向，所有不能访问
+     Person.prototype.sayHi = function () {
+         console.log("您好");
+     };
+    var per  = new Person(10);
+    per.sayHi();
+
+</script>
+</body>
+</html>

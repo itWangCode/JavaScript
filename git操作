@@ -1,0 +1,71 @@
+cd 直接拖入文件就可以了
+touch 后面接着是创建文件的意思
+mkdir 新建文件夹
+git init 初始化空的仓库
+Initialized empty Git repository in /Users/wangyang/Desktop/myapp/.git/
+
+全局配置
+配置我的名字
+git config --global user.name 'wangyang'
+git config --global user.email 'itwangyang@gmail.com'
+
+
+添加
+ git add 后面跟着项目名字
+
+
+ 查看是否添加了
+ git status
+
+ 删除
+ git rm --cached 项目名称
+
+ 增加某一类的文件
+ git add *.后缀名
+
+ 增加所有的文件
+ git add .
+
+ 增加到本地仓
+ git commit
+ 备注添加的信息
+
+一次性提交并且备注
+ git commit -m 'change app.js'
+
+不想上传其他的文件，就用.的文件去设置就好了
+创建一个.gitignore文件
+
+
+创建分支
+比如说登录页面
+ git branch login
+
+切换到这个分支上面
+  git checkout login
+
+切换到主线
+  git checkout master
+
+  合并主线
+  git merge login
+
+
+
+git remote add origin
+
+git push -u origin master
+
+克隆
+  git clone https://github.com/itWangCode/homework.git
+
+
+
+
+  你应该使用  git pull，这个命令做一个git fetch和下一个做git merge。
+
+如果使用git push origin master --force命令，将来可能会遇到问题。
+
+
+//commit 了，但是还没有push：git reset --hard HEAD
+HEAD是指向最新的提交，上一次提交是HEAD^,上上次是HEAD^^,也可以写成HEAD～2 ,依次类推）

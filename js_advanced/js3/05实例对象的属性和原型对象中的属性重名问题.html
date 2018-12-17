@@ -1,0 +1,50 @@
+<!--
+    Created by wangyang on 2018/12/17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    function Person(age,sex) {
+        this.age = age;
+        this.sex = sex;
+    }
+    Person.prototype.sex = "女";
+    var per = new Person(10,"男");
+    console.log(per.sex);
+    console.dir(per);
+    //以为js是一门动态类型的语言，对象没有什么，只要点了，那么这对象就有了这个东西，没有这个属性，只要对象.属性名字，对象就有这个属性了，但是，改属性没有复制，所以，结果就是：undefined
+    console.log(per.nioononnin);
+
+
+    //实例对象，访问这个属性，先从实例对象中找，找到了就直接用，找不到就去指向的原型对象中找，找到了就使用，找不到，就报错
+    //通过实例对象能否改变原型对象中的属性值？不能
+    per.sex = "人";
+    console.log(per.sex);
+    console.dir(per);
+
+
+    //就是想要改变原型对象中的属性值怎么办？直接通过原型对象.属性 = 值；可以改变，如果找不到，就是undefined
+    Person.prototype.sex = "我改变了";
+    per.sex = "人";
+    console.log(per.sex);
+    console.dir(per);
+</script>
+</body>
+</html>

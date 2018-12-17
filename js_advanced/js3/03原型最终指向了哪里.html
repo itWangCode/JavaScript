@@ -29,7 +29,7 @@
         console.log("吃东西");
     };
     var per = new Person();
-    console.dir(per);//实例对象--原型的
+    console.dir(per);//实例对象
     console.dir(Person);//构造函数
 
     //实例对象中有__proto__原型
@@ -42,7 +42,12 @@
     //Person的prototype
     console.log(Person.prototype.__proto__);
 
-    //实例对象__proto__---》Person.prototype的__proto__---->Object
+    //实例对象__proto__---》Person.prototype的__proto__---->Object.prototype的__proto__是null
+
+    console.log(per.__proto__ == Person.prototype);
+    console.log(per.__proto__.__proto__ == Person.prototype.__proto__);
+    console.log(Person.prototype.__proto__ == Object.prototype);
+    console.log(Object.prototype.__proto__);
 </script>
 </body>
 </html>
