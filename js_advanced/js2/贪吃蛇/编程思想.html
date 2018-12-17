@@ -1,0 +1,82 @@
+<!--
+    Created by wangyang on 2018/12/15.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+
+/*
+*
+* 模拟贪吃蛇游戏，做的项目
+*   地图：宽高背景颜色 因为小蛇和事物都是相对于地图显示的，这里小蛇和事物都是地图的子元素，
+*   随机位置显示，脱离文档流，地图也需要脱离文档流--css设置：宽，高，颜色背景，脱标
+*
+*
+*   食物：----div元素
+*   elements---》存放div的数组（将来删除的div时候,先从map中删除div，再从数组中移除这个div）
+*
+*   食物：宽，高，背景颜色，横纵坐标
+*   一个食物就是一个对象，这个对象有相应的属性，这个对象，需要在地图上显示，
+*   最终要创建食物的对象，先有构造函数并且吧相应的值作为参数传入到构造函数函数中
+*   食物要想显示子啊地图上，食物的初始化就是一个行为
+*   1.食物的构造函数---》创建食物对象
+*   2.食物的显示的方法---》显示的方法，通过对象调用方法，显示食物，设置相应的样式
+*   2.1.1因为食物要被小蛇吃掉，吃掉后应该再次出现食物，原来的事物就删除了
+*   2.1.2每一次初始化事物的时候，先删除原来的食物，然后重新的初始化食物
+*   2.1.3通过一个私有的函数（外面不能调用的函数），删除地图上的食物，同时最开始的时候，食物也相应的保存到一个数组中，再从这个数组中吧食物删除
+*
+*   最后的时候，吧食物的构造函数给window下的数学，这个做，外部就可以直接使用这个食物的构造函数了
+*
+*   小蛇
+*   小蛇就是一个对象：特征：每个身体都是有宽，高，背景颜色，方向
+*   属性：身体分三个部分，每个部分都是一个对象，每个部分都有横纵坐标，背景颜色
+*   小蛇要想显示在地图上，先删除之前的小蛇，然后再初始化小蛇（小蛇要移动）---方法
+*
+*
+*   小蛇移动---方法：
+*       思路：吧小蛇的头的坐标给小蛇第一部分的身体，第一部分的身体的坐标，给下一个部分的小蛇头，需要单独的设置：方向
+*
+*
+*   游戏：地图，小蛇，食物
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* */
+
+
+</script>
+</body>
+</html>

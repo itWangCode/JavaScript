@@ -1,0 +1,76 @@
+<!--
+    Created by wangyang on 2018/12/15.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+
+<script>
+    //使用对象---》使用对象中的数学和对象中的方法，使用对象就先要有构造函数
+    //构造函数
+    // function Person(name,age) {
+    //     //属性
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sayHi = function () {
+    //         console.log("您好，你真帅");
+    //     };
+    // }
+    // //实例化对象，并且初始化
+    // for (var  i = 0; i < 100; i++){
+    //     var per = new Person("小明",20);
+    //     per.sayHi();
+    // }
+
+    function Person(name,age) {
+        //属性
+        this.name = name;
+        this.age = age;
+        //在构造函数中的方法
+        this.eat = function () {
+          console.log("吃");
+        };
+        this.sayHi = function () {
+            console.log("您好，你真帅");
+        };
+    }
+    //增加共享的属性和方法
+    Person.prototype.sex = "男";
+    //增加共享的方法
+    Person.prototype.sayHi = function () {
+        console.log("您好厊");
+    };
+    //如果想要使用一些属性和方法，并且熟悉的值在每个对象中都是一样的，方法在每个对象中的操作也都是一样的，那么，为了我共享数据，节省空间，是可以把属性和方法通过原型的方法进行复制
+    var per = new Person("小明",20);
+    per.sayHi();
+
+    console.dir(per);//实例对象的结构
+    console.dir(Person);//构造函数的结构
+
+    //实例对象的原型__proto__和构造函数的原型prototype指向是相同的
+
+    //实例对象中的__proto__原型指向是构造函数中的原型prototype
+    console.log(per.__proto__ == Person.prototype);
+    //实例对象中__proto__是原型，浏览器中使用的，
+    //构造函数中的prototype原型，是程序员用的
+
+
+</script>
+</body>
+</html>

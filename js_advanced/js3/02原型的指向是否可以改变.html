@@ -1,0 +1,83 @@
+<!--
+    Created by wangyang on 2018/12/15.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    //构造函数中的this就是实例对象
+    //原型对象中方法中的this就是这个实例对象
+    // function Person(age) {
+    //     this.age = age;
+    //     console.log(this);
+    // }
+    // Person.prototype.eat = function () {
+    //     console.log(this);
+    //     console.log("您吃饭了么");
+    // };
+    // var per  = new Person(10);
+    // per.eat();
+    // console.log(per);
+    
+    
+   //  function Student(age) {
+   //      this.age = age;
+   //      console.log(this);
+   //  }
+   //  Student.prototype.study = function () {
+   //      console.log("学习");
+   //  };
+   //  Student.prototype = {
+   //      eat:function () {
+   //          console.log("好吃");
+   //      }
+   //  };
+   // var stu = new Student();
+   // stu.eat();
+
+
+    //这是人的构造函数
+    function Person(age) {
+        this.age = 10;
+        console.log(this);
+    }
+    //人的饿原型对象方法
+    Person.prototype.eat = function () {
+        console.log("吃饭🍚");
+    };
+    //学生的构造函数
+    function Student(){
+    }
+    Student.prototype.sayHi = function(){
+      console.log("嗨喽，我很帅的");
+    };
+    //学生的原型，指向了一个人的实例对象
+    Student.prototype = new Person(10);
+    var stu = new Student();
+    stu.eat();
+    //stu.sayHi();
+
+    //原型指向可以改变
+    //实例对象的原型__proto__指向是改对象所在的构造函数的原型对象
+    //构造函数的原型对象（prrototype）指向如果改变了，实例对象的原型(__proto__)指向也会改变
+    //原型的指向是可以改变的
+    //实例对象和原型对象之间的关系是通过__proto__原型来联系起来的，这个关系就是原型链
+</script>
+</body>
+</html>
