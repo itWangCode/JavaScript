@@ -1,0 +1,107 @@
+<!--
+    Created by wangyang on 2018-12-25.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+
+    /*    //闭包
+        /!**
+         *
+         * 闭包的概论：函数A中，有一个函数B中可以访问函数A中定义的变量或者是数据，此时形成了闭包（这句话暂时不严谨）
+         * 闭包的模式：函数模式的闭包，对象模式的闭包
+         * 闭包的作用：缓存数据，延长作用域链
+         * 闭包的有点和缺点：缓存数据
+         * 闭包的应用：
+         *
+         *
+         *!/
+
+        //函数模式的闭包，在函数中有一个函数
+        function f1() {
+            var num = 10;
+            //函数声明
+            function f2() {
+                console.log(num);
+            }
+            //函数调用
+            f2();
+        }
+        f1();
+
+        //对象模式的闭包:函数中有一个对象
+        function f3() {
+            var num = 10;
+            var obj = {
+                age : num
+            };
+            console.log(obj.age);
+        }
+        f3();*/
+
+    // function f1() {
+    //     var num = 10;
+    //     return function () {
+    //         console.log(num);
+    //         return num;
+    //     }
+    // }
+    //
+    // var ff = f1();
+    // var result = ff();
+    // console.log(result);
+
+
+    // function f2() {
+    //     var num = 200;
+    //     return {
+    //         age : num
+    //     }
+    // }
+    // var ff =f2();
+    // console.log(ff.age);
+
+
+
+    // function f1() {
+    //     var num = 10;
+    //     num++;
+    //     console.log(num);
+    // }
+    // f1();//11
+    // f1();//11
+    // f1();//11
+
+
+    function f1() {
+        var num = 10;
+        return function () {
+            num++;
+            return num;
+        }
+    }
+    var ff = f1();
+    console.log(ff());//11
+    console.log(ff());//12
+    console.log(ff());//13
+
+
+</script>
+</body>
+</html>

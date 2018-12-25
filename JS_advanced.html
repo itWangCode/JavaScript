@@ -1750,38 +1750,38 @@
 
     */
 
-/*
+    /*
 
-    //函数声明
-    // if (true){
-    //     function f1() {
-    //         console.log("哈哈，我很帅");
-    //     }
-    // } else {
-    //     function f1() {
-    //         console.log("嘻嘻，我很帅");
-    //     }
-    // }
-    // f1();
+        //函数声明
+        // if (true){
+        //     function f1() {
+        //         console.log("哈哈，我很帅");
+        //     }
+        // } else {
+        //     function f1() {
+        //         console.log("嘻嘻，我很帅");
+        //     }
+        // }
+        // f1();
 
-    //函数表达式
-    var ff;
-    if(true) {
-        ff = function () {
-            console.log("哈哈，我很帅");
+        //函数表达式
+        var ff;
+        if(true) {
+            ff = function () {
+                console.log("哈哈，我很帅");
+            }
+        } else {
+            ff = function () {
+                console.log("嘻嘻，我很帅");
+            }
         }
-    } else {
-        ff = function () {
-            console.log("嘻嘻，我很帅");
-        }
-    }
-    ff();
+        ff();
 
-    //函数声明如果放在if-else语句找你哥，在IE8的浏览器中会出现问题
-    //以后宁愿用函数表达式，都不用函数声明
- */
+        //函数声明如果放在if-else语句找你哥，在IE8的浏览器中会出现问题
+        //以后宁愿用函数表达式，都不用函数声明
+     */
 
-/*=================函数中的this和严格模式============================*/
+    /*=================函数中的this和严格模式============================*/
     //函数中的this的指向
     //普通函数中this是谁？----------window
     //对象.方法中this是谁？----------当前的实例对象
@@ -1789,15 +1789,15 @@
     //构造函数的this-----------------实例对象
     //原型对象this-------------------实例对象
 
-   /*
-    //函数中的this的指向
-    function f1() {
-        console.log(this);
-    }
-    f1();
-    //BOM：中顶级对象是window；浏览器所有的东西都是window
-    //this是window
-    */
+    /*
+     //函数中的this的指向
+     function f1() {
+         console.log(this);
+     }
+     f1();
+     //BOM：中顶级对象是window；浏览器所有的东西都是window
+     //this是window
+     */
 
     /*
     //定时器方法中的this是谁
@@ -1840,96 +1840,96 @@
 
      */
 
-/*========================函数的不同的调用方式==========================================*/
-/*
-    //普通函数
-    function f1() {
-        console.log("文能提笔控萝莉")
-    }
-    f1();
+    /*========================函数的不同的调用方式==========================================*/
+    /*
+        //普通函数
+        function f1() {
+            console.log("文能提笔控萝莉")
+        }
+        f1();
 
-    //构造函数---通过new 来调用，目的用来创建对象
-    function F1() {
-        console.log("我是构造函数");
-    }
-    var f = new F1();
-
-
-    //对象的方法--对象.方法来调用的
-    function Person() {
-        this.play = function () {
-            console.log("完");
-        };
-    }
-    var per = new Person();
-    per.play();
-
- */
-
-/*===================函数也是对象========================================*/
-/*
-
-  //函数是对象，对象不一定是函数
-    //对象中__proto__原型，是对象
-    //构造函数有prototype原型，是对象
-    // function F1() {
-    // }
-    // console.dir(F1);
-    //
-    //
-    // console.dir(Math);//中有__proto__，但是没有prototype
-
-    //对象中有__proto__,函数中应该有prototype
-
-    //如果一个东西里面有prototype,又有__proto__，说明是函数，也是对象
+        //构造函数---通过new 来调用，目的用来创建对象
+        function F1() {
+            console.log("我是构造函数");
+        }
+        var f = new F1();
 
 
+        //对象的方法--对象.方法来调用的
+        function Person() {
+            this.play = function () {
+                console.log("完");
+            };
+        }
+        var per = new Person();
+        per.play();
+
+     */
+
+    /*===================函数也是对象========================================*/
+    /*
+
+      //函数是对象，对象不一定是函数
+        //对象中__proto__原型，是对象
+        //构造函数有prototype原型，是对象
+        // function F1() {
+        // }
+        // console.dir(F1);
+        //
+        //
+        // console.dir(Math);//中有__proto__，但是没有prototype
+
+        //对象中有__proto__,函数中应该有prototype
+
+        //如果一个东西里面有prototype,又有__proto__，说明是函数，也是对象
 
 
 
-    // function F2(name) {
-    //     this.name = name;
-    // }
-    // console.dir(F2);
-    //所有的函数实际上都是Function的构造函数创建出来的实例对象
-
-    var f2 = new Function("num1","num2","return num1+num2");
-    console.log(f2(10,20));
-
-    //所有，函数实际也是对象
-    console.dir(f2);
-
- */
 
 
-/*=======================数组中函数的调用==============================================================*/
-/*
+        // function F2(name) {
+        //     this.name = name;
+        // }
+        // console.dir(F2);
+        //所有的函数实际上都是Function的构造函数创建出来的实例对象
 
-    //数组中可以存储任何类型的数据
-    var arr = [
-        function () {
-            console.log("放假了1");
-        },
-        function () {
-            console.log("放假了2");
+        var f2 = new Function("num1","num2","return num1+num2");
+        console.log(f2(10,20));
 
-        },
-        function () {
-            console.log("放假了3");
+        //所有，函数实际也是对象
+        console.dir(f2);
 
-        },
-        function () {
-            console.log("放假了4");
+     */
 
-        },
-    ];
-    arr.forEach(function (ele) {
-        ele();
-    })
 
- */
+    /*=======================数组中函数的调用==============================================================*/
+    /*
 
-/*============================apply和call的方法======================================*/
+        //数组中可以存储任何类型的数据
+        var arr = [
+            function () {
+                console.log("放假了1");
+            },
+            function () {
+                console.log("放假了2");
+
+            },
+            function () {
+                console.log("放假了3");
+
+            },
+            function () {
+                console.log("放假了4");
+
+            },
+        ];
+        arr.forEach(function (ele) {
+            ele();
+        })
+
+     */
+
+    /*============================apply和call的方法======================================*/
     /*
 
         // apply和call的使用
@@ -2077,7 +2077,7 @@
      */
 
 
-/*=========================apply和call方法到底是谁的=========================================*/
+    /*=========================apply和call方法到底是谁的=========================================*/
 
 
     /*=============================bind的方法================================*/
@@ -2155,52 +2155,52 @@
      */
 
     /////////////////////////////////////////bind的使用
-/*    //通过对象，调用方法，产生随机数
-    function ShowRandom() {
-        this.number = parseInt(Math.random()*10+1);//1-10的随机数
+    /*    //通过对象，调用方法，产生随机数
+        function ShowRandom() {
+            this.number = parseInt(Math.random()*10+1);//1-10的随机数
 
-    }
-    //增加原型方法
-    ShowRandom.prototype.show1  = function () {
-        //改变了定时器中的this的指向了，本来应该是window,显示是实例对象了
-        window.setInterval(this.show2.bind(this),1000);
-    };
-    ShowRandom.prototype.show2 = function () {
-        //显示随机数
-        console.log(this.number);
-    };
-    //实例对象
-    var sr = new ShowRandom();
-    //调用方法，输出随机数字
-    //调用这个方法一次，不停产生随机数
-    sr.show1();*/
+        }
+        //增加原型方法
+        ShowRandom.prototype.show1  = function () {
+            //改变了定时器中的this的指向了，本来应该是window,显示是实例对象了
+            window.setInterval(this.show2.bind(this),1000);
+        };
+        ShowRandom.prototype.show2 = function () {
+            //显示随机数
+            console.log(this.number);
+        };
+        //实例对象
+        var sr = new ShowRandom();
+        //调用方法，输出随机数字
+        //调用这个方法一次，不停产生随机数
+        sr.show1();*/
 
 
-/*==========================函数中的几个成员==================================*/
-/*
-    //函数中有一个name的属性---》函数的名字,name属性只读，不能改变函数的名字
-    //函数中有一个arguments属性，---》实参的个数
-    //函数中有一个length的属性----》函数定义的时候形参的个数
-    //函数中有一个caller属性---》调用f1函数子在f2函数中调用，所有，此时调用者就是f2
-    function f1(x,y) {
-        console.log(f1.name);
-        console.log(f1.arguments.length);//实参的个数
-        console.log(f1.length);
-        console.log(f1.caller);//调用者
-    }
-    f1.naem = "f5";
-    f1(10,20);
-    console.dir(f1);
+    /*==========================函数中的几个成员==================================*/
+    /*
+        //函数中有一个name的属性---》函数的名字,name属性只读，不能改变函数的名字
+        //函数中有一个arguments属性，---》实参的个数
+        //函数中有一个length的属性----》函数定义的时候形参的个数
+        //函数中有一个caller属性---》调用f1函数子在f2函数中调用，所有，此时调用者就是f2
+        function f1(x,y) {
+            console.log(f1.name);
+            console.log(f1.arguments.length);//实参的个数
+            console.log(f1.length);
+            console.log(f1.caller);//调用者
+        }
+        f1.naem = "f5";
+        f1(10,20);
+        console.dir(f1);
 
-    function f2() {
-        console.log("f2代码");
-        f1(1,2)
-    }
-    f2();
+        function f2() {
+            console.log("f2代码");
+            f1(1,2)
+        }
+        f2();
 
- */
+     */
 
-/*=============================函数作为参数使用=====================================*/
+    /*=============================函数作为参数使用=====================================*/
     /*
 
         function f1(fn) {
@@ -2221,72 +2221,346 @@
 
      */
 
-/*
+    /*
 
 
-    //定时器中传入函数
-    function f1(fn) {
-        setInterval(function () {
-            console.log("定时器开始");
-            fn();
-            console.log("定时器结束");
-        },1000);
+        //定时器中传入函数
+        function f1(fn) {
+            setInterval(function () {
+                console.log("定时器开始");
+                fn();
+                console.log("定时器结束");
+            },1000);
+        }
+
+        f1(function () {
+            console.log("睡觉");
+        })
+     */
+
+
+    /*============================函数作为返回值使用的小案例=======================================*/
+    /*
+
+        // function f1() {
+        //     console.log("f1函数开始");
+        //     return function () {
+        //         console.log("我是函数，返回值来用的");
+        //     }
+        // }
+        // var ff = f1();
+        // ff();
+
+        var num = 10;
+        console.log(typeof  num);//获取num这个变量的数据类型
+        var obj = {};//对象
+        //判断这个对象是不是某个类型的
+        console.log(obj instanceof Object);
+        //此时输出的是Object的数据类型
+        console.log(Object.prototype.toString());//[object Object]
+        //数组的数据类型
+        console.log(Object.prototype.toString.call([]));//[object Array]
+
+        var arr = [10,20,30];
+        console.log(Object.prototype.toString.call(arr));
+
+        console.log(Object.prototype.toString.call(new Date()));
+
+        //想要获取某个对象数据类型的样子
+        // Object.prototype.toString.call(对象)，此时得到的就是这对象的类型的样子
+
+        //获取某个对象的类型是不是你传入的类型
+        //[10,20,30]，是不是[object Array]
+        //type---是变量-----是参数---"[object array]"
+        //obj----是变量-----是参数-----[10,20,30]
+            //判断这个对象和传入的类型是不是同一个类型
+        function getFun(type) {
+            return function (obj) {
+                return Object.prototype.toString.call(obj) ===  type;
+            }
+        }
+        var ff =getFun("[object Array]");
+        var result = ff([10,20,30]);
+        console.log(result);
+
+     */
+
+
+    /*======================函数作为参数使用的练习铺垫========================================*/
+    /*
+
+       // var arr = [10,203,400,40,30,203,9,10];
+        // //排序
+        // arr.sort();
+        // console.log(arr);
+
+        // var arr = [10,203,400,40,30,203,9,10];
+        // //排序---函数作为参数来使用，匿名函数，作为sort方法的参数使用，那么此时的匿名函数中，有两个参数
+        // arr.sort(function (obj1,obj2) {
+        //     if (obj1>obj2){
+        //         return 1;
+        //     }else if (obj1==obj2){
+        //         return 0;
+        //     }else {
+        //         return -1;
+        //     }
+        // });
+        // console.log(arr);
+
+
+        // var arr = ["ewfwf","fgfrevv","fwfifrbiw","fudwifbuliuiwevhj"];
+        // //排序---函数作为参数来使用，匿名函数，作为sort方法的参数使用，那么此时的匿名函数中，有两个参数
+        // arr.sort(function (obj1,obj2) {
+        //     if (obj1>obj2){
+        //         return 1;
+        //     }else if (obj1==obj2){
+        //         return 0;
+        //     }else {
+        //         return -1;
+        //     }
+        // });
+        // console.log(arr);
+
+
+
+            //三部电影，电影名字，大小，上映时间
+        function File(name,size,time) {
+            this.name = name;
+            this.size = size;
+            this.time = time;
+        }
+        var f1 = new File("jack.avi","400M","1898-02-20");
+        var f2 = new File("jack2.avi","300M","2018-02-20");
+        var f3 = new File("jack3.avi","200M","1999-02-20");
+
+        var arr = [f1,f2,f3];
+
+        function fn(attr) {
+            return  function getSort(obj1,obj2) {
+                if (obj1[attr]>obj2[attr]){
+                    return 1;
+                }else if(obj1[attr] == obj2[attr]){
+                    return 0;
+                }else {
+                    return -1;
+                }
+            }
+        }
+
+        var ff = fn("size");
+
+
+        arr.sort(ff);
+        for (var i = 0; i<arr.length;i++){
+            console.log(arr[i].name + "=====>"+arr[i].size+"====>"+arr[i].time);
+        }
+
+
+     */
+
+    /*==============================作用域和作用域链和预解析==================================*/
+
+    /*
+
+    //变量----》局部变量和全局变量
+    //作用域--》就是变量使用的范围
+    //局部作用域和全局作用域
+    //js中没有块级作用域：---一对大括号中定义的变量，这个变量可以在大括号外面使用
+    //函数中定义的变量是局部变量
+
+    // while (true){
+    //     var num = 10;
+    //     break;
+    // }
+    // console.log(num);//10
+    //
+    //
+    // {
+    //     var num1 = 100;
+    // }
+    // console.log(num1);
+    //
+    //
+    // if (true){
+    //     var num3 = 1000;
+    // }
+    // console.log(num3);
+    //
+    //
+    // function f1() {
+    //     var num4 = 10000;
+    // }
+    // console.log(num4);//这个是局部变量，是不能在外面访问的
+
+     */
+
+    /*
+
+    //作用域链：变量的使用，从里向外，层层的搜索，搜索到了就可以直接使用了
+    //层层搜索，搜索到0级作用域的时候，如果还没有找到这个变量，结果就是报错
+    var num= 10;//作用域：级别0
+    function f1() {
+        var num = 20;//作用域：级别1
+        function f2() {
+            var num = 30;//作用域：级别2
+            console.log(num);
+        }
+        f2();
+    }
+    f1();
+
+     */
+
+
+    /*
+
+
+
+    //预解析：就是在浏览器解析代码之前，把变量的声明和函数的声明提前(提升),到该作用域的最上面
+
+    //变量的提升
+    console.log(num);
+    var num = 100;
+
+    //函数的声明被提前了
+    f1();
+    function f1() {
+        console.log("这个函数执行了");
     }
 
-    f1(function () {
-        console.log("睡觉");
-    })
- */
+    //变量提前声明是undefined，undefined()，是报错的
+    // f2();
+    // var f2 = function () {
+    //     console.log("这个函数执行了11");//报错了
+    // };
+    //
+    //---》修改的代码
+    var f2;
+     f2 = function () {
+        console.log("这个函数执行了22");
+    };
+    f2();
 
 
-/*============================函数作为返回值使用的小案例=======================================*/
-/*
+     */
+
+
+    /*==============================闭包====================================*/
+
+    //闭包
+    /**
+     *
+     * 闭包的概论：函数A中，有一个函数B中可以访问函数A中定义的变量或者是数据，此时形成了闭包（这句话暂时不严谨）
+     * 闭包的模式：函数模式的闭包，对象模式的闭包
+     * 闭包的作用：缓存数据，延长作用域链
+     * 闭包的有点和缺点：缓存数据
+     * 闭包的应用：
+     *
+     *
+     */
+
+    /*
+        //函数模式的闭包，在函数中有一个函数
+        function f1() {
+            var num = 10;
+            //函数声明
+            function f2() {
+                console.log(num);
+            }
+            //函数调用
+            f2();
+        }
+        f1();
+
+        //对象模式的闭包:函数中有一个对象
+        function f3() {
+            var num = 10;
+            var obj = {
+                age : num
+            };
+            console.log(obj.age);
+        }
+        f3();
+    */
+
+    /*
+
+    function f1() {
+            var num = 10;
+            return function () {
+                console.log(num);
+                return num;
+            }
+        }
+
+        var ff = f1();
+        var result = ff();
+        console.log(result);
+
+     */
+
+
+    // function f2() {
+    //     var num = 200;
+    //     return {
+    //         age : num
+    //     }
+    // }
+    // var ff =f2();
+    // console.log(ff.age);
+
 
     // function f1() {
-    //     console.log("f1函数开始");
+    //     var num = 10;
+    //     num++;
+    //     console.log(num);
+    // }
+    // f1();//11
+    // f1();//11
+    // f1();//11
+
+
+    // function f1() {
+    //     var num = 10;
     //     return function () {
-    //         console.log("我是函数，返回值来用的");
+    //         num++;
+    //         return num;
     //     }
     // }
     // var ff = f1();
-    // ff();
+    // console.log(ff());//11
+    // console.log(ff());//12
+    // console.log(ff());//13
 
-    var num = 10;
-    console.log(typeof  num);//获取num这个变量的数据类型
-    var obj = {};//对象
-    //判断这个对象是不是某个类型的
-    console.log(obj instanceof Object);
-    //此时输出的是Object的数据类型
-    console.log(Object.prototype.toString());//[object Object]
-    //数组的数据类型
-    console.log(Object.prototype.toString.call([]));//[object Array]
+/*================================闭包案例产生相同的随机数=============================================*/
+/*
 
-    var arr = [10,20,30];
-    console.log(Object.prototype.toString.call(arr));
+// function showRandom() {
+    //     var num = parseInt(Math.random()*10+1);
+    //     console.log(num);
+    // }
+    // showRandom();
+    // showRandom();
+    // showRandom();
 
-    console.log(Object.prototype.toString.call(new Date()));
-
-    //想要获取某个对象数据类型的样子
-    // Object.prototype.toString.call(对象)，此时得到的就是这对象的类型的样子
-
-    //获取某个对象的类型是不是你传入的类型
-    //[10,20,30]，是不是[object Array]
-    //type---是变量-----是参数---"[object array]"
-    //obj----是变量-----是参数-----[10,20,30]
-        //判断这个对象和传入的类型是不是同一个类型
-    function getFun(type) {
-        return function (obj) {
-            return Object.prototype.toString.call(obj) ===  type;
+    //闭包的方式：产生三个随机数，但是都是相同的
+    function f1() {
+        var num = parseInt(Math.random()*10+1);
+        return function () {
+            console.log(num);
         }
     }
-    var ff =getFun("[object Array]");
-    var result = ff([10,20,30]);
-    console.log(result);
+    var ff = f1();
+    ff();
+    ff();
+    ff();
+    //总结：如果想要缓存数据，就把数据放在外层的函数和里层的函数的中间位置
+    //闭包的作用：缓存数据,优点也是缺点，没有及时的释放
+    //局部变量在函数中，函数使用结束后，里面的局部变量就会被自动释放
+    //闭包后，里面的局部变量的使用作用域就会被延长
 
  */
 
-
-/*======================函数作为参数使用的练习铺垫========================================*/
 
 </script>
 </html>
