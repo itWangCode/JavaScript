@@ -36,7 +36,20 @@
 
     //函数作为参数的时候，如果是命名函数，那么只传入命名函数的名字，没有括号
 
+
+
+    //定时器中传入函数
+    function f1(fn) {
+        setInterval(function () {
+            console.log("定时器开始");
+            fn();
+            console.log("定时器结束");
+        },1000);
+    }
     
+    f1(function () {
+        console.log("睡觉");
+    })
 </script>
 </body>
 </html>

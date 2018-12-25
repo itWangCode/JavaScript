@@ -2221,6 +2221,72 @@
 
      */
 
+/*
+
+
+    //定时器中传入函数
+    function f1(fn) {
+        setInterval(function () {
+            console.log("定时器开始");
+            fn();
+            console.log("定时器结束");
+        },1000);
+    }
+
+    f1(function () {
+        console.log("睡觉");
+    })
+ */
+
+
+/*============================函数作为返回值使用的小案例=======================================*/
+/*
+
+    // function f1() {
+    //     console.log("f1函数开始");
+    //     return function () {
+    //         console.log("我是函数，返回值来用的");
+    //     }
+    // }
+    // var ff = f1();
+    // ff();
+
+    var num = 10;
+    console.log(typeof  num);//获取num这个变量的数据类型
+    var obj = {};//对象
+    //判断这个对象是不是某个类型的
+    console.log(obj instanceof Object);
+    //此时输出的是Object的数据类型
+    console.log(Object.prototype.toString());//[object Object]
+    //数组的数据类型
+    console.log(Object.prototype.toString.call([]));//[object Array]
+
+    var arr = [10,20,30];
+    console.log(Object.prototype.toString.call(arr));
+
+    console.log(Object.prototype.toString.call(new Date()));
+
+    //想要获取某个对象数据类型的样子
+    // Object.prototype.toString.call(对象)，此时得到的就是这对象的类型的样子
+
+    //获取某个对象的类型是不是你传入的类型
+    //[10,20,30]，是不是[object Array]
+    //type---是变量-----是参数---"[object array]"
+    //obj----是变量-----是参数-----[10,20,30]
+        //判断这个对象和传入的类型是不是同一个类型
+    function getFun(type) {
+        return function (obj) {
+            return Object.prototype.toString.call(obj) ===  type;
+        }
+    }
+    var ff =getFun("[object Array]");
+    var result = ff([10,20,30]);
+    console.log(result);
+
+ */
+
+
+/*======================函数作为参数使用的练习铺垫========================================*/
 
 </script>
 </html>
