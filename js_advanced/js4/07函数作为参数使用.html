@@ -1,0 +1,42 @@
+<!--
+    Created by wangyang on 2018-12-25.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    function f1(fn) {
+        console.log("f1的函数");
+        fn();//此时fn当做是一个函数来使用
+    }
+    //fn是参数，最后作为函数使用了，函数是可以作为参数使用
+    f1(function () {
+        console.log("我是匿名函数");
+    });
+    //命名函数
+    function f2() {
+        console.log("f2的函数");
+    }
+    f1(f2);
+
+    //函数作为参数的时候，如果是命名函数，那么只传入命名函数的名字，没有括号
+
+    
+</script>
+</body>
+</html>

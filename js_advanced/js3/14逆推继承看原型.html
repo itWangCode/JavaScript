@@ -1,0 +1,40 @@
+<!--
+    Created by wangyang on 2018-12-22.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    function F1(age) {
+        this.age = age;
+    }
+    function F2(age) {
+        this.age = age;
+    }
+    F2.prototype = new F1(10);
+    function F3(age) {
+        this.age = age;
+    }
+    F3.prototype = new F2(20);
+
+    var f3 = new F3(30);
+    console.log(f3.age);
+</script>
+</body>
+</html>

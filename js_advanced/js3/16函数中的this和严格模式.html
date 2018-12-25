@@ -1,0 +1,83 @@
+<!--
+    Created by wangyang on 2018-12-22.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    //函数中的this的指向
+    //普通函数中this是谁？----------window
+    //对象.方法中this是谁？----------当前的实例对象
+    //定时器方法中的this是谁-----------window
+    //构造函数的this-----------------实例对象
+    //原型对象this-------------------实例对象
+
+    //严格模式:
+    "use strict";//严格模式
+    function f1() {
+        console.log(this);
+    }
+    window.f1();
+
+    //
+    // //函数中的this的指向
+    // function f1() {
+    //     console.log(this);
+    // }
+    // f1();
+    // //BOM：中顶级对象是window；浏览器所有的东西都是window
+    // //this是window
+
+
+    //普通函数中this是谁？
+    //对象.方法中this是谁？
+
+    //
+    // //定时器方法中的this是谁
+    // setInterval(function () {
+    //     console.log(this);
+    // },1000);
+    // //this是window
+    //
+
+
+    //
+    // //构造函数的this
+    // function Person() {
+    //     console.log(this);
+    //     this.sayHi = function () {
+    //         console.log(this);
+    //     };
+    // }
+    // Person.prototype.eat = function () {
+    //       console.log(this);
+    // };
+    // var per = new Person();
+    // console.log(per);
+    // per.sayHi();
+    // per.eat();
+    // //this是实例对象
+
+
+
+    //原型对象this
+
+
+</script>
+</body>
+</html>

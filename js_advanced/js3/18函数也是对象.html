@@ -1,0 +1,61 @@
+<!--
+    Created by wangyang on 2018-12-22.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    //函数是对象，对象不一定是函数
+    //对象中__proto__原型，是对象
+    //构造函数有prototype原型，是对象
+    // function F1() {
+    // }
+    // console.dir(F1);
+    //
+    //
+    // console.dir(Math);//中有__proto__，但是没有prototype
+
+    //对象中有__proto__,函数中应该有prototype
+
+    //如果一个东西里面有prototype,又有__proto__，说明是函数，也是对象
+
+
+
+
+
+    // function F2(name) {
+    //     this.name = name;
+    // }
+    // console.dir(F2);
+    //所有的函数实际上都是Function的构造函数创建出来的实例对象
+
+    // var f2 = new Function("num1","num2","return num1+num2");
+    // console.log(f2(10,20));
+    // console.log(f2.__proto__ == Function.prototype);
+    //
+    // //所有，函数实际也是对象
+    // console.dir(f2);
+
+
+    console.dir(Function);
+
+
+
+</script>
+</body>
+</html>

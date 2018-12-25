@@ -1,0 +1,44 @@
+<!--
+    Created by wangyang on 2018-12-25.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    //通过对象，调用方法，产生随机数
+    function ShowRandom() {
+        this.number = parseInt(Math.random()*10+1);//1-10的随机数
+
+    }
+    //增加原型方法
+    ShowRandom.prototype.show1  = function () {
+        //改变了定时器中的this的指向了，本来应该是window,显示是实例对象了
+        window.setInterval(this.show2.bind(this),1000);
+    };
+    ShowRandom.prototype.show2 = function () {
+        //显示随机数
+        console.log(this.number);
+    };
+    //实例对象
+    var sr = new ShowRandom();
+    //调用方法，输出随机数字
+    //调用这个方法一次，不停产生随机数
+    sr.show1();
+</script>
+</body>
+</html>

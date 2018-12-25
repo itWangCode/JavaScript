@@ -1,0 +1,66 @@
+<!--
+    Created by wangyang on 2018-12-22.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    /*//函数的角色:
+    //函数声明
+    function f1() {
+        console.log("我是函数");
+    }
+    f1();
+    //函数表达式
+    var ff = function () {
+        console.log("我也是一个函数");
+    };
+    ff();*/
+
+
+    //函数声明
+    // if (true){
+    //     function f1() {
+    //         console.log("哈哈，我很帅");
+    //     }
+    // } else {
+    //     function f1() {
+    //         console.log("嘻嘻，我很帅");
+    //     }
+    // }
+    // f1();
+
+    //函数表达式
+    var ff;
+    if(true) {
+        ff = function () {
+            console.log("哈哈，我很帅");
+        }
+    } else {
+        ff = function () {
+            console.log("嘻嘻，我很帅");
+        }
+    }
+    ff();
+
+    //函数声明如果放在if-else语句找你哥，在IE8的浏览器中会出现问题
+    //以后宁愿用函数表达式，都不用函数声明
+
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!--
+    Created by wangyang on 2018-12-25.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+        // function f1(x,y) {
+        //     console.log((x+y)+":====>"+this);//30:====>[object Window]
+        // }
+        // f1(10,20);
+        //
+        // function f1(x,y) {
+        //     console.log((x+y)+":====>"+this);//30:====>[object Window]
+        // }
+        // //复制了一份的时候，把一个参数传入到了f1函数中，x==>10,y===>20，null就是this,默认就是window
+        // // var ff = f1.bind(null,10,20);
+        // // ff();
+        //
+        // //bind方法是复制的意思，参数可以在复制的时候传进去，也可以在复制之后调用的时候传入
+        // var ff = f1.bind(null);
+        // ff(10,20);
+
+
+   /*     //apply和call是调用的时候改变this的指向
+        //bind方法，是复制一份的时候，改变this的指向
+
+    function Person() {
+        this.age = 1000;
+    }
+
+    Person.prototype.sayHi = function () {
+        console.log("hey");
+    };
+
+    var per = new Person();
+
+    var ff = f1.bind(per,10,20);
+    ff();//30:====>[object Object]
+*/
+
+   function Person(age) {
+       this.age = age;
+   }
+   Person.prototype.play = function () {
+       console.log(this+":===>"+this.age);
+   };
+   
+   function Student(age) {
+       this.age = age;
+   }
+   var per = new Person(18);
+    var stu = new Student(20);
+    //复制了一份
+    var ff =per.play.bind(stu);
+    ff();
+
+    //bind是复制了一份
+    //使用方法
+    /*
+
+        函数名字.bind(对象，参数1，参数2。。。。);---》返回值是复制之后的这个函数
+        方法名字.bind(对象，参数1，参数2。。。。);----》返回值是复制之后的这个方法
+
+     */
+</script>
+</body>
+</html>

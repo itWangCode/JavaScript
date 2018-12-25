@@ -1,0 +1,45 @@
+<!--
+    Created by wangyang on 2018-12-25.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    //函数中有一个name的属性---》函数的名字,name属性只读，不能改变函数的名字
+    //函数中有一个arguments属性，---》实参的个数
+    //函数中有一个length的属性----》函数定义的时候形参的个数
+    //函数中有一个caller属性---》调用f1函数子在f2函数中调用，所有，此时调用者就是f2
+    function f1(x,y) {
+        console.log(f1.name);
+        console.log(f1.arguments.length);//实参的个数
+        console.log(f1.length);
+        console.log(f1.caller);//调用者
+    }
+    f1.naem = "f5";
+    f1(10,20);
+    console.dir(f1);
+
+    function f2() {
+        console.log("f2代码");
+        f1(1,2)
+    }
+    f2();
+
+</script>
+</body>
+</html>

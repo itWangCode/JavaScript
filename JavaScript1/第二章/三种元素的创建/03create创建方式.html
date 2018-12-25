@@ -1,0 +1,77 @@
+<!--
+    Created by wangyang on 2018/12/17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #dv {
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--
+
+    列表分为：
+    1.无序列表：
+    <ul>
+         <li></li>
+    </ul>
+    2.有序列表: <ol><li></li></ol>
+
+-->
+<input type="button" value="创建列表" id="btn">
+<div id="dv"></div>
+
+<script src="common.js"></script>
+<script>
+    var kungfu = ["我的女神", "小龙女", "爱你给你", "仙女下凡"];
+    my$("btn").onclick = function () {
+        //创建ul,把ul创建给dv中
+        var ulObj = document.createElement("ul");
+        my$("dv").appendChild(ulObj);
+        //动态去创建li标签，加载到ul中
+        for (var i = 0; i < kungfu.length; i++) {
+            var liObj = document.createElement("li");
+            liObj.innerHTML = kungfu[i];
+            ulObj.appendChild(liObj);
+            //为Li添加鼠标进入事件
+            liObj.onmouseover = mouseoverHandle;
+            liObj.onmouseout = mouseoutHandle;
+        }
+    };
+
+    function mouseoverHandle() {
+        this.style.backgroundColor = "red";
+        this.style.color = "#fff";
+    }
+    function mouseoutHandle() {
+        this.style.backgroundColor = "";
+        this.style.color = "";
+    }
+</script>
+</body>
+</html>

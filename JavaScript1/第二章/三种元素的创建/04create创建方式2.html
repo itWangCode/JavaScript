@@ -1,0 +1,87 @@
+<!--
+    Created by wangyang on 2018/12/17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+
+
+        #dv {
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        td{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<input type="button" value="创建列表" id="btn">
+<div id="dv"></div>
+
+<script src="common.js"></script>
+<script>
+    var arr = [
+        {name:"百度",href:"http://www.baidu.com"},
+        {name:"百度1",href:"http://www.baidu.com"},
+        {name:"百度2",href:"http://www.baidu.com"},
+        {name:"百度3",href:"http://www.baidu.com"},
+        {name:"百度4",href:"http://www.baidu.com"},
+        {name:"百度5",href:"http://www.baidu.com"},
+        {name:"百度6",href:"http://www.baidu.com"},
+    ];
+    //点击创建表格
+    /**
+     *  <table>
+     *      <tbody>
+         *      <tr>
+         *          <td></td>
+         *      </tr>
+     *      <tbody>
+     *  </table>
+     *
+     */
+
+
+
+    my$("btn").onclick = function () {
+        var tableObj = document.createElement("table");
+        my$("dv").appendChild(tableObj);
+
+        for (var i = 0; i<arr.length; i++){
+            var dt = arr[i];
+
+            var trObj = document.createElement("tr");
+            my$("dv").appendChild(trObj);
+
+            var tdObj1 = document.createElement("td");
+            tdObj1.innerText = dt.name;
+            trObj.appendChild(tdObj1);
+
+            var tdObj2 = document.createElement("td");
+            tdObj2.innerHTML = "<a href="+dt.href+">"+dt.name+"</a>";
+            trObj.appendChild(tdObj2);
+        }
+    };
+
+
+</script>
+</body>
+</html>
