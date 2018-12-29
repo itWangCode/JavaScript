@@ -1,0 +1,88 @@
+<!--
+    Created by wangyang on 2018-12-29.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    /* //正则表达式中:g，表示的是全局匹配模式
+         //正则表达式：i:表示忽略大小写
+     var str = "中国移动：10086，中国联通：10010，中国电信：10000";
+     var array = str.match(/\d{5}/g);
+     console.log(array);*/
+
+    /* //提取这里的日
+     var str = "2017-11-11";
+     var array =str.match(/(\d{4})[-](\d{2})[-](\d{2})/g);
+     console.log(RegExp.$1);
+  */
+
+
+    /*var email = "itwangyang@gmail.com";
+    var array = email.match(/([0-9a-zA-Z._-]+)[@]([0-9a-zA-Z._-]+)(([.][a-zA-Z]+){1,2})/);
+      console.log(RegExp.$1);
+      console.log(RegExp.$2);
+      console.log(RegExp.$3);*/
+
+
+    /*
+      var str = "我真的好帅，太帅了,帅就是真的帅";
+      str = str.replace(/帅/g,"猥琐");
+      console.log(str);
+    */
+
+
+    /*
+        // var str = "        我的天啦     ，你好";
+        // str = str.trim();
+        // console.log("====="+str+"====");
+       var str = "        我的天啦     ，你好";
+       str = str.replace(/\s/g,"");
+       console.log("====="+str+"====");*/
+
+
+
+    /*   var str = "HhTTppS";
+       str = str.replace(/[h]/gi,"s");
+       console.log(str);
+
+   */
+
+
+    /*   var reg = new RegExp(/[h]/gi);
+       var str = "HhTTppS";
+       str = str.replace(reg,"s");
+       console.log(str);*/
+
+
+/*    var str = "中国移动：10086，中国联通：10010，中国电信：10000";
+    var reg = /\d{5}/g;
+    // console.log(array);
+    // console.log(reg.exec(str));
+    // console.log(reg.exec(str));
+    var arr = reg.exec(str);
+    while (arr != null) {
+        console.log(arr[0]);
+        arr = reg.exec(str);
+    }*/
+
+
+/*=====================真数组还是伪数组=============================*/
+</script>
+</body>
+</html>

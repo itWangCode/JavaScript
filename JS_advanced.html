@@ -2532,35 +2532,872 @@
     // console.log(ff());//12
     // console.log(ff());//13
 
-/*================================闭包案例产生相同的随机数=============================================*/
-/*
+    /*================================闭包案例产生相同的随机数=============================================*/
+    /*
 
-// function showRandom() {
-    //     var num = parseInt(Math.random()*10+1);
-    //     console.log(num);
-    // }
-    // showRandom();
-    // showRandom();
-    // showRandom();
+    // function showRandom() {
+        //     var num = parseInt(Math.random()*10+1);
+        //     console.log(num);
+        // }
+        // showRandom();
+        // showRandom();
+        // showRandom();
 
-    //闭包的方式：产生三个随机数，但是都是相同的
-    function f1() {
-        var num = parseInt(Math.random()*10+1);
-        return function () {
-            console.log(num);
+        //闭包的方式：产生三个随机数，但是都是相同的
+        function f1() {
+            var num = parseInt(Math.random()*10+1);
+            return function () {
+                console.log(num);
+            }
         }
+        var ff = f1();
+        ff();
+        ff();
+        ff();
+        //总结：如果想要缓存数据，就把数据放在外层的函数和里层的函数的中间位置
+        //闭包的作用：缓存数据,优点也是缺点，没有及时的释放
+        //局部变量在函数中，函数使用结束后，里面的局部变量就会被自动释放
+        //闭包后，里面的局部变量的使用作用域就会被延长
+
+     */
+
+    /*==========================闭包点赞========================================*/
+    /*
+
+        ul {
+      list-style-type: none;
     }
-    var ff = f1();
-    ff();
-    ff();
-    ff();
-    //总结：如果想要缓存数据，就把数据放在外层的函数和里层的函数的中间位置
-    //闭包的作用：缓存数据,优点也是缺点，没有及时的释放
-    //局部变量在函数中，函数使用结束后，里面的局部变量就会被自动释放
-    //闭包后，里面的局部变量的使用作用域就会被延长
+
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+
+    img {
+      width: 200px;
+      height: 180px;
+    }
+
+    input {
+      margin-left: 30%;
+    }
+  </style>
+
+</head>
+<body>
+<ul>
+  <li><img src="images/ly.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+  <li><img src="images/lyml.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+  <li><img src="images/fj.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+  <li><img src="images/bd.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+</ul>
+<script>
+  //获取所有的按钮
+  function my$(tagName) {
+    return document.getElementsByTagName(tagName);
+  }
+  //闭包
+  function getValue() {
+    var value = 1;
+    return function () {
+      // value++;
+      this.value = "赞("+(value++)+")";
+    }
+  }
+  var btnObj = my$("input");
+  for (var i = 0; i<btnObj.length;i++){
+    btnObj[i].onclick = getValue();
+  }
+
+  // value = 1;
+  // var btnObj =my$("input");
+  // for (var i = 0; i<btnObj.length;i++){
+  //   btnObj[i].onclick = function () {
+  //     this.value = "赞("+(value++)+")";
+  //   };
+  // }
+
+     */
+
+
+    /*============================沙箱===========================================*/
+    /*
+
+        //沙箱：环境，黑盒，在一个虚拟的环境中模拟真实的世界，做实验，实验结果和真实世界的结果是一样的，但是不会影响到真实的世界
+        var num = 100;
+        (function () {
+            var num = 10;
+            console.log(num);//10
+        })();
+        console.log(num);//100
+
+
+        // var str = "小白喜欢吃";
+        //
+        // (function () {
+        //     var str="小红喜欢玩";
+        //     str = str.substr(2);
+        //     console.log(str);
+        // })();
+        // str = str.substr(2);
+        // console.log(str);
+
+     */
+
+    /*
+
+
+    <div>这是div</div>
+    <div>这是div</div>
+    <div>这是div</div>
+    <p>这是p</p>
+    <p>这是p</p>
+    <p>这是p</p>
+
+
+
+
+    <script>
+        //沙箱：环境，黑盒，在一个虚拟的环境中模拟真实的世界，做实验，实验结果和真实世界的结果是一样的，但是不会影响到真实的世界
+        // var num = 100;
+        // (function () {
+        //     var num = 10;
+        //     console.log(num);//10
+        // })();
+        // console.log(num);//100
+
+
+        // var str = "小白喜欢吃";
+        //
+        // (function () {
+        //     var str="小红喜欢玩";
+        //     str = str.substr(2);
+        //     console.log(str);
+        // })();
+        // str = str.substr(2);
+        // console.log(str);
+
+        var getTag = 10;
+        var dvObj = 20;
+        var dvObj1 = 30;
+
+        (function () {
+            function getTag(tagName) {
+                return document.getElementsByTagName(tagName);
+            }
+            var dvObj = getTag("div");
+            for (var i = 0; i<dvObj.length;i++){
+                dvObj[i].style.border = "2px solid red";
+            }
+
+            var dvObj1 = getTag("p");
+            for (var i = 0; i<dvObj1.length;i++){
+                dvObj1[i].style.border = "2px solid pink";
+            }
+        })();
+
+
+
+        console.log(getTag);
+        console.log(dvObj);
+        console.log(dvObj1);
+
+
+    */
+
+
+
+    /*============================递归============================================*/
+    /*
+
+        //递归：就是函数中调用函数自己，此时就是递归，递归一定要有结束条件
+    var i = 0;
+      function f1() {
+          i++;
+          if (i<5){
+              f1();
+          }
+        console.log("我帅啦");
+      }
+      f1();
+
+
+
+
+          //递归案例求n个数字的累加和
+
+    //之前写法：
+    // var num = 10;
+    // for (var i = 0; i<= 5; i++){
+    //     num += i;
+    // }
+    // console.log(num);
+
+    //递归写法：n+5-->5+4+3+2+1
+    function getSum(x) {
+        if (x == 1){
+            return 1;
+        }
+        return x+getSum(x-1);
+    }
+
+    console.log(getSum(5));
+
+    //代码执行getSum(5)---->进入函数，此时的x是5，执行的是5+getSum(4)，此时代码等待
+    //此时的5+getSum(4)，代码先不进行计算，先执行getSum(4)，进入函数，执行的是4+getSum(3)，
+    //等待，先执行getSum(3)，进入函数，执行3+getSum(2)，.。。。。。。。。
+
+
+
+
+    //递归案例-----求一个数字各个位数上的数字的和：123--》1+2+3=6
+    function getSum(x) {
+        if (x<10){
+            return x;
+        }
+        //获取的是这个数字的个位数
+        return  x%10 + getSum(parseInt(x/10));
+    }
+    console.log(getSum(11311));
+
+    //递归案例-----求斐波那数列
+    function  getFb(x) {
+        if (x==1||x==2){
+            return 1;
+        }
+        return getFb(x-1)+getFb(x-2);
+    }
+    console.log(getFb(12));
+
+     */
+
+    /*============================浅拷贝=========================================*/
+    /*
+
+        //浅拷贝：就是复制，就是相当于吧一个对象中的所有的内容，复制一分给另外一个对象，直接复制，或者说，就是把一个对象的地址给了另外一个对象，他们指向相同
+        //       两个对象直接有共同的属性和方法，都是可以使用
+
+        var obj1 = {
+            age:10,
+            sex:"男",
+            car:["奔驰","宝马","特斯拉","奥拓"]
+        };
+        //另一个对象
+        var obj2 = {};
+        //obj2["age"] = obj1.age;
+        //写一个函数，作为：吧一个对象的数学复制到另外一个对象中，浅拷贝
+        //吧a对象中的所有的属性复制到对象b中
+        function extend(a,b) {
+            for (var key in a){
+                b[key] = a[key];
+            }
+        }
+        extend(obj1,obj2);
+        console.dir(obj2);//开始的时候，是空对象
+        console.dir(obj1);//有属性的
+
+     */
+
+
+    /*============================深拷贝==========================================*/
+    /*
+
+        //深拷贝：拷贝就是复制，深：就是吧一个对象中所有的属性或者方法，一个一个的找到，并且在另一个对象中开辟相应的空间，一个一个的存储到另外一个对象中
+
+        var obj1 = {
+            age:10,
+            sex:"男",
+            car:["奔驰","宝马","特斯拉","奥拓"],
+            dog:{
+                name:"小白",
+                age:5,
+                color:"白色"
+            }
+        };
+        var obj2 = {};
+
+        //通过函数实现，把对象a中的所有的数据深拷贝到对象b中
+        function extend(a,b) {
+            for (var key in a){
+                //先获取a队长中每个属性的值
+                var item = a[key];
+                //判断这个属性的值是不是数组
+                if (item instanceof  Array){
+                    //如果是数组，那么在b对象中添加一个新的属性,并且这个属性值也是数组
+                    b[key]=[];
+                    //调用这个方法，把a对象中这个数组的属性值，一个一个的复制到b对象的这个数组属性中
+                    extend(item,b[key]);
+                }else if(item instanceof Object){//判断这个值是不是对象类型的
+                    b[key]={};
+                    extend(item,b[key]);
+                }else {
+                    b[key] = item;
+                }
+            }
+        }
+        extend(obj1,obj2);
+        console.dir(obj1);
+        console.dir(obj2);
+
+     */
+
+
+    /*==========================遍历dom树=====================================*/
+    /*
+
+
+    <h1>遍历 DOM 树</h1>
+    <p style="color: green;">Tip: 可以在遍历的回调函数中任意定制需求</p>
+    <div>
+        <ul>
+            <li>123</li>
+            <li>456</li>
+            <li>789</li>
+        </ul>
+        <div>
+            <div>
+                <span>haha</span>
+            </div>
+        </div>
+    </div>
+    <div id="demo_node">
+        <ul>
+            <li>123</li>
+        </ul>
+        <p>hello</p>
+        <h2>world</h2>
+        <div>
+            <p>dsa</p>
+            <h3>
+                <span>dsads</span>
+            </h3>
+        </div>
+    </div>
+    <script>
+
+        //获取页面中的根节点--根标签
+        var root=document.documentElement;//html
+        //函数遍历DOM树
+        //根据根节点,调用fn的函数,显示的是根节点的名字
+        function forDOM(root1) {
+            //调用f1,显示的是节点的名字
+            // f1(root1);
+            //获取根节点中所有的子节点
+            var children=root1.children;
+            //调用遍历所有子节点的函数
+            forChildren(children);
+        }
+        //给我所有的子节点,我把这个子节点中的所有的子节点显示出来
+        function forChildren(children) {
+            //遍历所有的子节点
+            for(var i=0;i<children.length;i++){
+                //每个子节点
+                var child=children[i];
+                //显示每个子节点的名字
+                f1(child);
+                //判断child下面有没有子节点,如果还有子节点,那么就继续的遍历
+                child.children&&forDOM(child);
+            }
+        }
+        //函数调用,传入根节点
+        forDOM(root);
+        function f1(node) {
+            console.log("节点的名字:"+node.nodeName);
+        }
+
+        //节点:nodeName,nodeType,nodeValue
+
+
+
+
+        //  第一个函数:给我根节点,我会找到所有的子节点:forDOM(根节点)
+        //  获取这个根节点的子节点
+        //  var children=根节点的.children
+        //  调用第二个函数
+        //
+        //  第二个函数:给我所有的子节点,我把每个子节点的名字显示出来(children)
+        //  for(var i=0;i<children.length;i++){
+        //    每个子节点
+        //    var child=children[i];
+        //    f1(child);给我节点,我显示该节点的名字
+        //    child是子节点,但是如果child里面还有子节点,此时child就是爹了
+        //    child.children&&第一个函数(child)
+        //
+        //  }
+
+
+
+
+
+
+
+     */
+
+    /*========================正则表达式========================================*/
+    /**
+     * 正则表达式：也叫做规则表达式，安装一定的规则组成一个表达式，这个表达式的作用主要是匹配字符串的，
+     * "我的电话号：10086"，正则表达式，吧这个字符串中的所有的数字找到
+     * 正则表达式的作用：匹配字符串的
+     * 大多数编程语言中都可以使用的
+     * 正则表达式的组成：是由元字符或者是限定符组成的一个式子
+     * 元字符：
+     * .  表示的是：除了\n以外的任意的一个字符
+     * [] 表示的是一个范围，[0-9]，表示的是0-9之间的任意的一个数字    [1-7] 表示的是1-7之间的任意的一个数字，      [100-200] 错误的表示
+     *         1[0][0]:这个就是100      ； 1[0-9][0-9]  ，这个是100-199之间的任意的数字
+     * [a-z]  表示的是：所有的小写的字母中的字母中的任意一个
+     * [A-Z]  表示的是：所有的大写的字母中的字母中的任意一个
+     * [a-zA-Z] 表示的是：所有的字母的任意一个
+     * [0-9a-zA-Z] 表示的是：所有的数字或者是字母
+     * [] 另外一个含义：把正则表达式中的元字符的意义干掉 [.] 就是一个.
+     * | 表示的是： 或者           例子： [0-9]|[a-z] 表示的是：要么的是一个数字，要么是一个小写的字母
+     * ()表示的是分组 ，提高优先级      [0-9]|([a-z])|[A-Z]
+     * ([0-9])([1-5])([a-z]) 三组：从最左边开始计算
+     *
+     *  都是元字符，但是也可以叫限定符，下面的这些都是：
+     *     * 表示的是：前面的表达式出来了0次到多次     [a-z][0-9]*  表示的是：小写字母中的任意一个，后面要么是没有数字，要么是多个数字
+     *     + 表示的是：前面的表达式出现了1次到多次
+     *                [a-z][9]+ 小写字母一个后面最少是一个9，或者多个9
+     *     ？表示的是：前面的表达式出现了0次到1次，最少是0次，最多是1次,另一个含义：阻止贪婪模式
+     *                [4][a-z]?
+     *
+     *  限定符：限定前面的表达式出来的次数
+     *   {}更加的明确前面的表达式出现的次数
+     *     {0,} 表示的是前面的表达式出现了0次到多次，和 * 一样的
+     *     {1,} 表示的是前面的表达式出来了1次到多次，和 + 一样的
+     *     {0,1} 表示的是前面的表达式出现了0次到1次，和 ? 一样的
+     *     {5,10} 表示前面的表达式出现了5-10次
+     *     {4} 表示的是出现了4次
+     *     {,10}错误的写法----======错误的
+     *
+     *     ^ 表示的是：以开始，或者是取非(取反)，^[0-9] 以数字开头
+     *               ^[a-z] 以小写的字母开始
+     *     [^0-9]  取反  这个的意思是说：非数字
+     *     [^a-z] 非小写字母
+     *     [^0-9a-zA-Z] 就是特殊符号
+     *     $ 表示的是：以什么结束，
+     *               [0-9][a-z]$  表示的是必须以小写字母结束
+     *
+     *     ^& 相当于是严格模式,开始是^ ，结束是&
+     *     ^[0-9][a-z]& 相当于是严格模式  必须是一个数字一个字母  "3a"
+     *                  [0-9][a-z]   不严格模式："45543nibnuik" 这样都是可以的
+     *                  [0-9][a-z]&  "12432432e"  这样都是可以的
+     *
+     *     \d 数字中的任意一个
+     *     \D 非数字中的一个
+     *     \s 空白符号
+     *     \S 非空白符
+     *     \w 非特殊符号
+     *     \W 特殊符号
+     *     \b 单词的边界
+     *     \" 转义
+     */
+    /*================================正则表达式练习========================================*/
+    //写正则表达式，根据字符串来写正则表达式进行匹配、
+    /**
+     * 经验：
+     *     找规律，不要追求完美
+     *
+     * 身份证的正则表达式：15位或者18位
+     *                  ([1-9][0-9]{14})|([1-9][0-9]{16}[0-9xX])
+     *                  简化：([1-9][0-9]{14}])([0-9]{2}[0-9xX])?
+     *
+     *  座机电话号码的正则表达式：010-19876754     0825-12345687
+     *                      \d{3,4}[-]\d{8}或者是[0-9]{3,4}[-][0-9]{8}
+     *
+     *  qq号码的正则表达式：[1-9][0-9]{4,10} 或者是  \d{5-11}
+     *
+     *  手机号码的正则表达式验证：
+     *             130  131  132 133  134 135 136 137 138 139
+     *             147  143
+     *             150  151  152  153 154 156 157  158 159  159
+     *             170  171  173  176   177
+     *             180  181  182  184   185  186  188  189
+     *             199
+     *
+     *             ([1][358][0-9][0-9]{8})|([1][4][37][0-9]{8})|([1][7][01367][0-9]{8}|([1][9][9][0-9]{8}))
+     *
+     *  邮箱的正则表达式：
+     *              [0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]){1,2}
+     */
+
+    /*============================正则表达式创建对象=========================================*/
+
+    /**
+     * 两种：
+     *
+     * 1.通过构造函数创建对象
+     * 2.字面量的方式创建对象
+     *
+     *
+     */
+    /*
+
+    // var reg = new RegExp(/^\d{5}&/);//对象创建完毕
+    // var str = "我的电话是10086";
+    // var flag = reg.test(str);
+    // console.log(flag)
+
+    // var reg = new RegExp(/^\d{5}&/);//对象创建完毕
+    // var flag = reg.test("10086");
+    // console.log(flag)
+
+    //字母量创建
+    var reg = /^\d{5}$/;
+    reg.test("10086");
+    console.log(reg.test("10086"));
 
  */
 
+
+    /*==========================密码强度============================*/
+    function my$(id) {
+        return document.getElementById(id);
+    }
+
+    /*
+      *
+      * 密码: 数字,字母,特殊符号
+      *
+      * 密码: 只有数字- 或者是只有字母,或者是只有特殊符号---1级---弱
+      * 两两组合: 数字和字母, 数字和特殊符号, 字母和特殊符号   -----2级----中
+      * 三者都有: 数字和字母和特殊符号------3级-----强
+      *
+      * */
+    /*
+
+      //获取文本框注册键盘抬起时间
+      my$("pwd").onkeyup = function () {
+        //每次键盘抬起都要获取文本框中内容，验证文本框找你哥有什么内容，得到一个级别，然后下面的div显示对应的颜色
+        //密码长度小于6 ，是没有必要判断
+        if (this.value.length>=6){
+          var lv = getLV(this.value);
+          if (lv == 1){
+            my$("strengthLevel").className = "strengthLv1"
+          }else if (lv==2){
+            my$("strengthLevel").className = "strengthLv2"
+          }else if (lv==3){
+            my$("strengthLevel").className = "strengthLv3"
+          }else {
+            my$("strengthLevel").className = "strengthLv0"
+          }
+        }else {
+          my$("strengthLevel").className = "strengthLv0"
+        }
+
+      };
+      //给我密码返回对应的级别
+      function getLV(pwd) {
+        var lv = 0;
+        if (/[0-9]/.test(pwd)){
+          lv++;
+        }
+        //判断密码中有没有字母
+        if(/[a-zA-Z]/.test(pwd)){
+          lv++;
+        }
+        //判断特殊符号
+        if (/[^0-9a-zA-Z_]/.test(pwd)){
+          lv++;
+        }
+
+        return lv;
+
+      }
+
+    */
+
+
+
+
+
+    /*
+        //获取文本框注册键盘抬起时间
+        my$("pwd").onkeyup = function () {
+            //每次键盘抬起都要获取文本框中内容，验证文本框找你哥有什么内容，得到一个级别，然后下面的div显示对应的颜色
+            //密码长度小于6 ，是没有必要判断
+            //   if (this.value.length>=6){
+            //     var lv1 = getLV(this.value);
+            //     my$("strengthLevel").className = "strengthLv"+lv1;
+            //   }else {
+            //     my$("strengthLevel").className = "strengthLv0";
+            //   }
+            //
+            my$("strengthLevel").className="strengthLv"+(this.value.length >= 6?getLV(this.value):0);
+
+        };
+        //给我密码返回对应的级别
+        function getLV(pwd) {
+            var lv1 = 0;
+            if (/[0-9]/.test(pwd)){
+                lv1++;
+            }
+            //判断密码中有没有字母
+            if(/[a-zA-Z]/.test(pwd)){
+                lv1++;
+            }
+            //判断特殊符号
+            if (/[^0-9a-zA-Z_]/.test(pwd)){
+                lv1++;
+            }
+
+            return lv1;
+
+        }*/
+    /*===============================验证邮箱==============================================*/
+    /*
+
+        请您输入邮箱地址 <input type="text" value="" placeholder="email" id="email"> *
+    </div>
+
+
+        //获取文本框
+        document.getElementById("email").onblur = function () {
+            //判断文本框是不是邮箱
+            var reg = /^[0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]+){1,2}$/;
+            if (reg.test(this.value)){
+                this.style.backgroundColor = "green";
+            }else {
+                this.style.backgroundColor = "red";
+            }
+        }
+        //获取光标的颜色
+
+
+     */
+
+    /*=====================================案例验证中文名字=====================*/
+
+    /*
+
+    请您输入名字：<input type="text" value="" id="username"> *
+<script>
+
+    //escape("做我的女朋友好不好，不好下次再来问你");
+    //unescape("%u505A%u6211%u7684%u5973%u670B%u53CB%u597D%u4E0D%u597D%uFF0C%u4E0D%u597D%u4E0B%u6B21%u518D%u6765%u95EE%u4F60")
+
+
+    document.getElementById("username").onblur = function () {
+        var reg = /^[\u4e00-\u9fa5]{2,6}$/;
+        if (reg.test(this.value)){
+            this.style.backgroundColor = "green";
+        }else {
+            this.style.backgroundColor = "red";
+        }
+    }
+
+    */
+
+    /*=====================================大项目验证表单=====================*/
+
+    /*
+
+        body {
+          background: #ccc;
+        }
+
+        label {
+          width: 40px;
+          display: inline-block;
+        }
+
+        span {
+          color: red;
+        }
+
+        .container {
+          margin: 100px auto;
+          width: 400px;
+          padding: 50px;
+          line-height: 40px;
+          border: 1px solid #999;
+          background: #efefef;
+        }
+
+        span {
+          margin-left: 30px;
+          font-size: 12px;
+        }
+
+        .wrong {
+          color: red
+        }
+
+        .right {
+          color: green;
+        }
+
+        .defau {
+          width: 200px;
+          height: 20px;
+        }
+
+        .de1 {
+          background-position: 0 -20px;
+        }
+      </style>
+
+    </head>
+
+    <body>
+    <div class="container" id="dv">
+      <label for="qq">Q Q</label><input type="text" id="qq"><span></span><br/>
+      <label for="phone">手机</label><input type="text" id="phone"><span></span><br/>
+      <label for="e-mail">邮箱</label><input type="text" id="e-mail"><span></span><br/>
+      <label for="telephone">座机</label><input type="text" id="telephone"><span></span><br/>
+      <label for="fullName">姓名</label><input type="text" id="fullName"><span></span><br/>
+    </div>
+    <script>
+      function my$(id){
+        return document.getElementById(id);
+      }
+
+      //qq的
+      checkInput(my$("qq"),/^\d{5,11}$/);
+      //手机
+      checkInput(my$("phone"),/^\d{11}$/);
+      //邮箱
+      checkInput(my$("e-mail"),/^[0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]+){1,2}$/);
+      //座机号码
+      checkInput(my$("telephone"),/^\d{3,4}[-]\d{7,8}$/);
+      //中文名字
+      checkInput(my$("fullName"),/^[\u4e00-\u9fa5]{2,6}$/);
+      //给我文本框,给我这个文本框相应的正则表达式,我把结果显示出来
+      //通过正则表达式验证当前的文本框是否匹配并显示结果
+      function checkInput(input,reg) {
+        //文本框注册失去焦点的事件
+        input.onblur=function () {
+          if(reg.test(this.value)){
+            this.nextElementSibling.innerText="正确了";
+            this.nextElementSibling.style.color="green";
+          }else{
+            this.nextElementSibling.innerText="让你得瑟,错了吧";
+            this.nextElementSibling.style.color="red";
+          }
+        };
+      }
+
+     */
+
+    /*=============================字符串中使用正则表达式的方法================================================*/
+    /* //正则表达式中:g，表示的是全局匹配模式
+      //正则表达式：i:表示忽略大小写
+  var str = "中国移动：10086，中国联通：10010，中国电信：10000";
+  var array = str.match(/\d{5}/g);
+  console.log(array);*/
+
+    /* //提取这里的日
+     var str = "2017-11-11";
+     var array =str.match(/(\d{4})[-](\d{2})[-](\d{2})/g);
+     console.log(RegExp.$1);
+  */
+
+
+    /*var email = "itwangyang@gmail.com";
+    var array = email.match(/([0-9a-zA-Z._-]+)[@]([0-9a-zA-Z._-]+)(([.][a-zA-Z]+){1,2})/);
+      console.log(RegExp.$1);
+      console.log(RegExp.$2);
+      console.log(RegExp.$3);*/
+
+
+    /*
+      var str = "我真的好帅，太帅了,帅就是真的帅";
+      str = str.replace(/帅/g,"猥琐");
+      console.log(str);
+    */
+
+
+    /*
+        // var str = "        我的天啦     ，你好";
+        // str = str.trim();
+        // console.log("====="+str+"====");
+       var str = "        我的天啦     ，你好";
+       str = str.replace(/\s/g,"");
+       console.log("====="+str+"====");*/
+
+
+
+    /*   var str = "HhTTppS";
+       str = str.replace(/[h]/gi,"s");
+       console.log(str);
+
+   */
+
+
+    /*   var reg = new RegExp(/[h]/gi);
+       var str = "HhTTppS";
+       str = str.replace(reg,"s");
+       console.log(str);*/
+
+
+    /*    var str = "中国移动：10086，中国联通：10010，中国电信：10000";
+        var reg = /\d{5}/g;
+        // console.log(array);
+        // console.log(reg.exec(str));
+        // console.log(reg.exec(str));
+        var arr = reg.exec(str);
+        while (arr != null) {
+            console.log(arr[0]);
+            arr = reg.exec(str);
+        }*/
+/*==========================真数组还是伪数组====================================*/
+    /*
+    //真数组长度是可以变的，
+    // 伪数组是不可变的
+    //真数组可以使用数组中的方法
+    //伪数组不可以使用数组方法的
+
+
+    //数组
+    var arr = [10,20,30];
+    //对象---假数组
+    var obj = {
+        0:10,
+        1:20,
+        3:30,
+        length:3
+    };
+    // for (var i = 0; i<arr.length; i++){
+    //     console.log(arr[i]);
+    // }
+
+    // for (var i = 0; i<obj.length; i++){
+    //     console.log(obj[i]);
+    // }
+
+   /!* function f1() {
+        var sum= 0;
+        for (var i = 0; i < arguments.length;i++){
+            sum+=arguments[i];
+        }
+        //arguments得到的是实参的个数以及实参的值
+        console.log(sum);
+    }
+    f1(10,2 ,10,30);*!/
+
+
+    // function f1() {
+    //     var sum= 0;
+    //     arguments.forEach(function () {
+    //
+    //     });
+    //     console.log(sum);
+    // }
+    // f1(10,2 ,10,30);
+
+
+
+    // var arr = [10,20,30];
+    // arr.forEach(function () {
+    //
+    // })
+
+    var arr = [10,20,30];
+    arr.forEach();
+    console.dir(arr);//这个数组就实例对象，实例数组对象的__proto__---》Array的prototype
+
+
+
+*/
 
 </script>
 </html>

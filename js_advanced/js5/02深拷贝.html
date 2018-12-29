@@ -1,0 +1,62 @@
+<!--
+    Created by wangyang on 2018-12-26.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    //深拷贝：拷贝就是复制，深：就是吧一个对象中所有的属性或者方法，一个一个的找到，并且在另一个对象中开辟相应的空间，一个一个的存储到另外一个对象中
+
+    var obj1 = {
+        age:10,
+        sex:"男",
+        car:["奔驰","宝马","特斯拉","奥拓"],
+        dog:{
+            name:"小白",
+            age:5,
+            color:"白色"
+        }
+    };
+    var obj2 = {};
+
+    //通过函数实现，把对象a中的所有的数据深拷贝到对象b中
+    function extend(a,b) {
+        for (var key in a){
+            //先获取a队长中每个属性的值
+            var item = a[key];
+            //判断这个属性的值是不是数组
+            if (item instanceof  Array){
+                //如果是数组，那么在b对象中添加一个新的属性,并且这个属性值也是数组
+                b[key]=[];
+                //调用这个方法，把a对象中这个数组的属性值，一个一个的复制到b对象的这个数组属性中
+                extend(item,b[key]);
+            }else if(item instanceof Object){//判断这个值是不是对象类型的
+                b[key]={};
+                extend(item,b[key]);
+            }else {
+                b[key] = item;
+            }
+        }
+    }
+    extend(obj1,obj2);
+    console.dir(obj1);
+    console.dir(obj2);
+
+</script>
+</body>
+</html>

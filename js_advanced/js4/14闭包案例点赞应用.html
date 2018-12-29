@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>对自己狠点</title>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+
+    img {
+      width: 200px;
+      height: 180px;
+    }
+
+    input {
+      margin-left: 30%;
+    }
+  </style>
+
+</head>
+<body>
+<ul>
+  <li><img src="images/ly.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+  <li><img src="images/lyml.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+  <li><img src="images/fj.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+  <li><img src="images/bd.jpg" alt=""><br/><input type="button" value="赞(1)"></li>
+</ul>
+<script>
+  //获取所有的按钮
+  function my$(tagName) {
+    return document.getElementsByTagName(tagName);
+  }
+  //闭包
+  function getValue() {
+    var value = 1;
+    return function () {
+      // value++;
+      this.value = "赞("+(value++)+")";
+    }
+  }
+  var btnObj = my$("input");
+  for (var i = 0; i<btnObj.length;i++){
+    btnObj[i].onclick = getValue();
+  }
+
+  // value = 1;
+  // var btnObj =my$("input");
+  // for (var i = 0; i<btnObj.length;i++){
+  //   btnObj[i].onclick = function () {
+  //     this.value = "赞("+(value++)+")";
+  //   };
+  // }
+</script>
+</body>
+</html>

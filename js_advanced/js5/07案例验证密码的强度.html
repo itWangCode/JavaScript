@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<style type="text/css">
+  #dv{
+    width: 300px;
+    height:200px;
+    position: absolute;
+    left:300px;
+    top:100px;
+  }
+  .strengthLv0 {
+    height: 6px;
+    width: 120px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .strengthLv1 {
+    background: red;
+    height: 6px;
+    width: 40px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .strengthLv2 {
+    background: orange;
+    height: 6px;
+    width: 80px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .strengthLv3 {
+    background: green;
+    height: 6px;
+    width: 120px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+</style>
+<body>
+<div id="dv">
+  <label for="pwd">密码</label>
+  <input type="text" id="pwd" maxlength="16"><!--课外话题-->
+  <div>
+    <em>密码强度：</em>
+    <em id="strength"></em>
+    <div id="strengthLevel" class="strengthLv0"></div>
+  </div>
+</div>
+<script>
+  function my$(id) {
+    return document.getElementById(id);
+  }
+  /*
+    *
+    * 密码: 数字,字母,特殊符号
+    *
+    * 密码: 只有数字- 或者是只有字母,或者是只有特殊符号---1级---弱
+    * 两两组合: 数字和字母, 数字和特殊符号, 字母和特殊符号   -----2级----中
+    * 三者都有: 数字和字母和特殊符号------3级-----强
+    *
+    * */
+/*
+
+  //获取文本框注册键盘抬起时间
+  my$("pwd").onkeyup = function () {
+    //每次键盘抬起都要获取文本框中内容，验证文本框找你哥有什么内容，得到一个级别，然后下面的div显示对应的颜色
+    //密码长度小于6 ，是没有必要判断
+    if (this.value.length>=6){
+      var lv = getLV(this.value);
+      if (lv == 1){
+        my$("strengthLevel").className = "strengthLv1"
+      }else if (lv==2){
+        my$("strengthLevel").className = "strengthLv2"
+      }else if (lv==3){
+        my$("strengthLevel").className = "strengthLv3"
+      }else {
+        my$("strengthLevel").className = "strengthLv0"
+      }
+    }else {
+      my$("strengthLevel").className = "strengthLv0"
+    }
+
+  };
+  //给我密码返回对应的级别
+  function getLV(pwd) {
+    var lv = 0;
+    if (/[0-9]/.test(pwd)){
+      lv++;
+    }
+    //判断密码中有没有字母
+    if(/[a-zA-Z]/.test(pwd)){
+      lv++;
+    }
+    //判断特殊符号
+    if (/[^0-9a-zA-Z_]/.test(pwd)){
+      lv++;
+    }
+
+    return lv;
+
+  }
+
+*/
+
+
+
+
+
+</script>
+
+<script>
+
+  //获取文本框注册键盘抬起时间
+  my$("pwd").onkeyup = function () {
+    //每次键盘抬起都要获取文本框中内容，验证文本框找你哥有什么内容，得到一个级别，然后下面的div显示对应的颜色
+    //密码长度小于6 ，是没有必要判断
+  //   if (this.value.length>=6){
+  //     var lv1 = getLV(this.value);
+  //     my$("strengthLevel").className = "strengthLv"+lv1;
+  //   }else {
+  //     my$("strengthLevel").className = "strengthLv0";
+  //   }
+  //
+    my$("strengthLevel").className="strengthLv"+(this.value.length >= 6?getLV(this.value):0);
+
+  };
+  //给我密码返回对应的级别
+  function getLV(pwd) {
+    var lv1 = 0;
+    if (/[0-9]/.test(pwd)){
+      lv1++;
+    }
+    //判断密码中有没有字母
+    if(/[a-zA-Z]/.test(pwd)){
+      lv1++;
+    }
+    //判断特殊符号
+    if (/[^0-9a-zA-Z_]/.test(pwd)){
+      lv1++;
+    }
+
+    return lv1;
+
+  }
+</script>
+
+
+
+</body>
+</html>

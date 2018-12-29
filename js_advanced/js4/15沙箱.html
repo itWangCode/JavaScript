@@ -1,0 +1,80 @@
+<!--
+    Created by wangyang on 2018-12-25.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<div>这是div</div>
+<div>这是div</div>
+<div>这是div</div>
+<p>这是p</p>
+<p>这是p</p>
+<p>这是p</p>
+
+
+
+
+<script>
+    //沙箱：环境，黑盒，在一个虚拟的环境中模拟真实的世界，做实验，实验结果和真实世界的结果是一样的，但是不会影响到真实的世界
+    // var num = 100;
+    // (function () {
+    //     var num = 10;
+    //     console.log(num);//10
+    // })();
+    // console.log(num);//100
+
+
+    // var str = "小白喜欢吃";
+    //
+    // (function () {
+    //     var str="小红喜欢玩";
+    //     str = str.substr(2);
+    //     console.log(str);
+    // })();
+    // str = str.substr(2);
+    // console.log(str);
+
+    var getTag = 10;
+    var dvObj = 20;
+    var dvObj1 = 30;
+
+    (function () {
+        function getTag(tagName) {
+            return document.getElementsByTagName(tagName);
+        }
+        var dvObj = getTag("div");
+        for (var i = 0; i<dvObj.length;i++){
+            dvObj[i].style.border = "2px solid red";
+        }
+
+        var dvObj1 = getTag("p");
+        for (var i = 0; i<dvObj1.length;i++){
+            dvObj1[i].style.border = "2px solid pink";
+        }
+    })();
+
+
+
+    console.log(getTag);
+    console.log(dvObj);
+    console.log(dvObj1);
+
+</script>
+</body>
+</html>
