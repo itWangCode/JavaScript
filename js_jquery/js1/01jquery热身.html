@@ -16,11 +16,49 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="stylesheet" href="">
-
 </head>
 <body>
 
+<input type="button" value="显示效果" id="btn">
+<p>asdf</p>
+<p>vrgvfv</p>
+<p>rgetge</p>
+<p>terrgdbv</p>
+<p>43gfrg</p>
+<div id="dv"></div>
 
-<script></script>
+
+
+<script src="../jquery.js"></script>
+<script>
+    /*
+     * jQuery :就是JavaScript库的一种，免费的，很多优点的
+     * JavaScript库：吧一些浏览器兼容性的代码或者常用的函数封装在一个js文件中，这个文件就是JavaScript库，之前common.js就是可以看成一个库
+     *
+     * 封装了很多js代码的一个js文件，就是一个库
+     *
+     * 有的js库封装的代码很少，有的js代码库的代码很少的,有的js库是一个人编写的
+     *
+     */
+
+    // document.getElementById("btn").onclick = function () {
+    //     var obj = document.getElementById("dv");
+    //     obj.style.width = "200px";
+    //     obj.style.height = "100px";
+    //     obj.style.backgroundColor = "pink";
+    // }
+
+    // $("#btn").click(function () {
+    //     $("#dv").css({"width":"200px","height":"100px","backgroundColor":"pink"});
+    // })
+
+
+    //点击按钮，改变所有的P便签的内容
+    $("#btn").click(function () {
+        $("p").text("nin");
+    })
+
+
+</script>
 </body>
 </html>

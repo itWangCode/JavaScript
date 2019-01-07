@@ -1,0 +1,65 @@
+<!--
+    Created by wangyang on 2018-12-30.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    //一个{}；就是一个块级作用域
+    // 在块级作用域下，var和function声明的变量依然是全局的
+    //在块级作用域下，let和const声明的变量是私有的
+    //{}如果想表示一个对象，不可以放在行首，如果放在行首就会把它看成一个块级作用域
+    {
+        let b = 1;
+        const c = 2;
+        var a = 0;
+
+        function getA() {
+            console.log("haha");
+        }
+    }
+    console.log(a);
+    getA();
+    //console.log(b);// b is not defined
+    //console.log(c);//c is not defined
+
+    //for(){}   if(){}  对象{}
+
+    let obj = {name: "wangyang", age: 18};
+    //eval('{name: "wangyang", age: 18}');
+    console.log(eval('({name: "wangyang", age: 18})'));
+    console.log(eval('var obj1 = {name: "wangyang", age: 18}'));
+    console.log(obj1);
+
+
+
+
+    //if(){}  函数中的函数，只会提前声明，不会定义，当 条件成立的时候，先给函数赋值，然后代码再执行
+
+    if (1){
+        var aa = 1;
+        function f1() {
+            
+        }
+    }
+    console.log(aa);
+    f1();
+    console.log(f1);
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!--
+    Created by wangyang on 2019-01-02.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        .cls{
+            background-color: #000;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" value="关灯" id="btn">
+<script src="../jquery.js"></script>
+<script>
+
+    //DOM
+    // document.getElementById("btn").onclick = function () {
+    //     var body= document.body;
+    //     if (body.className =="cls" ){
+    //         body.className = "";
+    //         this.value = "关灯"
+    //     }else {
+    //         body.className = "cls";
+    //         this.value = "开灯"
+    //     }
+    // };
+
+    //jQuery
+    // $("#btn").click(function () {
+    //     //判断body标签是否应用了cls的类样式
+    //     if ($("body").hasClass("cls")){
+    //         //此处应用了cls类样式，那么就移除了这个类样式
+    //         $("body").removeClass("cls");
+    //     }else {
+    //         //此处没有应用类样式cls，那么就增加cls类样式
+    //         $("body").addClass("cls");
+    //     }
+    // });
+
+    //jQuery 另一个版本
+    $("#btn").click(function () {
+        //判断这个按钮值，修改Body的样式
+        //此处的this是当前的按钮DOM对象
+        if ($(this).val()=="关灯"){
+            $("body").css("backgroundColor","black");
+            $(this).val("开灯");
+        }else {
+            $("body").css("backgroundColor","");
+            $(this).val("关灯");
+        }
+    });
+
+    //jQuery对象.val();-------------表示的是获取该元素的value属性值
+    //jQuery对象.val("值")----------------设置val的值
+    //jQuery对象.css("css的属性名字","属性的值")
+    //注意：
+    //css写法都是是可以写style-css写法，DOM写法都是可以的
+</script>
+</body>
+</html>

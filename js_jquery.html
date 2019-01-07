@@ -1,0 +1,161 @@
+<!--
+    Created by wangyang on 2018-12-29.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<script>
+    /*====================热身============================================*/
+    /*
+
+    <input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+
+
+
+<script src="../jquery.js">
+
+
+     * jQuery :就是JavaScript库的一种，免费的，很多优点的
+     * JavaScript库：吧一些浏览器兼容性的代码或者常用的函数封装在一个js文件中，这个文件就是JavaScript库，之前common.js就是可以看成一个库
+     *
+     * 封装了很多js代码的一个js文件，就是一个库
+     *
+     * 有的js库封装的代码很少，有的js代码库的代码很少的,有的js库是一个人编写的
+     *
+
+
+    // document.getElementById("btn").onclick = function () {
+    //     var obj = document.getElementById("dv");
+    //     obj.style.width = "200px";
+    //     obj.style.height = "100px";
+    //     obj.style.backgroundColor = "pink";
+    // }
+
+    $("#btn").click(function () {
+        $("#dv").css({"width":"200px","height":"100px","backgroundColor":"pink"});
+    })
+
+
+    // //点击按钮，改变所有的P便签的内容
+    // $("#btn").click(function () {
+    //     $("p").text("nin");
+    // })
+     */
+
+
+    /*==============================jQuery中的顶级对象=======================================*/
+    /**
+     * 浏览器中的顶级对象：window,浏览器中和页面中所有的东西都是window的，
+     * 页面中的顶级对象：document ,页面中某些东西是document
+     *
+     * jquery中的顶级对象：jQuery
+     *
+     * jQuery或者是$
+     *
+     * 如果想要使用jQuery中的数字或者方法，那么需要jQuery，属性或者jQuery.方法()来使用
+     * 简写：$.属性,或者是$.方法
+     * 大多数情况下，jQuery中几乎都是方法，属性很少，在jQuery把on去掉了，然后变成方法
+     * DOM中注册事情
+     *
+     *
+     *
+     *
+     */
+
+
+    /*==================jQuery对象和DOM对象互转的问题=======================*/
+    /*
+
+        //这个按钮---如果通过DOM对象---DOM对象
+    //这个按钮-----如果是通过$或者是jQuery的方法获取----jQuery对象
+
+
+    //DOM对象
+    var btnObj = document.getElementById("btn");
+
+    //jQuery对象
+    var btnObj = $("#btn");
+
+     */
+
+
+    /*==================jQuery开关灯=======================*/
+    /*
+
+        <style>
+        .cls{
+            background-color: #000;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" value="关灯" id="btn">
+<script src="../jquery.js">
+<script>
+
+    //DOM
+    // document.getElementById("btn").onclick = function () {
+    //     var body= document.body;
+    //     if (body.className =="cls" ){
+    //         body.className = "";
+    //         this.value = "关灯"
+    //     }else {
+    //         body.className = "cls";
+    //         this.value = "开灯"
+    //     }
+    // };
+
+    //jQuery
+    // $("#btn").click(function () {
+    //     //判断body标签是否应用了cls的类样式
+    //     if ($("body").hasClass("cls")){
+    //         //此处应用了cls类样式，那么就移除了这个类样式
+    //         $("body").removeClass("cls");
+    //     }else {
+    //         //此处没有应用类样式cls，那么就增加cls类样式
+    //         $("body").addClass("cls");
+    //     }
+    // });
+
+    //jQuery 另一个版本
+    $("#btn").click(function () {
+        //判断这个按钮值，修改Body的样式
+        //此处的this是当前的按钮DOM对象
+        if ($(this).val()=="关灯"){
+            $("body").css("backgroundColor","black");
+            $(this).val("开灯");
+        }else {
+            $("body").css("backgroundColor","");
+            $(this).val("关灯");
+        }
+    });
+
+    //jQuery对象.val();-------------表示的是获取该元素的value属性值
+    //jQuery对象.val("值")----------------设置val的值
+    //jQuery对象.css("css的属性名字","属性的值")
+    //注意：
+    //css写法都是是可以写style-css写法，DOM写法都是可以的
+     */
+
+
+</script>
+</body>
+</html>
