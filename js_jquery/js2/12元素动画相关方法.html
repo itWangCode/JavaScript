@@ -1,0 +1,75 @@
+<!--
+    Created by wangyang on 2019-01-14.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            width: 200px;
+            height: 300px;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示" id="btn1">
+<input type="button" value="隐藏" id="btn2">
+<input type="button" value="切换" id="btn3">
+<div id="dv"></div>
+<script src="../jquery.js"></script>
+<script>
+    /*
+        show()和hide()方法有参数
+        参数1：时间-----1000毫秒---1秒
+        参数2：回调函数
+        slideDown()------滑出
+        slideUp();-------滑入
+
+    */
+    // //点击第一个按钮显示div
+    // $("#btn1").click(function () {
+    //     $("#dv").slideDown(3000);//滑出
+    // });
+    // //点击第二个按钮隐藏div
+    // $("#btn2").click(function () {
+    //     $("#dv").slideUp(3000);//滑入
+    // });
+    // //点击第三个按钮隐藏div
+    // $("#btn3").click(function () {
+    //     $("#dv").slideToggle(500);//滑入切换
+    // })
+
+
+    // //点击第一个按钮显示div
+    // $("#btn1").click(function () {
+    //     $("#dv").fadeIn(3000);
+    // });
+    // //点击第二个按钮隐藏div
+    // $("#btn2").click(function () {
+    //     $("#dv").fadeOut(3000);
+    // });
+
+    //点击第一个按钮显示div
+    $("#btn1").click(function () {
+        $("#dv").fadeTo(1000,0.9);
+    });
+    //点击第二个按钮隐藏div
+    $("#btn2").click(function () {
+        $("#dv").fadeTo(2000,0.2);
+    });
+</script>
+</body>
+</html>
