@@ -1,0 +1,45 @@
+<!--
+    Created by wangyang on 2019-01-11.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        #dv{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="点击增加" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js"></script>
+<script>
+    $("#btn").click(function () {
+        $("#dv").html("<p>hello jquery</p>");
+    });
+
+
+    /**
+     * .val();--------设置或者是获  取表单标签的value属性值
+     * .text()；---------- 设置或者是说去标签中的文本内容-----就相当于DOM中的innerText
+     * .css()；-----------设置元素的css样式属性值
+     * .html();------------设置或者是获取标签的html内容-----就相当于DOM中的innerHtml
+     */
+</script>
+</body>
+</html>

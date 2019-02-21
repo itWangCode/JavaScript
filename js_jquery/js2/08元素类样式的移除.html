@@ -1,0 +1,51 @@
+<!--
+    Created by wangyang on 2019-01-12.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        .cls{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .cls2{
+            border:2px solid #000;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<div id="dv" class="cls cls2"></div>
+
+<script src="../jquery.js"></script>
+<script>
+    $("#btn").click(function () {
+        //console.log($("#dv").addClass());
+        //addClass()方法，口号里面什么也没有，返回来的任然是这个对象，及时在口号中设置了内容，返回来的还是这个对象
+        //removeClass()方法，同上
+        //移除类样式
+        $("#dv").removeClass("cls cls2");
+
+        console.log($("#dv").removeClass());
+    });
+
+    //设置元素的样式，可以使用css()方法，也可以使用addClass()或者是removeClass()方法
+
+
+</script>
+</body>
+</html>

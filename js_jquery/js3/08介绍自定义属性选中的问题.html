@@ -1,0 +1,54 @@
+<!--
+    Created by wangyang on 2019-01-19.
+    itwangyang@gmail.com
+    http://itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<input type="button" value="选中" id="btn"><br>
+<p>请你选择你的性别</p>
+<input type="radio" value="1"  name="sex">男
+<input type="radio" value="2" name="sex">女
+<input type="radio" value="3" checked name="sex" id="r3">人妖
+
+<script src="../jquery.js"></script>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            //dom
+            //document.getElementById("r3").checked = true;
+            //jquery
+            //$("#r3").get(0).checked = true;
+            //自定义属性的写法
+            //$("#r3").attr("checked","true");
+            //获取是否被选中了
+            //console.log($("#r3").attr("checked"));//没有选中：undefined；选中了是checked
+
+            //点击按钮，选中就设置不选中，如果没有选中，就设置选中的结果
+            //attr方法针对单选框或者是复选框的是否选中问题，操作起来很麻烦，几乎不用，后面说
+            if($("#r3").attr("checked")==undefined){
+                //undefined
+                $("#r3").attr("checked",true);
+            }else {
+                //checked---->选中
+                $("#r3").attr("checked",false);
+            }
+        })
+    })
+</script>
+</body>
+</html>

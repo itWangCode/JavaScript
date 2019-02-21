@@ -1,7 +1,7 @@
 <!--
     Created by wangyang on 2018-12-29.
     itwangyang@gmail.com
-    http://itwangyang.xyz    
+    http://itwangyang.xyz
 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -156,6 +156,1579 @@
      */
 
 
+    /*
+    *  交集选择器：
+    *       标签名.类样式的名字
+    *  并集选择器：
+    *       选择器,选择器,选择器,选择器。。。
+    *
+    *
+    *
+    *
+    * */
+
+
+    /*=======================点击按钮在div中增加一个p标签=====================================*/
+    /*<style>
+        #dv{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+    </style>
+    </head>
+    <body>
+    <input type="button" value="点击增加" id="btn">
+        <div id="dv"></div>
+        <script src="../jquery.js">
+
+    $("#btn").click(function () {
+        $("#dv").html("<p>hello jquery</p>");
+    });
+
+    */
+
+
+    /**
+     * .val();--------设置或者是获  取表单标签的value属性值
+     * .text()；---------- 设置或者是说去标签中的文本内容-----就相当于DOM中的innerText
+     * .css()；-----------设置元素的css样式属性值
+     * .html();------------设置或者是获取标签的html内容-----就相当于DOM中的innerHtml
+     */
+
+
+
+
+    /*
+            <style>
+        #dv{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+            </style>
+        </head>
+        <body>
+
+
+        <input type="button" value="点击增加" id="btn">
+        <div id="dv"></div>
+        <script src="../jquery.js">
+            $("#btn").click(function () {
+                $("#dv").css({
+                    backgroundColor:'green',
+                    width:"500px",
+                    height:"500px",
+                    border:"20px solid #000",
+                })
+            });
+
+    */
+
+    /*=============================层次选择========================================*/
+    /* //获取的是div中这个父级元素中所有的span的标签（直接的子元素，孙子元素）
+        $("#dv span").css("backgroundColor","red");
+        //获取的是div 这个父级元素中直接的子元素
+        $("#dv>span").css("backgroundColor","red");
+        //获取的是div这个父级元素后面的所有的兄弟元素-span
+        $("#dv~sapn").css("backgroundColor","red");
+        //获取的是div后面直接的兄弟元素
+        $("dv+span").css("backgroundColor","red");
+    */
+
+
+
+    /*=============================隔行变色========================================*/
+    /*
+    <input type="button" value="点击增加" id="btn">
+    <ul id="uu">
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+        <li>cabdsiuvblibv</li>
+    </ul>
+    <script src="../jquery.js">
+        $(function () {
+            $("#btn").click(function () {
+                $("#uu>li:odd").css("backgroundColor","red");
+                $("#uu>li:even").css("backgroundColor","yellow");
+            })
+        })
+
+     */
+
+
+    /*=============================下拉菜单===========================================*/
+    /*
+
+
+           * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-image: url(imgs/bg.jpg);
+        }
+
+        .wrap li {
+            background-image: url(imgs/libg.jpg);
+        }
+
+        .wrap > ul > li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+    </style>
+    <script src="../jquery.js">
+
+    $(function () {
+
+        //mouseover：鼠标经过事件
+        //mouseout:鼠标离开事件
+
+        //mouseenter:鼠标进入事件
+        //mouseleave：鼠标离开事件
+
+        $(".wrap>ul>li").mouseenter(function () {
+            //当前的li中所用的子元素，在从所有的子元素中找ul
+            $(this).children("ul").stop().show(200);
+        });
+        $(".wrap>ul>li").mouseleave(function () {
+            $(this).children("ul").stop().hide(200);
+        });
+
+    });
+
+
+<div class="wrap">
+    <ul>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul class="ul">
+                <li><a href="javascript:void(0);">二级菜单11</a></li>
+                <li><a href="javascript:void(0);">二级菜单12</a></li>
+                <li><a href="javascript:void(0);">二级菜单13</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单2</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单21</a></li>
+                <li><a href="javascript:void(0);">二级菜单22</a></li>
+                <li><a href="javascript:void(0);">二级菜单23</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单3</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单31</a></li>
+                <li><a href="javascript:void(0);">二级菜单32</a></li>
+                <li><a href="javascript:void(0);">二级菜单33</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+*/
+
+
+    /*======================案例高亮显示====================================*/
+
+    /*
+
+        <style>
+        ul{
+            list-style: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul id="uu">
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+</ul>
+<script src="../jquery.js">
+
+    // $(function () {
+    //     $("#uu>li").mouseenter(function () {
+    //         $(this).css("backgroundColor","red");
+    //     });
+    //     $("#uu>li").mouseleave(function () {
+    //         $(this).css("backgroundColor","");
+    //     });
+    // });
+
+    $(function () {
+        //链式编程
+        $("#uu>li").mouseenter(function () {
+            $(this).css("backgroundColor","red");
+        }).mouseleave(function () {
+            $(this).css("backgroundColor","");
+        });
+    });
+
+
+    */
+
+
+    /*======================案例验证用户输入的是不是中文名字==================================*/
+    /*
+
+    <label>请您输入中文名字</label>
+<input type="text" value="" id="txt">
+<input type="button" value="验证" id="btn">
+
+<script src="../jquery.js">
+    $("#btn").click(function () {
+        if (/^[\u4e00-\u9fa5]{2,6}&/.test($("#txt").val())){
+            $("#txt").css("backgroundColor","green");
+        }else {
+            $("#txt").css("backgroundColor","red");
+        }
+    });
+
+     */
+
+    /*=======================案例淘宝精品展示效果实现==============================*/
+    /*
+
+        * {
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .wrapper {
+      width: 298px;
+      height: 248px;
+      margin: 100px auto 0;
+      border: 1px solid pink;
+      overflow: hidden;
+    }
+
+    #left, #center, #right {
+      float: left;
+    }
+
+    #left li, #right li {
+      background: url(images/lili.jpg) repeat-x;
+    }
+
+    #left li a, #right li a {
+      display: block;
+      width: 48px;
+      height: 27px;
+      border-bottom: 1px solid pink;
+      line-height: 27px;
+      text-align: center;
+      color: black;
+    }
+
+    #left li a:hover, #right li a:hover {
+      background-image: url(images/abg.gif);
+    }
+
+    #center {
+      border-left: 1px solid pink;
+      border-right: 1px solid pink;
+    }
+  </style>
+
+  <script src="../../jquery.js">
+
+
+
+<div class="wrapper">
+
+    <ul id="left">
+        <li><a href="#">女靴</a></li>
+        <li><a href="#">雪地靴</a></li>
+        <li><a href="#">冬裙</a></li>
+        <li><a href="#">呢大衣</a></li>
+        <li><a href="#">毛衣</a></li>
+        <li><a href="#">棉服</a></li>
+        <li><a href="#">女裤</a></li>
+        <li><a href="#">羽绒服</a></li>
+        <li><a href="#">牛仔裤</a></li>
+    </ul>
+    <ul id="center">
+        <li><a href="#"><img src="images/女靴.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/雪地靴.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/冬裙.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/呢大衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/毛衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/棉服.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/女裤.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/羽绒服.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/牛仔裤.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/女包.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男靴.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/登山鞋.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/皮带.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/围巾.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/皮衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男毛衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男棉服.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男包.jpg" width="200" height="250"/></a></li>
+
+    </ul>
+    <ul id="right">
+        <li><a href="#">女包</a></li>
+        <li><a href="#">男靴</a></li>
+        <li><a href="#">登山鞋</a></li>
+        <li><a href="#">皮带</a></li>
+        <li><a href="#">围巾</a></li>
+        <li><a href="#">皮衣</a></li>
+        <li><a href="#">男毛衣</a></li>
+        <li><a href="#">男棉服</a></li>
+        <li><a href="#">男包</a></li>
+    </ul>
+
+</div>
+
+
+    $(function () {
+        $("#left>li").mouseenter(function () {
+            //现货区当前的li的索引值
+            var index = $(this).index();
+            console.log(index);
+            $("#center>li").hide();//先隐藏所有的li
+            // $("#center>li:eq(对应的索引值)")----》对应的li标签
+            $("#center>li:eq("+index+")").show();
+        });
+
+        $("#right>li").mouseenter(function () {
+            //现货区当前的li的索引值
+            var index = $(this).index()+9;
+            console.log(index);
+            $("#center>li").hide();//先隐藏所有的li
+            // $("#center>li:eq(对应的索引值)")----》对应的li标签
+            $("#center>li:eq("+index+")").show();
+        });
+
+    })
+
+     */
+
+    /*=========================tab选项卡===================================*/
+    /*
+
+        * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .wrapper {
+      width: 1000px;
+      height: 475px;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+
+    .tab {
+      border: 1px solid #ddd;
+      border-bottom: 0;
+      height: 36px;
+      width: 320px;
+    }
+
+    .tab li {
+      position: relative;
+      float: left;
+      width: 80px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      cursor: pointer;
+      border-top: 4px solid #fff;
+    }
+
+    .tab span {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      background: #ddd;
+      width: 1px;
+      height: 14px;
+      overflow: hidden;
+    }
+
+    .products {
+      width: 1002px;
+      border: 1px solid #ddd;
+      height: 476px;
+    }
+
+    .products .main {
+      float: left;
+      display: none;
+    }
+
+    .products .main.selected {
+      display: block;
+    }
+
+    .tab li.active {
+      border-color: red;
+      border-bottom: 0;
+    }
+
+  </style>
+  <script src="../../jquery.js">
+
+    $(function () {
+        $(".tab-item").mouseenter(function () {
+            //两件事件
+            $(this).addClass("active").siblings().removeClass("active");
+            var index = $(this).index();
+            $(".main").eq(index).addClass("selected").siblings().removeClass("selected");
+        });
+
+    });
+
+
+<div class="wrapper">
+    <ul class="tab">
+        <li class="tab-item active">国际大牌<span>◆</span></li>
+        <li class="tab-item">国妆名牌<span>◆</span></li>
+        <li class="tab-item">清洁用品<span>◆</span></li>
+        <li class="tab-item">男士精品</li>
+    </ul>
+    <div class="products">
+        <div class="main selected">
+            <a href="###"><img src="imgs/guojidapai.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="imgs/guozhuangmingpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="imgs/qingjieyongpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="imgs/nanshijingpin.jpg" alt=""/></a>
+        </div>
+    </div>
+</div>
+
+
+*/
+
+
+
+    /*==========================美女相册====================================*/
+    /*
+
+        body {
+      font-family: "Helvetica", "Arial", serif;
+      color: #333;
+      background-color: #ccc;
+      margin: 1em 10%;
+    }
+
+    h1 {
+      color: #333;
+      background-color: transparent;
+    }
+
+    a {
+      color: #c60;
+      background-color: transparent;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      float: left;
+      padding: 1em;
+      list-style: none;
+    }
+
+    #imagegallery {
+
+      list-style: none;
+    }
+
+    #imagegallery li {
+      margin: 0px 20px 20px 0px;
+      padding: 0px;
+      display: inline;
+    }
+
+    #imagegallery li a img {
+      border: 0;
+    }
+  </style>
+
+  <script src="../../jquery.js">
+    $(function () {
+        $("#imagegallery a").click(function () {
+            var href = $(this).attr("href");
+            $("#image").attr("src",href);
+            var title = $(this).attr("title");
+            $("#des").text(title);
+            return false;
+        })
+    })
+
+
+<h2>
+    美女画廊
+</h2>
+
+<ul id="imagegallery">
+    <li><a href="images/1.jpg" title="美女A">
+        <img src="images/1-small.jpg" width="100" alt="美女1"/>
+    </a></li>
+    <li><a href="images/2.jpg" title="美女B">
+        <img src="images/2-small.jpg" width="100" alt="美女2"/>
+    </a></li>
+    <li><a href="images/3.jpg" title="美女C">
+        <img src="images/3-small.jpg" width="100" alt="美女3"/>
+    </a></li>
+    <li><a href="images/4.jpg" title="美女D">
+        <img src="images/4-small.jpg" width="100" alt="美女4"/>
+    </a></li>
+</ul>
+
+<div style="clear:both"></div>
+
+<img id="image" src="images/placeholder.png" alt="" width="450px"/>
+
+<p id="des">选择一个图片</p>
+
+
+*/
+
+    /*===================元素样式操作使用css方法的几种写法===================================*/
+
+    /*
+
+    <input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js">
+
+    $(function () {
+        $("#btn").click(function () {
+            //第一种写法
+            // $("#dv").css("width","300px");
+            // $("#dv").css("height","300px");
+            // $("#dv").css("backgroundColor","red");
+
+
+            //第二种写法
+            // $("#dv").css("width","300px").css("height","300px").css("backgroundColor","red");
+
+
+            //第三种种写法
+            $("#dv").css({
+                width:"300px",
+                height:"300px",
+                backgroundColor:"red",
+            })
+        })
+    })
+
+     */
+
+
+    /*=========================如何链式编程===================================*/
+    /*
+
+    <input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+
+<script src="../jquery.js">
+
+    $(function () {
+        //链式编程，---对象不停的调用方法
+        //对象.方法().方法.方法.方法().方法();
+        //对象调用方法，如果返回值还是当前这个对象，那么就可以继续的调用方法
+        //经验：在jQuery中，一般情况，对象调用的方法，这个方法的意思是设置的意思，那么返回的呼呼欧式当前的对象，就可以继续的链式编程了
+        $("#btn").click(function () {
+            //获取value的属性值---这个方法此时是获取，返回的是value属性值
+            // console.log($(this).val());
+            // var obj = $(this).val("haha");
+            // console.log(obj);
+            //$(this).val("哈哈").css("backgroundColor","red");
+            // var xixi = $(this).css("backgroundColor","red");
+            // console.log(xixi);
+        });
+    })
+
+     */
+
+    /*=======================通过方法设置元素的类样式==================================*/
+
+    /*
+
+            .cls{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .cls2{
+            border:2px solid #000;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js">
+
+    $("#btn").click(function () {
+        //$("#dv").addClass("cls").addClass("cls2");
+        $("#dv").addClass("cls cls2");
+    });
+
+     */
+
+
+    /*=====================元素类样式的移除======================================*/
+    /*
+
+            .cls{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .cls2{
+            border:2px solid #000;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<div id="dv" class="cls cls2"></div>
+
+<script src="../jquery.js">
+
+    $("#btn").click(function () {
+        //console.log($("#dv").addClass());
+        //addClass()方法，口号里面什么也没有，返回来的任然是这个对象，及时在口号中设置了内容，返回来的还是这个对象
+        //removeClass()方法，同上
+        //移除类样式
+        $("#dv").removeClass("cls cls2");
+
+        console.log($("#dv").removeClass());
+    });
+
+    //设置元素的样式，可以使用css()方法，也可以使用addClass()或者是removeClass()方法
+
+
+    */
+
+    /*=========================判断是否应用了类样式==========================*/
+    /*
+
+             .cls{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+
+<input type="button" value="显示效果" id="btn">
+<div id="dv" class="cls cls2"></div>
+
+<script src="../jquery.js">
+
+    $(function () {
+        $("#btn").click(function () {
+            if ($("#dv").hasClass("cls")){
+                console.log("应用了");
+            }else {
+                console.log("没有应用");
+            }
+        })
+    })
+
+    //hasClass()判断元素是否应用了这个类样式
+    //addClass()增加类样式
+    //removeClass()移除类样式
+
+    */
+
+    /*========================网页开关灯案例实现====================================*/
+    /*
+
+            .cls{
+            background-color: #000;
+        }
+    </style>
+
+<input type="button" value="开/关灯" id="btn">
+<div id="dv" class="cls cls2"></div>
+
+<script src="../jquery.js">
+
+    //第一种
+    // $(function () {
+    //  $("#btn").click(function () {
+    //      if ($("body").hasClass("cls")){
+    //         $("body").removeClass("cls");
+    //
+    //      }else {
+    //         $("body").addClass("cls");
+    //      }
+    //  })
+    // });
+
+    //第二种
+    $(function () {
+        $("#btn").click(function () {
+            $("body").toggleClass("cls")
+        })
+    });
+
+     */
+
+    /*==============================获取某个元素兄弟元素的相关方法============================================*/
+    /*
+
+
+            ul{
+            list-style: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>bcisabcuis1</li>
+    <li>bcisabcuis2</li>
+    <li id="three">bcisabcuis3</li>
+    <li>bcisabcuis4</li>
+    <li>bcisabcui5</li>
+    <li>bcisabcuis6</li>
+    <li>bcisabcui7</li>
+    <li>bcisabcui8</li>
+    <li>bcisabcui9</li>
+    <li>bcisabcui10</li>
+    <li>bcisabcu11</li>
+    <li>bcisabcu12</li>
+    <li>bcisabcu13</li>
+</ul>
+<script src="../jquery.js">
+    $(function () {
+        $("#three").click(function () {
+            // //获取某个li的下一个兄弟元素,DOM---nextSibling
+            // $(this).next().css("backgroundColor","red");
+            //
+            // //获取某个li前一个兄弟元素
+            // $(this).prev().css("backgroundColor","green");
+            // //获取某个li的后面的所有的兄弟元素
+            // $(this).nextAll().css("backgroundColor","green");
+            // //获取某个li的前面的所有的兄弟元素
+            // $(this).prevAll().css("backgroundColor","green");
+            // //获取当前所有的li的所有的兄弟元素,(出去当前的这个元素的，所有的li元素改变)
+            // $(this).siblings("li").css("backgroundColor","gray");
+        })
+    })
+
+     */
+
+
+    /*==================================案例操作当前元素其他元素样式的效果实现============================================*/
+    /*
+
+    <ul>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+    <li>bwoiucbwvir</li>
+</ul>
+<script src="../jquery.js">
+    $(function () {
+        $("ul>li").mouseenter(function () {
+            $(this).css("backgroundColor","red").siblings("li").css("backgroundColor","");
+        }).mouseleave(function () {
+            $(this).parent().find("li").css("backgroundColor","");
+        }).click(function () {
+            // $(this).prevAll("li").css("backgroundColor","yellow");
+            // $(this).nextAll("li").css("backgroundColor","green");
+            $(this).prevAll("li").css("backgroundColor","yellow").end().nextAll("li").css("backgroundColor","green");
+            //end()方法是修护断链的，恢复断链之前的状态
+        })
+    })
+
+     */
+
+
+    /*============================元素动画相关方法=========================================*/
+    /*
+
+            div{
+            width: 200px;
+            height: 300px;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示" id="btn1">
+<input type="button" value="隐藏" id="btn2">
+<div id="dv"></div>
+<script src="../jquery.js">
+
+        // show()和hide()方法有参数
+        // 参数1：时间-----1000毫秒---1秒
+        // 参数2：回调函数
+        //
+        //
+        // slideDown()------滑出
+        // slideUp();-------滑入
+        // slideToggle();------//滑入切换
+        // fadeIn();谈入
+        // fadeOut();谈出
+        // fadeToggle();---切换 淡出入
+        // fadeTo(时间,透明值);-----slow,normal,fast
+
+
+
+
+    //点击第一个按钮显示div
+    $("#btn1").click(function () {
+        $("#dv").show(5000,function () {
+            alert(11);
+        });
+    });
+    //点击第二个按钮隐藏div
+    $("#btn2").click(function () {
+        $("#dv").hide(5000,function () {
+            alert(22);
+        });
+    })
+     */
+
+
+    /*
+            div{
+            width: 200px;
+            height: 300px;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示" id="btn1">
+<input type="button" value="隐藏" id="btn2">
+<div id="dv"></div>
+<script src="../jquery.js">
+
+    //点击第一个按钮显示div
+    $("#btn1").click(function () {
+        $("#dv").slideDown(3000);//滑出
+    });
+    //点击第二个按钮隐藏div
+    $("#btn2").click(function () {
+        $("#dv").slideUp(3000);//滑入
+    })
+
+
+     */
+
+
+
+    /*==============================动画效果===========================================*/
+    /*
+
+            img{
+            vertical-align: top;
+        }
+
+<input type="button" value="隐藏动画" id="btn1">
+<input type="button" value="显示动画" id="btn2">
+<div>
+    <img src="images/book.png" alt="">
+    <img src="images/book.png" alt="">
+    <img src="images/book.png" alt="">
+    <img src="images/book.png" alt="">
+    <img src="images/book.png" alt="">
+</div>
+<script src="../jquery.js">
+
+    $(function () {
+        $("#btn1").click(function () {
+            //第一种方法
+            // $("div>img:last").hide(300,function f1() {
+            //     $(this).prev().hide(300,f1);
+            // });
+
+            //第二种写法
+            //arguments.callee少用
+            $("div>img:last").hide(300,function () {
+                $(this).prev().hide(300,arguments.callee );
+            });
+        });
+        $("#btn2").click(function () {
+            $("div>img:first").show(300,function f1() {
+                $(this).next().show(300,f1);
+            })
+        });
+    })
+
+     */
+
+
+    //按钮动画2
+    /*
+
+            div{
+            float: left;
+        }
+    </style>
+
+<div><img src="images/book.png" alt=""></div>
+<div><img src="images/book.png" alt=""></div>
+<div><img src="images/book.png" alt=""></div>
+<div><img src="images/book.png" alt=""></div>
+<div><img src="images/book.png" alt=""></div>
+<div><img src="images/book.png" alt=""></div>
+<script src="../jquery.js">
+    $(function () {
+        $("div").click(function () {
+            $(this).hide(300);
+        });
+    })
+
+
+     */
+
+
+    //动画3
+    /*
+
+            img{
+            position: absolute;
+        }
+
+    <img src="images/book.png" alt="" id="img">
+    <script src="../jquery.js">
+    //参数1：键值对：--------css属性和值
+    //参数2：时间-------1000毫秒---1秒
+    //参数3：回调函数
+    $(function () {
+        $("#img").animate({
+            width:"200px",
+            height:"300px",
+            left:"100px",
+            top:"100px"
+        },2000).animate({
+            width:"20px",
+            height:"30px",
+            left:"10px",
+            top:"10px"
+        },1000);
+    })
+
+     */
+
+/*===============元素的创建及添加=======================================*/
+/*
+
+        div{
+            width: 200px;
+            height: 100px;
+            border: 5px solid red;
+        }
+    </style>
+
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js">
+
+    //页面加载后，点击按钮，在div中创建一个超链接
+    $(function () {
+        $("#btn").click(function () {
+            //在父级元素div中追加一个创建后的子元素
+            //父级元素.append(自己元素);
+            // $("#dv").append($("<a href='http://www.baidu.com'>百度</a>"));
+            //创建一个自己元素直接加到父级元素
+            $("<a href='http://www.baidu.com'>百度</a>").appendTo("#dv");
+        });
+    })
+
+ */
+
+
+/*============================练习点击按钮创建多个p标签=============================================*/
+    /*
+
+            div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js">
+    $(function () {
+        $("#btn").click(function () {
+            for (var i = 0; i<10;i++){
+                $("#dv").append($("<p>多么希望有一天，没有bug</p>"))
+            }
+        });
+    })
+
+     */
+
+    /*=====================案例动态创建列表============================*/
+    /*
+
+       div{
+            width: 300px;
+            height: 600px;
+            border: 1px solid orange;
+        }
+
+<input type="button" value="创建列表" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js">
+    $(function () {
+        //点击按钮
+        $("#btn").click(function () {
+            //创建列表加入到div中，创建ul，加入到div中
+            var ulObj = $("<ul></ul>");
+            $("#dv").append(ulObj);
+            //创建li，加入到ul中
+            $("<li>11</li>  <li>22</li>  <li>33</li>  <li>44</li>").appendTo(ulObj).mouseenter(function () {
+                $(this).css("backgroundColor","red");
+            }).mouseleave(function () {
+                $(this).css("background","");
+            });
+        });
+    })
+
+     */
+
+
+    /*========================案例动态创建列表另一个方式=======================================*/
+    /*
+
+
+           div {
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+        }
+
+<input type="button" value="显示相关" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js">
+
+    $(function () {
+        var array = ["wang","xixi","baibai","haha","hehe","fufu","lala","gaga"];
+        //Date-----内置对象
+        //
+        //
+        //     内置对象：js中系统自带的，Array,Object，Date,Math，RegExp
+        //     浏览器对象：window
+        //     自定义对象：自己定义的构造函数创建的对象
+        //     DOM对象：通过DOM方式获取的对象
+        //     jQuery对象：通过jQuery方式获取的对象
+        //
+        //
+        //
+        //根据id选这群获取按钮，增加点击事件
+        $("#btn").click(function () {
+            //先创建ul加入到div中
+            var ulObj = $("<ul></ul>").appendTo($("#dv"));
+            //创建li标签，加入到ul中----循环遍历数组
+            for (var i = 0; i < array.length;i++){
+                $("<li>"+array[i]+"</li>").appendTo(ulObj).mouseenter(function () {
+                    $(this).css("background","red");
+                }).mouseleave(function () {
+                    $(this).css("background","");
+                });
+            }
+
+        });
+    })
+
+    */
+
+    /*=================增加元素的注意问题================================*/
+    /*
+            #dv1{
+            width: 300px;
+            height: 200px;
+            border: 2px solid red;
+        }
+
+        #dv2{
+            width: 300px;
+            height: 200px;
+            border: 2px solid green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<input type="button" value="显示效果" id="btn">
+<div id="dv1">
+    <p>我是快乐的</p>
+</div>
+<div id="dv2"></div>
+<script src="../jquery.js">
+
+    $(function () {
+        $("#btn").click(function () {
+            //把第一个div中的p标签加入到第二个div中
+            //$("#dv2").append($("#dv1>p"));
+            //获取的元素通过append,appendTo方法添加到另一个元素中的时候，类似于剪切
+            //$("#dv1>p").appendTo($("#dv2"));
+
+            $("#dv1>p").clone().appendTo($("#dv2"));
+            //clone().appendTo相当于是复制
+        })
+    })
+
+     */
+
+    /*============================元素创建不同的方式============================================*/
+    /*
+
+            div{
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="创建一个按钮" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js">
+
+    $(function () {
+        // $("#btn").click(function () {
+        //     $("<button>按钮</button>").appendTo($("#dv"));
+        // })
+        //元素创建的另一个方式
+        $("#btn").click(function () {
+            //通过innerHTML的方式创建元素----一字符串的方式
+            $("#dv").html("<input type=\"button\" value=\"创建一个按钮\">");
+
+        });
+    })
+
+     */
+
+    /*============================元素增加方法==============================*/
+    /*
+
+
+        div{
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+    </style>
+
+<input type="button" value="创建一个按钮" id="btn">
+<div id="dv">
+    这个是一个p
+</div>
+<p>这是一个后面的</p>
+<script src="../jquery.js">
+
+    $(function () {
+        $("#btn").click(function () {
+            //prepend,prependTo 把创建的span标签这个子元素直接插入到div中第一个子元素的前面去了
+            //$("#dv").prepend($("<span>this is span</span>"));
+
+            //主动追加的
+            //$("<span>this is span</span>").prependTo($("#dv"));
+
+
+            //after ，把元素增加到div的后面的位置，是div的下一个兄弟元素了
+            //$("#dv").after($("<span>this is span</span>"));
+
+            //before,吧元素增加到div的前面的位置，是div的上一个兄弟元素了
+            $("#dv").before($("<span>this is span</span>"));
+
+
+
+
+
+        });
+    })
+
+
+    */
+
+
+    /*===========================元素移除的方法================================*/
+    /*
+
+                div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="移除元素" id="btn">
+<div id="dv">
+    <p>this id p</p>
+    <span> this is span</span>
+</div>
+<script src="../jquery.js">
+
+    $(function () {
+        $("#btn").click(function () {
+            //从父级元素中移除自己元---移除所有的自己元素
+            //$("#dv").html("");//移除所有的元素
+
+            //$("#dv").empty();//清空
+
+            $("#dv").remove();//这个方法就相当于自杀，想干掉谁，找到这个元素，调用这个方法就可以了
+
+
+        });
+    });
+
+     */
+
+    /*====================点击按钮创建一个表格=======================================*/
+    /*
+
+            <style>
+        div{
+            width: 600px;
+            height: 450px;
+            border: 1px solid red;
+        }
+    </style>
+
+<input type="button" value="创建一个表格" id="btn">
+<div id="dv">
+
+</div>
+<script src="../jquery.js">
+
+    //点击按钮在div中创建一个表格
+    var arr= [
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"百度","href":"http://www.baidu.com"},
+    ];
+
+    //页面加载
+    $(function () {
+        $("#btn").click(function () {
+            //创建表格
+            var table = $("<table border='1' cellpadding='0' cellspacing='0'></table>");
+            //把表格加入到div中
+            $("#dv").append(table);
+            for (var i = 0; i<arr.length;i++){
+                var dt = arr[i];//每个数组元素，都是对象
+                var tr = $("<tr></tr>");
+                table.append(tr);
+                //在列中显示内容，列在行中
+                //创建td，并加入到tr中
+                var td1 = $("<td>"+dt.name+"</td>");
+                //第一列加入到tr中
+                tr.append(td1);
+                var td2 = $("<td><a href='"+dt.href+"'>"+dt.name+"</a> </td>");
+                tr.append(td2);
+
+                //鼠标进去到每一行的时候，该行有高亮显示的效果
+                tr.mouseenter(function () {
+                    $(this).css("backgroundColor","red");
+                }).mouseleave(function () {
+                    $(this).css("backgroundColor","");
+                });
+            }
+        });
+    });
+
+     */
+
+    /*===========================案例点击按钮移除表格和在表格中添加一行=======================================*/
+
+
+
+
+
+
+
+    /*============================权限选择=================================*/
+    /*
+
+        <select multiple="multiple" name="" id="se1" style="width: 110px;height: 100px;float: left">
+        <option value="">增加</option>
+        <option value="">删除</option>
+        <option value="">修改</option>
+        <option value="">查询</option>
+        <option value="">打印</option>
+    </select>
+</div>
+
+<div style="display: flex;flex-direction: column;width: 50px;float: left;align-items: center;height: 110px;justify-content: center">
+    <input type="button" value=">" id="toRight">
+    <input type="button" value="<" id="toLeft">
+    <input type="button" value=">>" id="toAllRight">
+    <input type="button" value="<<" id="toAllLeft">
+
+</div>
+
+<select name="" multiple="multiple" id="se2"  style="width: 110px;height: 100px;float: left"></select>
+<script src="../jquery.js">
+
+    $(function () {
+        $("#toAllRight").click(function () {
+            $("#se1>option").appendTo($("#se2"));
+        });
+
+        $("#toAllLeft").click(function () {
+            $("#se2>option").appendTo($("#se1"));
+        });
+
+        $("#toRight").click(function () {
+            $("#se1>option:selected").appendTo($("#se2"));
+        });
+
+        $("#toLeft").click(function () {
+            $("#se2>option:selected").appendTo($("#se1"));
+        });
+
+    })
+
+     */
+
+    /*=========================value属性的操作===============================*/
+    /*
+
+    <input type="button" value="显示效果" id="btn">
+<input type="text" value="今天" id="txt"><br>
+<input type="radio" value="1" name="sex">男
+<input type="radio" value="2" name="sex" id="re2">女
+<input type="radio" value="3" name="sex">保密
+<br>
+<input type="checkbox" value="1">吃饭0
+<input type="checkbox" value="2">吃饭1
+<input type="checkbox" value="3" id="ck3">吃饭2
+<input type="checkbox" value="4">吃饭3
+
+<br>
+<textarea name="" id="xixi" cols="30" rows="10">nicdsabuicbsavuil</textarea>
+<br>
+<select id="s1">
+    <option value="1">xixisad1</option>
+    <option value="2">xixisad2</option>
+    <option value="3">xixisad3</option>
+    <option value="4">xixisad4</option>
+    <option value="5">xixisad5</option>
+    <option value="6">xixisad6</option>
+    <option value="7">xixisad7</option>
+</select>
+<script src="../jquery.js">
+
+    $(function () {
+        $("#btn").click(function () {
+            console.log($("#txt").val());
+            $("#txt").val("昨天");
+            $("#re2").val("我的跳啦");
+            $("#ck3").val("改了");
+            //$("#xixi").val("嘎嘎");//成对的标签可以用text()；
+            $("#xixi").text("我是成对的标签");//推荐使用这个
+
+            //为select的标签中的value数学是5的这个option标签选中的
+            $("#s1").val(5);
+        })
+    })
+     */
+
+    /*======================介绍自定义属性选中的问题================================*/
+    /*
+
+    <input type="button" value="选中" id="btn"><br>
+<p>请你选择你的性别</p>
+<input type="radio" value="1"  name="sex">男
+<input type="radio" value="2" name="sex">女
+<input type="radio" value="3" checked name="sex" id="r3">人妖
+
+<script src="../jquery.js">
+    $(function () {
+        $("#btn").click(function () {
+            //dom
+            //document.getElementById("r3").checked = true;
+            //jquery
+            //$("#r3").get(0).checked = true;
+            //自定义属性的写法
+            //$("#r3").attr("checked","true");
+            //获取是否被选中了
+            //console.log($("#r3").attr("checked"));//没有选中：undefined；选中了是checked
+
+            //点击按钮，选中就设置不选中，如果没有选中，就设置选中的结果
+            //attr方法针对单选框或者是复选框的是否选中问题，操作起来很麻烦，几乎不用，后面说
+            if($("#r3").attr("checked")==undefined){
+                //undefined
+                $("#r3").attr("checked",true);
+            }else {
+                //checked---->选中
+                $("#r3").attr("checked",false);
+            }
+        })
+    })
+     */
+
+    /*=============================自定义属性操作======================================*/
+    /*
+    <input type="button" value="显示效果" id="btn">
+<a id="ak"></a>
+<ul id="uu">
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+</ul>
+<script src="../jquery.js">
+    //.attr(参数1，参数与2)；---设置某个属性的值
+    //.attr(参数1)；--------获取某个属性的值
+    //参数1：属性的名字
+    //参数2：属性的值
+    //.attr方法主要死操作元素的自定义属性的，但是也可以操作元素的自带的属性(html本有的属性)，但可是，操作元素的选中的checked的时候,不是很适合
+    //操作元素的选中的checked的时候，推荐使用prop方法
+
+
+
+    $(function () {
+        $("#btn").click(function () {
+            $("#uu>li").attr("score",100);//设置定义属性
+            $("#ak").attr("href","http://www.baidu.com");
+            $("#ak").text("百度")
+        })
+    })
+     */
+
+
+
+    /*==========================操作元素选中的问题====================================*/
+    /*
+    <input type="button" value="选中/不选中" id="btn">
+<input type="checkbox" value="1" name="play">吃饭
+<input type="checkbox" value="2" name="play">睡觉
+<input type="checkbox" value="3" name="play">打豆豆
+<input type="checkbox" value="4" name="play">吃饭
+<input type="checkbox" value="5" name="play">吃饭
+<input type="checkbox" value="6" name="play">吃饭
+<input type="checkbox" value="7" name="play" id="ck7">吃饭
+<script src="../jquery.js">
+    $(function () {
+        //设置或者是获取元素的选中问题，推荐使用prop()方法
+        //.prop(“属性”,值);值一般是布尔类型-----》目前这么写代码是设置选中
+        //.prop("属性");-----获取这个元素是否选中
+
+        $("#btn").click(function () {
+            //$("#ck7").attr("checked",true);//这个东西单个可以，多个就不好用，尽量不要用这个
+            //这步获取复选框是否选中
+            console.log($("#ck7").prop("checked"));
+            $("#ck7").prop("checked",true);
+        })
+    })
+
+     */
+
+
+//    /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*点击按钮切换复选框选中*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
 </script>
 </body>
 </html>

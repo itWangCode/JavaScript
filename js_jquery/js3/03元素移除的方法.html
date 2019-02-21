@@ -1,0 +1,49 @@
+<!--
+    Created by wangyang on 2019-01-17.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="移除元素" id="btn">
+<div id="dv">
+    <p>this id p</p>
+    <span> this is span</span>
+</div>
+<script src="../jquery.js"></script>
+<script>
+    $(function () {
+       $("#btn").click(function () {
+           //从父级元素中移除自己元---移除所有的自己元素
+           //$("#dv").html("");//移除所有的元素
+
+           //$("#dv").empty();//清空
+
+           $("#dv").remove();//这个方法就相当于自杀，想干掉谁，找到这个元素，调用这个方法就可以了
+
+
+       }); 
+    });
+</script>
+</body>
+</html>

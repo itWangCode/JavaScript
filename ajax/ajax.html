@@ -1,0 +1,61 @@
+<!--
+    Created by wangyang on 2019-01-10.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+<article>
+    <section>
+        <label>用户名</label>
+        <input type="text" value="" name="" class="username" id="username">
+    </section>
+    <section>
+        <label>密码</label>
+        <input type="password" value="" name="" class="password" id="password">
+    </section>
+</article>
+
+<script src="../jquery.js"></script>
+<script>
+    $.ajax({
+        type: 'post',
+        url:'http://localhost:8080',
+        data:{
+            username:$("#username").val(),
+            password:$("#password").val(),
+        },
+        cache:false,
+        processData:false,
+        contentType:false,
+        success:function (data) {
+            if(data == "1"){
+                console.log("登录成功");
+            }else if (data == "2"){
+                console.log("密码门错误");
+            }else {
+                console.log("账号不存在");
+            }
+        },
+        error:function () {
+            
+        }
+    })
+</script>
+</body>
+</html>

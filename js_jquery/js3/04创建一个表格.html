@@ -1,0 +1,77 @@
+<!--
+    Created by wangyang on 2019-01-18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div{
+            width: 600px;
+            height: 450px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="创建一个表格" id="btn">
+<div id="dv">
+
+</div>
+<script src="../jquery.js"></script>
+<script>
+
+       //点击按钮在div中创建一个表格
+        var arr= [
+            {"name":"百度","href":"http://www.baidu.com"},
+            {"name":"百度","href":"http://www.baidu.com"},
+            {"name":"百度","href":"http://www.baidu.com"},
+            {"name":"百度","href":"http://www.baidu.com"},
+            {"name":"百度","href":"http://www.baidu.com"},
+            {"name":"百度","href":"http://www.baidu.com"},
+            {"name":"百度","href":"http://www.baidu.com"},
+            {"name":"百度","href":"http://www.baidu.com"},
+        ];
+
+        //页面加载
+       $(function () {
+           $("#btn").click(function () {
+               //创建表格
+              var table = $("<table border='1' cellpadding='0' cellspacing='0'></table>");
+              //把表格加入到div中
+               $("#dv").append(table);
+               for (var i = 0; i<arr.length;i++){
+                   var dt = arr[i];//每个数组元素，都是对象
+                   var tr = $("<tr></tr>");
+                   table.append(tr);
+                   //在列中显示内容，列在行中
+                   //创建td，并加入到tr中
+                   var td1 = $("<td>"+dt.name+"</td>");
+                   //第一列加入到tr中
+                   tr.append(td1);
+                   var td2 = $("<td><a href='"+dt.href+"'>"+dt.name+"</a> </td>");
+                   tr.append(td2);
+
+                   //鼠标进去到每一行的时候，该行有高亮显示的效果
+                   tr.mouseenter(function () {
+                       $(this).css("backgroundColor","red");
+                   }).mouseleave(function () {
+                       $(this).css("backgroundColor","");
+                   });
+               }
+           });
+       });
+</script>
+</body>
+</html>

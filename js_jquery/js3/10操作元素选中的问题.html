@@ -1,0 +1,46 @@
+<!--
+    Created by wangyang on 2019-02-18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<input type="button" value="选中/不选中" id="btn">
+<input type="checkbox" value="1" name="play">吃饭
+<input type="checkbox" value="2" name="play">睡觉
+<input type="checkbox" value="3" name="play">打豆豆
+<input type="checkbox" value="4" name="play">吃饭
+<input type="checkbox" value="5" name="play">吃饭
+<input type="checkbox" value="6" name="play">吃饭
+<input type="checkbox" value="7" name="play" id="ck7">吃饭
+<script src="../jquery.js"></script>
+<script>
+    $(function () {
+        //设置或者是获取元素的选中问题，推荐使用prop()方法
+        //.prop(“属性”,值);值一般是布尔类型-----》目前这么写代码是设置选中
+        //.prop("属性");-----获取这个元素是否选中
+
+        $("#btn").click(function () {
+            //$("#ck7").attr("checked",true);//这个东西单个可以，多个就不好用，尽量不要用这个
+            //这步获取复选框是否选中
+            console.log($("#ck7").prop("checked"));
+            $("#ck7").prop("checked",true);
+        })
+    })
+</script>
+</body>
+</html>

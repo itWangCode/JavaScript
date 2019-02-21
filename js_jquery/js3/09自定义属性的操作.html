@@ -1,0 +1,55 @@
+<!--
+    Created by wangyang on 2019-02-18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<a id="ak"></a>
+<ul id="uu">
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+    <li>小白</li>
+</ul>
+<script src="../jquery.js"></script>
+<script>
+    //.attr(参数1，参数与2)；---设置某个属性的值
+    //.attr(参数1)；--------获取某个属性的值
+    //参数1：属性的名字
+    //参数2：属性的值
+    //.attr方法主要死操作元素的自定义属性的，但是也可以操作元素的自带的属性(html本有的属性)，但可是，操作元素的选中的checked的时候,不是很适合
+    //操作元素的选中的checked的时候，推荐使用prop方法
+
+
+
+    $(function () {
+        $("#btn").click(function () {
+            $("#uu>li").attr("score",100);//设置定义属性
+            $("#ak").attr("href","http://www.baidu.com");
+            $("#ak").text("百度")
+        })
+    })
+</script>
+</body>
+</html>

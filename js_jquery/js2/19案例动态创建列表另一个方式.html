@@ -1,0 +1,62 @@
+<!--
+    Created by wangyang on 2019-01-16.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        div {
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示相关" id="btn">
+<div id="dv"></div>
+<script src="../jquery.js"></script>
+<script>
+   $(function () {
+       var array = ["wang","xixi","baibai","haha","hehe","fufu","lala","gaga"];
+       //Date-----内置对象
+       //
+       //
+       //     内置对象：js中系统自带的，Array,Object，Date,Math，RegExp
+       //     浏览器对象：window
+       //     自定义对象：自己定义的构造函数创建的对象
+       //     DOM对象：通过DOM方式获取的对象
+       //     jQuery对象：通过jQuery方式获取的对象
+       //
+       //
+       //
+       //根据id选这群获取按钮，增加点击事件
+       $("#btn").click(function () {
+           //先创建ul加入到div中
+           var ulObj = $("<ul></ul>").appendTo($("#dv"));
+           //创建li标签，加入到ul中----循环遍历数组
+           for (var i = 0; i < array.length;i++){
+               $("<li>"+array[i]+"</li>").appendTo(ulObj).mouseenter(function () {
+                   $(this).css("background","red");
+               }).mouseleave(function () {
+                   $(this).css("background","");
+               });
+           }
+
+       });
+   }) 
+</script>
+</body>
+</html>

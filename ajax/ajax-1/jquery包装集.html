@@ -1,0 +1,73 @@
+<!--
+    Created by wangyang on 2019-01-22.
+    itwangyang@gmail.com
+    http://itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<div>
+    <h2>嘻嘻</h2>
+    <img src="images/book.png" >
+    <img src="images/bookstore.png" class="red">
+    <img src="images/book.png">
+    <img src="images/book.png">
+    <img src="images/book.png">
+    <img src="images/book.png">
+    <img src="images/sad.png" id="img2">
+    <img src="images/book.png">
+    <img src="images/book.png">
+    <img src="images/book.png">
+    <img src="images/book.png">
+</div>
+
+<script src="../../jquery.js"></script>
+<script>
+    // 1 jquery包装集大小
+    //var size = $("img").size();
+    //console.log(size);
+
+    // 2  获取元素在包装集中的索引位置
+    // var index= $("img").index("#img2");
+    // console.log(index);//表示-1是代表没有找到，这是一个错误的案例
+
+    //正确的是
+    //var index = $("img").index($("#img2"));
+    //console.log(index);
+
+
+    // 3 增加元素到包装集：add(expression)在前面增加东西
+    // $("img").add("h2").add("#img2").click(function () {
+    //     $(this).hide();
+    // });
+
+    // 4 删除包装集中的元素：not(expression)
+    $("img").not(".red").add("#img2").click(function () {
+        $(this).hide();
+    });
+    // 5 对包装集中的元素进行过滤：filter(expression)
+    //$("img").filter(".red,[id]").css("backgroundColor", "red");
+    //$("img").filter(function (index) {
+    //    return index % 2 == 0;
+    //}).hide(2000).show(3000);
+
+    // 6  获取包装集的子集：slice(begin,end)
+    //$("img").slice(2,4).css("backgroundColor", "green");//4-2
+
+
+</script>
+</body>
+</html>

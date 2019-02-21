@@ -1,0 +1,66 @@
+<!--
+    Created by wangyang on 2019-01-12.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        .cls{
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="开/关灯" id="btn">
+<div id="dv" class="cls cls2"></div>
+
+<script src="../jquery.js"></script>
+<script>
+    // $(function () {
+    //     $("#btn").click(function () {
+    //         if ($("#dv").hasClass("cls")){
+    //             console.log("应用了");
+    //         }else {
+    //             console.log("没有应用");
+    //         }
+    //     })
+    // })
+
+    //hasClass()判断元素是否应用了这个类样式
+    //addClass()增加类样式
+    //removeClass()移除类样式
+
+
+    //第一种
+    // $(function () {
+    //  $("#btn").click(function () {
+    //      if ($("body").hasClass("cls")){
+    //         $("body").removeClass("cls");
+    //
+    //      }else {
+    //         $("body").addClass("cls");
+    //      }
+    //  })
+    // });
+
+    //第二种
+    $(function () {
+        $("#btn").click(function () {
+            $("body").toggleClass("cls")
+        })
+    });
+</script>
+</body>
+</html>

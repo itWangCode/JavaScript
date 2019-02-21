@@ -1,0 +1,63 @@
+<!--
+    Created by wangyang on 2019-01-18.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<div>
+    <select multiple="multiple" name="" id="se1" style="width: 110px;height: 100px;float: left">
+        <option value="">增加</option>
+        <option value="">删除</option>
+        <option value="">修改</option>
+        <option value="">查询</option>
+        <option value="">打印</option>
+    </select>
+</div>
+
+<div style="display: flex;flex-direction: column;width: 50px;float: left;align-items: center;height: 110px;justify-content: center">
+    <input type="button" value=">" id="toRight">
+    <input type="button" value="<" id="toLeft">
+    <input type="button" value=">>" id="toAllRight">
+    <input type="button" value="<<" id="toAllLeft">
+
+</div>
+
+<select name="" multiple="multiple" id="se2"  style="width: 110px;height: 100px;float: left"></select>
+<script src="../jquery.js"></script>
+<script>
+    $(function () {
+        $("#toAllRight").click(function () {
+            $("#se1>option").appendTo($("#se2"));
+        });
+
+        $("#toAllLeft").click(function () {
+            $("#se2>option").appendTo($("#se1"));
+        });
+
+        $("#toRight").click(function () {
+            $("#se1>option:selected").appendTo($("#se2"));
+        });
+
+        $("#toLeft").click(function () {
+            $("#se2>option:selected").appendTo($("#se1"));
+        });
+
+    })
+</script>
+</body>
+</html>

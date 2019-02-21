@@ -1,0 +1,66 @@
+<!--
+    Created by wangyang on 2019-01-11.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        ul{
+            list-style: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul id="uu">
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+    <li>你好呀</li>
+</ul>
+<script src="../jquery.js"></script>
+<script>
+    
+    // $(function () {
+    //     $("#uu>li").mouseenter(function () {
+    //         $(this).css("backgroundColor","red");
+    //     });
+    //     $("#uu>li").mouseleave(function () {
+    //         $(this).css("backgroundColor","");
+    //     });
+    // });
+
+    $(function () {
+        //链式编程
+        $("#uu>li").mouseenter(function () {
+            $(this).css("backgroundColor","red");
+        }).mouseleave(function () {
+            $(this).css("backgroundColor","");
+        });
+    });
+
+</script>
+</body>
+</html>

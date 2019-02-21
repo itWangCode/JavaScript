@@ -1,0 +1,61 @@
+<!--
+    Created by wangyang on 2019-01-13.
+    itwangyang@gmail.com
+    http://itwangyang.xyz    
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="">
+    <style>
+        ul{
+            list-style: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>bcisabcuis1</li>
+    <li>bcisabcuis2</li>
+    <li id="three">bcisabcuis3</li>
+    <li>bcisabcuis4</li>
+    <li>bcisabcui5</li>
+    <li>bcisabcuis6</li>
+    <li>bcisabcui7</li>
+    <li>bcisabcui8</li>
+    <li>bcisabcui9</li>
+    <li>bcisabcui10</li>
+    <li>bcisabcu11</li>
+    <li>bcisabcu12</li>
+    <li>bcisabcu13</li>
+</ul>
+<script src="../jquery.js"></script>
+<script>
+    $(function () {
+        $("#three").click(function () {
+            // //获取某个li的下一个兄弟元素,DOM---nextSibling
+            // $(this).next().css("backgroundColor","red");
+            //
+            // //获取某个li前一个兄弟元素
+            // $(this).prev().css("backgroundColor","green");
+            // //获取某个li的后面的所有的兄弟元素
+            // $(this).nextAll().css("backgroundColor","green");
+            // //获取某个li的前面的所有的兄弟元素
+            // $(this).prevAll().css("backgroundColor","green");
+            // //获取当前所有的li的所有的兄弟元素,(出去当前的这个元素的，所有的li元素改变)
+            // $(this).siblings("li").css("backgroundColor","gray");
+        })
+    })
+</script>
+</body>
+</html>
