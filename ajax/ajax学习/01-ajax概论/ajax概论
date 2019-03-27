@@ -1,0 +1,14 @@
+#Ajax概论
+##ajax的全称：Asynchronous javascript and XML
+###web2.0技术的核心
+###由多种技术组合而成。使用ajax技术不必要刷新整个页面，只需要对页面的局部进行更新，可以姐还是呢过网络带宽，提高网页加载的速度，从而缩短用户等待时间，改善用户体验
+###1.1 ajax是什么
++ Asynchronous javascript and XML
+###1.2 工作原理
++ JavaScript
++ 异步操作XMLHttpRequest
++ xml
++ dom
++ XHTML和css
++ XMLHttpRequest
+

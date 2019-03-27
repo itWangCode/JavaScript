@@ -1,0 +1,11 @@
+# 1)http请求
+###XMLHttpRequest
+# 2)XMLHttpRequest对象
++ request = new XMLHttpRequest
+  - 这条语句只能支持firFox.opera.safari这些高级浏览器
+##兼容IE6以上的版本
++ xmlhttp = new ActiveXObject('Msxml2.XMLHTTP)
+  - 这句话是兼容IE6以上的
++ xmlhttp = new ActiveXObject('Microsoft.XMLHTTP')
+
+

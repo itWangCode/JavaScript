@@ -1,0 +1,42 @@
+<!--
+    Created by wangyang on 2019-03-26.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+
+<script>
+    let name = "wang",age = 100;
+    //let obj = {name:name,age:age};
+    let obj = {name,age};
+    let str = "name";
+    let obj1 = {
+        fn(){},
+        //fn:function(){}
+        //属性名都是字符串，属性名使用[]，里面可以写变量
+        [str]:name,
+        ["my"+str]:name
+    };
+
+    obj[str];//当前str是一个变量
+</script>
+</body>
+</html>

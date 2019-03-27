@@ -1,0 +1,75 @@
+<!--
+    Created by wangyang on 2019-03-26.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+<script>
+    // Symbol() 是一个新的基本数据类型，而且是一个值类型的
+    // 使用Symbol函数执行的到一个Symbol 数据类型
+    // Symbol 跟字符串是差不多的，但是使用Symbol函数得到一个数据，每一个都是完全不同的
+    // Symbol 可以接收一个参数()，是对这个Symbol数据的描述
+    // 即使描述一样，但是值是不用的
+    // 一般当做对象的属性来 任意一个Symbol() 得到的值都是不用的
+    // Symbol值,不可以跟其他值计算
+    let sym1 = Symbol("foo");
+    let sym2 = Symbol("foo");
+    console.log(typeof sym1);
+    console.log(sym2);
+    console.log(sym1 == sym2);//false
+
+    let obj = {
+        sym1: "wang",
+        [sym1]: "wangyang"
+    };
+
+    obj[sym2] = "wangyang";
+    console.log(obj);
+
+
+    // Symbol值,不可以跟其他值计算,,Symbol不可以转数字的
+    //Number(Symbol(1));//Cannot convert a Symbol value to a number
+
+    //Symbol(1)+"1";// Cannot convert a Symbol value to a string
+
+    //Symbol，但是可以转布尔值
+    console.log(!Symbol(1));//false
+    //可以toString 变成 显示字符串
+    console.log(Symbol("zf"));
+    console.log(Symbol("zf").toString());
+
+    // Symbol.for() 找到相同参数的Symbol的值，，如果之前有相同参数，就会找到这个值，返回，否则，没有这个相同参数，就会创建一个新的Symbol
+    // 使用Symbol for() 参数相同值就相同，
+    let aa = Symbol("zhufeng");
+    let zf2 = Symbol.for("zhufeng");
+    let zf3 = Symbol.for("zhufeng");
+    console.log(zf3 == zf2);
+
+    // Symbol.keyFor(Symbol值)  找到使用Symbol.for创建的值的描述
+    console.log(Symbol.keyFor(zf2));
+    // 如果使用的是Symbol 创建的是获取到不到的， 不是Symbol.for创建出来的，你是找不到对应的值的
+    console.log(Symbol.keyFor(aa));//undefined
+
+
+</script>
+</body>
+</html>

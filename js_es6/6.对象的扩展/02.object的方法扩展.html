@@ -1,0 +1,103 @@
+<!--
+    Created by wangyang on 2019-03-26.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+
+<script>
+    //Object()  将参数变成对象
+    console.log(Object(1));//Number
+    console.log(Object(true));//Boolean
+    console.dir(Object);
+    //Object.is()判断两个值是否相等
+    //=== NaN跟NaN不等，  -0===0  true
+
+    console.log((NaN === NaN));// console.log((NaN === NaN));false
+    console.log((-0 === 0));//true
+
+
+    console.log(Object.is(NaN,NaN));//true
+    console.log(Object.is(-0, 0));//false
+
+    //其他跟===一致
+
+
+
+
+
+    //Object.assign(,)  合并对象
+    //Object.assign(obj1,obj2)  将obj1合并到obj2上，返回obj1
+    let obj1 = {name:"wang"};
+    let obj2 = {age:10};
+    Object.assign(obj1,obj2);
+    console.log(obj1);//{name: "wang", age: 10}
+
+
+
+    //ES7   中提供了对象的扩展运算符 ...  可以来合并
+    let school = {...obj1,...obj2};
+    console.log(school);
+
+    //Object.getOwnPropertyDescriptor  获取一个对象中，某个属性的描述
+    console.log(Object.getOwnPropertyDescriptor("123", "length"));//{value: 3, writable: false, enumerable: false, configurable: false}configurable: falseenumerable: falsevalue: 3writable: false__proto__: Object
+    console.log(Object.getOwnPropertyDescriptor([1,2,3,4,4], "length"));//writable: true
+    //字符串的length是不可以修改的  字符串中的方法，是不可以改变原字符串的
+
+    let str1 = "123";
+    str1.length = 0;
+    console.log(str1);
+
+    /*
+
+    {value: 3, writable: false, enumerable: false, configurable: false}
+        configurable: false  是否可配置  可以删除这个属性
+        enumerable: false  是否可枚举
+        value: 3
+        writable: false  是否可修改
+
+     */
+
+
+
+
+
+
+
+
+    // Object.keys();返回值，是一个数组[所有的可枚举的属性]
+    console.log(Object.keys(school));
+
+
+    // Object.values();返回值，是一个数组[所有的可枚举的键值]
+    console.log(Object.values(school));
+
+
+    // Object.entries()返回值，是一个数组[每一项也是数组 键 ，值]
+    console.log(Object.entries(school));
+
+    //数组都是可以遍历的
+
+
+
+</script>
+</body>
+</html>

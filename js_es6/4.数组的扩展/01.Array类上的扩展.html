@@ -1,0 +1,53 @@
+<!--
+    Created by wangyang on 2019-03-25.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+<script>
+    console.dir(Array);
+    //Array 类 是一个函数  返回一个数组
+    //Array(x,y,z)将参数变成一个数组，返回[x,y,z]
+    //注意：只有一个参数并且参数是个数字，返回有N个空位数组
+    console.log(Array(1, 2, 3));
+    console.log(Array(7));//empty × 7  得到7个空位
+
+
+    //Array.of()跟Array一样的，唯一不同，解决了空位数组的问题，参数是一个数字的时候，返回任然是一个数组，只有一项的数组
+
+    console.log(Array.of(7));
+
+    //Array.from() ,返回一个数组，传入进来的参数【数组或者是类数组】
+    console.log(Array.from([1, 2, 3]));
+    console.log(Array.from("1234"));
+
+    console.log(Array.from(list.getElementsByTagName("li")));
+
+
+</script>
+</body>
+</html>

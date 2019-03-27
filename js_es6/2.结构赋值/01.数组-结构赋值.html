@@ -1,0 +1,57 @@
+<!--
+    Created by wangyang on 2019-03-25.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+
+<script>
+    let arr = [1,23,4,56,];
+    // let x = arr[0];
+    // let y = arr[1];
+    // let m = arr[2];
+    // let n = arr[3];
+    let [x,y,m,n]=arr;
+    console.log(x, y, m, n);
+
+    //设置默认值,只有后面结构的值是undefined的时候，才会走默认值
+    // let [x1,x2=20]=[1,2];
+    // console.log(x1, x2);//1,2
+
+    let [x1,x2=(function () {
+        console.log("haha")();
+        return 10;
+    })]=[1];
+    console.log(x1, x2);//1,2
+    let [,,m2] = [1,2,3];//省略赋值
+    console.log(m2);
+
+    //不定参数,将后面的项，放在一个数组中赋值给y3=[3,4,5]
+    let[y1,y2,...y3]=[1,2,3,4,5];
+    console.log(y3);//...是扩展运算符
+
+
+
+
+
+</script>
+</body>
+</html>

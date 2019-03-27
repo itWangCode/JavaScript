@@ -1,0 +1,64 @@
+<!--
+    Created by wangyang on 2019-03-25.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+
+<script>
+    //数组空位：数组当前某个索引位置没有任何值，undefined不是空位
+    //判断一个数组中，某一个位置是不是空位 in
+    //in:判断数组索引位置上有没有值
+    let arr = [,undefined,,,,,];
+    console.log(arr.length);//6个空位的数组
+    console.log(1 in arr);//返回来是布尔值，true就是有的
+    console.log(0 in arr);
+
+    //在ES5中，数组的方法对空位的处理不一致，一般都是直接跳过空位
+    let ar1 = [1,2,3,,,,3];
+    ar1.filter(function (item) {
+        console.log(item);
+    });
+
+    //在ES6中，将空位处理为undefined，
+    ar1.find(function (item) {
+        console.log(item);
+    });
+    //在ES6中，将空位处理为undefined，
+    for (let item of ar1){
+        console.log(item);
+    }
+
+    //ES5
+    for (let key in ar1){
+        console.log(key);
+    }
+
+    //面试题：
+    //得到一个有7个1的数组
+    console.log(Array(7).fill(1));
+
+
+
+
+</script>
+</body>
+</html>

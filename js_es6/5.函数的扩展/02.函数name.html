@@ -1,0 +1,97 @@
+<!--
+    Created by wangyang on 2019-03-25.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+
+<script>
+    function f() {
+
+    }
+    console.log(f.name);//f
+
+
+
+    console.log((function () {
+
+    }).name);//""
+
+    //特殊情况
+    //1。通过bind方法得到一个新的函数，name是 "bound " 原来函数的名字
+    let fn1 = function () {
+        
+    }.bind(null);
+    console.log(fn1.name);
+
+    //2.构造函数创建一个函数 ，名字都是叫做：anonymous
+   /* new Function("形参","函数体");
+    new Function("函数体");
+    function f1(形参) {
+        函数体
+    }*/
+
+   let fn2= new Function("x,y","console.log(x,y); return x+y");
+    console.log(fn2(10, 100));
+    console.log(fn2.name);//anonymous 匿名函数
+
+
+    //面试题：让arr变成这样子的数组{"name":"wangyang"},{"age":"10"}
+    let str = '[{"name":"wangyang"},{"age":"10"}]';
+    let arr = (new Function("return" + str))();
+    console.log(arr);
+
+    // function fn3() {
+    //     return [{"name":"wangyang"},{"age":"10"}];
+    // }
+    // fn3();
+
+
+    //参数作用域的问题
+    /**
+     * 函数执行的时候，先给形参赋值，形参也是私有变量，如果给形参的默认值，是一个变量，
+     * 先看是不是自己的私有变量，
+     * 不是自己的再去找全局中，是否有这个变量，没有就报错了
+     * */
+    let m = 10,n = 20;
+    function f5(x=m,y=n) {
+        //私有作用域：私有变量：x,y,m,n
+        let m = "wangyang";
+        let n = "es6";
+        console.log(x);
+        console.log(y);
+    }
+    f5();
+
+
+
+
+
+    let x=100;
+    function f6(x,y=x) {
+        console.log(x);
+    }
+    f6(1);
+
+
+</script>
+</body>
+</html>

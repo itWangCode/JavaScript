@@ -1,0 +1,128 @@
+<!--
+    Created by wangyang on 2019-03-25.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+
+<script>
+
+    //所有的数组实例的方法，参数是从索引n到索引m，包含n，但不包含m
+    console.log(Array.prototype);
+
+    //copyWithin  从原数组中读取内容，替换数组的指定位置的内容，
+    //参数(替换目标起始位置target,查找的起始位置begin,查找的结束位置end)
+
+    let ary = [1,2,3,4,5,6];
+    console.log(ary.copyWithin(4, 2, 4));//包括索引2，不包括索引4   [1, 2, 3, 4, 3, 4]
+    console.log(ary.copyWithin(3, 2));//包括索引2，后面没有写默认到结束位置，如果有操出部门会自动截取掉，原数组的length不变
+
+
+
+
+    //fill  按照指定字符去填充指定数组,j=将数组的每一项都变成指定字符，
+
+    console.log(ary.fill("汪洋"));
+    let ary2 = [1,2,3,4,5,6,7,8,9,0];
+    ary2.fill("汪洋",3,5);
+    console.log(ary2);
+
+
+
+    //filter  根据遍历数组，根据返回值，过滤原数组，
+    //返回一个新的数组,原数组不变
+
+    let ary3 = ["wang",1,2,3,"yang"];
+    var arr = ary3.filter(function (item,index) {
+        //如果返的是true,就留下当前项，返回false不留下，当前项
+        return typeof item === "number";
+    });
+    console.log(arr);
+
+
+    //find  先遍历数组，一旦参数但会true，停止查找，返回当前项，只会查到一个
+    let aw = ary3.find(function (item) {
+        return typeof item === "number";
+    });
+    console.log(aw);//
+    //
+    //
+    // findIndex  先遍历数组，一旦参数但会true，停止查找，返回当前项的索引
+    let aw1 = ary3.findIndex(function (item) {
+        return typeof item === "string";
+    });
+    console.log(aw1);//
+
+    //includes  判断数组中，有没有某一项
+    //第二个参数是查找位置的索引
+    console.log([1, 2, 3].includes(1));
+    console.log([1, 2, 3].includes(1,1));
+
+
+    // every  遍历数组，如果每一项，如果遍历每一项，都是返回true，最后结果为true，只要有一个为false，结果就是false
+    let hah = [1,2,3,4,5,6].every(function (item) {
+        return typeof item === "number";
+    });
+    console.log(hah);
+
+
+
+
+    //some   只要有一项是为true，我们的结果也就true
+    let hah1 = [1,2,3,4,5,6,"wangyang"].some(function (item) {
+        return typeof item === "number";
+    });
+    console.log(hah1);//只要有一项是为true，我们的结果也就true
+
+    //reduce 迭代  第二个参数，作为初始的prev
+    let ary4 = [1,2,3,4,5,6,7,8];
+    let xx = ary4.reduce(function (prev,item) {
+        //prev前一次的返回值，item：是当前项
+        console.log(prev);
+        return prev+item;
+    });
+    console.log(xx);
+
+
+    //reduceRight 跟reduce一样，只是顺序是从右开始
+
+
+    //keys 遍历的是每一项的索引的接口  用来遍历每一项的接口，使用for of遍历
+    let ary5 = ["a","b","c","d"];
+    console.log(ary5.keys());//Iterator遍历接口
+    for(let key of ary5.keys()){
+        //key 是索引
+        console.log(key);//遍历的是每一项的索引
+    }
+    //，默认使用for of遍历数组，默认遍历的就是每一项
+    for(let item of ary5){
+        console.log(item);
+    }
+
+    //entries  这里也是遍历接口，可以遍历到索引和每一项,每一次遍历得到一个数组[索引,当前值]
+    //一般可以通过数组的结果赋值获取到遍历到的结果
+    for (let[index,item] of ary5.entries()){
+        console.log(index,item);
+    }
+
+</script>
+</body>
+</html>

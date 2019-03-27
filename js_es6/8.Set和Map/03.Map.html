@@ -1,0 +1,108 @@
+<!--
+    Created by wangyang on 2019-03-26.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>  <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+
+<script>
+    //构造函数方式，创建一个Map实例
+    // let map1 = new Map([[key,value],[key,value],[key,value]])
+    //参数是一个数组，数组的每一项，也是一个数组，有两项，一个key 一个是value
+    //一个对象，属性名必须是字符串，如果你写的不是字符串，默认转为字符串
+    //Map 实例的可以是任意数据类型
+
+    let ary = [1,3],o={};
+    let obj = {
+        name:'wangyang',
+        1:'wang',
+        true:'true',//默认转换为字符串
+        [ary]:ary,
+        [o]:o,
+
+    };
+    console.log(obj);
+
+    let map1 = new Map([[1,"wangyang"],[true,"haha"],[3,"xix"],[{o:"xixi"},{age:"20"}]]);
+    console.log(map1);
+
+    //size:键值对的个数
+    //get  set has delete clear
+
+
+    //get(key) 获取value值   属性名不能重复
+    console.log(map1.get(1));
+    console.log(map1.get(true));
+    console.log(map1.get(o));
+
+
+    //set(key,value),如果之前有过key,一样的是修改，没有是增加，返回新的map实例（可以实现链式写法）
+    console.log(map1.set(1, 2));
+    console.log(map1.set(false, 2));
+
+
+    //has 判断key，有没有对象的value值
+    console.log(map1.has(1));//true
+
+    //delete 删除属性key ,返回值true/false
+    console.log(map1.delete(1));
+    console.log(map1);
+
+    //clear 清空，没有返回值
+    console.log(map1.clear());
+    console.log(map1);
+
+
+    //forEach  keys  values  entries
+    let map2 = new Map([[1,"wangyang"],[true,"haha"],[3,"xix"],[{o:"xixi"},{age:"20"}]]);
+    map2.forEach((value,key,input)=>{
+        console.log(key+'--------');
+        console.log(value+'++++');
+        console.log(input+'####');
+    });
+
+    for (let key of map2.keys()){
+        console.log(key+'--key--');
+    }
+
+    for (let val of map2.values()){
+        console.log(val+'--val--');
+    }
+
+
+    //entries  key,value
+    for (let entries of map2.entries()){
+        console.log(entries+'--entries--');
+    }
+
+
+    //数组：变成map实例
+    let ary2 = ["vue","js","node","react"];
+    let map3 = new Map();
+    for (let [index,item] of ary2.entries()){
+        map3.set(index,item);
+    }
+    console.log(map3);
+
+
+</script>
+</body>
+</html>

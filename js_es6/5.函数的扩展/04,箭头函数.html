@@ -1,0 +1,78 @@
+<!--
+    Created by wangyang on 2019-03-26.
+    itwangyang@gmail.com
+    http://www.itwangyang.xyz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Title</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--所有的IE都起作用：-->
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="all-ie-only.css/> <![endif]-->
+
+</head>
+<body>
+
+
+<script>
+    // function fn(x,y) {
+    //
+    // }
+
+    //箭头函数都是匿名函数
+    // let fn = (形参)=>{函数体}
+
+
+    //假如函数体，只有一行代码，return 可以省略{}和return
+    /*let fn = x => x + 1;
+    let fn1 = x =>{return x+1};
+*/
+
+    //形参只有一个的时候，可以省略小括号的
+
+    //通常回调函数用的比较多，函数通过参数的时候，使用箭头函数
+    let ary = ["wang",1,2];
+    console.log(ary.filter(item => typeof item == "number"));
+
+
+    //1箭头函数，没有this指向，里面的this是上一级的作用域下的this
+    let obj = {
+        fn:function () {
+            let f = () => {
+                console.log(this);
+            };
+            f();
+        }
+    };
+    obj.fn();
+
+
+    //2箭头函数，没有arguments
+    let f1 = (...arg)=>{
+        //console.log(arguments);//arguments is not defined
+        console.log(arg);
+    };
+    f1(1,2,3,4,5);
+
+
+    //3.箭头函数，不可以用作构造函数，因为不可以使用New去执行
+    function FF() {
+        
+    }
+    new FF;
+    let F =()=>{};
+    //console.log(new F);//F is not a constructor
+
+
+</script>
+</body>
+</html>
